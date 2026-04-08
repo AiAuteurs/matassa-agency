@@ -194,7 +194,7 @@
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
   }
 </style>
-  <meta property="og:title" content="MATASSA — A.I. Video Done Right" />
+  <meta property="og:title" content="MATASSA — Traditional Craft. Cinematic A.I." />
   <meta property="og:description" content="The world's most experienced A.I. video shop. 36 years of traditional craft. Super Bowl spots. National TV. Social. Brand films. A.I. — done right." />
   <meta property="og:image" content="https://matassa.com/matassa-og.png" />
   <meta property="og:image:width" content="1200" />
@@ -208,7 +208,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><span class="nav-logo-main">MATASSA</span><span class="nav-logo-sub">A.I. Video Done Right</span></a>
+  <a href="/" class="nav-logo"><span class="nav-logo-main">MATASSA</span><span class="nav-logo-sub">Traditional Craft. Cinematic A.I.</span></a>
   <div class="nav-right">
     <ul class="nav-links">
       <li>
@@ -423,7 +423,8 @@
         <div class="field"><label>Email</label><input type="email" id="a-email" placeholder="you@yourbrand.com" /></div>
         <div class="field"><label>Phone / Text</label><input type="text" id="a-phone" placeholder="Best number to reach you" /></div>
         <div class="field"><label>Spot Length</label>
-          <select id="a-length"><option value="">Select length</option><option>:06</option><option>:15</option><option>:30</option><option>Not sure yet</option></select>
+          <select id="a-length" onchange="document.getElementById('a-length-custom-wrap').style.display=this.value==='Custom'?'block':'none'"><option value="">Select length</option><option>:06</option><option>:15</option><option>:30</option><option>:60</option><option value="Custom">Custom length</option><option>Not sure yet</option></select>
+          <div id="a-length-custom-wrap" style="display:none; margin-top:0.5rem;"><input type="text" id="a-length-custom" placeholder="e.g. 2:00, 90 seconds..." style="width:100%; padding:0.75rem 1rem; background:#1a1a1a; border:1px solid rgba(255,255,255,0.12); color:#fff; font-family:'Epilogue',sans-serif; font-size:0.85rem;"></div>
         </div>
         <div class="field"><label>Formats Needed</label>
           <select id="a-format"><option value="">Select formats</option><option>16×9 only</option><option>9×16 only</option><option>All formats — 16×9, 9×16, 1:1</option><option>Not sure yet</option></select>
