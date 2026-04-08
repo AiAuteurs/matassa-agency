@@ -46,7 +46,7 @@
   .hero-actions { display: flex; align-items: center; gap: 1rem; animation: fadeUp 0.8s 0.3s ease both; flex-wrap: wrap; }
   .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.2rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
   .btn-primary:hover { background: var(--light-grey); }
-  .btn-reel { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2.2rem; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-reel { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2.2rem; transition: border-color 0.2s, color 0.2s; display: inline-block; background: none; cursor: pointer; font-family: 'Epilogue', sans-serif; }
   .btn-reel:hover { border-color: var(--white); color: var(--white); }
   .unmute-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.55rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(8px); transition: border-color 0.2s; }
   .unmute-btn:hover { border-color: rgba(255,255,255,0.5); }
@@ -127,6 +127,33 @@
   .footer-right a { color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.2s; }
   .footer-right a:hover { color: rgba(255,255,255,0.55); }
 
+  /* REEL MODAL */
+  .reel-modal {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(0,0,0,0.97);
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(8px);
+  }
+  .reel-modal.open { display: flex; }
+  .reel-modal-inner {
+    position: relative; width: 90vw; max-width: 1200px;
+  }
+  .reel-modal-close {
+    position: absolute; top: -3rem; right: 0;
+    background: none; border: none; color: rgba(255,255,255,0.6);
+    font-family: 'Epilogue', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    cursor: pointer; transition: color 0.2s;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .reel-modal-close:hover { color: var(--white); }
+  .reel-embed {
+    position: relative; padding-top: 56.25%; background: #000;
+  }
+  .reel-embed iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+  }
+
   /* MODAL */
   .modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
   .modal-overlay.open { display: flex; }
@@ -181,11 +208,11 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Los Angeles · Bangkok · Worldwide</p>
-    <h1>THE WORLD'S MOST EXPERIENCED AI VIDEO SHOP.</h1>
-    <p class="hero-tagline">36 years of traditional craft. The most advanced AI production tools on the planet. One creative director who has worked with Goodby Silverstein, BBDO, AKQA, R/GA, NVIDIA, Google, ServiceNow and Shark Ninja — now building cinematic AI spots for brands who refuse to settle.</p>
+    <h1>AI VIDEO DONE RIGHT.<br>MATASSA AGENCY.</h1>
+    <p class="hero-tagline">Creative partner with ByteDance Seedance, Alibaba WAN, Runway, Freepik and Minimax. AI spots selected for Cannes 2026 and Bali International Film Festival. 36 years of professional film craft — on deadline, on brief, and built to the standard the world's best agencies demand.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start Your Project</a>
-      <a href="https://vimeo.com/1166393031" target="_blank" class="btn-reel">▶ Watch the 2026 Reel</a>
+      <button onclick="openReel()" class="btn-reel">▶ Watch the 2026 Reel</button>
     </div>
   </div>
 </section>
@@ -397,6 +424,19 @@
   </div>
 </section>
 
+<!-- REEL MODAL -->
+<div class="reel-modal" id="reelModal">
+  <div class="reel-modal-inner">
+    <button class="reel-modal-close" onclick="closeReel()">✕ &nbsp;Close</button>
+    <div class="reel-embed">
+      <iframe id="reelFrame" src="" frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        title="MATASSA | 2026">
+      </iframe>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">MATASSA AGENCY</span>
@@ -410,6 +450,23 @@
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
 <script>
+  function openReel() {
+    document.getElementById('reelFrame').src = 'https://player.vimeo.com/video/1166393031?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479';
+    document.getElementById('reelModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeReel() {
+    document.getElementById('reelFrame').src = '';
+    document.getElementById('reelModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('reelModal').addEventListener('click', function(e) {
+    if (e.target === this) closeReel();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeReel(); closeModal(); }
+  });
+
   var isMuted = true;
   function toggleMute() {
     var iframe = document.querySelector('.hero-video iframe');
