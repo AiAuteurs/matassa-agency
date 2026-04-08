@@ -51,8 +51,8 @@
   .hero-actions { display: flex; align-items: center; gap: 1rem; animation: fadeUp 0.8s 0.3s ease both; flex-wrap: wrap; }
   .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.2rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
   .btn-primary:hover { background: var(--light-grey); }
-  .btn-reel { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2.2rem; transition: border-color 0.2s, color 0.2s; display: inline-block; background: none; cursor: pointer; font-family: 'Epilogue', sans-serif; }
-  .btn-reel:hover { border-color: var(--white); color: var(--white); }
+  .btn-reel { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); text-decoration: none; border: 2px solid var(--sage); padding: 1rem 2.2rem; transition: all 0.2s; display: inline-block; background: rgba(139,175,142,0.1); cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 500; }
+  .btn-reel:hover { background: var(--sage); color: var(--black); border-color: var(--sage); }
   .unmute-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.55rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(8px); transition: border-color 0.2s; }
   .unmute-btn:hover { border-color: rgba(255,255,255,0.5); }
 
@@ -92,26 +92,28 @@
   .funnel-intro { margin-bottom: 4rem; }
   .funnel-intro h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--white); margin-bottom: 0.75rem; margin-top: 1rem; }
   .funnel-intro p { font-size: 0.88rem; color: rgba(255,255,255,0.38); font-weight: 300; max-width: 500px; line-height: 1.7; }
-  .funnel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-bottom: 5rem; }
-  .funnel-card { background: #080808; padding: 3rem 2.5rem; cursor: pointer; transition: background 0.25s, border-color 0.25s; border: 2px solid transparent; position: relative; }
-  .funnel-card:hover { background: #0f0f0f; }
+  .funnel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
+  .funnel-card { background: #0f0f0f; padding: 3rem 2.5rem; cursor: pointer; transition: all 0.25s; border: 2px solid rgba(255,255,255,0.1); position: relative; }
+  .funnel-card:hover { border-color: rgba(255,255,255,0.4); background: #141414; transform: translateY(-3px); }
   .funnel-card-a { border-top: 4px solid #8BAF8E; }
-  .funnel-card-a.active { border-color: #8BAF8E; background: rgba(139,175,142,0.06); }
+  .funnel-card-a:hover, .funnel-card-a.active { border-color: #8BAF8E; background: rgba(139,175,142,0.08); transform: translateY(-3px); }
   .funnel-card-a .funnel-letter { color: rgba(139,175,142,0.9); }
   .funnel-card-a.active .funnel-check { background: #8BAF8E; border-color: #8BAF8E; }
   .funnel-card-b { border-top: 4px solid #7EB8D4; }
-  .funnel-card-b.active { border-color: #7EB8D4; background: rgba(126,184,212,0.06); }
+  .funnel-card-b:hover, .funnel-card-b.active { border-color: #7EB8D4; background: rgba(126,184,212,0.08); transform: translateY(-3px); }
   .funnel-card-b .funnel-letter { color: rgba(126,184,212,0.9); }
   .funnel-card-b.active .funnel-check { background: #7EB8D4; border-color: #7EB8D4; }
   .funnel-card-c { border-top: 4px solid #D4A87A; }
-  .funnel-card-c.active { border-color: #D4A87A; background: rgba(212,168,122,0.06); }
+  .funnel-card-c:hover, .funnel-card-c.active { border-color: #D4A87A; background: rgba(212,168,122,0.08); transform: translateY(-3px); }
   .funnel-card-c .funnel-letter { color: rgba(212,168,122,0.9); }
   .funnel-card-c.active .funnel-check { background: #D4A87A; border-color: #D4A87A; }
   .funnel-letter { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; line-height: 1; margin-bottom: 1.5rem; transition: color 0.25s; }
   .funnel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem; letter-spacing: 0.03em; color: var(--white); margin-bottom: 0.75rem; line-height: 1.1; }
-  .funnel-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.8; font-weight: 300; }
-  .funnel-check { position: absolute; top: 1.5rem; right: 1.5rem; width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); transition: all 0.25s; display: flex; align-items: center; justify-content: center; }
-  .funnel-check::after { content: ''; width: 5px; height: 5px; background: var(--black); border-radius: 50%; opacity: 0; transition: opacity 0.2s; }
+  .funnel-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; }
+  .funnel-click-hint { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 1.5rem; display: block; transition: color 0.2s; }
+  .funnel-card:hover .funnel-click-hint { color: rgba(255,255,255,0.5); }
+  .funnel-check { position: absolute; top: 1.5rem; right: 1.5rem; width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); transition: all 0.25s; display: flex; align-items: center; justify-content: center; }
+  .funnel-check::after { content: ''; width: 6px; height: 6px; background: var(--black); border-radius: 50%; opacity: 0; transition: opacity 0.2s; }
   .funnel-card.active .funnel-check::after { opacity: 1; }
   .funnel-form { display: none; }
   .funnel-form.visible { display: block; }
@@ -228,7 +230,7 @@
     <p class="hero-tagline">Super Bowl spots. National TV campaigns. Tech films. Sizzle reels. Built alongside Jeff Goodby, Michael Bay, and Dennis Virkler. That experience doesn't come from a tutorial — it comes from decades in the room. Now it's running A.I. The difference shows in every frame.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start Your Project</a>
-      <button onclick="openReel()" class="btn-reel">▶ Watch the 2026 Reel</button>
+      <button onclick="openReel()" class="btn-reel">▶ &nbsp;Watch the Reel</button>
     </div>
   </div>
 </section>
@@ -254,12 +256,18 @@
     <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Budweiser</p></div>
     <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Nickelodeon</p></div>
     <div style="padding:1.5rem 1.2rem; border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Clorox</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">ServiceNow</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Workday</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Shark Ninja</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Samsara</p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">ServiceNow</p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Workday</p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Shark Ninja</p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Samsara</p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Red Car Hollywood</p></div>
+    <div style="padding:1.5rem 1.2rem; border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Michael Bay</p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Dennis Virkler<span style="display:block; font-size:0.6rem; color:rgba(255,255,255,0.35); letter-spacing:0.1em; margin-top:0.3rem; font-family:'Epilogue',sans-serif; font-weight:300;">Editor · Hunt for Red October</span></p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Larry Bridges</p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Rob Watzke</p></div>
+    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Jeff Goodby</p></div>
     <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Michael Bay</p></div>
-    <div style="padding:1.5rem 1.2rem;"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Dennis Virkler</p></div>
+    <div style="padding:1.5rem 1.2rem;"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">And Many More</p></div>
   </div>
 </div>
 
@@ -346,7 +354,7 @@
   <div class="funnel-intro">
     <span class="section-label">Start Your Project</span>
     <h2>WHAT BRINGS YOU HERE?</h2>
-    <p>Select the option that fits. We respond within 24 hours — with a yes, a counter, or a better question.</p>
+    <p>Pick the one that fits — your form appears below. We respond within 24 hours.</p>
   </div>
 
   <div class="funnel-cards">
@@ -355,18 +363,21 @@
       <div class="funnel-letter">A</div>
       <h3 class="funnel-title">I have a script. I need cinematic A.I. production.</h3>
       <p class="funnel-desc">You bring the concept. We bring it to life. Fast.</p>
+      <span class="funnel-click-hint">Click to select →</span>
     </div>
     <div class="funnel-card funnel-card-b" onclick="selectFunnel('b')">
       <div class="funnel-check"></div>
       <div class="funnel-letter">B</div>
       <h3 class="funnel-title">I need concepts and cinematic A.I. production.</h3>
       <p class="funnel-desc">From idea to finished spot. We handle everything.</p>
+      <span class="funnel-click-hint">Click to select →</span>
     </div>
     <div class="funnel-card funnel-card-c" onclick="selectFunnel('c')">
       <div class="funnel-check"></div>
       <div class="funnel-letter">C</div>
       <h3 class="funnel-title">I need a senior creative editor and cinematic A.I. storyteller on contract.</h3>
       <p class="funnel-desc">Embedded. Experienced. Available now.</p>
+      <span class="funnel-click-hint">Click to select →</span>
     </div>
   </div>
 
