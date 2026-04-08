@@ -574,7 +574,7 @@
     if (!email) { alert('Just your email so we can get back to you.'); return; }
     btn.textContent = 'Sending...'; btn.disabled = true;
     try {
-      var res = await fetch('https://formspree.io/f/xzdkojqd', {
+      var res = await fetch('/api/contact', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
       });
