@@ -46,7 +46,7 @@
   .hero-content { position: relative; z-index: 2; max-width: 860px; }
   .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 1.2rem; animation: fadeUp 0.8s ease both; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 8rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
-  .hero-tagline { font-size: clamp(0.8rem, 1.3vw, 0.95rem); font-weight: 300; color: rgba(255,255,255,0.55); max-width: 580px; line-height: 1.8; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
+  .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.88); max-width: 600px; line-height: 1.8; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
   .hero-actions { display: flex; align-items: center; gap: 1rem; animation: fadeUp 0.8s 0.3s ease both; flex-wrap: wrap; }
   .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.2rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
   .btn-primary:hover { background: var(--light-grey); }
@@ -212,8 +212,8 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Los Angeles · Bangkok · Worldwide</p>
-    <h1>AI VIDEO DONE RIGHT.<br>MATASSA AGENCY.</h1>
-    <p class="hero-tagline">Creative partner with ByteDance Seedance, Alibaba WAN, Runway, Freepik and Minimax. AI spots selected for Cannes 2026 and Bali International Film Festival. 36 years of professional film craft — on deadline, on brief, and built to the standard the world's best agencies demand.</p>
+    <h1><span style="color:#8BAF8E;">AI VIDEO DONE RIGHT.</span><br><span style="color:#8BAF8E;">MATASSA</span> AGENCY.</h1>
+    <p class="hero-tagline">We've cut Super Bowl spots, national TV campaigns, tech films and sizzle reels alongside Jeff Goodby, Michael Bay, and Dennis Virkler. That experience is now running A.I. — and the difference shows in every frame.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start Your Project</a>
       <button onclick="openReel()" class="btn-reel">▶ Watch the 2026 Reel</button>
@@ -288,6 +288,41 @@
       <p class="work-card-desc">Brandable AI spot templates ready to make yours. Drop in your logo, customize the script, launch in days. From $2,500.</p>
       <span class="work-card-cta">Browse Templates →</span>
     </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section style="background:#0a0a0a; padding:7rem 3rem; border-top:1px solid rgba(255,255,255,0.06);" id="about">
+  <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:7rem; align-items:start; max-width:1400px;">
+    <div>
+      <span style="display:block; font-size:0.6rem; letter-spacing:0.42em; text-transform:uppercase; color:#8BAF8E; margin-bottom:1.5rem;">Why Matassa Agency</span>
+      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,5.5vw,5rem); line-height:0.95; color:#ffffff; margin-bottom:2rem;">THE EXPERIENCE YOU CAN'T FAKE.</h2>
+      <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:2rem;">
+        <div style="margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.4rem;">Worked Alongside</div>
+          <div style="font-size:0.88rem; color:rgba(255,255,255,0.75); font-weight:300;">Jeff Goodby · Michael Bay · Dennis Virkler</div>
+        </div>
+        <div style="margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.4rem;">Work Includes</div>
+          <div style="font-size:0.88rem; color:rgba(255,255,255,0.75); font-weight:300;">Super Bowl Spots · National TV · Tech Films · Sizzle Reels · Case Studies · Brand Films</div>
+        </div>
+        <div style="margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.4rem;">A.I. Film Recognition</div>
+          <div style="font-size:0.88rem; color:rgba(255,255,255,0.75); font-weight:300;">Cannes 2026 · Bali International Film Festival</div>
+        </div>
+        <div>
+          <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.4rem;">A.I. Creative Partner</div>
+          <div style="font-size:0.88rem; color:rgba(255,255,255,0.75); font-weight:300;">ByteDance Seedance · Alibaba WAN · Runway · Freepik · Minimax</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:1.1rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.85); margin-bottom:1.5rem;"><strong style="color:#ffffff; font-weight:500;">There is no shortcut to this.</strong></p>
+      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:1.4rem;">Michael Matassa has been in the edit suite on national TV spots, Super Bowl campaigns, tech mini-docs, sizzle reels, case studies — everything under the video sun. That breadth doesn't come from a course or a tutorial. It comes from working alongside some of the sharpest creative minds in the business. Jeff Goodby. Michael Bay. Dennis Virkler. Hundreds of briefs, deadlines, and client conversations that taught him what great work actually requires.</p>
+      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:1.4rem;">Now that experience is running A.I. — and the difference is immediate. Not just in the quality of the frames, but in how the work gets made. Reliable. Communicative. On deadline. On budget. Responsive to notes without losing the creative thread.</p>
+      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:2rem;">Flashy A.I. work is everywhere. Work made by someone who understands your brand, your deadline, and what the finished spot actually needs to do — that's rare. <strong style="color:#ffffff; font-weight:500;">Don't trust your brand to just anyone with a great demo reel. Trust it with someone who has spent a career earning one.</strong></p>
+      <a href="#contact" style="font-size:0.72rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1rem 2.2rem; text-decoration:none; display:inline-block; transition:background 0.2s;">Start Your Project →</a>
+    </div>
   </div>
 </section>
 
