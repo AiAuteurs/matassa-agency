@@ -48,7 +48,10 @@
   /* PARTNERS */
   .partners-bar { padding: 2.5rem 3rem; background: #0a0a0a; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .partners-label { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.2rem; display: block; }
-  .partners-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .partners-grid { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; }
+  .partner-logo { height: 28px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; transition: opacity 0.2s; }
+  .partner-logo-dark { filter: invert(1); }
+  .partner-logo:hover { opacity: 1; }
   .partner-badge { padding: 0.55rem 1.1rem; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.02); font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.5); }
   .partner-badge.festival { border-color: rgba(255,255,255,0.6); color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.04); }
 
@@ -159,11 +162,11 @@
 <div class="partners-bar">
   <span class="partners-label">A.I. Creative Partner</span>
   <div class="partners-grid">
-    <span class="partner-badge">ByteDance Seedance</span>
-    <span class="partner-badge">Alibaba WAN</span>
-    <span class="partner-badge">Runway</span>
-    <span class="partner-badge">Freepik</span>
-    <span class="partner-badge">Minimax</span>
+    <img src="logos/bytedance.png" alt="ByteDance" class="partner-logo">
+    <img src="logos/alibaba.png" alt="Alibaba WAN" class="partner-logo">
+    <img src="logos/runway.jpg" alt="Runway" class="partner-logo partner-logo-dark">
+    <img src="logos/freepik.png" alt="Freepik" class="partner-logo">
+    <img src="logos/minimax.jpg" alt="Minimax" class="partner-logo">
     <span class="partner-badge festival">★ Cannes 2026</span>
     <span class="partner-badge festival">★ Bali International</span>
   </div>
