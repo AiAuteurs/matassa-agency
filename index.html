@@ -4,570 +4,150 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matassa Agency — AI Forward Video Production</title>
-<meta name="description" content="AI Forward Video Production Rooted in Traditional Filmmaking. 36 years of craft. Los Angeles · Bangkok. A Goggles Paesano Inc. Company.">
+<meta name="description" content="The world's most experienced AI video shop. 36 years of traditional craft. Los Angeles · Bangkok. A Goggles Paesano Inc. Company.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --black: #080808;
-    --white: #ffffff;
-    --grey: #888888;
-    --light-grey: #cccccc;
-    --dim: rgba(255,255,255,0.08);
-  }
+  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.4rem 3rem;
-    background: rgba(8,8,8,0.92);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: blur(12px);
   }
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem; letter-spacing: 0.18em;
-    color: var(--white); text-decoration: none;
-  }
-  .nav-logo span { color: var(--light-grey); font-size: 0.85em; letter-spacing: 0.12em; }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.18em; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--light-grey); font-size: 0.85em; }
   .nav-right { display: flex; align-items: center; gap: 2rem; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--white); }
-  .nav-cta {
-    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--black);
-    background: var(--white); padding: 0.6rem 1.5rem;
-    text-decoration: none; transition: background 0.2s, color 0.2s;
-  }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links > li { position: relative; }
+  .nav-links > li > a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
+  .nav-links > li > a:hover { color: var(--white); }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.08); min-width: 240px; z-index: 200; }
+  .nav-links > li:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 0.85rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+  .nav-dropdown a:hover { color: var(--white); }
+  .nav-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 0.6rem 1.5rem; text-decoration: none; transition: background 0.2s; }
   .nav-cta:hover { background: var(--light-grey); }
 
-  /* ── HERO ── */
-  .hero {
-    position: relative; height: 100vh; min-height: 600px;
-    display: flex; flex-direction: column;
-    justify-content: flex-end; padding: 0 3rem 5rem;
-    overflow: hidden; background: var(--black);
-  }
-  .hero-video {
-    position: absolute; inset: 0;
-    z-index: 0; overflow: hidden;
-  }
-  .hero-video iframe {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 177.78vh; height: 56.25vw;
-    min-width: 100%; min-height: 100%;
-    pointer-events: none;
-  }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.3) 0%,
-      rgba(0,0,0,0.2) 40%,
-      rgba(0,0,0,0.75) 80%,
-      rgba(0,0,0,0.95) 100%
-    );
-    z-index: 1;
-  }
-  .hero-content { position: relative; z-index: 2; max-width: 900px; }
-  .hero-eyebrow {
-    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
-    color: rgba(255,255,255,0.45); margin-bottom: 1.2rem;
-    animation: fadeUp 0.8s ease both;
-  }
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4.5rem, 12vw, 11rem);
-    line-height: 0.9; letter-spacing: 0.01em;
-    color: var(--white); margin-bottom: 1.8rem;
-    animation: fadeUp 0.8s 0.1s ease both;
-  }
-  .hero-tagline {
-    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
-    font-weight: 300; color: rgba(255,255,255,0.65);
-    max-width: 480px; line-height: 1.7;
-    animation: fadeUp 0.8s 0.2s ease both;
-    margin-bottom: 2.5rem;
-  }
-  .hero-actions {
-    display: flex; align-items: center; gap: 1.2rem;
-    animation: fadeUp 0.8s 0.3s ease both;
-  }
-  .btn-primary {
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--black);
-    background: var(--white); padding: 1rem 2.5rem;
-    text-decoration: none; transition: background 0.2s;
-    display: inline-block;
-  }
+  /* HERO */
+  .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; overflow: hidden; }
+  .hero-video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .hero-video iframe { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; pointer-events: none; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.75) 75%, rgba(0,0,0,0.97) 100%); z-index: 1; }
+  .hero-content { position: relative; z-index: 2; max-width: 860px; }
+  .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.2rem; animation: fadeUp 0.8s ease both; }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 8rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
+  .hero-tagline { font-size: clamp(0.8rem, 1.3vw, 0.95rem); font-weight: 300; color: rgba(255,255,255,0.55); max-width: 580px; line-height: 1.8; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
+  .hero-actions { display: flex; align-items: center; gap: 1rem; animation: fadeUp 0.8s 0.3s ease both; flex-wrap: wrap; }
+  .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.2rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
   .btn-primary:hover { background: var(--light-grey); }
-  .btn-secondary {
-    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: rgba(255,255,255,0.6); text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
-    padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
-  }
-  .btn-secondary:hover { color: var(--white); border-color: var(--white); }
-  .unmute-btn {
-    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
-    background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15);
-    color: var(--white); font-family: 'Epilogue', sans-serif;
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    padding: 0.55rem 1rem; cursor: pointer;
-    display: flex; align-items: center; gap: 0.5rem;
-    backdrop-filter: blur(8px); transition: border-color 0.2s;
-  }
+  .btn-reel { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2.2rem; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-reel:hover { border-color: var(--white); color: var(--white); }
+  .unmute-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.55rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(8px); transition: border-color 0.2s; }
   .unmute-btn:hover { border-color: rgba(255,255,255,0.5); }
 
-  /* ── CLIENTS TICKER ── */
-  .clients-bar {
-    background: #0d0d0d; padding: 1.1rem 0;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    overflow: hidden;
-  }
-  .clients-track {
-    display: flex; gap: 3.5rem; width: max-content;
-    animation: tick 35s linear infinite;
-  }
+  /* TICKER */
+  .ticker-bar { background: #0a0a0a; padding: 1rem 0; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .ticker-track { display: flex; gap: 3rem; width: max-content; animation: tick 40s linear infinite; }
   @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .client-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.9rem; letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.3); white-space: nowrap; flex-shrink: 0;
-    transition: color 0.2s;
-  }
-  .client-sep { color: rgba(255,255,255,0.1); font-size: 0.6rem; flex-shrink: 0; align-self: center; }
+  .ticker-name { font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 0.3em; color: rgba(255,255,255,0.28); white-space: nowrap; }
+  .ticker-dot { color: rgba(255,255,255,0.1); align-self: center; }
 
-  /* ── SECTION BASE ── */
-  section { padding: 7rem 3rem; }
-  .section-label {
-    font-size: 0.6rem; letter-spacing: 0.42em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); margin-bottom: 3rem;
-    display: block;
-  }
+  /* SECTION */
+  .section-label { display: block; font-size: 0.6rem; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 3rem; }
 
-  /* ── ANCHOR REEL ── */
-  .reel-section { background: #0a0a0a; padding: 5rem 3rem; }
-  .reel-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 2rem;
-  }
-  .reel-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    letter-spacing: 0.04em; color: var(--white);
-  }
-  .reel-meta {
-    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--grey);
-  }
-  .reel-embed {
-    position: relative; padding-top: 56.25%;
-    background: #111; overflow: hidden;
-  }
-  .reel-embed iframe {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-  }
+  /* WORK */
+  .work-section { padding: 7rem 3rem; background: var(--black); }
+  .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+  .work-card { background: var(--black); padding: 3.5rem 2.5rem; text-decoration: none; display: block; transition: background 0.3s; }
+  .work-card:hover { background: #0f0f0f; }
+  .work-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: rgba(255,255,255,0.05); line-height: 1; margin-bottom: 1.5rem; }
+  .work-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 1rem; line-height: 1; }
+  .work-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+  .work-card-cta { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 2px; display: inline-block; transition: color 0.2s, border-color 0.2s; }
+  .work-card:hover .work-card-cta { color: var(--white); border-color: var(--white); }
 
-  /* ── AI SHORTS ── */
-  .shorts-section { background: var(--black); }
-  .shorts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: rgba(255,255,255,0.06);
-    margin-top: 2rem;
-  }
-  .short-item {
-    position: relative; aspect-ratio: 9/16;
-    background: #111; overflow: hidden; cursor: pointer;
-  }
-  .short-item iframe {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none;
-  }
-  .short-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
-    z-index: 2; display: flex; align-items: flex-end; padding: 1.5rem;
-  }
-  .short-label {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-  }
-  .short-placeholder {
-    position: absolute; inset: 0; background: #111;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .short-placeholder span {
-    font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: rgba(255,255,255,0.15);
-  }
-
-  /* ── ABOUT ── */
-  .about-section { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1.4fr;
-    gap: 7rem; align-items: start;
-  }
-  .about-left-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 0.95; letter-spacing: 0.02em;
-    color: var(--white); margin-bottom: 2rem;
-  }
-  .about-credentials {
-    margin-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 2rem;
-  }
-  .credential {
-    display: flex; justify-content: space-between;
-    padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.78rem; color: rgba(255,255,255,0.5);
-  }
-  .credential strong { color: rgba(255,255,255,0.85); font-weight: 400; }
-  .about-body {
-    font-size: 1rem; line-height: 1.9; font-weight: 300;
-    color: rgba(255,255,255,0.75);
-  }
-  .about-body p { margin-bottom: 1.5rem; }
-  .about-body strong { color: var(--white); font-weight: 500; }
-  .ai-tools {
-    margin-top: 2rem; padding: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.02);
-  }
-  .ai-tools-label {
-    font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); margin-bottom: 1rem;
-  }
-  .ai-tools-list {
-    font-size: 0.8rem; color: rgba(255,255,255,0.55);
-    line-height: 1.9; font-weight: 300;
-  }
-
-  /* ── SERVICES ── */
-  .services-section { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: rgba(255,255,255,0.06);
-    margin-top: 2rem;
-  }
-  .service {
-    background: var(--black); padding: 3rem 2.5rem;
-    transition: background 0.3s;
-  }
-  .service:hover { background: #0f0f0f; }
-  .service-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem; color: rgba(255,255,255,0.06);
-    line-height: 1; margin-bottom: 1.5rem;
-  }
-  .service-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem; letter-spacing: 0.04em;
-    color: var(--white); margin-bottom: 1rem;
-  }
-  .service-price {
-    font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); margin-bottom: 1.5rem;
-  }
-  .service-desc {
-    font-size: 0.88rem; line-height: 1.85; font-weight: 300;
-    color: rgba(255,255,255,0.55); margin-bottom: 2rem;
-  }
-  .service-list { list-style: none; }
-  .service-list li {
-    font-size: 0.78rem; color: rgba(255,255,255,0.4);
-    padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-    display: flex; gap: 0.75rem; font-weight: 300;
-  }
-  .service-list li::before {
-    content: '—'; color: rgba(255,255,255,0.15); flex-shrink: 0;
-  }
-
-  /* ── BOOK A CALL ── */
-  .book-section {
-    background: #0a0a0a;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 7rem 3rem;
-  }
-  .book-grid {
-    display: grid; grid-template-columns: 1fr 1.6fr;
-    gap: 7rem; align-items: start;
-  }
-  .book-left h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 0.95; color: var(--white);
-    margin-bottom: 1.5rem;
-  }
-  .book-left p {
-    font-size: 0.9rem; line-height: 1.85; font-weight: 300;
-    color: rgba(255,255,255,0.55); margin-bottom: 2rem;
-  }
-  .book-detail {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.75rem; color: rgba(255,255,255,0.4);
-    letter-spacing: 0.1em;
-  }
-  .book-detail::before {
-    content: ''; width: 20px; height: 1px;
-    background: rgba(255,255,255,0.2); flex-shrink: 0;
-  }
-  .calendly-wrap {
-    background: #111;
-    border: 1px solid rgba(255,255,255,0.08);
-    overflow: hidden; min-height: 650px;
-    display: flex; align-items: center; justify-content: center;
-  }
+  /* BOOK */
+  .book-section { background: #050505; padding: 7rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  .book-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 7rem; align-items: start; }
+  .book-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 0.95; color: var(--white); margin-bottom: 1.5rem; }
+  .book-left p { font-size: 0.9rem; line-height: 1.85; font-weight: 300; color: rgba(255,255,255,0.45); margin-bottom: 2rem; }
+  .book-detail { display: flex; align-items: center; gap: 1rem; font-size: 0.72rem; color: rgba(255,255,255,0.32); letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  .book-detail::before { content: ''; width: 20px; height: 1px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+  .calendly-wrap { background: #0f0f0f; border: 1px solid rgba(255,255,255,0.07); overflow: hidden; }
   .calendly-inline-widget { width: 100%; min-height: 650px; }
 
-  /* ── CONTACT ── */
-  .contact-section {
-    background: var(--black);
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 7rem;
-  }
-  .contact-left h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 0.95; color: var(--white);
-    margin-bottom: 1.5rem;
-  }
-  .contact-left p {
-    font-size: 0.9rem; line-height: 1.85; font-weight: 300;
-    color: rgba(255,255,255,0.5);
-  }
-  .contact-info { margin-top: 3rem; }
-  .contact-info-item {
-    display: flex; flex-direction: column; gap: 0.2rem;
-    padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .contact-info-label {
-    font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-  }
-  .contact-info-value {
-    font-size: 0.88rem; color: rgba(255,255,255,0.65); font-weight: 300;
-  }
-  .field { margin-bottom: 1.1rem; }
-  .field label {
-    display: block; font-size: 0.58rem; font-weight: 500;
-    letter-spacing: 0.32em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); margin-bottom: 0.5rem;
-  }
-  .field input, .field textarea, .field select {
-    width: 100%; background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: var(--white); font-family: 'Epilogue', sans-serif;
-    font-size: 0.9rem; font-weight: 300;
-    padding: 0.85rem 1rem; outline: none;
-    transition: border-color 0.2s; border-radius: 0;
-    -webkit-appearance: none;
-  }
-  .field input:focus, .field textarea:focus, .field select:focus {
-    border-color: rgba(255,255,255,0.25);
-  }
-  .field input::placeholder, .field textarea::placeholder {
-    color: rgba(255,255,255,0.2);
-  }
-  .field select option { background: #111; }
-  .field textarea { resize: vertical; min-height: 120px; }
-  .submit-btn {
-    width: 100%; background: var(--white); color: var(--black);
-    font-family: 'Epilogue', sans-serif; font-size: 0.78rem;
-    font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
-    padding: 1.1rem; border: none; cursor: pointer;
-    transition: background 0.2s; margin-top: 0.5rem;
-  }
-  .submit-btn:hover { background: var(--light-grey); }
-
-  /* ── FUNNEL ── */
-  .funnel-section {
-    background: #050505;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 7rem 3rem;
-  }
-  .funnel-intro {
-    text-align: center; margin-bottom: 4rem;
-  }
-  .funnel-intro h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: var(--white); margin-bottom: 1rem;
-  }
-  .funnel-intro p {
-    font-size: 0.9rem; color: rgba(255,255,255,0.45);
-    font-weight: 300; letter-spacing: 0.05em;
-  }
-  .funnel-cards {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: rgba(255,255,255,0.06);
-    margin-bottom: 5rem;
-  }
-  .funnel-card {
-    background: #080808; padding: 3rem 2.5rem;
-    cursor: pointer; transition: background 0.25s;
-    border: 2px solid transparent;
-    position: relative;
-  }
+  /* FUNNEL */
+  .funnel-section { background: #080808; padding: 7rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  .funnel-intro { margin-bottom: 4rem; }
+  .funnel-intro h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--white); margin-bottom: 0.75rem; margin-top: 1rem; }
+  .funnel-intro p { font-size: 0.88rem; color: rgba(255,255,255,0.38); font-weight: 300; max-width: 500px; line-height: 1.7; }
+  .funnel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-bottom: 5rem; }
+  .funnel-card { background: #080808; padding: 3rem 2.5rem; cursor: pointer; transition: background 0.25s; border: 2px solid transparent; position: relative; }
   .funnel-card:hover { background: #0f0f0f; }
-  .funnel-card.active {
-    background: #0f0f0f;
-    border-color: var(--white);
-  }
-  .funnel-card-letter {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem; line-height: 1;
-    color: rgba(255,255,255,0.08);
-    margin-bottom: 1.5rem;
-    transition: color 0.25s;
-  }
-  .funnel-card.active .funnel-card-letter { color: rgba(255,255,255,0.2); }
-  .funnel-card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem; letter-spacing: 0.04em;
-    color: var(--white); margin-bottom: 1rem; line-height: 1.1;
-  }
-  .funnel-card-desc {
-    font-size: 0.82rem; color: rgba(255,255,255,0.4);
-    line-height: 1.8; font-weight: 300;
-  }
-  .funnel-card-check {
-    position: absolute; top: 1.5rem; right: 1.5rem;
-    width: 20px; height: 20px;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 50%; display: flex; align-items: center;
-    justify-content: center; transition: all 0.25s;
-  }
-  .funnel-card.active .funnel-card-check {
-    background: var(--white); border-color: var(--white);
-  }
-  .funnel-card-check::after {
-    content: ''; width: 6px; height: 6px;
-    background: var(--black); border-radius: 50%;
-    opacity: 0; transition: opacity 0.2s;
-  }
-  .funnel-card.active .funnel-card-check::after { opacity: 1; }
-
+  .funnel-card.active { background: #0f0f0f; border-color: var(--white); }
+  .funnel-letter { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(255,255,255,0.07); line-height: 1; margin-bottom: 1.5rem; }
+  .funnel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem; letter-spacing: 0.03em; color: var(--white); margin-bottom: 0.75rem; line-height: 1.1; }
+  .funnel-desc { font-size: 0.82rem; color: rgba(255,255,255,0.35); line-height: 1.8; font-weight: 300; }
+  .funnel-check { position: absolute; top: 1.5rem; right: 1.5rem; width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); transition: all 0.25s; display: flex; align-items: center; justify-content: center; }
+  .funnel-card.active .funnel-check { background: var(--white); border-color: var(--white); }
+  .funnel-check::after { content: ''; width: 5px; height: 5px; background: var(--black); border-radius: 50%; opacity: 0; transition: opacity 0.2s; }
+  .funnel-card.active .funnel-check::after { opacity: 1; }
   .funnel-form { display: none; }
   .funnel-form.visible { display: block; }
-  .funnel-form-inner {
-    display: grid; grid-template-columns: 1fr 1.4fr;
-    gap: 7rem; align-items: start;
-  }
-  .funnel-form-left h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    color: var(--white); line-height: 1;
-    margin-bottom: 1.5rem;
-  }
-  .funnel-form-left p {
-    font-size: 0.88rem; color: rgba(255,255,255,0.45);
-    line-height: 1.85; font-weight: 300; margin-bottom: 1.5rem;
-  }
+  .funnel-form-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
+  .funnel-form-left h3 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--white); line-height: 1; margin-bottom: 1.2rem; }
+  .funnel-form-left p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.85; font-weight: 300; }
+  .contact-detail { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  .contact-detail-item { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .contact-detail-label { font-size: 0.55rem; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+  .contact-detail-value { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 300; }
 
-  @media (max-width: 768px) {
-    .funnel-cards { grid-template-columns: 1fr; }
-    .funnel-form-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .funnel-section { padding: 4rem 1.5rem; }
-  }
+  /* FIELDS */
+  .field { margin-bottom: 1rem; }
+  .field label { display: block; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 0.45rem; }
+  .field input, .field textarea, .field select { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.9rem; font-weight: 300; padding: 0.85rem 1rem; outline: none; transition: border-color 0.2s; border-radius: 0; -webkit-appearance: none; }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: rgba(255,255,255,0.25); }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.18); }
+  .field select option { background: #111; }
+  .field textarea { resize: vertical; min-height: 130px; }
+  .submit-btn { width: 100%; background: var(--white); color: var(--black); font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; padding: 1.1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; }
+  .submit-btn:hover { background: var(--light-grey); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #050505; padding: 2.5rem 3rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem; letter-spacing: 0.2em; color: var(--white);
-  }
-  .footer-center {
-    font-size: 0.62rem; letter-spacing: 0.18em;
-    color: rgba(255,255,255,0.2); text-transform: uppercase;
-    text-align: center;
-  }
-  .footer-right {
-    font-size: 0.62rem; letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.25); text-transform: uppercase;
-    text-align: right;
-  }
-  .footer-right a {
-    color: rgba(255,255,255,0.25); text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-right a:hover { color: rgba(255,255,255,0.6); }
+  /* FOOTER */
+  footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.2em; color: var(--white); }
+  .footer-center { font-size: 0.6rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.18); text-transform: uppercase; text-align: center; }
+  .footer-right { font-size: 0.6rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
+  .footer-right a { color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.2s; }
+  .footer-right a:hover { color: rgba(255,255,255,0.55); }
 
-  /* ── MODAL ── */
-  .modal-overlay {
-    display: none; position: fixed; inset: 0; z-index: 200;
-    background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
-    backdrop-filter: blur(4px);
-  }
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
   .modal-overlay.open { display: flex; }
-  .modal-box {
-    background: #0f0f0f; border: 1px solid rgba(255,255,255,0.1);
-    padding: 3rem; max-width: 480px; width: 90%; position: relative;
-  }
-  .modal-close {
-    position: absolute; top: 1.2rem; right: 1.5rem;
-    background: none; border: none; color: rgba(255,255,255,0.4);
-    font-size: 1.5rem; cursor: pointer; transition: color 0.2s;
-  }
+  .modal-box { background: #0f0f0f; border: 1px solid rgba(255,255,255,0.1); padding: 3rem; max-width: 460px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 1.5rem; cursor: pointer; transition: color 0.2s; }
   .modal-close:hover { color: var(--white); }
-  .modal-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem; letter-spacing: 0.08em; color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-  .modal-sub {
-    font-size: 0.82rem; color: rgba(255,255,255,0.4);
-    margin-bottom: 2rem; line-height: 1.6; font-weight: 300;
-  }
-  .modal-btn {
-    width: 100%; background: var(--white); color: var(--black);
-    font-family: 'Epilogue', sans-serif; font-size: 0.75rem;
-    font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
-    padding: 1rem; border: none; cursor: pointer;
-    transition: background 0.2s; margin-top: 1rem;
-  }
+  .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.5rem; }
+  .modal-sub { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-bottom: 2rem; line-height: 1.6; font-weight: 300; }
+  .modal-btn { width: 100%; background: var(--white); color: var(--black); font-family: 'Epilogue', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; padding: 1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 1rem; }
   .modal-btn:hover { background: var(--light-grey); }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ── MOBILE ── */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { padding: 0 1.5rem 4rem; }
-    section { padding: 4rem 1.5rem; }
-    .about-grid, .book-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .shorts-grid { grid-template-columns: 1fr; }
+    .work-section, .book-section, .funnel-section { padding: 4rem 1.5rem; }
+    .work-grid, .funnel-cards { grid-template-columns: 1fr; }
+    .book-grid, .funnel-form-inner { grid-template-columns: 1fr; gap: 3rem; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-    .reel-section { padding: 4rem 1.5rem; }
-    .book-section { padding: 4rem 1.5rem; }
-    .contact-section { padding: 4rem 1.5rem; }
   }
 </style>
 </head>
@@ -575,270 +155,155 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">MATASSA <span>AGENCY</span></a>
+  <a href="/" class="nav-logo">MATASSA <span>AGENCY</span></a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="#">The Work ▾</a>
+        <div class="nav-dropdown">
+          <a href="traditional.html">Traditional Video Editing</a>
+          <a href="ai.html">Cinematic AI Storytelling</a>
+          <a href="premade.html">Premade Ads</a>
+        </div>
+      </li>
+      <li><a href="#book">Book a Call</a></li>
+      <li><a href="#contact">Start a Project</a></li>
     </ul>
     <a href="https://calendly.com/matassaagency" target="_blank" class="nav-cta">Book a Call</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
+<section class="hero">
   <div class="hero-video">
-    <iframe
-      src="https://player.vimeo.com/video/1181092697?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0&muted=1"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture"
-      title="Matassa Agency Hero">
-    </iframe>
+    <iframe src="https://player.vimeo.com/video/1181092697?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Matassa Agency Hero"></iframe>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Los Angeles · Bangkok · Worldwide</p>
-    <h1>MATASSA<br>AGENCY</h1>
-    <p class="hero-tagline">AI Forward Video Production<br>Rooted in Traditional Filmmaking</p>
+    <h1>THE WORLD'S MOST EXPERIENCED AI VIDEO SHOP.</h1>
+    <p class="hero-tagline">36 years of traditional craft. The most advanced AI production tools on the planet. One creative director who has worked with Goodby Silverstein, BBDO, AKQA, R/GA, NVIDIA, Google, ServiceNow and Shark Ninja — now building cinematic AI spots for brands who refuse to settle.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start Your Project</a>
-      <a href="https://calendly.com/matassaagency" target="_blank" class="btn-secondary">Book a 15-Min Call</a>
+      <a href="https://vimeo.com/1166393031" target="_blank" class="btn-reel">▶ Watch the 2026 Reel</a>
     </div>
   </div>
 </section>
 
-<!-- MUTE BUTTON -->
 <button class="unmute-btn" onclick="toggleMute()">
-  <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path id="muteIcon" d="M16.5 12A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.19-.9 4.18-2.35 5.61l1.42 1.42C19.9 17.27 21 14.76 21 12c0-2.76-1.1-5.27-2.93-7.03l-1.41 1.41A8.003 8.003 0 0 1 19 12zm-13.5 0c0 1.94.78 3.68 2.05 4.95L6.14 18.36A9.978 9.978 0 0 1 3.5 12c0-2.76 1.1-5.27 2.93-7.03L7.85 6.4A7.97 7.97 0 0 0 5.5 12zM3 9H0v6h3l4 4V5L3 9z"/></svg>
+  <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M3 9H0v6h3l4 4V5L3 9zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
   <span id="muteLabel">Unmute</span>
 </button>
 
-<!-- CLIENTS TICKER -->
-<div class="clients-bar">
-  <div class="clients-track">
-    <span class="client-name">McDonald's</span><span class="client-sep">·</span>
-    <span class="client-name">Doritos</span><span class="client-sep">·</span>
-    <span class="client-name">Disney</span><span class="client-sep">·</span>
-    <span class="client-name">Budweiser</span><span class="client-sep">·</span>
-    <span class="client-name">Clorox</span><span class="client-sep">·</span>
-    <span class="client-name">NVIDIA</span><span class="client-sep">·</span>
-    <span class="client-name">Nickelodeon</span><span class="client-sep">·</span>
-    <span class="client-name">BBDO</span><span class="client-sep">·</span>
-    <span class="client-name">Goodby Silverstein</span><span class="client-sep">·</span>
-    <span class="client-name">AKQA</span><span class="client-sep">·</span>
-    <span class="client-name">ServiceNow</span><span class="client-sep">·</span>
-    <span class="client-name">Workday</span><span class="client-sep">·</span>
-    <span class="client-name">Samsara</span><span class="client-sep">·</span>
-    <span class="client-name">Ninja</span><span class="client-sep">·</span>
-    <!-- duplicate for seamless loop -->
-    <span class="client-name">McDonald's</span><span class="client-sep">·</span>
-    <span class="client-name">Doritos</span><span class="client-sep">·</span>
-    <span class="client-name">Disney</span><span class="client-sep">·</span>
-    <span class="client-name">Budweiser</span><span class="client-sep">·</span>
-    <span class="client-name">Clorox</span><span class="client-sep">·</span>
-    <span class="client-name">NVIDIA</span><span class="client-sep">·</span>
-    <span class="client-name">Nickelodeon</span><span class="client-sep">·</span>
-    <span class="client-name">BBDO</span><span class="client-sep">·</span>
-    <span class="client-name">Goodby Silverstein</span><span class="client-sep">·</span>
-    <span class="client-name">AKQA</span><span class="client-sep">·</span>
-    <span class="client-name">ServiceNow</span><span class="client-sep">·</span>
-    <span class="client-name">Workday</span><span class="client-sep">·</span>
-    <span class="client-name">Samsara</span><span class="client-sep">·</span>
-    <span class="client-name">Ninja</span><span class="client-sep">·</span>
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span class="ticker-name">Goodby Silverstein</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">BBDO</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">AKQA</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">R/GA</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">NVIDIA</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Google</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">ServiceNow</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Shark Ninja</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">McDonald's</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Doritos</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Disney</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Budweiser</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Clorox</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Nickelodeon</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Workday</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Samsara</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Michael Bay</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Goodby Silverstein</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">BBDO</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">AKQA</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">R/GA</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">NVIDIA</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Google</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">ServiceNow</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Shark Ninja</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">McDonald's</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Doritos</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Disney</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Budweiser</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Clorox</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Nickelodeon</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Workday</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Samsara</span><span class="ticker-dot">·</span>
+    <span class="ticker-name">Michael Bay</span><span class="ticker-dot">·</span>
   </div>
 </div>
 
-<!-- ANCHOR REEL -->
-<div class="reel-section" id="work">
-  <div class="reel-header">
-    <h2 class="reel-title">EDITING REEL 2026</h2>
-    <span class="reel-meta">36 Years · Selected Credits</span>
-  </div>
-  <div class="reel-embed">
-    <iframe
-      src="https://player.vimeo.com/video/1136840631?badge=0&autopause=0&player_id=0&app_id=58479"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture"
-      title="Matassa — Editing Reel 2026">
-    </iframe>
-  </div>
-</div>
-
-<!-- AI SHORTS -->
-<section class="shorts-section">
-  <span class="section-label">AI Production — Selected Work</span>
-  <div class="shorts-grid">
-    <!-- Pancake Spot -->
-    <div class="short-item">
-      <div class="short-placeholder">
-        <span>Pancake Spot — Coming Soon</span>
-      </div>
-      <div class="short-overlay">
-        <span class="short-label">:15 · AI Spot · Food & Beverage</span>
-      </div>
-    </div>
-    <!-- Sizzle highlight -->
-    <div class="short-item">
-      <iframe
-        src="https://player.vimeo.com/video/1180833879?badge=0&autopause=0&background=1&loop=1&muted=1"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        title="AI Sizzle">
-      </iframe>
-      <div class="short-overlay">
-        <span class="short-label">:25 · AI Sizzle Reel</span>
-      </div>
-    </div>
-    <!-- Coming soon slot -->
-    <div class="short-item">
-      <div class="short-placeholder">
-        <span>More Coming Soon</span>
-      </div>
-      <div class="short-overlay">
-        <span class="short-label">In Production</span>
-      </div>
-    </div>
+<!-- WORK -->
+<section class="work-section" id="work">
+  <span class="section-label">The Work</span>
+  <div class="work-grid">
+    <a href="traditional.html" class="work-card">
+      <div class="work-card-num">01</div>
+      <h3 class="work-card-title">TRADITIONAL VIDEO EDITING</h3>
+      <p class="work-card-desc">36 years of high-craft editorial for the world's most demanding agencies and brands. Broadcast spots, brand films, sizzle reels.</p>
+      <span class="work-card-cta">View Editing Credits →</span>
+    </a>
+    <a href="ai.html" class="work-card">
+      <div class="work-card-num">02</div>
+      <h3 class="work-card-title">CINEMATIC AI STORYTELLING</h3>
+      <p class="work-card-desc">Generative AI production built on traditional instincts. First cut in 48 hours after brief approval. Your concept or ours.</p>
+      <span class="work-card-cta">View AI Work →</span>
+    </a>
+    <a href="premade.html" class="work-card">
+      <div class="work-card-num">03</div>
+      <h3 class="work-card-title">PREMADE ADS</h3>
+      <p class="work-card-desc">Brandable AI spot templates ready to make yours. Drop in your logo, customize the script, launch in days. From $2,500.</p>
+      <span class="work-card-cta">Browse Templates →</span>
+    </a>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <span class="section-label">Who We Are</span>
-  <div class="about-grid">
-    <div>
-      <h2 class="about-left-label">MICHAEL<br>MATASSA</h2>
-      <div class="about-credentials">
-        <div class="credential">
-          <span>Experience</span>
-          <strong>36 Years</strong>
-        </div>
-        <div class="credential">
-          <span>Headquarters</span>
-          <strong>Los Angeles</strong>
-        </div>
-        <div class="credential">
-          <span>Also Operating</span>
-          <strong>Bangkok</strong>
-        </div>
-        <div class="credential">
-          <span>AI Competitions</span>
-          <strong>2× Finalist</strong>
-        </div>
-        <div class="credential">
-          <span>AI Partners</span>
-          <strong>ByteDance · Runway · Alibaba</strong>
-        </div>
-      </div>
-    </div>
-    <div class="about-body">
-      <p>Matassa Agency is built on a simple premise: <strong>the world's most advanced AI production tools are only as good as the creative instincts behind them.</strong></p>
-      <p>Michael Matassa has spent 36 years in the edit suite with Michael Bay, Disney, BBDO, Goodby Silverstein, and the world's most demanding creative directors. He knows what makes a frame land. He knows what makes a viewer feel something.</p>
-      <p>Over the past several years, he has gone deep on generative AI filmmaking — integrating emerging tools into real-world professional workflows as a Creative Partner with ByteDance Dreamina, Runway, and Alibaba WAN AI, working hands-on with tools before public release.</p>
-      <p>This isn't AI doing the work alone. <strong>This is 36 years of taste, wielding tomorrow's tools.</strong> And it's available to your marketing team, on retainer, on demand.</p>
-      <div class="ai-tools">
-        <p class="ai-tools-label">AI Tools & Workflow</p>
-        <p class="ai-tools-list">Seedance 2.0 · Runway · Minimax · Midjourney · Dreamina · Kling · Pika · Sora · WAN · Higgsfield · Topaz Astra · Nano Banana · ElevenLabs · MMAudio · Adobe Premiere Pro · DaVinci Resolve</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services-section" id="services">
-  <span class="section-label">What We Offer</span>
-  <div class="services-grid">
-    <div class="service">
-      <div class="service-num">01</div>
-      <h3 class="service-title">AI SPOTS</h3>
-      <p class="service-price">Starting at $5,000</p>
-      <p class="service-desc">Cinematic AI-produced spots built for social, broadcast, and digital. :06 to :30. First cut in 48 hours after approved brief. Your concept or ours.</p>
-      <ul class="service-list">
-        <li>:06 · :15 · :30 formats</li>
-        <li>16×9 · 9×16 · 1:1 delivered</li>
-        <li>First cut 48hrs after brief</li>
-        <li>2 revisions included</li>
-        <li>Additional revisions available</li>
-      </ul>
-    </div>
-    <div class="service">
-      <div class="service-num">02</div>
-      <h3 class="service-title">PREMADE ADS</h3>
-      <p class="service-price">From $2,500</p>
-      <p class="service-desc">Brandable AI spot templates ready to make yours. Drop in your logo, customize the script, deliver in days. Built for brands who know what they want and need it now.</p>
-      <ul class="service-list">
-        <li>Ready-to-brand AI spots</li>
-        <li>Custom logo & script integration</li>
-        <li>Food · Lifestyle · Product · Real Estate</li>
-        <li>Delivered in days not weeks</li>
-        <li>Growing library of templates</li>
-      </ul>
-    </div>
-    <div class="service">
-      <div class="service-num">03</div>
-      <h3 class="service-title">RETAINER</h3>
-      <p class="service-price">From $15,000/month</p>
-      <p class="service-desc">A senior creative director embedded in your marketing team. Monthly spots for social, campaigns, and product launches. On demand. Always on. No downtime.</p>
-      <ul class="service-list">
-        <li>Dedicated creative partner</li>
-        <li>Monthly spot delivery</li>
-        <li>US & Asia timezone coverage</li>
-        <li>Campaign strategy included</li>
-        <li>Priority turnaround</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- BOOK A CALL -->
+<!-- BOOK -->
 <section class="book-section" id="book">
   <div class="book-grid">
     <div class="book-left">
-      <span class="section-label">Schedule a Meeting</span>
-      <h2>BOOK A<br>15-MINUTE<br>CALL</h2>
-      <p>No pitch. No pressure. Just a direct conversation about your project, your brand, and whether we're the right fit.</p>
+      <span class="section-label">Let's Talk</span>
+      <h2>BOOK A 15-MINUTE CALL</h2>
+      <p>No pitch. No pressure. Tell me what you're working on and let's figure out if we're the right fit. I respond to every inquiry personally.</p>
       <div class="book-detail">15 minutes · Video or phone</div>
-      <div class="book-detail">Available US & Asia timezones</div>
-      <div class="book-detail">In LA from April 30 — September</div>
-      <div class="book-detail">Response within 24 hours</div>
+      <div class="book-detail">US & Asia time zones covered</div>
+      <div class="book-detail">In Los Angeles · April 30 — September</div>
+      <div class="book-detail">Every inquiry answered personally</div>
     </div>
     <div class="calendly-wrap">
-      <div
-        class="calendly-inline-widget"
-        data-url="https://calendly.com/matassaagency?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0f0f0f&text_color=ffffff&primary_color=ffffff"
-        style="min-width:320px;height:650px;">
-      </div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/matassaagency?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0f0f0f&text_color=ffffff&primary_color=ffffff" style="min-width:320px;height:650px;"></div>
     </div>
   </div>
 </section>
 
-<!-- FUNNEL + CONTACT -->
+<!-- FUNNEL -->
 <section class="funnel-section" id="contact">
   <div class="funnel-intro">
-    <span class="section-label">Start Here</span>
+    <span class="section-label">Start Your Project</span>
     <h2>WHAT BRINGS YOU HERE?</h2>
-    <p>Select the option that fits. We'll tailor the conversation from there.</p>
+    <p>Select the option that fits. We respond within 24 hours — with a yes, a counter, or a better question.</p>
   </div>
 
   <div class="funnel-cards">
     <div class="funnel-card" onclick="selectFunnel('a')">
-      <div class="funnel-card-check"></div>
-      <div class="funnel-card-letter">A</div>
-      <h3 class="funnel-card-title">I have a script. I need cinematic AI production.</h3>
-      <p class="funnel-card-desc">You bring the concept. We bring it to life. Fast.</p>
+      <div class="funnel-check"></div>
+      <div class="funnel-letter">A</div>
+      <h3 class="funnel-title">I have a script. I need cinematic AI production.</h3>
+      <p class="funnel-desc">You bring the concept. We bring it to life. Fast.</p>
     </div>
     <div class="funnel-card" onclick="selectFunnel('b')">
-      <div class="funnel-card-check"></div>
-      <div class="funnel-card-letter">B</div>
-      <h3 class="funnel-card-title">I need concepts and cinematic AI production.</h3>
-      <p class="funnel-card-desc">From idea to finished spot. We handle everything.</p>
+      <div class="funnel-check"></div>
+      <div class="funnel-letter">B</div>
+      <h3 class="funnel-title">I need concepts and cinematic AI production.</h3>
+      <p class="funnel-desc">From idea to finished spot. We handle everything.</p>
     </div>
     <div class="funnel-card" onclick="selectFunnel('c')">
-      <div class="funnel-card-check"></div>
-      <div class="funnel-card-letter">C</div>
-      <h3 class="funnel-card-title">I need a senior creative editor and cinematic AI storyteller on contract.</h3>
-      <p class="funnel-card-desc">Embedded. Experienced. Available now.</p>
+      <div class="funnel-check"></div>
+      <div class="funnel-letter">C</div>
+      <h3 class="funnel-title">I need a senior creative editor and cinematic AI storyteller on contract.</h3>
+      <p class="funnel-desc">Embedded. Experienced. Available now.</p>
     </div>
   </div>
 
@@ -847,24 +312,27 @@
     <div class="funnel-form-inner">
       <div class="funnel-form-left">
         <h3>YOU HAVE THE SCRIPT.<br>WE MAKE IT MOVE.</h3>
-        <p>Send us your script and brief. First cut lands 48 hours after approval. Two rounds of revisions included. Additional rounds available.</p>
-        <div class="contact-info">
-          <div class="contact-info-item">
-            <span class="contact-info-label">Text us</span>
-            <span class="contact-info-value">415.205.0868</span>
-          </div>
-          <div class="contact-info-item">
-            <span class="contact-info-label">In LA from</span>
-            <span class="contact-info-value">April 30 — September 2026</span>
-          </div>
+        <p>Send us your script, brand assets, and deadline. First cut lands 48 hours after brief approval.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">In LA</span><span class="contact-detail-value">April 30 — September 2026</span></div>
         </div>
       </div>
       <div>
         <div class="field"><label>Your Name</label><input type="text" id="a-name" placeholder="First and last name" /></div>
         <div class="field"><label>Brand / Company</label><input type="text" id="a-brand" placeholder="Your brand or company" /></div>
         <div class="field"><label>Email</label><input type="email" id="a-email" placeholder="you@yourbrand.com" /></div>
+        <div class="field"><label>Phone / Text</label><input type="text" id="a-phone" placeholder="Best number to reach you" /></div>
+        <div class="field"><label>Spot Length</label>
+          <select id="a-length"><option value="">Select length</option><option>:06</option><option>:15</option><option>:30</option><option>Not sure yet</option></select>
+        </div>
+        <div class="field"><label>Formats Needed</label>
+          <select id="a-format"><option value="">Select formats</option><option>16×9 only</option><option>9×16 only</option><option>All formats — 16×9, 9×16, 1:1</option><option>Not sure yet</option></select>
+        </div>
         <div class="field"><label>Your Budget</label><input type="text" id="a-budget" placeholder="What do you want to invest?" /></div>
-        <div class="field"><label>Your Script or Brief</label><textarea id="a-concept" placeholder="Paste your script or describe the spot — length, format, tone, deadline."></textarea></div>
+        <div class="field"><label>Your Deadline</label><input type="text" id="a-deadline" placeholder="When do you need it?" /></div>
+        <div class="field"><label>Your Script or Brief</label><textarea id="a-concept" placeholder="Paste your script or describe the spot — tone, feel, mandatory messaging, brand guidelines."></textarea></div>
         <button class="submit-btn" onclick="handleFunnelSubmit('a')">Send Your Script →</button>
       </div>
     </div>
@@ -875,24 +343,24 @@
     <div class="funnel-form-inner">
       <div class="funnel-form-left">
         <h3>WE CONCEPT.<br>WE PRODUCE.<br>YOU LAUNCH.</h3>
-        <p>Tell us your brand, your audience, and what you're trying to say. We develop the concept and produce the spot. Concepting quoted separately before anything begins.</p>
-        <div class="contact-info">
-          <div class="contact-info-item">
-            <span class="contact-info-label">Text us</span>
-            <span class="contact-info-value">415.205.0868</span>
-          </div>
-          <div class="contact-info-item">
-            <span class="contact-info-label">In LA from</span>
-            <span class="contact-info-value">April 30 — September 2026</span>
-          </div>
+        <p>Tell us your brand, your audience, what you want people to feel. We develop the concept and produce the spot. Concepting quoted separately before anything begins.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">In LA</span><span class="contact-detail-value">April 30 — September 2026</span></div>
         </div>
       </div>
       <div>
         <div class="field"><label>Your Name</label><input type="text" id="b-name" placeholder="First and last name" /></div>
         <div class="field"><label>Brand / Company</label><input type="text" id="b-brand" placeholder="Your brand or company" /></div>
         <div class="field"><label>Email</label><input type="email" id="b-email" placeholder="you@yourbrand.com" /></div>
+        <div class="field"><label>Phone / Text</label><input type="text" id="b-phone" placeholder="Best number to reach you" /></div>
+        <div class="field"><label>Where Will This Run?</label>
+          <select id="b-platform"><option value="">Select platform</option><option>Social — Instagram / TikTok / YouTube</option><option>Broadcast / CTV</option><option>Digital / Display</option><option>Multiple / All of the above</option><option>Not sure yet</option></select>
+        </div>
         <div class="field"><label>Your Budget</label><input type="text" id="b-budget" placeholder="What do you want to invest?" /></div>
-        <div class="field"><label>Tell Us About Your Brand</label><textarea id="b-concept" placeholder="Who are you, who's your audience, what do you want people to feel? Any reference spots or brands you admire?"></textarea></div>
+        <div class="field"><label>Your Deadline</label><input type="text" id="b-deadline" placeholder="When do you need it?" /></div>
+        <div class="field"><label>Tell Us About Your Brand & Audience</label><textarea id="b-concept" placeholder="Who are you, who's your audience, what do you want people to feel? Any reference spots or brands you admire?"></textarea></div>
         <button class="submit-btn" onclick="handleFunnelSubmit('b')">Start the Conversation →</button>
       </div>
     </div>
@@ -903,29 +371,30 @@
     <div class="funnel-form-inner">
       <div class="funnel-form-left">
         <h3>36 YEARS.<br>ON YOUR TEAM.<br>ON DEMAND.</h3>
-        <p>Michael Matassa embeds with your team as a senior creative editor and cinematic AI storyteller. Monthly retainer. LA and Bangkok time zones. No downtime.</p>
-        <div class="contact-info">
-          <div class="contact-info-item">
-            <span class="contact-info-label">Text us</span>
-            <span class="contact-info-value">415.205.0868</span>
-          </div>
-          <div class="contact-info-item">
-            <span class="contact-info-label">In LA from</span>
-            <span class="contact-info-value">April 30 — September 2026</span>
-          </div>
+        <p>Michael embeds with your team as a senior creative editor and cinematic AI storyteller. Monthly retainer or project basis. LA and Bangkok time zones. No downtime.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">In LA</span><span class="contact-detail-value">April 30 — September 2026</span></div>
         </div>
       </div>
       <div>
         <div class="field"><label>Your Name</label><input type="text" id="c-name" placeholder="First and last name" /></div>
-        <div class="field"><label>Company / Organization</label><input type="text" id="c-brand" placeholder="Who do you work for?" /></div>
-        <div class="field"><label>Email</label><input type="email" id="c-email" placeholder="you@yourcompany.com" /></div>
+        <div class="field"><label>Company</label><input type="text" id="c-brand" placeholder="Company or organization" /></div>
         <div class="field"><label>Your Role</label><input type="text" id="c-role" placeholder="e.g. Creative Director, Head of Marketing, EP" /></div>
-        <div class="field"><label>What Do You Need?</label><textarea id="c-concept" placeholder="Tell us about your team, your volume of work, what you're looking for, and timeline. Monthly retainer or project basis?"></textarea></div>
+        <div class="field"><label>Email</label><input type="email" id="c-email" placeholder="you@yourcompany.com" /></div>
+        <div class="field"><label>Phone / Text</label><input type="text" id="c-phone" placeholder="Best number to reach you" /></div>
+        <div class="field"><label>Engagement Type</label>
+          <select id="c-type"><option value="">Select type</option><option>Monthly Retainer</option><option>Project Basis</option><option>Not sure yet</option></select>
+        </div>
+        <div class="field"><label>Estimated Monthly Volume</label>
+          <select id="c-volume"><option value="">Select volume</option><option>1-2 spots per month</option><option>3-5 spots per month</option><option>6+ spots per month</option><option>Campaign-based, varies</option></select>
+        </div>
+        <div class="field"><label>Tell Us About Your Needs</label><textarea id="c-concept" placeholder="Tell us about your team, your workflow, what you're looking for, and when you need to start."></textarea></div>
         <button class="submit-btn" onclick="handleFunnelSubmit('c')">Let's Talk →</button>
       </div>
     </div>
   </div>
-
 </section>
 
 <!-- FOOTER -->
@@ -938,120 +407,49 @@
   </span>
 </footer>
 
-<!-- ASK MODAL -->
-<div class="modal-overlay" id="askModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div class="modal-title">Ask Us Anything</div>
-    <p class="modal-sub">No pitch. No pressure. Just a question? We've got answers.</p>
-    <div class="field">
-      <label>Your Name</label>
-      <input type="text" id="q-name" placeholder="Your name" />
-    </div>
-    <div class="field">
-      <label>Email</label>
-      <input type="email" id="q-email" placeholder="you@yourbrand.com" />
-    </div>
-    <div class="field">
-      <label>Your Question</label>
-      <textarea id="q-message" placeholder="What's on your mind?" style="min-height:100px;"></textarea>
-    </div>
-    <button class="modal-btn" id="askBtn" onclick="submitQuestion()">Send It →</button>
-    <p id="askPhone" style="display:none;margin-top:1rem;text-align:center;font-family:'Epilogue',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.5);">
-      Need us right away? Text us at <strong style="color:#fff;">415.205.0868</strong>
-    </p>
-  </div>
-</div>
-
-<!-- CALENDLY WIDGET -->
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
 <script>
-  /* FUNNEL */
-  function selectFunnel(option) {
-    document.querySelectorAll('.funnel-card').forEach(c => c.classList.remove('active'));
-    document.querySelectorAll('.funnel-form').forEach(f => f.classList.remove('visible'));
-    document.querySelectorAll('.funnel-card')[['a','b','c'].indexOf(option)].classList.add('active');
-    const form = document.getElementById('form-' + option);
-    form.classList.add('visible');
-    setTimeout(() => form.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
-  }
-
-  async function handleFunnelSubmit(type) {
-    const name    = document.getElementById(type + '-name').value.trim();
-    const brand   = document.getElementById(type + '-brand').value.trim();
-    const email   = document.getElementById(type + '-email').value.trim();
-    const budget  = type !== 'c' ? document.getElementById(type + '-budget').value.trim() : '';
-    const role    = type === 'c' ? document.getElementById('c-role').value.trim() : '';
-    const concept = document.getElementById(type + '-concept').value.trim();
-    const btn     = document.querySelector('#form-' + type + ' .submit-btn');
-    const labels  = { a: 'Script — AI Production', b: 'Concepts + AI Production', c: 'Contract Editor / AI Storyteller' };
-
-    if (!name || !email || !concept) {
-      alert('Please fill in your name, email, and brief.');
-      return;
-    }
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    try {
-      const res = await fetch('https://formspree.io/f/xzdkojqd', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ type: labels[type], name, brand, email, budget, role, brief: concept })
-      });
-      if (res.ok) {
-        btn.textContent = "Got it. You'll hear from us within 24 hours.";
-        btn.style.background = '#1a1a1a';
-        btn.style.color = '#fff';
-      } else { throw new Error(); }
-    } catch(e) {
-      btn.textContent = 'Try Again';
-      btn.disabled = false;
-      alert('Something went wrong. Text us at 415.205.0868');
-    }
-  }
-
-  /* MUTE TOGGLE */
   var isMuted = true;
   function toggleMute() {
     var iframe = document.querySelector('.hero-video iframe');
-    var label  = document.getElementById('muteLabel');
+    var label = document.getElementById('muteLabel');
     isMuted = !isMuted;
     var base = 'https://player.vimeo.com/video/1181092697?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0';
     iframe.src = base + (isMuted ? '&muted=1' : '&muted=0');
     label.textContent = isMuted ? 'Unmute' : 'Mute';
   }
 
-  /* MODAL */
-  function openModal() { document.getElementById('askModal').classList.add('open'); }
-  function closeModal() { document.getElementById('askModal').classList.remove('open'); }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  function selectFunnel(opt) {
+    document.querySelectorAll('.funnel-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.funnel-form').forEach(f => f.classList.remove('visible'));
+    document.querySelectorAll('.funnel-card')[['a','b','c'].indexOf(opt)].classList.add('active');
+    var form = document.getElementById('form-' + opt);
+    form.classList.add('visible');
+    setTimeout(() => form.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
 
-  async function submitQuestion() {
-    const name    = document.getElementById('q-name').value.trim();
-    const email   = document.getElementById('q-email').value.trim();
-    const message = document.getElementById('q-message').value.trim();
-    const btn     = document.getElementById('askBtn');
-    if (!name || !email || !message) { alert('Please fill in all fields.'); return; }
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+  async function handleFunnelSubmit(type) {
+    var ids = {
+      a: ['a-name','a-brand','a-email','a-phone','a-length','a-format','a-budget','a-deadline','a-concept'],
+      b: ['b-name','b-brand','b-email','b-phone','b-platform','b-budget','b-deadline','b-concept'],
+      c: ['c-name','c-brand','c-role','c-email','c-phone','c-type','c-volume','c-concept']
+    };
+    var labels = { a: 'A — Script / AI Production', b: 'B — Concepts + AI Production', c: 'C — Contract Editor / AI Storyteller' };
+    var data = { inquiryType: labels[type] };
+    ids[type].forEach(id => { var el = document.getElementById(id); if(el) data[id] = el.value.trim(); });
+    var btn = document.querySelector('#form-' + type + ' .submit-btn');
+    var name = data[type+'-name'], email = data[type+'-email'], concept = data[type+'-concept'];
+    if (!name || !email || !concept) { alert('Please fill in your name, email, and brief.'); return; }
+    btn.textContent = 'Sending...'; btn.disabled = true;
     try {
-      const res = await fetch('https://formspree.io/f/xzdkojqd', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, message, type: 'General Inquiry' })
+      var res = await fetch('https://formspree.io/f/xzdkojqd', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
       });
-      if (res.ok) {
-        btn.textContent = "Got it. We'll be in touch.";
-        btn.style.background = '#1a1a1a';
-        btn.style.color = '#fff';
-        document.getElementById('askPhone').style.display = 'block';
-      } else { throw new Error(); }
-    } catch(e) {
-      btn.textContent = 'Send It →';
-      btn.disabled = false;
-      alert('Something went wrong. Text us at 415.205.0868');
-    }
+      if (res.ok) { btn.textContent = "Got it. You'll hear from us within 24 hours."; btn.style.background = '#1a1a1a'; btn.style.color = '#fff'; }
+      else { throw new Error(); }
+    } catch(e) { btn.textContent = 'Try Again'; btn.disabled = false; alert('Something went wrong. Text us at 415.205.0868'); }
   }
 </script>
 </body>
