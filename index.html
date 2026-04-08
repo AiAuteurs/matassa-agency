@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matassa Agency — AI Forward Video Production</title>
+<meta name="description" content="AI Forward Video Production Rooted in Traditional Filmmaking. 36 years of craft. Los Angeles · Bangkok. A Goggles Paesano Inc. Company.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --black: #080808;
+    --white: #ffffff;
+    --grey: #888888;
+    --light-grey: #cccccc;
+    --dim: rgba(255,255,255,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 3rem;
+    background: rgba(8,8,8,0.92);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem; letter-spacing: 0.18em;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--light-grey); font-size: 0.85em; letter-spacing: 0.12em; }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--black);
+    background: var(--white); padding: 0.6rem 1.5rem;
+    text-decoration: none; transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: var(--light-grey); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; height: 100vh; min-height: 600px;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 0 3rem 5rem;
+    overflow: hidden; background: var(--black);
+  }
+  .hero-video {
+    position: absolute; inset: 0;
+    z-index: 0; overflow: hidden;
+  }
+  .hero-video iframe {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 177.78vh; height: 56.25vw;
+    min-width: 100%; min-height: 100%;
+    pointer-events: none;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.3) 0%,
+      rgba(0,0,0,0.2) 40%,
+      rgba(0,0,0,0.75) 80%,
+      rgba(0,0,0,0.95) 100%
+    );
+    z-index: 1;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-eyebrow {
+    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); margin-bottom: 1.2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 12vw, 11rem);
+    line-height: 0.9; letter-spacing: 0.01em;
+    color: var(--white); margin-bottom: 1.8rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-tagline {
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    font-weight: 300; color: rgba(255,255,255,0.65);
+    max-width: 480px; line-height: 1.7;
+    animation: fadeUp 0.8s 0.2s ease both;
+    margin-bottom: 2.5rem;
+  }
+  .hero-actions {
+    display: flex; align-items: center; gap: 1.2rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .btn-primary {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--black);
+    background: var(--white); padding: 1rem 2.5rem;
+    text-decoration: none; transition: background 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--light-grey); }
+  .btn-secondary {
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--white); border-color: var(--white); }
+  .unmute-btn {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white); font-family: 'Epilogue', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.55rem 1rem; cursor: pointer;
+    display: flex; align-items: center; gap: 0.5rem;
+    backdrop-filter: blur(8px); transition: border-color 0.2s;
+  }
+  .unmute-btn:hover { border-color: rgba(255,255,255,0.5); }
+
+  /* ── CLIENTS TICKER ── */
+  .clients-bar {
+    background: #0d0d0d; padding: 1.1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+  .clients-track {
+    display: flex; gap: 3.5rem; width: max-content;
+    animation: tick 35s linear infinite;
+  }
+  @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .client-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem; letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.3); white-space: nowrap; flex-shrink: 0;
+    transition: color 0.2s;
+  }
+  .client-sep { color: rgba(255,255,255,0.1); font-size: 0.6rem; flex-shrink: 0; align-self: center; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 7rem 3rem; }
+  .section-label {
+    font-size: 0.6rem; letter-spacing: 0.42em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); margin-bottom: 3rem;
+    display: block;
+  }
+
+  /* ── ANCHOR REEL ── */
+  .reel-section { background: #0a0a0a; padding: 5rem 3rem; }
+  .reel-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 2rem;
+  }
+  .reel-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.04em; color: var(--white);
+  }
+  .reel-meta {
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--grey);
+  }
+  .reel-embed {
+    position: relative; padding-top: 56.25%;
+    background: #111; overflow: hidden;
+  }
+  .reel-embed iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+  }
+
+  /* ── AI SHORTS ── */
+  .shorts-section { background: var(--black); }
+  .shorts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.06);
+    margin-top: 2rem;
+  }
+  .short-item {
+    position: relative; aspect-ratio: 9/16;
+    background: #111; overflow: hidden; cursor: pointer;
+  }
+  .short-item iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .short-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+    z-index: 2; display: flex; align-items: flex-end; padding: 1.5rem;
+  }
+  .short-label {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .short-placeholder {
+    position: absolute; inset: 0; background: #111;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .short-placeholder span {
+    font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.15);
+  }
+
+  /* ── ABOUT ── */
+  .about-section { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 7rem; align-items: start;
+  }
+  .about-left-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95; letter-spacing: 0.02em;
+    color: var(--white); margin-bottom: 2rem;
+  }
+  .about-credentials {
+    margin-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 2rem;
+  }
+  .credential {
+    display: flex; justify-content: space-between;
+    padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+  }
+  .credential strong { color: rgba(255,255,255,0.85); font-weight: 400; }
+  .about-body {
+    font-size: 1rem; line-height: 1.9; font-weight: 300;
+    color: rgba(255,255,255,0.75);
+  }
+  .about-body p { margin-bottom: 1.5rem; }
+  .about-body strong { color: var(--white); font-weight: 500; }
+  .ai-tools {
+    margin-top: 2rem; padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+  }
+  .ai-tools-label {
+    font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); margin-bottom: 1rem;
+  }
+  .ai-tools-list {
+    font-size: 0.8rem; color: rgba(255,255,255,0.55);
+    line-height: 1.9; font-weight: 300;
+  }
+
+  /* ── SERVICES ── */
+  .services-section { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.06);
+    margin-top: 2rem;
+  }
+  .service {
+    background: var(--black); padding: 3rem 2.5rem;
+    transition: background 0.3s;
+  }
+  .service:hover { background: #0f0f0f; }
+  .service-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem; color: rgba(255,255,255,0.06);
+    line-height: 1; margin-bottom: 1.5rem;
+  }
+  .service-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem; letter-spacing: 0.04em;
+    color: var(--white); margin-bottom: 1rem;
+  }
+  .service-price {
+    font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); margin-bottom: 1.5rem;
+  }
+  .service-desc {
+    font-size: 0.88rem; line-height: 1.85; font-weight: 300;
+    color: rgba(255,255,255,0.55); margin-bottom: 2rem;
+  }
+  .service-list { list-style: none; }
+  .service-list li {
+    font-size: 0.78rem; color: rgba(255,255,255,0.4);
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; gap: 0.75rem; font-weight: 300;
+  }
+  .service-list li::before {
+    content: '—'; color: rgba(255,255,255,0.15); flex-shrink: 0;
+  }
+
+  /* ── BOOK A CALL ── */
+  .book-section {
+    background: #0a0a0a;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 7rem 3rem;
+  }
+  .book-grid {
+    display: grid; grid-template-columns: 1fr 1.6fr;
+    gap: 7rem; align-items: start;
+  }
+  .book-left h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 0.95; color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .book-left p {
+    font-size: 0.9rem; line-height: 1.85; font-weight: 300;
+    color: rgba(255,255,255,0.55); margin-bottom: 2rem;
+  }
+  .book-detail {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+  }
+  .book-detail::before {
+    content: ''; width: 20px; height: 1px;
+    background: rgba(255,255,255,0.2); flex-shrink: 0;
+  }
+  .calendly-wrap {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden; min-height: 650px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .calendly-inline-widget { width: 100%; min-height: 650px; }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+  }
+  .contact-left h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 0.95; color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .contact-left p {
+    font-size: 0.9rem; line-height: 1.85; font-weight: 300;
+    color: rgba(255,255,255,0.5);
+  }
+  .contact-info { margin-top: 3rem; }
+  .contact-info-item {
+    display: flex; flex-direction: column; gap: 0.2rem;
+    padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .contact-info-label {
+    font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .contact-info-value {
+    font-size: 0.88rem; color: rgba(255,255,255,0.65); font-weight: 300;
+  }
+  .field { margin-bottom: 1.1rem; }
+  .field label {
+    display: block; font-size: 0.58rem; font-weight: 500;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); margin-bottom: 0.5rem;
+  }
+  .field input, .field textarea, .field select {
+    width: 100%; background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--white); font-family: 'Epilogue', sans-serif;
+    font-size: 0.9rem; font-weight: 300;
+    padding: 0.85rem 1rem; outline: none;
+    transition: border-color 0.2s; border-radius: 0;
+    -webkit-appearance: none;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    border-color: rgba(255,255,255,0.25);
+  }
+  .field input::placeholder, .field textarea::placeholder {
+    color: rgba(255,255,255,0.2);
+  }
+  .field select option { background: #111; }
+  .field textarea { resize: vertical; min-height: 120px; }
+  .submit-btn {
+    width: 100%; background: var(--white); color: var(--black);
+    font-family: 'Epilogue', sans-serif; font-size: 0.78rem;
+    font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 1.1rem; border: none; cursor: pointer;
+    transition: background 0.2s; margin-top: 0.5rem;
+  }
+  .submit-btn:hover { background: var(--light-grey); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050505; padding: 2.5rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; letter-spacing: 0.2em; color: var(--white);
+  }
+  .footer-center {
+    font-size: 0.62rem; letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.2); text-transform: uppercase;
+    text-align: center;
+  }
+  .footer-right {
+    font-size: 0.62rem; letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.25); text-transform: uppercase;
+    text-align: right;
+  }
+  .footer-right a {
+    color: rgba(255,255,255,0.25); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-right a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #0f0f0f; border: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem; max-width: 480px; width: 90%; position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 1.2rem; right: 1.5rem;
+    background: none; border: none; color: rgba(255,255,255,0.4);
+    font-size: 1.5rem; cursor: pointer; transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--white); }
+  .modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 0.08em; color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .modal-sub {
+    font-size: 0.82rem; color: rgba(255,255,255,0.4);
+    margin-bottom: 2rem; line-height: 1.6; font-weight: 300;
+  }
+  .modal-btn {
+    width: 100%; background: var(--white); color: var(--black);
+    font-family: 'Epilogue', sans-serif; font-size: 0.75rem;
+    font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 1rem; border: none; cursor: pointer;
+    transition: background 0.2s; margin-top: 1rem;
+  }
+  .modal-btn:hover { background: var(--light-grey); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 0 1.5rem 4rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid, .book-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .shorts-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    .reel-section { padding: 4rem 1.5rem; }
+    .book-section { padding: 4rem 1.5rem; }
+    .contact-section { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">MATASSA <span>AGENCY</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://calendly.com/matassaagency" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-video">
+    <iframe
+      src="https://player.vimeo.com/video/1180833879?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0&muted=1"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      title="Matassa Agency Sizzle">
+    </iframe>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Los Angeles · Bangkok · Worldwide</p>
+    <h1>MATASSA<br>AGENCY</h1>
+    <p class="hero-tagline">AI Forward Video Production<br>Rooted in Traditional Filmmaking</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start Your Project</a>
+      <a href="https://calendly.com/matassaagency" target="_blank" class="btn-secondary">Book a 15-Min Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- MUTE BUTTON -->
+<button class="unmute-btn" onclick="toggleMute()">
+  <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path id="muteIcon" d="M16.5 12A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.19-.9 4.18-2.35 5.61l1.42 1.42C19.9 17.27 21 14.76 21 12c0-2.76-1.1-5.27-2.93-7.03l-1.41 1.41A8.003 8.003 0 0 1 19 12zm-13.5 0c0 1.94.78 3.68 2.05 4.95L6.14 18.36A9.978 9.978 0 0 1 3.5 12c0-2.76 1.1-5.27 2.93-7.03L7.85 6.4A7.97 7.97 0 0 0 5.5 12zM3 9H0v6h3l4 4V5L3 9z"/></svg>
+  <span id="muteLabel">Unmute</span>
+</button>
+
+<!-- CLIENTS TICKER -->
+<div class="clients-bar">
+  <div class="clients-track">
+    <span class="client-name">McDonald's</span><span class="client-sep">·</span>
+    <span class="client-name">Doritos</span><span class="client-sep">·</span>
+    <span class="client-name">Disney</span><span class="client-sep">·</span>
+    <span class="client-name">Budweiser</span><span class="client-sep">·</span>
+    <span class="client-name">Clorox</span><span class="client-sep">·</span>
+    <span class="client-name">NVIDIA</span><span class="client-sep">·</span>
+    <span class="client-name">Nickelodeon</span><span class="client-sep">·</span>
+    <span class="client-name">BBDO</span><span class="client-sep">·</span>
+    <span class="client-name">Goodby Silverstein</span><span class="client-sep">·</span>
+    <span class="client-name">AKQA</span><span class="client-sep">·</span>
+    <span class="client-name">ServiceNow</span><span class="client-sep">·</span>
+    <span class="client-name">Workday</span><span class="client-sep">·</span>
+    <span class="client-name">Samsara</span><span class="client-sep">·</span>
+    <span class="client-name">Ninja</span><span class="client-sep">·</span>
+    <!-- duplicate for seamless loop -->
+    <span class="client-name">McDonald's</span><span class="client-sep">·</span>
+    <span class="client-name">Doritos</span><span class="client-sep">·</span>
+    <span class="client-name">Disney</span><span class="client-sep">·</span>
+    <span class="client-name">Budweiser</span><span class="client-sep">·</span>
+    <span class="client-name">Clorox</span><span class="client-sep">·</span>
+    <span class="client-name">NVIDIA</span><span class="client-sep">·</span>
+    <span class="client-name">Nickelodeon</span><span class="client-sep">·</span>
+    <span class="client-name">BBDO</span><span class="client-sep">·</span>
+    <span class="client-name">Goodby Silverstein</span><span class="client-sep">·</span>
+    <span class="client-name">AKQA</span><span class="client-sep">·</span>
+    <span class="client-name">ServiceNow</span><span class="client-sep">·</span>
+    <span class="client-name">Workday</span><span class="client-sep">·</span>
+    <span class="client-name">Samsara</span><span class="client-sep">·</span>
+    <span class="client-name">Ninja</span><span class="client-sep">·</span>
+  </div>
+</div>
+
+<!-- ANCHOR REEL -->
+<div class="reel-section" id="work">
+  <div class="reel-header">
+    <h2 class="reel-title">EDITING REEL 2026</h2>
+    <span class="reel-meta">36 Years · Selected Credits</span>
+  </div>
+  <div class="reel-embed">
+    <iframe
+      src="https://player.vimeo.com/video/1136840631?badge=0&autopause=0&player_id=0&app_id=58479"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      title="Matassa — Editing Reel 2026">
+    </iframe>
+  </div>
+</div>
+
+<!-- AI SHORTS -->
+<section class="shorts-section">
+  <span class="section-label">AI Production — Selected Work</span>
+  <div class="shorts-grid">
+    <!-- Pancake Spot -->
+    <div class="short-item">
+      <div class="short-placeholder">
+        <span>Pancake Spot — Coming Soon</span>
+      </div>
+      <div class="short-overlay">
+        <span class="short-label">:15 · AI Spot · Food & Beverage</span>
+      </div>
+    </div>
+    <!-- Sizzle highlight -->
+    <div class="short-item">
+      <iframe
+        src="https://player.vimeo.com/video/1180833879?badge=0&autopause=0&background=1&loop=1&muted=1"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        title="AI Sizzle">
+      </iframe>
+      <div class="short-overlay">
+        <span class="short-label">:25 · AI Sizzle Reel</span>
+      </div>
+    </div>
+    <!-- Coming soon slot -->
+    <div class="short-item">
+      <div class="short-placeholder">
+        <span>More Coming Soon</span>
+      </div>
+      <div class="short-overlay">
+        <span class="short-label">In Production</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <span class="section-label">Who We Are</span>
+  <div class="about-grid">
+    <div>
+      <h2 class="about-left-label">MICHAEL<br>MATASSA</h2>
+      <div class="about-credentials">
+        <div class="credential">
+          <span>Experience</span>
+          <strong>36 Years</strong>
+        </div>
+        <div class="credential">
+          <span>Headquarters</span>
+          <strong>Los Angeles</strong>
+        </div>
+        <div class="credential">
+          <span>Also Operating</span>
+          <strong>Bangkok</strong>
+        </div>
+        <div class="credential">
+          <span>AI Competitions</span>
+          <strong>2× Finalist</strong>
+        </div>
+        <div class="credential">
+          <span>AI Partners</span>
+          <strong>ByteDance · Runway · Alibaba</strong>
+        </div>
+      </div>
+    </div>
+    <div class="about-body">
+      <p>Matassa Agency is built on a simple premise: <strong>the world's most advanced AI production tools are only as good as the creative instincts behind them.</strong></p>
+      <p>Michael Matassa has spent 36 years in the edit suite with Michael Bay, Disney, BBDO, Goodby Silverstein, and the world's most demanding creative directors. He knows what makes a frame land. He knows what makes a viewer feel something.</p>
+      <p>Over the past several years, he has gone deep on generative AI filmmaking — integrating emerging tools into real-world professional workflows as a Creative Partner with ByteDance Dreamina, Runway, and Alibaba WAN AI, working hands-on with tools before public release.</p>
+      <p>This isn't AI doing the work alone. <strong>This is 36 years of taste, wielding tomorrow's tools.</strong> And it's available to your marketing team, on retainer, on demand.</p>
+      <div class="ai-tools">
+        <p class="ai-tools-label">AI Tools & Workflow</p>
+        <p class="ai-tools-list">Seedance 2.0 · Runway · Minimax · Midjourney · Dreamina · Kling · Pika · Sora · WAN · Higgsfield · Topaz Astra · Nano Banana · ElevenLabs · MMAudio · Adobe Premiere Pro · DaVinci Resolve</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <span class="section-label">What We Offer</span>
+  <div class="services-grid">
+    <div class="service">
+      <div class="service-num">01</div>
+      <h3 class="service-title">AI SPOTS</h3>
+      <p class="service-price">Starting at $5,000</p>
+      <p class="service-desc">Cinematic AI-produced spots built for social, broadcast, and digital. :06 to :30. First cut in 48 hours after approved brief. Your concept or ours.</p>
+      <ul class="service-list">
+        <li>:06 · :15 · :30 formats</li>
+        <li>16×9 · 9×16 · 1:1 delivered</li>
+        <li>First cut 48hrs after brief</li>
+        <li>2 revisions included</li>
+        <li>Additional revisions available</li>
+      </ul>
+    </div>
+    <div class="service">
+      <div class="service-num">02</div>
+      <h3 class="service-title">PREMADE ADS</h3>
+      <p class="service-price">From $2,500</p>
+      <p class="service-desc">Brandable AI spot templates ready to make yours. Drop in your logo, customize the script, deliver in days. Built for brands who know what they want and need it now.</p>
+      <ul class="service-list">
+        <li>Ready-to-brand AI spots</li>
+        <li>Custom logo & script integration</li>
+        <li>Food · Lifestyle · Product · Real Estate</li>
+        <li>Delivered in days not weeks</li>
+        <li>Growing library of templates</li>
+      </ul>
+    </div>
+    <div class="service">
+      <div class="service-num">03</div>
+      <h3 class="service-title">RETAINER</h3>
+      <p class="service-price">From $15,000/month</p>
+      <p class="service-desc">A senior creative director embedded in your marketing team. Monthly spots for social, campaigns, and product launches. On demand. Always on. No downtime.</p>
+      <ul class="service-list">
+        <li>Dedicated creative partner</li>
+        <li>Monthly spot delivery</li>
+        <li>US & Asia timezone coverage</li>
+        <li>Campaign strategy included</li>
+        <li>Priority turnaround</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK A CALL -->
+<section class="book-section" id="book">
+  <div class="book-grid">
+    <div class="book-left">
+      <span class="section-label">Schedule a Meeting</span>
+      <h2>BOOK A<br>15-MINUTE<br>CALL</h2>
+      <p>No pitch. No pressure. Just a direct conversation about your project, your brand, and whether we're the right fit.</p>
+      <div class="book-detail">15 minutes · Video or phone</div>
+      <div class="book-detail">Available US & Asia timezones</div>
+      <div class="book-detail">In LA from April 30 — September</div>
+      <div class="book-detail">Response within 24 hours</div>
+    </div>
+    <div class="calendly-wrap">
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/matassaagency?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0f0f0f&text_color=ffffff&primary_color=ffffff"
+        style="min-width:320px;height:650px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="section-label">Get In Touch</span>
+      <h2>START YOUR<br>PROJECT</h2>
+      <p>Tell us about your brand, your concept, and what you want to invest. We'll come back to you within 24 hours — aligned or with a counter. Either way, it's a conversation, not a commitment.</p>
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <span class="contact-info-label">Email</span>
+          <span class="contact-info-value">hello [at] matassa.com</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Text</span>
+          <span class="contact-info-value">415.205.0868</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Headquarters</span>
+          <span class="contact-info-value">Los Angeles, California</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Also Operating</span>
+          <span class="contact-info-value">Bangkok, Thailand</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">In Los Angeles</span>
+          <span class="contact-info-value">April 30 — September 2026</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="field">
+        <label>Your Name</label>
+        <input type="text" id="f-name" placeholder="First and last name" />
+      </div>
+      <div class="field">
+        <label>Brand / Company</label>
+        <input type="text" id="f-brand" placeholder="Your brand or company" />
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="f-email" placeholder="you@yourbrand.com" />
+      </div>
+      <div class="field">
+        <label>Service</label>
+        <select id="f-service">
+          <option value="">Select a service</option>
+          <option value="AI Spot">AI Spot — from $5,000</option>
+          <option value="Premade Ad">Premade Ad — from $2,500</option>
+          <option value="Retainer">Monthly Retainer — from $15,000</option>
+          <option value="Other">Other / Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Your Budget</label>
+        <input type="text" id="f-budget" placeholder="What do you want to invest?" />
+      </div>
+      <div class="field">
+        <label>Your Concept or Brief</label>
+        <textarea id="f-concept" placeholder="Tell us about your project — concept, brand, goals, timeline. If you don't have a concept yet, that's fine too."></textarea>
+      </div>
+      <button class="submit-btn" onclick="handleSubmit()">Send Your Brief →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">MATASSA AGENCY</span>
+  <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok</span>
+  <span class="footer-right">
+    <a href="https://www.rubberneck.ai/terms.html">Terms</a> &nbsp;·&nbsp;
+    <a href="https://www.rubberneck.ai/privacy.html">Privacy</a>
+  </span>
+</footer>
+
+<!-- ASK MODAL -->
+<div class="modal-overlay" id="askModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-title">Ask Us Anything</div>
+    <p class="modal-sub">No pitch. No pressure. Just a question? We've got answers.</p>
+    <div class="field">
+      <label>Your Name</label>
+      <input type="text" id="q-name" placeholder="Your name" />
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="q-email" placeholder="you@yourbrand.com" />
+    </div>
+    <div class="field">
+      <label>Your Question</label>
+      <textarea id="q-message" placeholder="What's on your mind?" style="min-height:100px;"></textarea>
+    </div>
+    <button class="modal-btn" id="askBtn" onclick="submitQuestion()">Send It →</button>
+    <p id="askPhone" style="display:none;margin-top:1rem;text-align:center;font-family:'Epilogue',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.5);">
+      Need us right away? Text us at <strong style="color:#fff;">415.205.0868</strong>
+    </p>
+  </div>
+</div>
+
+<!-- CALENDLY WIDGET -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+<script>
+  /* MUTE TOGGLE */
+  var isMuted = true;
+  function toggleMute() {
+    var iframe = document.querySelector('.hero-video iframe');
+    var label  = document.getElementById('muteLabel');
+    isMuted = !isMuted;
+    var base = 'https://player.vimeo.com/video/1180833879?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0';
+    iframe.src = base + (isMuted ? '&muted=1' : '&muted=0');
+    label.textContent = isMuted ? 'Unmute' : 'Mute';
+  }
+
+  /* CONTACT FORM */
+  async function handleSubmit() {
+    const name    = document.getElementById('f-name').value.trim();
+    const brand   = document.getElementById('f-brand').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const service = document.getElementById('f-service').value;
+    const budget  = document.getElementById('f-budget').value.trim();
+    const concept = document.getElementById('f-concept').value.trim();
+    const btn     = document.querySelector('.submit-btn');
+
+    if (!name || !email || !concept) {
+      alert('Please fill in your name, email, and brief before submitting.');
+      return;
+    }
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xzdkojqd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, brand, email, service, budget, concept })
+      });
+      if (res.ok) {
+        btn.textContent = "We've got it. You'll hear from us within 24 hours.";
+        btn.style.background = '#1a1a1a';
+        btn.style.color = '#fff';
+        ['f-name','f-brand','f-email','f-budget','f-concept'].forEach(id => document.getElementById(id).value = '');
+        document.getElementById('f-service').value = '';
+      } else { throw new Error(); }
+    } catch(e) {
+      btn.textContent = 'Send Your Brief →';
+      btn.disabled = false;
+      alert('Something went wrong. Email us at hello@matassa.com');
+    }
+  }
+
+  /* MODAL */
+  function openModal() { document.getElementById('askModal').classList.add('open'); }
+  function closeModal() { document.getElementById('askModal').classList.remove('open'); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  async function submitQuestion() {
+    const name    = document.getElementById('q-name').value.trim();
+    const email   = document.getElementById('q-email').value.trim();
+    const message = document.getElementById('q-message').value.trim();
+    const btn     = document.getElementById('askBtn');
+    if (!name || !email || !message) { alert('Please fill in all fields.'); return; }
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formspree.io/f/xzdkojqd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, message, type: 'General Inquiry' })
+      });
+      if (res.ok) {
+        btn.textContent = "Got it. We'll be in touch.";
+        btn.style.background = '#1a1a1a';
+        btn.style.color = '#fff';
+        document.getElementById('askPhone').style.display = 'block';
+      } else { throw new Error(); }
+    } catch(e) {
+      btn.textContent = 'Send It →';
+      btn.disabled = false;
+      alert('Something went wrong. Text us at 415.205.0868');
+    }
+  }
+</script>
+</body>
+</html>
