@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinematic AI Storytelling — Matassa Agency</title>
+<meta name="description" content="AI-produced spots built on 36 years of film craft. Creative partner with ByteDance Seedance, Alibaba WAN, Runway, Freepik and Minimax.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem 3rem;
+    background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.18em; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--light-grey); font-size: 0.85em; }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links > li { position: relative; }
+  .nav-links > li > a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
+  .nav-links > li > a:hover { color: var(--white); }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.08); min-width: 240px; z-index: 200; }
+  .nav-links > li:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 0.85rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+  .nav-dropdown a:hover { color: var(--white); }
+  .nav-dropdown a.active { color: var(--white); }
+  .nav-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 0.6rem 1.5rem; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--light-grey); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 10rem 3rem 5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .page-header-inner { max-width: 700px; }
+  .section-label { display: block; font-size: 0.6rem; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; }
+  .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; }
+  .page-header p { font-size: 1rem; line-height: 1.85; font-weight: 300; color: rgba(255,255,255,0.5); max-width: 560px; }
+
+  /* AI CREDENTIALS */
+  .ai-creds {
+    padding: 3rem; background: #0a0a0a;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;
+  }
+  .ai-cred-label { font-size: 0.58rem; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-right: 1rem; }
+  .ai-cred-item { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); padding: 0.4rem 1rem; border: 1px solid rgba(255,255,255,0.1); }
+
+  /* SPOTS GRID */
+  .spots-section { padding: 5rem 3rem; }
+  .spots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+  .spot-item { cursor: pointer; }
+  .spot-thumb {
+    position: relative; padding-top: 56.25%;
+    background: #111; overflow: hidden; margin-bottom: 1.5rem;
+    transition: opacity 0.2s;
+  }
+  .spot-thumb:hover { opacity: 0.85; }
+  .spot-thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .spot-play {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    z-index: 2; transition: opacity 0.2s;
+  }
+  .spot-play-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(4px); transition: background 0.2s;
+  }
+  .spot-thumb:hover .spot-play-btn { background: rgba(255,255,255,0.25); }
+  .spot-meta { display: flex; gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .spot-tag { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); padding: 0.25rem 0.6rem; border: 1px solid rgba(255,255,255,0.1); }
+  .spot-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.6rem; }
+  .spot-desc { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.75; font-weight: 300; }
+
+  /* COMING SOON */
+  .spot-placeholder {
+    background: #0f0f0f; border: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 200px;
+  }
+  .spot-placeholder span { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+
+  /* VIDEO MODAL */
+  .video-modal { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.97); align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+  .video-modal.open { display: flex; }
+  .video-modal-inner { position: relative; width: 90vw; max-width: 1100px; }
+  .video-modal-close { position: absolute; top: -3rem; right: 0; background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Epilogue', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; transition: color 0.2s; }
+  .video-modal-close:hover { color: var(--white); }
+  .video-embed { position: relative; padding-top: 56.25%; background: #000; }
+  .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* CTA */
+  .cta-section { padding: 7rem 3rem; background: #050505; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 1rem; }
+  .cta-section p { font-size: 0.9rem; color: rgba(255,255,255,0.45); font-weight: 300; margin-bottom: 2.5rem; }
+  .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.5rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--light-grey); }
+
+  /* FOOTER */
+  footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.2em; color: var(--white); }
+  .footer-center { font-size: 0.6rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.18); text-transform: uppercase; text-align: center; }
+  .footer-right { font-size: 0.6rem; color: rgba(255,255,255,0.2); }
+  .footer-right a { color: rgba(255,255,255,0.2); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-header, .spots-section, .cta-section { padding: 6rem 1.5rem 3rem; }
+    .spots-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .ai-creds { padding: 2rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">MATASSA <span>AGENCY</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li>
+        <a href="#">The Work ▾</a>
+        <div class="nav-dropdown">
+          <a href="creative.html">Creative Video Editing</a>
+          <a href="ai.html" class="active">Cinematic AI Storytelling</a>
+          <a href="premade.html">Premade Ads</a>
+        </div>
+      </li>
+      <li><a href="/#book">Book a Call</a></li>
+      <li><a href="/#contact">Start a Project</a></li>
+    </ul>
+    <a href="https://calendly.com/matassaagency" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="section-label">The Work — Cinematic AI Storytelling</span>
+    <h1>AI MADE BY SOMEONE WHO KNOWS FILM.</h1>
+    <p>Creative partner with ByteDance Seedance, Alibaba WAN, Runway, Freepik and Minimax. Working with these tools before public release. AI spots selected for Cannes 2026 and Bali International Film Festival.</p>
+  </div>
+</div>
+
+<!-- AI CREDENTIALS -->
+<div class="ai-creds">
+  <span class="ai-cred-label">Creative Partner</span>
+  <span class="ai-cred-item">ByteDance Seedance</span>
+  <span class="ai-cred-item">Alibaba WAN</span>
+  <span class="ai-cred-item">Runway</span>
+  <span class="ai-cred-item">Freepik</span>
+  <span class="ai-cred-item">Minimax</span>
+  <span class="ai-cred-item">Cannes 2026</span>
+  <span class="ai-cred-item">Bali International</span>
+</div>
+
+<!-- SPOTS -->
+<section class="spots-section">
+  <div class="spots-grid">
+
+    <!-- SIZZLE REEL -->
+    <div class="spot-item" onclick="openVideo('1180833879')">
+      <div class="spot-thumb">
+        <iframe src="https://player.vimeo.com/video/1180833879?badge=0&autopause=0&background=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        <div class="spot-play">
+          <div class="spot-play-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="spot-meta">
+        <span class="spot-tag">:25</span>
+        <span class="spot-tag">Sizzle Reel</span>
+        <span class="spot-tag">2026</span>
+      </div>
+      <h3 class="spot-title">AI LAUNCH SIZZLE</h3>
+      <p class="spot-desc">The Matassa Agency launch sizzle. Created with Seedance 2.0, Nano Banana, and Topaz Astra.</p>
+    </div>
+
+    <!-- PANCAKE SPOT -->
+    <div class="spot-item" onclick="openVideo('1181123452')">
+      <div class="spot-thumb">
+        <iframe src="https://player.vimeo.com/video/1181123452?badge=0&autopause=0&background=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        <div class="spot-play">
+          <div class="spot-play-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="spot-meta">
+        <span class="spot-tag">:15</span>
+        <span class="spot-tag">Food & Beverage</span>
+        <span class="spot-tag">Premade Ad</span>
+      </div>
+      <h3 class="spot-title">PANCAKE & MAPLE SYRUP</h3>
+      <p class="spot-desc">A brandable :15 AI spot for food and family brands. Customizable with your logo and script.</p>
+    </div>
+
+    <!-- COMING SOON SLOTS -->
+    <div class="spot-item">
+      <div class="spot-thumb">
+        <div class="spot-placeholder"><span>In Production</span></div>
+      </div>
+      <div class="spot-meta"><span class="spot-tag">Coming Soon</span></div>
+      <h3 class="spot-title">NEXT SPOT</h3>
+      <p class="spot-desc">More AI work dropping soon. Check back or follow on LinkedIn.</p>
+    </div>
+
+    <div class="spot-item">
+      <div class="spot-thumb">
+        <div class="spot-placeholder"><span>In Production</span></div>
+      </div>
+      <div class="spot-meta"><span class="spot-tag">Coming Soon</span></div>
+      <h3 class="spot-title">NEXT SPOT</h3>
+      <p class="spot-desc">More AI work dropping soon. Check back or follow on LinkedIn.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>READY TO MAKE YOURS?</h2>
+  <p>First cut 48 hours after approved brief. Your concept or ours.</p>
+  <a href="/#contact" class="btn-primary">Start Your Project →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">MATASSA AGENCY</span>
+  <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok</span>
+  <span class="footer-right"><a href="https://www.rubberneck.ai/terms.html">Terms</a> &nbsp;·&nbsp; <a href="https://www.rubberneck.ai/privacy.html">Privacy</a></span>
+</footer>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-inner">
+    <button class="video-modal-close" onclick="closeVideo()">✕ &nbsp;Close</button>
+    <div class="video-embed">
+      <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openVideo(id) {
+    document.getElementById('videoFrame').src = 'https://player.vimeo.com/video/' + id + '?badge=0&autopause=0&autoplay=1&loop=1&player_id=0&app_id=58479';
+    document.getElementById('videoModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideo() {
+    document.getElementById('videoFrame').src = '';
+    document.getElementById('videoModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeVideo();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
+</script>
+</body>
+</html>
