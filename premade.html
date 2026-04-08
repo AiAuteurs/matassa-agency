@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premade Ads — Matassa</title>
+<meta name="description" content="Brandable A.I. spots ready to make yours. Drop in your logo, customize the script, launch in days.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; --sage: #8BAF8E; --ice: #7EB8D4; --amber: #D4A87A; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 3rem; background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); }
+  .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.8rem; letter-spacing: 0.05em; color: var(--sage); text-decoration: none; display: flex; flex-direction: column; line-height: 1.1; align-items: center; text-transform: uppercase; }
+  .nav-logo-sub { font-family: 'Epilogue', sans-serif; font-size: 0.5rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.75); font-weight: 400; margin-top: 0.2rem; text-align: center; }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .nav-links { display: flex; list-style: none; align-items: center; }
+  .nav-links > li { position: relative; display: flex; align-items: center; }
+  .nav-links > li > a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
+  .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--white); }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.08); min-width: 240px; z-index: 200; }
+  .nav-links > li:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 0.85rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+  .nav-dropdown a:hover, .nav-dropdown a.active { color: var(--white); }
+  .nav-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 0.6rem 1.5rem; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--light-grey); }
+  .nav-start { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black) !important; background: var(--sage); padding: 0.6rem 1.5rem; text-decoration: none; transition: all 0.2s; animation: navPulse 2.5s ease-in-out infinite; }
+  .nav-start:hover { background: #a0c4a3; animation: none; }
+  @keyframes navPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(139,175,142,0); } 50% { box-shadow: 0 0 0 7px rgba(139,175,142,0.22); } }
+
+  /* HERO */
+  .page-hero { padding: 9rem 3rem 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
+  .hero-kicker { font-size: 0.58rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 9vw, 8rem); line-height: 0.9; color: var(--white); text-transform: uppercase; margin-bottom: 2rem; }
+  .hero-sub { font-size: 1rem; font-weight: 300; color: var(--white); line-height: 1.8; }
+  .hero-right { }
+  .how-it-works { border-left: 2px solid var(--amber); padding-left: 2rem; }
+  .how-it-works h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.06em; color: var(--amber); margin-bottom: 1.5rem; }
+  .step { margin-bottom: 1.5rem; }
+  .step-num { font-size: 0.52rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.3rem; }
+  .step-text { font-size: 0.92rem; font-weight: 300; color: var(--white); line-height: 1.6; }
+
+  /* SPOTS */
+  .spots-section { padding: 6rem 3rem; }
+  .spots-section > .section-kicker { font-size: 0.58rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 4rem; }
+  .spot-feature { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5rem; align-items: start; margin-bottom: 6rem; padding-bottom: 6rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .spot-feature:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .spot-embed { position: relative; padding-bottom: 56.25%; background: #0a0a0a; }
+  .spot-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .spot-info { padding-top: 0.5rem; }
+  .spot-num { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; line-height: 1; color: rgba(255,255,255,0.08); display: block; margin-bottom: 0.5rem; }
+  .spot-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 0.95; color: var(--white); text-transform: uppercase; margin-bottom: 1rem; }
+  .spot-desc { font-size: 0.92rem; font-weight: 300; color: var(--white); line-height: 1.8; margin-bottom: 2rem; }
+  .spot-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .spot-tag { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber); border: 1px solid rgba(212,168,122,0.3); padding: 0.35rem 0.8rem; }
+  .spot-cta { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--amber); padding: 1rem 2rem; text-decoration: none; transition: all 0.2s; }
+  .spot-cta:hover { background: #e0b98a; }
+
+  /* CUSTOM CTA BAND */
+  .custom-band { background: #0f0f0f; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 5rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .custom-band h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); color: var(--white); line-height: 1; margin-bottom: 1rem; }
+  .custom-band p { font-size: 0.95rem; font-weight: 300; color: var(--white); line-height: 1.85; }
+  .custom-band-right { display: flex; flex-direction: column; gap: 1rem; }
+  .custom-detail { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .custom-detail-dot { width: 6px; height: 6px; background: var(--amber); border-radius: 50%; margin-top: 0.45rem; flex-shrink: 0; }
+  .custom-detail-text { font-size: 0.88rem; font-weight: 300; color: var(--white); line-height: 1.6; }
+
+  /* CTA */
+  .cta-section { padding: 7rem 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 1rem; }
+  .cta-section p { font-size: 0.9rem; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.5rem; text-decoration: none; display: inline-block; margin: 0 0.5rem; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--light-grey); }
+  .btn-amber { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--amber); padding: 1rem 2.5rem; text-decoration: none; display: inline-block; margin: 0 0.5rem; transition: all 0.2s; }
+  .btn-amber:hover { background: #e0b98a; }
+
+  /* FOOTER */
+  footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--sage); text-decoration: none; text-transform: uppercase; }
+  .footer-center { font-size: 0.6rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.3); text-transform: uppercase; text-align: center; }
+  .footer-right { font-size: 0.6rem; color: rgba(255,255,255,0.3); }
+  .footer-right a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-right a:hover { color: rgba(255,255,255,0.7); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 3rem; }
+    .spots-section { padding: 4rem 1.5rem; }
+    .spot-feature { grid-template-columns: 1fr; gap: 2rem; }
+    .custom-band { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+    .cta-section { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">MATASSA<span class="nav-logo-sub">Traditional Craft. Cinematic A.I.</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li>
+        <a href="#" class="active">The Work ▾</a>
+        <div class="nav-dropdown">
+          <a href="creative.html">Creative Video Editing</a>
+          <a href="ai.html">Cinematic A.I. Storytelling</a>
+          <a href="premade.html" class="active">Premade Ads</a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="/#contact" class="nav-start">Start a Project</a></li>
+    </ul>
+    <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div>
+    <span class="hero-kicker">Premade A.I. Ads</span>
+    <h1 class="hero-title">Ready to Run.<br>Built to Own.</h1>
+    <p class="hero-sub">Every spot in this catalogue is available for purchase. We customize it with your logo, your script, and your URL — and deliver a broadcast-ready ad in days, not months.</p>
+  </div>
+  <div class="hero-right">
+    <div class="how-it-works">
+      <h3>How It Works</h3>
+      <div class="step"><span class="step-num">Step 01</span><p class="step-text">Pick a spot from the catalogue that fits your brand.</p></div>
+      <div class="step"><span class="step-num">Step 02</span><p class="step-text">We customize it — your logo, script, URL, color grade.</p></div>
+      <div class="step"><span class="step-num">Step 03</span><p class="step-text">You receive broadcast-ready files in all formats.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SPOTS -->
+<section class="spots-section">
+  <span class="section-kicker">The Catalogue</span>
+
+  <div class="spot-feature">
+    <div class="spot-embed">
+      <iframe src="https://player.vimeo.com/video/1181123452?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Pancakes & Syrup AI Spec Spot by Matassa"></iframe>
+    </div>
+    <div class="spot-info">
+      <span class="spot-num">01</span>
+      <h2 class="spot-title">Pancakes &amp; Syrup</h2>
+      <p class="spot-desc">A warm, cinematic food spot built for restaurants, breakfast brands, and CPG. Customizable with your product, logo, and closing message. Broadcast and social formats included.</p>
+      <div class="spot-tags">
+        <span class="spot-tag">Food & Beverage</span>
+        <span class="spot-tag">Restaurant</span>
+        <span class="spot-tag">CPG</span>
+        <span class="spot-tag">:15 · :30</span>
+      </div>
+      <a href="/#contact" class="spot-cta">Inquire About This Spot →</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- CUSTOM BAND -->
+<div class="custom-band">
+  <div>
+    <h2>Every Spot Is Available.<br>Every Spot Is Customizable.</h2>
+    <p>These aren't templates. They're fully produced A.I. spots built with cinematic craft — ready to be made yours. We customize the script, drop in your logo and URL, and deliver broadcast-ready files.</p>
+  </div>
+  <div class="custom-band-right">
+    <div class="custom-detail"><div class="custom-detail-dot"></div><p class="custom-detail-text">Your logo, script, and URL — seamlessly integrated</p></div>
+    <div class="custom-detail"><div class="custom-detail-dot"></div><p class="custom-detail-text">All formats delivered — 16×9, 9×16, 1:1</p></div>
+    <div class="custom-detail"><div class="custom-detail-dot"></div><p class="custom-detail-text">Broadcast-ready files in 48–72 hours</p></div>
+    <div class="custom-detail"><div class="custom-detail-dot"></div><p class="custom-detail-text">Contact us for pricing and availability</p></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Find Your Spot.</h2>
+  <p>Contact us about any spot in the catalogue. We'll tell you what's available, what it costs, and how fast we can make it yours.</p>
+  <a href="/#contact" class="btn-amber">Contact Us About a Spot →</a>
+  <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="btn-primary">Book a Creative Huddle</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">MATASSA</a>
+  <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok · Any Time Zone</span>
+  <span class="footer-right">
+    <a href="https://www.rubberneck.ai/terms.html">Terms</a> &nbsp;·&nbsp;
+    <a href="https://www.rubberneck.ai/privacy.html">Privacy</a>
+  </span>
+</footer>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Video Editing — Matassa</title>
+<meta name="description" content="36 years of high-craft creative editorial. Super Bowl spots, national TV, brand films, sizzle reels. Goodby Silverstein, BBDO, AKQA, Michael Bay.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; --sage: #8BAF8E; --ice: #7EB8D4; --amber: #D4A87A; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 3rem; background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); }
+  .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.8rem; letter-spacing: 0.05em; color: var(--sage); text-decoration: none; display: flex; flex-direction: column; line-height: 1.1; align-items: center; text-transform: uppercase; }
+  .nav-logo-sub { font-family: 'Epilogue', sans-serif; font-size: 0.5rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.75); font-weight: 400; margin-top: 0.2rem; text-align: center; }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .nav-links { display: flex; list-style: none; align-items: center; }
+  .nav-links > li { position: relative; display: flex; align-items: center; }
+  .nav-links > li > a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
+  .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--white); }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.08); min-width: 240px; z-index: 200; }
+  .nav-links > li:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 0.85rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+  .nav-dropdown a:hover, .nav-dropdown a.active { color: var(--white); }
+  .nav-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 0.6rem 1.5rem; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--light-grey); }
+  .nav-start { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black) !important; background: var(--sage); padding: 0.6rem 1.5rem; text-decoration: none; transition: all 0.2s; animation: navPulse 2.5s ease-in-out infinite; }
+  .nav-start:hover { background: #a0c4a3; animation: none; }
+  @keyframes navPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(139,175,142,0); } 50% { box-shadow: 0 0 0 7px rgba(139,175,142,0.22); } }
+
+  /* HERO */
+  .page-hero { padding: 9rem 3rem 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .hero-kicker { font-size: 0.58rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 9vw, 8rem); line-height: 0.9; color: var(--white); text-transform: uppercase; margin-bottom: 2rem; }
+  .hero-sub { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.8; max-width: 560px; }
+
+  /* REEL GRID */
+  .reel-section { padding: 6rem 3rem; }
+  .reel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+  .reel-item {}
+  .reel-embed { position: relative; padding-bottom: 56.25%; background: #0a0a0a; }
+  .reel-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .reel-meta { padding: 1.2rem 0 0; }
+  .reel-client { font-size: 0.58rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.4rem; }
+  .reel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.06em; color: var(--white); }
+  .reel-detail { font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 300; margin-top: 0.3rem; letter-spacing: 0.04em; }
+
+  /* CREDITS GRID */
+  .credits-section { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a; }
+  .credits-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 0; border: 1px solid rgba(255,255,255,0.07); margin-top: 3rem; }
+  .credits-grid div { padding: 1.5rem 1.2rem; border-right: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .credits-grid div:nth-child(6n) { border-right: none; }
+  .credits-grid div p { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--white); }
+  .credits-grid div span { display: block; font-size: 0.6rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; margin-top: 0.3rem; font-family: 'Epilogue', sans-serif; font-weight: 300; }
+
+  /* CTA */
+  .cta-section { padding: 7rem 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 1rem; }
+  .cta-section p { font-size: 0.9rem; color: rgba(255,255,255,0.6); font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.5rem; text-decoration: none; display: inline-block; margin: 0 0.5rem; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--light-grey); }
+  .btn-secondary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); background: transparent; padding: 1rem 2.5rem; text-decoration: none; display: inline-block; border: 1px solid rgba(255,255,255,0.25); margin: 0 0.5rem; transition: all 0.2s; }
+  .btn-secondary:hover { border-color: var(--white); }
+
+  /* FOOTER */
+  footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--sage); text-decoration: none; text-transform: uppercase; }
+  .footer-center { font-size: 0.6rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.3); text-transform: uppercase; text-align: center; }
+  .footer-right { font-size: 0.6rem; color: rgba(255,255,255,0.3); }
+  .footer-right a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-right a:hover { color: rgba(255,255,255,0.7); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-hero { padding: 7rem 1.5rem 3rem; }
+    .reel-section { padding: 4rem 1.5rem; }
+    .reel-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .credits-section { padding: 4rem 1.5rem; }
+    .credits-grid { grid-template-columns: repeat(3,1fr); }
+    .cta-section { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">MATASSA<span class="nav-logo-sub">Traditional Craft. Cinematic A.I.</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li>
+        <a href="#" class="active">The Work ▾</a>
+        <div class="nav-dropdown">
+          <a href="creative.html" class="active">Creative Video Editing</a>
+          <a href="ai.html">Cinematic A.I. Storytelling</a>
+          <a href="premade.html">Premade Ads</a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="/#contact" class="nav-start">Start a Project</a></li>
+    </ul>
+    <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <span class="hero-kicker">Creative Video Editing</span>
+  <h1 class="hero-title">36 Years.<br>No Shortcuts.</h1>
+  <p class="hero-sub">High-craft editorial for the world's most demanding agencies and brands. Super Bowl spots, national TV, brand films, sizzle reels — built on instinct, taste, and three decades of earned experience.</p>
+</div>
+
+<!-- REEL GRID -->
+<section class="reel-section">
+  <div class="reel-grid">
+
+    <div class="reel-item">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/1163670558?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Samsara × Super Bowl LX — Jesse Love"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Samsara</span>
+        <p class="reel-title">Super Bowl LX — Jesse Love</p>
+        <p class="reel-detail">National Broadcast · :30</p>
+      </div>
+    </div>
+
+    <div class="reel-item">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/677256468?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="MIDEA Appliances Dishwasher TV Spot"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Midea Appliances</span>
+        <p class="reel-title">Dishwasher TV Spot</p>
+        <p class="reel-detail">National Broadcast</p>
+      </div>
+    </div>
+
+    <div class="reel-item">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/594786814?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="15Five — New HR"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">15Five</span>
+        <p class="reel-title">New HR</p>
+        <p class="reel-detail">Brand Film · :30</p>
+      </div>
+    </div>
+
+    <div class="reel-item">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/677315165?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Refillable Cleaners"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Clorox</span>
+        <p class="reel-title">Reload in a Snap — Refillable Cleaners</p>
+        <p class="reel-detail">National Broadcast</p>
+      </div>
+    </div>
+
+    <div class="reel-item">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/677253981?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Midea Appliances Fridge"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Midea Appliances</span>
+        <p class="reel-title">Fridge TV Spot</p>
+        <p class="reel-detail">National Broadcast</p>
+      </div>
+    </div>
+
+    <div class="reel-item">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/440068901?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Doritos Crash From Home"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Doritos</span>
+        <p class="reel-title">Crash From Home — Launch Film</p>
+        <p class="reel-detail">Long-Form · Digital</p>
+      </div>
+    </div>
+
+    <div class="reel-item">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/769699092?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja NC300 — Meet the Creami"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Ninja</span>
+        <p class="reel-title">NC300 — Meet the Creami</p>
+        <p class="reel-detail">Product Launch</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREDITS GRID -->
+<section class="credits-section">
+  <span style="font-size:0.58rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--sage);">Selected Editing Credits</span>
+  <div class="credits-grid">
+    <div><p>Goodby Silverstein</p></div>
+    <div><p>BBDO</p></div>
+    <div><p>AKQA</p></div>
+    <div><p>R/GA</p></div>
+    <div><p>NVIDIA</p></div>
+    <div><p>Google</p></div>
+    <div><p>McDonald's</p></div>
+    <div><p>Doritos</p></div>
+    <div><p>Disney</p></div>
+    <div><p>Budweiser</p></div>
+    <div><p>Nickelodeon</p></div>
+    <div><p>Clorox</p></div>
+    <div><p>ServiceNow</p></div>
+    <div><p>Workday</p></div>
+    <div><p>Shark Ninja</p></div>
+    <div><p>Samsara</p></div>
+    <div><p>Red Car Hollywood</p></div>
+    <div><p>Michael Bay</p></div>
+    <div><p>Dennis Virkler<span>Editor · Hunt for Red October</span></p></div>
+    <div><p>Larry Bridges</p></div>
+    <div><p>Rob Watzke</p></div>
+    <div><p>Jeff Goodby</p></div>
+    <div><p>Michael Bay</p></div>
+    <div><p>And Many More</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Let's Make Something Great.</h2>
+  <p>30+ years of craft. Ready to work for your brand.</p>
+  <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="btn-primary">Book a Creative Huddle →</a>
+  <a href="/#contact" class="btn-secondary">Start Your Project</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">MATASSA</a>
+  <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok · Any Time Zone</span>
+  <span class="footer-right">
+    <a href="https://www.rubberneck.ai/terms.html">Terms</a> &nbsp;·&nbsp;
+    <a href="https://www.rubberneck.ai/privacy.html">Privacy</a>
+  </span>
+</footer>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+</body>
+</html>
