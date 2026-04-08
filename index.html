@@ -38,6 +38,9 @@
   .nav-dropdown a:hover { color: var(--white); }
   .nav-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 0.6rem 1.5rem; text-decoration: none; transition: background 0.2s; }
   .nav-cta:hover { background: var(--light-grey); }
+  .nav-start { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black) !important; background: var(--sage); padding: 0.6rem 1.5rem; text-decoration: none; transition: all 0.2s; animation: navPulse 2.5s ease-in-out infinite; }
+  .nav-start:hover { background: #a0c4a3; animation: none; }
+  @keyframes navPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(139,175,142,0); } 50% { box-shadow: 0 0 0 7px rgba(139,175,142,0.22); } }
 
   /* HERO */
   .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; overflow: hidden; }
@@ -221,7 +224,7 @@
       </li>
       <li><a href="about.html">About</a></li>
       <li><a href="#book">Book a Call</a></li>
-      <li><a href="#contact">Start a Project</a></li>
+      <li><a href="#contact" class="nav-start">Start a Project</a></li>
     </ul>
     <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
   </div>
@@ -248,37 +251,6 @@
   <svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M3 9H0v6h3l4 4V5L3 9zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
   <span id="muteLabel">Unmute</span>
 </button>
-
-<!-- CREDENTIALS -->
-<div style="background:#0a0a0a; padding:4rem 3rem; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
-  <p style="font-size:0.58rem; letter-spacing:0.42em; text-transform:uppercase; color:#8BAF8E; margin-bottom:2.5rem;">Selected Editing Credits</p>
-  <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:0; border:1px solid rgba(255,255,255,0.07);">
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Goodby Silverstein</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">BBDO</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">AKQA</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">R/GA</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">NVIDIA</p></div>
-    <div style="padding:1.5rem 1.2rem; border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Google</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">McDonald's</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Doritos</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Disney</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Budweiser</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Nickelodeon</p></div>
-    <div style="padding:1.5rem 1.2rem; border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Clorox</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">ServiceNow</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Workday</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Shark Ninja</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Samsara</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Red Car Hollywood</p></div>
-    <div style="padding:1.5rem 1.2rem; border-bottom:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Michael Bay</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Dennis Virkler<span style="display:block; font-size:0.6rem; color:rgba(255,255,255,0.35); letter-spacing:0.1em; margin-top:0.3rem; font-family:'Epilogue',sans-serif; font-weight:300;">Editor · Hunt for Red October</span></p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Larry Bridges</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Rob Watzke</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Jeff Goodby</p></div>
-    <div style="padding:1.5rem 1.2rem; border-right:1px solid rgba(255,255,255,0.07);"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">Michael Bay</p></div>
-    <div style="padding:1.5rem 1.2rem;"><p style="font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.1em; color:rgba(255,255,255,0.85);">And Many More</p></div>
-  </div>
-</div>
 
 <!-- WORK -->
 <section class="work-section" id="work">
