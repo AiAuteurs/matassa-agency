@@ -98,6 +98,22 @@
     .cta-section { padding: 4rem 1.5rem; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
   }
+
+  /* INQUIRY MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 500; align-items: center; justify-content: center; padding: 2rem; }
+  .modal-overlay.open { display: flex; }
+  .modal-box { background: #0f0f0f; border: 1px solid rgba(255,255,255,0.1); max-width: 580px; width: 100%; padding: 3rem; position: relative; max-height: 90vh; overflow-y: auto; }
+  .modal-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 1.5rem; cursor: pointer; line-height: 1; transition: color 0.2s; }
+  .modal-close:hover { color: var(--white); }
+  .modal-kicker { font-size: 0.55rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.6rem; }
+  .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--white); margin-bottom: 2rem; }
+  .modal-field { margin-bottom: 1.2rem; }
+  .modal-field label { display: block; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
+  .modal-field input, .modal-field textarea { width: 100%; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.88rem; padding: 0.85rem 1rem; outline: none; transition: border-color 0.2s; resize: vertical; }
+  .modal-field input:focus, .modal-field textarea:focus { border-color: var(--amber); }
+  .modal-field input::placeholder, .modal-field textarea::placeholder { color: rgba(255,255,255,0.2); }
+  .modal-submit { width: 100%; background: var(--amber); color: var(--black); font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; padding: 1.1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; }
+  .modal-submit:hover { background: #e0b98a; }
 </style>
 </head>
 <body>
@@ -156,7 +172,7 @@
         <span class="spot-tag">CPG</span>
         <span class="spot-tag">:15 · :30</span>
       </div>
-      <a href="/#contact" class="spot-cta">Inquire About This Spot →</a>
+      <button onclick="openModal('Pancakes &amp; Syrup')" class="spot-cta" style="cursor:pointer;border:none;font-family:'Epilogue',sans-serif;">Inquire About This Spot →</button>
     </div>
   </div>
 
@@ -180,7 +196,7 @@
 <section class="cta-section">
   <h2>Find Your Spot.</h2>
   <p>Contact us about any spot in the catalogue. We'll tell you what's available, what it costs, and how fast we can make it yours.</p>
-  <a href="/#contact" class="btn-amber">Contact Us About a Spot →</a>
+  <button onclick="openModal('General Premade Inquiry')" class="btn-amber" style="cursor:pointer;border:none;font-family:'Epilogue',sans-serif;">Contact Us About a Spot →</button>
   <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="btn-primary">Book a Creative Huddle</a>
 </section>
 
@@ -195,5 +211,86 @@
 </footer>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
+
+<!-- INQUIRY MODAL -->
+<div class="modal-overlay" id="inquiryModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <span class="modal-kicker">Premade Ads</span>
+    <p class="modal-title" id="modalTitle">Inquire About This Spot</p>
+    <div class="modal-field">
+      <label>Your Name</label>
+      <input type="text" id="pm-name" placeholder="First and last name" />
+    </div>
+    <div class="modal-field">
+      <label>Brand / Company</label>
+      <input type="text" id="pm-brand" placeholder="Your brand or company" />
+    </div>
+    <div class="modal-field">
+      <label>Email</label>
+      <input type="email" id="pm-email" placeholder="you@yourbrand.com" />
+    </div>
+    <div class="modal-field">
+      <label>Phone / Text</label>
+      <input type="tel" id="pm-phone" placeholder="Best number to reach you" />
+    </div>
+    <div class="modal-field">
+      <label>Tell Us About Your Brand</label>
+      <textarea id="pm-message" rows="3" placeholder="What does your brand do? Any specific customization needs?"></textarea>
+    </div>
+    <input type="hidden" id="pm-spot" value="" />
+    <button class="modal-submit" id="pmSubmitBtn" onclick="submitPremadeInquiry()">Send Inquiry →</button>
+  </div>
+</div>
+
+<script>
+  function openModal(spotName) {
+    document.getElementById('modalTitle').textContent = 'Inquire — ' + spotName;
+    document.getElementById('pm-spot').value = spotName;
+    document.getElementById('inquiryModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('inquiryModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('inquiryModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  async function submitPremadeInquiry() {
+    var btn = document.getElementById('pmSubmitBtn');
+    var email = document.getElementById('pm-email').value.trim();
+    if (!email) { alert('Just your email so we can get back to you.'); return; }
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    var data = {
+      inquiryType: 'Premade Ad Inquiry',
+      spot: document.getElementById('pm-spot').value,
+      name: document.getElementById('pm-name').value.trim(),
+      brand: document.getElementById('pm-brand').value.trim(),
+      email: email,
+      phone: document.getElementById('pm-phone').value.trim(),
+      message: document.getElementById('pm-message').value.trim()
+    };
+    try {
+      var res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        btn.textContent = "Got it. We'll be in touch shortly.";
+        btn.style.background = '#1a1a1a';
+        btn.style.color = '#fff';
+      } else { throw new Error(); }
+    } catch(e) {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+      alert('Something went wrong. Text us at 415.205.0868');
+    }
+  }
+</script>
+
 </body>
 </html>
