@@ -222,7 +222,7 @@
 
     <div class="spot-item" data-cat="spec lifestyle">
       <div class="spot-thumb">
-        <img class="spot-poster" src="https://vumbnail.com/1181431670.jpg" alt="Burton Snowboards" />
+        <img class="spot-poster" src="https://vumbnail.com/1181431670.jpg" data-videoid="1181431670" alt="Burton Snowboards" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="spot-meta"><span class="spot-tag">:15</span><span class="spot-tag">Lifestyle & Sport</span><span class="spot-tag">2026</span></div>
@@ -232,7 +232,7 @@
 
     <div class="spot-item" data-cat="spec lifestyle food">
       <div class="spot-thumb">
-        <img class="spot-poster" src="https://vumbnail.com/1142973453.jpg" alt="Morning Coffee" />
+        <img class="spot-poster" src="https://i.vimeocdn.com/video/1142973453_1280x720.jpg" alt="Morning Coffee" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="spot-meta"><span class="spot-tag">A.I. Spec Spot</span><span class="spot-tag">2026</span></div>
@@ -242,7 +242,7 @@
 
     <div class="spot-item" data-cat="spec food">
       <div class="spot-thumb">
-        <img class="spot-poster" src="https://vumbnail.com/1181123452.jpg" alt="Pancakes & Maple Syrup" />
+        <img class="spot-poster" src="https://vumbnail.com/1181123452.jpg" data-videoid="1181123452" alt="Pancakes & Maple Syrup" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="spot-meta"><span class="spot-tag">:15</span><span class="spot-tag">Food & Beverage</span><span class="spot-tag">Premade Ad</span></div>
@@ -252,7 +252,7 @@
 
     <div class="spot-item" data-cat="film">
       <div class="spot-thumb">
-        <img class="spot-poster" src="https://vumbnail.com/1089344542.jpg" alt="IDIOM" />
+        <img class="spot-poster" src="https://vumbnail.com/1089344542.jpg" data-videoid="1089344542" alt="IDIOM" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="spot-meta"><span class="spot-tag">A.I. Film</span><span class="spot-tag">2026</span></div>
@@ -358,7 +358,20 @@
 
   function shuffleFeatured() {
     currentIndex = (currentIndex + 1) % AI_SPOTS.length;
-    renderFeatured(currentIndex);
+  
+  // Fetch correct Vimeo thumbnails via oEmbed
+  async function loadVimeoThumb(videoId, imgEl) {
+    try {
+      const r = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1280`);
+      const d = await r.json();
+      if (d.thumbnail_url) imgEl.src = d.thumbnail_url.replace(/_\d+x\d+/, '_1280x720');
+    } catch(e) {}
+  }
+  document.querySelectorAll('.spot-poster[data-videoid]').forEach(img => {
+    loadVimeoThumb(img.dataset.videoid, img);
+  });
+
+  renderFeatured(currentIndex);
   }
 
   function filterTab(cat, btn) {
@@ -391,6 +404,19 @@
     item.addEventListener('click', function() {
       const iframe = this.querySelector('h3, p');
     });
+  });
+
+
+  // Fetch correct Vimeo thumbnails via oEmbed
+  async function loadVimeoThumb(videoId, imgEl) {
+    try {
+      const r = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1280`);
+      const d = await r.json();
+      if (d.thumbnail_url) imgEl.src = d.thumbnail_url.replace(/_\d+x\d+/, '_1280x720');
+    } catch(e) {}
+  }
+  document.querySelectorAll('.spot-poster[data-videoid]').forEach(img => {
+    loadVimeoThumb(img.dataset.videoid, img);
   });
 
   renderFeatured(currentIndex);
