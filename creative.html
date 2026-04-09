@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Creative Video Editing — Matassa</title>
-<meta name="description" content="36 years of high-craft creative editorial. Super Bowl spots, national TV, brand films, sizzle reels. Goodby Silverstein, BBDO, AKQA, Michael Bay.">
+<meta name="description" content="36 years of high-craft creative editorial. Super Bowl spots, national TV, brand films, sizzle reels.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
@@ -34,24 +34,47 @@
   .nav-start:hover { background: #a0c4a3; animation: none; }
   @keyframes navPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(139,175,142,0); } 50% { box-shadow: 0 0 0 7px rgba(139,175,142,0.22); } }
 
-  /* HERO */
-  .page-hero { padding: 9rem 3rem 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  /* PAGE HERO */
+  .page-hero { padding: 9rem 3rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .hero-kicker { font-size: 0.58rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 1.5rem; }
-  .hero-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 9vw, 8rem); line-height: 0.9; color: var(--white); text-transform: uppercase; margin-bottom: 2rem; }
-  .hero-sub { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.8; max-width: 560px; }
+  .hero-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 9vw, 8rem); line-height: 0.9; color: var(--white); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero-sub { font-size: 1rem; font-weight: 300; color: var(--white); line-height: 1.8; max-width: 560px; }
+
+  /* FEATURED SPOT */
+  .featured-section { padding: 5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .featured-kicker { font-size: 0.55rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 2rem; }
+  .featured-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: center; }
+  .featured-embed { position: relative; padding-bottom: 56.25%; background: #0a0a0a; }
+  .featured-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .featured-info { }
+  .featured-category { font-size: 0.55rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.6rem; }
+  .featured-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.2rem); color: var(--white); line-height: 1; margin-bottom: 0.6rem; }
+  .featured-client { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.06em; }
+  .featured-desc { font-size: 0.92rem; font-weight: 300; color: var(--white); line-height: 1.8; margin-bottom: 2rem; }
+  .featured-tag { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.12); padding: 0.3rem 0.7rem; display: inline-block; margin-right: 0.4rem; margin-bottom: 0.4rem; }
+  .featured-shuffle { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); background: none; border: 1px solid rgba(139,175,142,0.3); padding: 0.7rem 1.2rem; cursor: pointer; transition: all 0.2s; margin-top: 1.2rem; display: inline-block; }
+  .featured-shuffle:hover { border-color: var(--sage); background: rgba(139,175,142,0.08); }
+
+  /* TABS */
+  .tabs-section { padding: 4rem 3rem 2rem; }
+  .tabs-bar { display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 3rem; flex-wrap: wrap; }
+  .tab-btn { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); background: none; border: none; border-bottom: 2px solid transparent; padding: 0.8rem 1.4rem; cursor: pointer; transition: all 0.2s; margin-bottom: -1px; white-space: nowrap; }
+  .tab-btn:hover { color: var(--white); }
+  .tab-btn.active { color: var(--white); border-bottom-color: var(--sage); }
 
   /* REEL GRID */
-  .reel-section { padding: 6rem 3rem; }
-  .reel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
-  .reel-item {}
+  .reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .reel-item { display: none; }
+  .reel-item.visible { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   .reel-embed { position: relative; padding-bottom: 56.25%; background: #0a0a0a; }
   .reel-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-  .reel-meta { padding: 1.2rem 0 0; }
-  .reel-client { font-size: 0.58rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.4rem; }
-  .reel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.06em; color: var(--white); }
-  .reel-detail { font-size: 0.72rem; color: rgba(255,255,255,0.4); font-weight: 300; margin-top: 0.3rem; letter-spacing: 0.04em; }
+  .reel-meta { padding: 1rem 0 0; }
+  .reel-client { font-size: 0.55rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.35rem; }
+  .reel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--white); }
+  .reel-detail { font-size: 0.68rem; color: rgba(255,255,255,0.4); font-weight: 300; margin-top: 0.25rem; }
 
-  /* CREDITS GRID */
+  /* CREDITS */
   .credits-section { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a; }
   .credits-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 0; border: 1px solid rgba(255,255,255,0.07); margin-top: 3rem; }
   .credits-grid div { padding: 1.5rem 1.2rem; border-right: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
@@ -62,7 +85,7 @@
   /* CTA */
   .cta-section { padding: 7rem 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
   .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 1rem; }
-  .cta-section p { font-size: 0.9rem; color: rgba(255,255,255,0.6); font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .cta-section p { font-size: 0.9rem; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
   .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.5rem; text-decoration: none; display: inline-block; margin: 0 0.5rem; transition: background 0.2s; }
   .btn-primary:hover { background: var(--light-grey); }
   .btn-secondary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); background: transparent; padding: 1rem 2.5rem; text-decoration: none; display: inline-block; border: 1px solid rgba(255,255,255,0.25); margin: 0 0.5rem; transition: all 0.2s; }
@@ -76,15 +99,17 @@
   .footer-right a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
   .footer-right a:hover { color: rgba(255,255,255,0.7); }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    .featured-grid { grid-template-columns: 1fr; }
+    .reel-grid { grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 600px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .page-hero { padding: 7rem 1.5rem 3rem; }
-    .reel-section { padding: 4rem 1.5rem; }
-    .reel-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .credits-section { padding: 4rem 1.5rem; }
+    .featured-section, .tabs-section, .credits-section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .reel-grid { grid-template-columns: 1fr; }
     .credits-grid { grid-template-columns: repeat(3,1fr); }
-    .cta-section { padding: 4rem 1.5rem; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
   }
 </style>
@@ -117,13 +142,39 @@
   <p class="hero-sub">High-craft editorial for the world's most demanding agencies and brands. Super Bowl spots, national TV, brand films, sizzle reels — built on instinct, taste, and three decades of earned experience.</p>
 </div>
 
-<!-- REEL GRID -->
-<section class="reel-section">
+<!-- FEATURED SPOT -->
+<section class="featured-section">
+  <span class="featured-kicker">Featured This Week</span>
+  <div class="featured-grid">
+    <div class="featured-embed" id="featuredEmbed">
+      <iframe id="featuredIframe" src="" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title=""></iframe>
+    </div>
+    <div class="featured-info">
+      <span class="featured-category" id="featuredCategory"></span>
+      <h2 class="featured-title" id="featuredTitle"></h2>
+      <p class="featured-client" id="featuredClient"></p>
+      <p class="featured-desc" id="featuredDesc"></p>
+      <div id="featuredTags"></div>
+      <button class="featured-shuffle" onclick="shuffleFeatured()">↺ &nbsp;Show Another</button>
+    </div>
+  </div>
+</section>
+
+<!-- TABBED GRID -->
+<section class="tabs-section">
+  <div class="tabs-bar">
+    <button class="tab-btn active" onclick="filterTab('all', this)">All Work</button>
+    <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive & Tech</button>
+    <button class="tab-btn" onclick="filterTab('appliances', this)">Appliances & Home</button>
+    <button class="tab-btn" onclick="filterTab('food', this)">Food & Beverage</button>
+    <button class="tab-btn" onclick="filterTab('b2b', this)">B2B & Tech</button>
+  </div>
+
   <div class="reel-grid">
 
-    <div class="reel-item">
+    <div class="reel-item" data-cat="automotive">
       <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/1163670558?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Samsara × Super Bowl LX — Jesse Love"></iframe>
+        <iframe src="https://player.vimeo.com/video/1163670558?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Samsara Super Bowl LX"></iframe>
       </div>
       <div class="reel-meta">
         <span class="reel-client">Samsara</span>
@@ -132,9 +183,9 @@
       </div>
     </div>
 
-    <div class="reel-item">
+    <div class="reel-item" data-cat="appliances">
       <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/677256468?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="MIDEA Appliances Dishwasher TV Spot"></iframe>
+        <iframe src="https://player.vimeo.com/video/677256468?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="MIDEA Dishwasher"></iframe>
       </div>
       <div class="reel-meta">
         <span class="reel-client">Midea Appliances</span>
@@ -143,31 +194,9 @@
       </div>
     </div>
 
-    <div class="reel-item">
+    <div class="reel-item" data-cat="appliances">
       <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/594786814?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="15Five — New HR"></iframe>
-      </div>
-      <div class="reel-meta">
-        <span class="reel-client">15Five</span>
-        <p class="reel-title">New HR</p>
-        <p class="reel-detail">Brand Film · :30</p>
-      </div>
-    </div>
-
-    <div class="reel-item">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/677315165?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Refillable Cleaners"></iframe>
-      </div>
-      <div class="reel-meta">
-        <span class="reel-client">Clorox</span>
-        <p class="reel-title">Reload in a Snap — Refillable Cleaners</p>
-        <p class="reel-detail">National Broadcast</p>
-      </div>
-    </div>
-
-    <div class="reel-item">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/677253981?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Midea Appliances Fridge"></iframe>
+        <iframe src="https://player.vimeo.com/video/677253981?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Midea Fridge"></iframe>
       </div>
       <div class="reel-meta">
         <span class="reel-client">Midea Appliances</span>
@@ -176,7 +205,51 @@
       </div>
     </div>
 
-    <div class="reel-item">
+    <div class="reel-item" data-cat="appliances">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/677315165?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Refillable Cleaners"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Clorox</span>
+        <p class="reel-title">Reload in a Snap</p>
+        <p class="reel-detail">National Broadcast</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="appliances">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/889663633?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Home Depot Home Services"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Home Depot</span>
+        <p class="reel-title">Home Services — TV Spot</p>
+        <p class="reel-detail">National Broadcast</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="appliances">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/769699092?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja Creami"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Ninja</span>
+        <p class="reel-title">NC300 — Meet the Creami</p>
+        <p class="reel-detail">Product Launch</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="appliances">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/1064276322?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja Luxe Cafe"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Ninja</span>
+        <p class="reel-title">Luxe Cafe — :30</p>
+        <p class="reel-detail">Product Launch</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="food">
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/440068901?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Doritos Crash From Home"></iframe>
       </div>
@@ -187,54 +260,32 @@
       </div>
     </div>
 
-    <div class="reel-item">
+    <div class="reel-item" data-cat="food">
       <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/769699092?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja NC300 — Meet the Creami"></iframe>
-      </div>
-      <div class="reel-meta">
-        <span class="reel-client">Ninja</span>
-        <p class="reel-title">NC300 — Meet the Creami</p>
-        <p class="reel-detail">Product Launch</p>
-      </div>
-    </div>
-
-    <div class="reel-item">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/289191430?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ghirardelli Caramel Squares National TV Campaign"></iframe>
+        <iframe src="https://player.vimeo.com/video/289191430?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ghirardelli Caramel Squares"></iframe>
       </div>
       <div class="reel-meta">
         <span class="reel-client">Ghirardelli</span>
-        <p class="reel-title">Caramel Squares — National TV Campaign</p>
+        <p class="reel-title">Caramel Squares — National TV</p>
         <p class="reel-detail">National Broadcast</p>
       </div>
     </div>
 
-    <div class="reel-item">
+    <div class="reel-item" data-cat="b2b">
       <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/889663633?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Home Depot — Home Services TV Spot"></iframe>
+        <iframe src="https://player.vimeo.com/video/594786814?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="15Five New HR"></iframe>
       </div>
       <div class="reel-meta">
-        <span class="reel-client">Home Depot</span>
-        <p class="reel-title">Home Services — TV Spot</p>
-        <p class="reel-detail">National Broadcast</p>
-      </div>
-    </div>
-
-    <div class="reel-item">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/1064276322?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja Luxe Cafe :30"></iframe>
-      </div>
-      <div class="reel-meta">
-        <span class="reel-client">Ninja</span>
-        <p class="reel-title">Luxe Cafe — :30</p>
-        <p class="reel-detail">Product Launch</p>
+        <span class="reel-client">15Five</span>
+        <p class="reel-title">New HR — :30</p>
+        <p class="reel-detail">Brand Film</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- CREDITS GRID -->
+<!-- CREDITS -->
 <section class="credits-section">
   <span style="font-size:0.58rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--sage);">Selected Editing Credits</span>
   <div class="credits-grid">
@@ -273,7 +324,6 @@
   <a href="/#contact" class="btn-secondary">Start Your Project</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <a href="/" class="footer-logo">MATASSA</a>
   <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok · Any Time Zone</span>
@@ -283,6 +333,65 @@
   </span>
 </footer>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  // All spots catalogue for featured rotation
+  const ALL_SPOTS = [
+    { id: '1163670558', title: 'Super Bowl LX — Jesse Love', client: 'Samsara', category: 'Automotive & Tech', desc: 'Super Bowl LX national broadcast spot. Directed with precision and editorial instinct for one of the biggest stages in advertising.', tags: ['National Broadcast', ':30', 'Super Bowl'] },
+    { id: '677256468',  title: 'Dishwasher TV Spot', client: 'Midea Appliances', category: 'Appliances & Home', desc: 'National TV spot for Midea Appliances. Clean product storytelling, tight editorial pacing.', tags: ['National Broadcast', 'Product'] },
+    { id: '677253981',  title: 'Fridge TV Spot', client: 'Midea Appliances', category: 'Appliances & Home', desc: 'National TV campaign for Midea. Lifestyle-driven product commercial built for broadcast.', tags: ['National Broadcast', 'Product'] },
+    { id: '677315165',  title: 'Reload in a Snap', client: 'Clorox', category: 'Appliances & Home', desc: 'National TV launch for Clorox Refillable Cleaners. Fast-cut, benefit-driven editorial.', tags: ['National Broadcast', ':30'] },
+    { id: '889663633',  title: 'Home Services TV Spot', client: 'Home Depot', category: 'Appliances & Home', desc: 'National broadcast spot for Home Depot Home Services. Warm, relatable, and on-brand.', tags: ['National Broadcast'] },
+    { id: '769699092',  title: 'NC300 — Meet the Creami', client: 'Ninja', category: 'Appliances & Home', desc: 'Product launch film for the Ninja Creami. Energetic, consumer-focused editorial.', tags: ['Product Launch'] },
+    { id: '1064276322', title: 'Luxe Cafe — :30', client: 'Ninja', category: 'Appliances & Home', desc: 'Premium product launch spot for the Ninja Luxe Cafe. Cinematic treatment for a consumer appliance.', tags: ['Product Launch', ':30'] },
+    { id: '440068901',  title: 'Crash From Home', client: 'Doritos', category: 'Food & Beverage', desc: 'Long-form launch film for Doritos. Comedy-driven brand content built for digital and social.', tags: ['Long-Form', 'Digital'] },
+    { id: '289191430',  title: 'Caramel Squares — National TV', client: 'Ghirardelli', category: 'Food & Beverage', desc: 'National TV campaign for Ghirardelli Caramel Squares. Indulgent, cinematic food storytelling.', tags: ['National Broadcast'] },
+    { id: '594786814',  title: 'New HR — :30', client: '15Five', category: 'B2B & Tech', desc: 'Brand film for 15Five. Clear, smart B2B storytelling that connects product to human outcome.', tags: ['Brand Film', ':30'] },
+  ];
+
+  // Weekly rotation — uses ISO week number as seed so it changes every Monday
+  function getWeekNumber() {
+    const d = new Date();
+    d.setHours(0,0,0,0);
+    d.setDate(d.getDate() + 4 - (d.getDay()||7));
+    const yearStart = new Date(d.getFullYear(),0,1);
+    return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
+  }
+
+  let currentFeaturedIndex = getWeekNumber() % ALL_SPOTS.length;
+
+  function renderFeatured(index) {
+    const spot = ALL_SPOTS[index];
+    document.getElementById('featuredIframe').src = `https://player.vimeo.com/video/${spot.id}?badge=0&autopause=0&player_id=0&app_id=58479`;
+    document.getElementById('featuredIframe').title = spot.title;
+    document.getElementById('featuredCategory').textContent = spot.category;
+    document.getElementById('featuredTitle').textContent = spot.title;
+    document.getElementById('featuredClient').textContent = spot.client;
+    document.getElementById('featuredDesc').textContent = spot.desc;
+    document.getElementById('featuredTags').innerHTML = spot.tags.map(t => `<span class="featured-tag">${t}</span>`).join('');
+  }
+
+  function shuffleFeatured() {
+    currentFeaturedIndex = (currentFeaturedIndex + 1) % ALL_SPOTS.length;
+    renderFeatured(currentFeaturedIndex);
+  }
+
+  // Tab filter
+  function filterTab(cat, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.reel-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.classList.add('visible');
+      } else {
+        item.classList.remove('visible');
+      }
+    });
+  }
+
+  // Init
+  renderFeatured(currentFeaturedIndex);
+  filterTab('all', document.querySelector('.tab-btn'));
+</script>
+
 </body>
 </html>
