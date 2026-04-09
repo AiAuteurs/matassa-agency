@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remaster Your Work — Matassa</title>
+<meta name="description" content="Old work. Brought up to today. AI remaster + manual polish. HD delivery. From $250.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; --sage: #8BAF8E; --amber: #D4A87A; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 3rem; background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); }
+    .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.6rem; letter-spacing: -0.01em; color: #ffffff; text-decoration: none; display: flex; flex-direction: column; line-height: 1; align-items: center; text-transform: uppercase; }
+    .nav-logo-sub { display: none; }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+  .nav-links { display: flex; list-style: none; align-items: center; }
+  .nav-links > li { position: relative; display: flex; align-items: center; }
+  .nav-links > li > a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
+  .nav-links > li > a:hover { color: var(--white); }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.08); min-width: 240px; z-index: 200; }
+  .nav-links > li:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 0.85rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+  .nav-dropdown a:hover { color: var(--white); }
+  .nav-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 0.6rem 1.5rem; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--light-grey); }
+  .nav-start { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black) !important; background: var(--sage); padding: 0.6rem 1.5rem; text-decoration: none; }
+
+  /* HERO */
+  .hero { padding: 9rem 3rem 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .hero-kicker { font-size: 0.58rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 8vw, 7rem); line-height: 0.9; color: var(--white); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero-title span { color: var(--amber); }
+  .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--white); line-height: 1.8; margin-bottom: 2.5rem; }
+  .hero-cta { display: inline-block; font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--amber); padding: 1.1rem 2.5rem; text-decoration: none; transition: all 0.2s; }
+  .hero-cta:hover { background: #e0b98a; }
+  .hero-price { font-size: 0.68rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); margin-top: 0.8rem; display: block; }
+
+  /* BEFORE / AFTER SLIDER */
+  .ba-wrap { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; cursor: ew-resize; user-select: none; border: 1px solid rgba(255,255,255,0.06); }
+  .ba-after { position: absolute; inset: 0; }
+  .ba-after img { width: 100%; height: 100%; object-fit: cover; }
+  .ba-before { position: absolute; inset: 0; overflow: hidden; }
+  .ba-before img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
+  .ba-divider { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--amber); transform: translateX(-50%); pointer-events: none; z-index: 10; }
+  .ba-handle { position: absolute; top: 50%; width: 44px; height: 44px; background: var(--amber); border-radius: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; z-index: 11; box-shadow: 0 2px 12px rgba(0,0,0,0.5); }
+  .ba-handle svg { pointer-events: none; }
+  .ba-label-before { position: absolute; bottom: 1rem; left: 1rem; font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; background: rgba(0,0,0,0.7); color: rgba(255,255,255,0.8); padding: 0.3rem 0.7rem; z-index: 12; }
+  .ba-label-after { position: absolute; bottom: 1rem; right: 1rem; font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; background: rgba(212,168,122,0.85); color: var(--black); padding: 0.3rem 0.7rem; z-index: 12; font-weight: 600; }
+
+  /* HOW IT WORKS */
+  .how-section { padding: 6rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .section-kicker { font-size: 0.58rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 3rem; }
+  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+  .how-item { background: var(--black); padding: 3rem 2.5rem; }
+  .how-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(212,168,122,0.2); line-height: 1; display: block; margin-bottom: 1rem; }
+  .how-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.8rem; }
+  .how-desc { font-size: 0.88rem; font-weight: 300; color: var(--white); line-height: 1.8; }
+
+  /* PRICING */
+  .pricing-section { padding: 6rem 3rem; background: #0a0a0a; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); margin-top: 3rem; }
+  .pricing-card { background: #0a0a0a; padding: 3.5rem 3rem; }
+  .pricing-card.featured { background: #0f0f0f; border-top: 3px solid var(--amber); }
+  .pricing-label { font-size: 0.55rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.8rem; }
+  .pricing-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 5rem; color: var(--white); line-height: 1; margin-bottom: 0.3rem; }
+  .pricing-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 1.5rem; }
+  .pricing-includes { list-style: none; margin-bottom: 2.5rem; }
+  .pricing-includes li { font-size: 0.88rem; font-weight: 300; color: var(--white); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 0.8rem; align-items: flex-start; }
+  .pricing-includes li::before { content: '→'; color: var(--amber); flex-shrink: 0; font-size: 0.8rem; margin-top: 0.1rem; }
+  .pricing-btn { display: inline-block; font-family: 'Epilogue', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--amber); padding: 1rem 2rem; text-decoration: none; transition: all 0.2s; width: 100%; text-align: center; border: none; cursor: pointer; }
+  .pricing-btn:hover { background: #e0b98a; }
+  .pricing-btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
+  .pricing-btn-outline:hover { border-color: var(--white); background: transparent; }
+
+  /* DISCLAIMER */
+  .disclaimer-section { padding: 5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.06); display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+  .disclaimer-label { font-size: 0.55rem; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 0.3rem; }
+  .disclaimer-text { font-size: 0.92rem; font-weight: 300; color: var(--white); line-height: 1.9; }
+  .disclaimer-text strong { color: var(--white); font-weight: 500; }
+
+  /* BOTTOM CTA */
+  .cta-section { padding: 7rem 3rem; text-align: center; }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 1rem; }
+  .cta-section p { font-size: 0.95rem; color: var(--white); font-weight: 300; margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+
+  /* FOOTER */
+  footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--sage); text-decoration: none; text-transform: uppercase; }
+  .footer-center { font-size: 0.6rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.3); text-transform: uppercase; text-align: center; }
+  .footer-right { font-size: 0.6rem; color: rgba(255,255,255,0.3); }
+  .footer-right a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-right a:hover { color: rgba(255,255,255,0.7); }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 3rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .disclaimer-section { grid-template-columns: 1fr; gap: 1rem; }
+    .how-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+    .hero, .how-section, .pricing-section, .disclaimer-section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .hero { padding-top: 7rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+
+  /* FAQ */
+  .faq-section { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a; }
+  .faq-grid { margin-top: 3rem; max-width: 860px; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 2rem 0; }
+  .faq-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+  .faq-q { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.8rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .faq-q::after { content: '+'; font-size: 1.5rem; color: var(--amber); flex-shrink: 0; transition: transform 0.2s; }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a { font-size: 0.92rem; font-weight: 300; color: var(--white); line-height: 1.9; display: none; padding-top: 0.2rem; }
+  .faq-item.open .faq-a { display: block; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">MATASSA<span class="nav-logo-sub">Traditional Craft. Cinematic A.I.</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li>
+        <a href="#">The Work ▾</a>
+        <div class="nav-dropdown">
+          <a href="creative.html">Creative Video Editing</a>
+          <a href="ai.html">Cinematic A.I. Storytelling</a>
+          <a href="premade.html">Premade Ads</a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="/#contact" class="nav-start">Start a Project</a></li>
+    </ul>
+    <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <span class="hero-kicker">Remaster Your Work</span>
+    <h1 class="hero-title">Old Work.<br><span>Brought Up</span><br>To Today.</h1>
+    <p class="hero-sub">Your best spots deserve better than SD compression. AI upscale, manual polish, HD delivery — so your past work holds up on modern screens.</p>
+    <a href="#pricing" class="hero-cta">Remaster My Spot — From $250</a>
+    <span class="hero-price">:30 from $250 · :60 from $350 · HD delivery · 1 week turnaround</span>
+  </div>
+
+  <!-- BEFORE / AFTER SLIDER -->
+  <div class="ba-wrap" id="baWrap">
+    <div class="ba-after">
+      <img src="upscaled_4k.jpg" alt="After remaster">
+    </div>
+    <div class="ba-before" id="baBefore" style="width:50%">
+      <img src="julie_original.jpg" alt="Before remaster">
+    </div>
+    <div class="ba-divider" id="baDivider" style="left:50%"></div>
+    <div class="ba-handle" id="baHandle" style="left:50%">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="black">
+        <path d="M8 5l-7 7 7 7M16 5l7 7-7 7" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="ba-label-before">Original SD</span>
+    <span class="ba-label-after">AI Remastered</span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <span class="section-kicker">How It Works</span>
+  <div class="how-grid">
+    <div class="how-item">
+      <span class="how-num">01</span>
+      <p class="how-title">Pay & Submit</p>
+      <p class="how-desc">Choose your package and pay securely via Stripe. You'll receive a Google Drive link to upload your original file — no storage limits, no size restrictions.</p>
+    </div>
+    <div class="how-item">
+      <span class="how-num">02</span>
+      <p class="how-title">We Remaster It</p>
+      <p class="how-desc">AI upscale, manual cleanup, grain match — every spot gets hands-on attention. This isn't a button push. It's the same eye that's cut Super Bowl spots and national TV campaigns.</p>
+    </div>
+    <div class="how-item">
+      <span class="how-num">03</span>
+      <p class="how-title">You Get It Back</p>
+      <p class="how-desc">Delivered in HD (1920×1080) via Google Drive within one week. Most projects come back sooner. Ready for your reel, LinkedIn, or any modern screen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <span class="section-kicker">Pricing</span>
+  <div class="pricing-grid">
+
+    <div class="pricing-card featured">
+      <span class="pricing-label">Up to :30</span>
+      <p class="pricing-price">$250</p>
+      <p class="pricing-name">:30 Remaster</p>
+      <ul class="pricing-includes">
+        <li>Up to :30 runtime</li>
+        <li>AI upscale + manual polish</li>
+        <li>Grain matching & cleanup</li>
+        <li>HD delivery (1920×1080)</li>
+        <li>Optimized for web & social</li>
+        <li>Google Drive delivery</li>
+        <li>Up to 1 week turnaround</li>
+      </ul>
+      <a href="YOUR_STRIPE_LINK_30_HERE" class="pricing-btn">Get Started →</a>
+    </div>
+
+    <div class="pricing-card">
+      <span class="pricing-label">Up to :60</span>
+      <p class="pricing-price">$350</p>
+      <p class="pricing-name">:60 Remaster</p>
+      <ul class="pricing-includes">
+        <li>Up to :60 runtime</li>
+        <li>AI upscale + manual polish</li>
+        <li>Grain matching & cleanup</li>
+        <li>HD delivery (1920×1080)</li>
+        <li>Optimized for web & social</li>
+        <li>Google Drive delivery</li>
+        <li>Up to 1 week turnaround</li>
+      </ul>
+      <a href="YOUR_STRIPE_LINK_60_HERE" class="pricing-btn">Get Started →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer-section">
+  <p class="disclaimer-label">Important Note</p>
+  <p class="disclaimer-text">
+    <strong>Every project is different.</strong> Results depend on the quality of your original source footage. While I use advanced A.I. tools and hands-on manual finishing to push every spot as far as it can go, some source limitations may remain — including minor artifacts, softness, or compression noise — depending on the condition of the original file. I will be upfront with you if your footage has significant limitations before work begins. You'll always know what to expect. <strong>My goal is to give your work the best possible second life.</strong>
+    <br><br>
+    By submitting footage, you confirm that you have the rights to the material. Up to :60 runtime. Longer projects quoted separately — contact us before purchasing.
+  </p>
+</section>
+
+
+<!-- FAQ -->
+<section class="faq-section">
+  <span class="section-kicker">Common Questions</span>
+  <div class="faq-grid">
+
+    <div class="faq-item open">
+      <p class="faq-q" onclick="toggleFaq(this)">Why does the image size change after remastering?</p>
+      <p class="faq-a">Original SD footage was shot and mastered for screens that no longer exist. A standard-definition spot from the 90s or early 2000s was typically 640×480 pixels — built for a CRT television. Today's screens are 1920×1080 or higher. To fill a modern screen without looking like a postage stamp, the footage has to be scaled up. Our process doesn't just stretch pixels — it analyzes every frame and reconstructs detail that compression destroyed, filling the image intelligently to HD resolution. Some reframing is normal and expected. Think of it like a film restoration — the image is being rebuilt for a world the original wasn't made for.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q" onclick="toggleFaq(this)">What formats do you accept?</p>
+      <p class="faq-a">Most standard video formats work — MP4, MOV, AVI, MXF, ProRes. If you're pulling from an old tape transfer or DVD rip, that's fine too. If you're unsure about your file, reach out before purchasing and I'll tell you straight whether it's workable.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q" onclick="toggleFaq(this)">Will it look perfect?</p>
+      <p class="faq-a">Honest answer: it depends on what you start with. The better the original — even at SD — the better the result. Clean photography, controlled lighting, and stable camera work all remaster beautifully. Heavily compressed, interlaced, or damaged footage has limits that no process can fully overcome. I'll always tell you upfront if your source has significant limitations, and I won't take your money if I don't think I can deliver something worth showing.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q" onclick="toggleFaq(this)">How do I get my footage to you?</p>
+      <p class="faq-a">After payment you'll receive a Google Drive upload link. Drop your file there along with any notes — the spot name, what you're hoping to use it for, anything relevant. No file size limits. No account required.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q" onclick="toggleFaq(this)">How long does it take?</p>
+      <p class="faq-a">Up to one week — but most projects come back faster. Turnaround depends on queue volume at the time of submission. You'll get an email confirmation when your spot is in the queue, and another when it's delivered.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q" onclick="toggleFaq(this)">What if my spot is longer than :60?</p>
+      <p class="faq-a">Contact us before purchasing and we'll give you a custom quote. Longer projects are handled on a case-by-case basis depending on complexity and runtime.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q" onclick="toggleFaq(this)">Do I retain rights to my footage?</p>
+      <p class="faq-a">Yes, completely. You own your work. We simply remaster it and return it to you. We don't store, share, or use your footage for anything else.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-section">
+  <h2>Your Best Work Deserves Better.</h2>
+  <p>Don't let compression define your career. Remaster your old spots and show them again with confidence.</p>
+  <a href="#pricing" class="hero-cta">Remaster My Spot →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">MATASSA</a>
+  <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok · Any Time Zone</span>
+  <span class="footer-right">
+    <a href="https://www.rubberneck.ai/terms.html">Terms</a> &nbsp;·&nbsp;
+    <a href="https://www.rubberneck.ai/privacy.html">Privacy</a>
+  </span>
+</footer>
+
+<script>
+  // Before/After Slider
+  const wrap = document.getElementById('baWrap');
+  const before = document.getElementById('baBefore');
+  const divider = document.getElementById('baDivider');
+  const handle = document.getElementById('baHandle');
+  let dragging = false;
+
+  function setPos(x) {
+    const rect = wrap.getBoundingClientRect();
+    let pct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+    before.style.width = (pct * 100) + '%';
+    divider.style.left = (pct * 100) + '%';
+    handle.style.left = (pct * 100) + '%';
+  }
+
+  wrap.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+  window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup', () => dragging = false);
+
+  wrap.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend', () => dragging = false);
+
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+
+</script>
+
+</body>
+</html>
