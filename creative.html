@@ -41,16 +41,18 @@
   .hero-sub { font-size: 1rem; font-weight: 300; color: var(--white); line-height: 1.8; max-width: 560px; }
 
   /* FEATURED SPOT */
-  .featured-section { padding: 5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .featured-kicker { font-size: 0.55rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 2rem; }
-  .featured-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: center; }
-  .featured-embed { position: relative; padding-bottom: 56.25%; background: #0a0a0a; }
-  .featured-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .featured-section { padding: 0 0 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .featured-header { padding: 3rem 3rem 2rem; display: flex; align-items: baseline; gap: 2rem; }
+  .featured-kicker { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.04em; text-transform: uppercase; color: var(--sage); display: block; }
+  .featured-week-label { font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+  .featured-embed-full { position: relative; padding-bottom: 50%; background: #0a0a0a; width: 100%; }
+  .featured-embed-full iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding: 2.5rem 3rem 0; }
   .featured-info { }
-  .featured-category { font-size: 0.55rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.6rem; }
-  .featured-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.2rem); color: var(--white); line-height: 1; margin-bottom: 0.6rem; }
-  .featured-client { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.06em; }
-  .featured-desc { font-size: 0.92rem; font-weight: 300; color: var(--white); line-height: 1.8; margin-bottom: 2rem; }
+  .featured-category { font-size: 0.55rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.5rem; }
+  .featured-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); color: var(--white); line-height: 1; margin-bottom: 0.5rem; }
+  .featured-client { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 1.2rem; letter-spacing: 0.06em; }
+  .featured-desc { font-size: 0.95rem; font-weight: 300; color: var(--white); line-height: 1.8; margin-bottom: 1.5rem; }
   .featured-tag { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.12); padding: 0.3rem 0.7rem; display: inline-block; margin-right: 0.4rem; margin-bottom: 0.4rem; }
   .featured-shuffle { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); background: none; border: 1px solid rgba(139,175,142,0.3); padding: 0.7rem 1.2rem; cursor: pointer; transition: all 0.2s; margin-top: 1.2rem; display: inline-block; }
   .featured-shuffle:hover { border-color: var(--sage); background: rgba(139,175,142,0.08); }
@@ -100,6 +102,7 @@
   .footer-right a:hover { color: rgba(255,255,255,0.7); }
 
   @media (max-width: 900px) {
+    .featured-embed-full { padding-bottom: 56.25%; }
     .featured-grid { grid-template-columns: 1fr; }
     .reel-grid { grid-template-columns: repeat(2,1fr); }
   }
@@ -144,18 +147,23 @@
 
 <!-- FEATURED SPOT -->
 <section class="featured-section">
-  <span class="featured-kicker">Featured This Week</span>
+  <div class="featured-header">
+    <span class="featured-kicker">Featured This Week</span>
+    <span class="featured-week-label">Rotates every Monday</span>
+  </div>
+  <div class="featured-embed-full">
+    <iframe id="featuredIframe" src="" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title=""></iframe>
+  </div>
   <div class="featured-grid">
-    <div class="featured-embed" id="featuredEmbed">
-      <iframe id="featuredIframe" src="" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title=""></iframe>
-    </div>
     <div class="featured-info">
       <span class="featured-category" id="featuredCategory"></span>
       <h2 class="featured-title" id="featuredTitle"></h2>
       <p class="featured-client" id="featuredClient"></p>
       <p class="featured-desc" id="featuredDesc"></p>
       <div id="featuredTags"></div>
-      <button class="featured-shuffle" onclick="shuffleFeatured()">↺ &nbsp;Show Another</button>
+    </div>
+    <div style="display:flex; align-items:flex-end; justify-content:flex-end;">
+      <button class="featured-shuffle" onclick="shuffleFeatured()">↺ &nbsp;Show Another Spot</button>
     </div>
   </div>
 </section>
@@ -164,15 +172,18 @@
 <section class="tabs-section">
   <div class="tabs-bar">
     <button class="tab-btn active" onclick="filterTab('all', this)">All Work</button>
-    <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive & Tech</button>
+    <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive</button>
+    <button class="tab-btn" onclick="filterTab('cpg', this)">CPG & Food</button>
     <button class="tab-btn" onclick="filterTab('appliances', this)">Appliances & Home</button>
-    <button class="tab-btn" onclick="filterTab('food', this)">Food & Beverage</button>
     <button class="tab-btn" onclick="filterTab('b2b', this)">B2B & Tech</button>
+    <button class="tab-btn" onclick="filterTab('entertainment', this)">Entertainment</button>
+    <button class="tab-btn" onclick="filterTab('minidoc', this)">Mini Doc</button>
+    <button class="tab-btn" onclick="filterTab('medical', this)">Medical & Pharma</button>
   </div>
 
   <div class="reel-grid">
 
-    <div class="reel-item" data-cat="automotive">
+    <div class="reel-item" data-cat="automotive b2b">
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/1163670558?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Samsara Super Bowl LX"></iframe>
       </div>
@@ -205,7 +216,7 @@
       </div>
     </div>
 
-    <div class="reel-item" data-cat="appliances">
+    <div class="reel-item" data-cat="appliances cpg">
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/677315165?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Refillable Cleaners"></iframe>
       </div>
@@ -249,7 +260,7 @@
       </div>
     </div>
 
-    <div class="reel-item" data-cat="food">
+    <div class="reel-item" data-cat="cpg food">
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/440068901?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Doritos Crash From Home"></iframe>
       </div>
@@ -260,7 +271,7 @@
       </div>
     </div>
 
-    <div class="reel-item" data-cat="food">
+    <div class="reel-item" data-cat="cpg food">
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/289191430?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ghirardelli Caramel Squares"></iframe>
       </div>
@@ -279,6 +290,127 @@
         <span class="reel-client">15Five</span>
         <p class="reel-title">New HR — :30</p>
         <p class="reel-detail">Brand Film</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="cpg appliances">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/259578898?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Spring Cleaning — Car"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Clorox</span>
+        <p class="reel-title">Spring Cleaning — Car</p>
+        <p class="reel-detail">National Broadcast</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="entertainment">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/108024583?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder Promo"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">Wander Over Yonder — Series Promo</p>
+        <p class="reel-detail">Network Promo</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="entertainment">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/109646043?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — 9th Grade Ninja Watch Out"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">9th Grade Ninja — Watch Out</p>
+        <p class="reel-detail">Network Promo</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="entertainment">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/108024585?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder :15"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">Wander Over Yonder — :15</p>
+        <p class="reel-detail">Network Promo</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="entertainment">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/109646042?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder Date"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">Wander Over Yonder — Date</p>
+        <p class="reel-detail">Network Promo</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="entertainment">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/109646041?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Randy Cunningham Halloween"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">Randy Cunningham — Halloween Promo</p>
+        <p class="reel-detail">Network Promo</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="minidoc automotive b2b">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/176607801?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="FedEx — Denny Hamlin Never Before Seen"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">FedEx</span>
+        <p class="reel-title">Denny Hamlin — Never Before Seen</p>
+        <p class="reel-detail">Mini Doc · Brand Content</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="minidoc b2b">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/180136940?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="FedEx Express — Museum of Flight"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">FedEx Express</span>
+        <p class="reel-title">Museum of Flight</p>
+        <p class="reel-detail">Mini Doc · Brand Content</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="appliances medical">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/889138221?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Shark Air Purifier"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Shark</span>
+        <p class="reel-title">Air Purifier</p>
+        <p class="reel-detail">Product Spot</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="minidoc cpg">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/787059376?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="UPS — 3 Punks Ale"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">UPS</span>
+        <p class="reel-title">3 Punks Ale</p>
+        <p class="reel-detail">Mini Doc · Brand Content</p>
+      </div>
+    </div>
+
+    <div class="reel-item" data-cat="minidoc entertainment cpg">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/901754314?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Golden State Warriors — Jefferson's Bourbon"></iframe>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Golden State Warriors</span>
+        <p class="reel-title">Warrior's Punch — Jefferson's Bourbon</p>
+        <p class="reel-detail">Mini Doc · Brand Content</p>
       </div>
     </div>
 
@@ -357,7 +489,7 @@
     return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
   }
 
-  let currentFeaturedIndex = getWeekNumber() % ALL_SPOTS.length;
+  let currentFeaturedIndex = 0; // Samsara Super Bowl — featured this week
 
   function renderFeatured(index) {
     const spot = ALL_SPOTS[index];
@@ -380,7 +512,8 @@
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.reel-item').forEach(item => {
-      if (cat === 'all' || item.dataset.cat === cat) {
+      const cats = (item.dataset.cat || '').split(' ');
+      if (cat === 'all' || cats.includes(cat)) {
         item.classList.add('visible');
       } else {
         item.classList.remove('visible');
