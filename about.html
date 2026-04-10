@@ -26,6 +26,8 @@
   .nav-left-links > li > a { line-height: 1; vertical-align: middle; font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
   .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
   .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+  .nav-work { position: relative; display: flex; align-items: center; }
+  .nav-work:hover .nav-dropdown { display: block; }
   .nav-services { position: relative; display: flex; align-items: center; }
   .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1rem; transition: color 0.2s; line-height: 1; vertical-align: middle; }
   .nav-services-btn:hover { color: #ffffff; }
@@ -259,12 +261,13 @@
   }
 
   /* ── CREDENTIALS ── */
-  .creds-section { padding: 5rem 3rem; background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); }
-  .creds-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); }
-  .creds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-top: 3rem; }
-  .cred-item { background: #0a0a0a; padding: 2.5rem 2rem; }
-  .cred-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.8rem; display: block; }
-  .cred-value { font-size: 0.9rem; color: var(--white); line-height: 1.8; font-weight: 300; }
+  .creds-section { padding: 6rem 3rem; background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); }
+  .creds-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 4rem; }
+  .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(255,255,255,0.07); }
+  .cred-item { padding: 2.5rem 3rem 2.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start; }
+  .cred-item:nth-child(even) { padding-left: 3rem; padding-right: 0; border-left: 1px solid rgba(255,255,255,0.07); }
+  .cred-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: block; padding-top: 0.2rem; }
+  .cred-value { font-size: 0.95rem; color: var(--white); line-height: 1.75; font-weight: 300; }
 
   /* ── CTA ── */
   .cta-section { padding: 7rem 3rem; background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
@@ -294,6 +297,7 @@
     .story-sidebar { position: static; }
     .creds-section { padding: 4rem 1.5rem; }
     .creds-grid { grid-template-columns: 1fr; }
+    .cred-item { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0 !important; border-left: none !important; }
     .cta-section { padding: 4rem 1.5rem; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
   }
@@ -306,7 +310,15 @@
   <div class="nav-left">
     <a href="/" class="nav-logo">MATASSA</a>
     <ul class="nav-left-links">
-      <li><a href="/#work">Work</a></li>
+      <li class="nav-work">
+        <button class="nav-services-btn">Work ▾</button>
+        <div class="nav-dropdown" style="left:0; right:auto;">
+          <a href="/#work">Watch the Reel</a>
+          <a href="creative.html">Creative Video Editing</a>
+          <a href="ai.html">Cinematic A.I. Work</a>
+          <a href="premade.html">Premade Spots for Sale</a>
+        </div>
+      </li>
       <li>
         <div class="nav-services">
           <button class="nav-services-btn">Services ▾</button>
@@ -432,7 +444,7 @@
     </div>
     <div class="cred-item">
       <span class="cred-label">Work Includes</span>
-      <p class="cred-value">Super Bowl Spots · National TV · Tech Films · Sizzle Reels · Brand Documentaries · Case Studies · Pitches</p>
+      <p class="cred-value">Super Bowl Spots · National TV · Brand Films · Sizzle Reels · Brand Documentaries · Case Studies · Pitches</p>
     </div>
     <div class="cred-item">
       <span class="cred-label">Based</span>

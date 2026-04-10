@@ -27,6 +27,8 @@
   .nav-left-links > li > a { line-height: 1; vertical-align: middle; font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
   .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
   .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+  .nav-work { position: relative; display: flex; align-items: center; }
+  .nav-work:hover .nav-dropdown { display: block; }
   .nav-services { position: relative; display: flex; align-items: center; }
   .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1rem; transition: color 0.2s; line-height: 1; vertical-align: middle; }
   .nav-services-btn:hover { color: #ffffff; }
@@ -212,7 +214,15 @@
   <div class="nav-left">
     <a href="/" class="nav-logo">MATASSA</a>
     <ul class="nav-left-links">
-      <li><a href="/#work">Work</a></li>
+      <li class="nav-work">
+        <button class="nav-services-btn">Work ▾</button>
+        <div class="nav-dropdown" style="left:0; right:auto;">
+          <a href="/#work">Watch the Reel</a>
+          <a href="creative.html">Creative Video Editing</a>
+          <a href="ai.html">Cinematic A.I. Work</a>
+          <a href="premade.html">Premade Spots for Sale</a>
+        </div>
+      </li>
       <li>
         <div class="nav-services">
           <button class="nav-services-btn">Services ▾</button>
