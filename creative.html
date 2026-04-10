@@ -17,27 +17,27 @@
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); }
-  .nav-left { display: flex; align-items: center; gap: 0; }
-  .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; text-transform: uppercase; }
+  .nav-left { display: flex; align-items: center; gap: 3rem; }
+  .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; text-transform: uppercase; flex-shrink: 0; }
   .nav-logo-sub { display: none; }
   .nav-logo-main { display: none; }
   .nav-left-links { display: flex; list-style: none; align-items: center; gap: 0; }
   .nav-left-links > li { position: relative; display: flex; align-items: center; }
-  .nav-left-links > li > a { line-height: 1; vertical-align: middle; font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
+  .nav-left-links > li > a { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1.2rem; display: flex; align-items: center; line-height: 1; }
   .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
   .nav-right { display: flex; align-items: center; gap: 0.75rem; }
-  .nav-work { position: relative; display: flex; align-items: center; }
-  .nav-work:hover .nav-dropdown { display: block; }
-  .nav-services { position: relative; display: flex; align-items: center; }
-  .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1rem; transition: color 0.2s; line-height: 1; vertical-align: middle; }
+  .nav-dropdown-wrap { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-wrap:hover .nav-dropdown { display: block; }
+  .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
+  .nav-services-btn::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.7; margin-top: 1px; }
   .nav-services-btn:hover { color: #ffffff; }
-  .nav-dropdown { display: none; position: absolute; top: 100%; right: 0; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.08); min-width: 220px; z-index: 200; }
-  .nav-services:hover .nav-dropdown { display: block; }
-  .nav-dropdown a { display: block; padding: 0.85rem 1.2rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.85); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
-  .nav-dropdown a:hover, .nav-dropdown a.active { color: #ffffff; }
-  .nav-cta { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff; background: transparent; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.8); border-radius: 999px; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #111; border: 1px solid rgba(255,255,255,0.1); min-width: 240px; z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
+  .nav-dropdown a { display: block; padding: 0.9rem 1.4rem; font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.15s; }
+  .nav-dropdown a:last-child { border-bottom: none; }
+  .nav-dropdown a:hover { color: #ffffff; background: rgba(255,255,255,0.04); padding-left: 1.8rem; }
+  .nav-cta { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff; background: transparent; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.8); border-radius: 999px; }
   .nav-cta:hover { border-color: #ffffff; }
-  .nav-start { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #080808; background: #ffffff; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border-radius: 999px; border: 1px solid #ffffff; }
+  .nav-start { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #080808; background: #ffffff; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border-radius: 999px; border: 1px solid #ffffff; }
   .nav-start:hover { background: rgba(255,255,255,0.88); }
 
 
@@ -149,18 +149,20 @@
   <div class="nav-left">
     <a href="/" class="nav-logo">MATASSA</a>
     <ul class="nav-left-links">
-      <li class="nav-work">
-        <button class="nav-services-btn">Work ▾</button>
-        <div class="nav-dropdown" style="left:0; right:auto;">
-          <a href="index.html" onclick="sessionStorage.setItem('openReel','1')">Watch the Reel</a>
-          <a href="creative.html">Creative Video Editing</a>
-          <a href="ai.html">Cinematic A.I. Work</a>
-          <a href="premade.html">Premade Spots for Sale</a>
+      <li >
+        <div class="nav-dropdown-wrap">
+          <button class="nav-services-btn">Work</button>
+          <div class="nav-dropdown">
+            <a href="index.html" onclick="sessionStorage.setItem('openReel','1')">Watch the Reel</a>
+            <a href="creative.html">Creative Video Editing</a>
+            <a href="ai.html">Cinematic A.I. Work</a>
+            <a href="premade.html">Premade Spots for Sale</a>
+          </div>
         </div>
       </li>
       <li>
-        <div class="nav-services">
-          <button class="nav-services-btn">Services ▾</button>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-services-btn">Services</button>
           <div class="nav-dropdown">
             <a href="creative.html">Creative Video Editing</a>
             <a href="ai.html">Cinematic A.I. Storytelling</a>
