@@ -21,22 +21,22 @@
   .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; text-transform: uppercase; }
   .nav-logo-sub { display: none; }
   .nav-logo-main { display: none; }
-  .nav-left-links { display: flex; list-style: none; align-items: center; gap: 0; }
-  .nav-left-links > li > a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
-  .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: var(--white); }
-  .nav-right { display: flex; align-items: center; gap: 1rem; }
+  .nav-left-links { display: flex; list-style: none; align-items: center; }
+  .nav-left-links > li { position: relative; display: flex; align-items: center; }
+  .nav-left-links > li > a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
+  .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
+  .nav-right { display: flex; align-items: center; gap: 0.75rem; }
   .nav-services { position: relative; display: flex; align-items: center; }
-  .nav-services-btn { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; padding: 0.5rem 1rem; transition: color 0.2s; font-family: 'Epilogue', sans-serif; }
-  .nav-services-btn:hover { color: var(--white); }
+  .nav-services-btn { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); background: none; border: none; cursor: pointer; padding: 0.5rem 1rem; transition: color 0.2s; font-family: 'Epilogue', sans-serif; }
+  .nav-services-btn:hover { color: #ffffff; }
   .nav-dropdown { display: none; position: absolute; top: 100%; right: 0; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.08); min-width: 220px; z-index: 200; }
   .nav-services:hover .nav-dropdown { display: block; }
   .nav-dropdown a { display: block; padding: 0.85rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
-  .nav-dropdown a:hover, .nav-dropdown a.active { color: var(--white); }
-  .nav-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 0.6rem 1.5rem; text-decoration: none; transition: background 0.2s; }
-  .nav-cta:hover { background: var(--light-grey); }
-  .nav-start { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black) !important; background: var(--sage); padding: 0.6rem 1.5rem; text-decoration: none; transition: all 0.2s; animation: navPulse 2.5s ease-in-out infinite; }
-  .nav-start:hover { background: #a0c4a3; animation: none; }
-  @keyframes navPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(139,175,142,0); } 50% { box-shadow: 0 0 0 7px rgba(139,175,142,0.22); } }
+  .nav-dropdown a:hover, .nav-dropdown a.active { color: #ffffff; }
+  .nav-cta { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; background: transparent; padding: 0.55rem 1.3rem; text-decoration: none; transition: all 0.2s; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; }
+  .nav-cta:hover { border-color: #ffffff; }
+  .nav-start { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #080808; background: #ffffff; padding: 0.55rem 1.3rem; text-decoration: none; transition: all 0.2s; border-radius: 999px; border: 1px solid #ffffff; }
+  .nav-start:hover { background: rgba(255,255,255,0.88); }
 
 
   /* ── HERO: NAME BLOCK ── */
@@ -304,19 +304,21 @@
     <a href="/" class="nav-logo">MATASSA</a>
     <ul class="nav-left-links">
       <li><a href="/#work">The Work</a></li>
+      <li>
+        <div class="nav-services">
+          <button class="nav-services-btn">Services ▾</button>
+          <div class="nav-dropdown">
+            <a href="creative.html">Creative Video Editing</a>
+            <a href="ai.html">Cinematic A.I. Storytelling</a>
+            <a href="premade.html">Premade Ads</a>
+            <a href="remaster.html">Restore Old Video</a>
+          </div>
+        </div>
+      </li>
       <li><a href="about.html" class="active">About</a></li>
     </ul>
   </div>
   <div class="nav-right">
-    <div class="nav-services">
-      <button class="nav-services-btn">Services ▾</button>
-      <div class="nav-dropdown">
-        <a href="creative.html">Creative Video Editing</a>
-        <a href="ai.html">Cinematic A.I. Storytelling</a>
-        <a href="premade.html">Premade Ads</a>
-        <a href="remaster.html">Restore Old Video</a>
-      </div>
-    </div>
     <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
     <a href="/#contact" class="nav-start">Start a Project</a>
   </div>
