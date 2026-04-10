@@ -91,9 +91,10 @@
   .video-modal-close { position: absolute; top: -2.5rem; right: 0; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.8rem; cursor: pointer; line-height: 1; transition: color 0.2s; }
   .video-modal-close:hover { color: #ffffff; }
   .reel-meta { padding: 1rem 0 0; }
-  .reel-client { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); display: block; margin-bottom: 0.2rem; line-height: 1; }
-  .reel-title { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.2rem; }
-  .reel-detail { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-weight: 400; margin-top: 0.15rem; }
+  .reel-client { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); display: block; margin-bottom: 0.25rem; line-height: 1; }
+  .reel-title { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.75); display: block; margin-bottom: 0.2rem; letter-spacing: 0.02em; }
+  .reel-agency { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; color: var(--sage); display: block; margin-top: 0.15rem; }
+  .reel-detail { display: none; }
 
   /* CREDITS */
   .credits-section { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a; }
@@ -145,7 +146,7 @@
       <li class="nav-work">
         <button class="nav-services-btn">Work ▾</button>
         <div class="nav-dropdown" style="left:0; right:auto;">
-          <a href="/#work">Watch the Reel</a>
+          <a href="index.html" onclick="sessionStorage.setItem('openReel','1')">Watch the Reel</a>
           <a href="creative.html">Creative Video Editing</a>
           <a href="ai.html">Cinematic A.I. Work</a>
           <a href="premade.html">Premade Spots for Sale</a>
@@ -220,10 +221,10 @@
         <img src="https://vumbnail.com/1163670558.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Super Bowl LX — Jesse Love</p>
+                  <div class="reel-meta">
         <span class="reel-client">Samsara</span>
-        <p class="reel-detail">National Broadcast · :30</p>
+        <p class="reel-title">Super Bowl LX — Jesse Love</p>
+        <span class="reel-agency">MADE Studios, Oakland, California</span>
       </div>
     </div>
 
@@ -232,10 +233,10 @@
         <img src="https://vumbnail.com/677256468.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Dishwasher TV Spot</p>
+                  <div class="reel-meta">
         <span class="reel-client">Midea Appliances</span>
-        <p class="reel-detail">National Broadcast</p>
+        <p class="reel-title">Dishwasher TV Spot</p>
+        <span class="reel-agency">Trade School, Atlanta, Georgia</span>
       </div>
     </div>
 
@@ -244,10 +245,10 @@
         <img src="https://vumbnail.com/677253981.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Fridge TV Spot</p>
+                  <div class="reel-meta">
         <span class="reel-client">Midea Appliances</span>
-        <p class="reel-detail">National Broadcast</p>
+        <p class="reel-title">Fridge TV Spot</p>
+        <span class="reel-agency">Trade School, Atlanta, Georgia</span>
       </div>
     </div>
 
@@ -256,10 +257,10 @@
         <img src="https://vumbnail.com/677315165.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Reload in a Snap</p>
+                  <div class="reel-meta">
         <span class="reel-client">Clorox</span>
-        <p class="reel-detail">National Broadcast</p>
+        <p class="reel-title">Reload in a Snap</p>
+        <span class="reel-agency">FCB West, San Francisco, California</span>
       </div>
     </div>
 
@@ -268,10 +269,10 @@
         <img src="https://vumbnail.com/889663633.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Home Services — TV Spot</p>
+                  <div class="reel-meta">
         <span class="reel-client">Home Depot</span>
-        <p class="reel-detail">National Broadcast</p>
+        <p class="reel-title">Home Services — TV Spot</p>
+        <span class="reel-agency">Trade School, Atlanta, Georgia</span>
       </div>
     </div>
 
@@ -280,10 +281,10 @@
         <img src="https://vumbnail.com/769699092.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">NC300 — Meet the Creami</p>
+                  <div class="reel-meta">
         <span class="reel-client">Ninja</span>
-        <p class="reel-detail">Product Launch</p>
+        <p class="reel-title">NC300 — Meet the Creami</p>
+        <span class="reel-agency">Ninja In-House, San Diego, California</span>
       </div>
     </div>
 
@@ -292,10 +293,10 @@
         <img src="https://vumbnail.com/1064276322.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Luxe Cafe — :30</p>
+                  <div class="reel-meta">
         <span class="reel-client">Ninja</span>
-        <p class="reel-detail">Product Launch</p>
+        <p class="reel-title">Luxe Cafe — :30</p>
+        <span class="reel-agency">Ninja In-House, San Diego, California</span>
       </div>
     </div>
 
@@ -304,10 +305,10 @@
         <img src="https://vumbnail.com/440068901.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Crash From Home — Launch Film</p>
+                  <div class="reel-meta">
         <span class="reel-client">Doritos</span>
-        <p class="reel-detail">Long-Form · Digital</p>
+        <p class="reel-title">Crash From Home — Launch Film</p>
+        <span class="reel-agency">Goodby Silverstein, San Francisco, California</span>
       </div>
     </div>
 
@@ -316,10 +317,10 @@
         <img src="https://vumbnail.com/289191430.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Caramel Squares — National TV</p>
+                  <div class="reel-meta">
         <span class="reel-client">Ghirardelli</span>
-        <p class="reel-detail">National Broadcast</p>
+        <p class="reel-title">Caramel Squares — National TV</p>
+        <span class="reel-agency">FCB West, San Francisco, California</span>
       </div>
     </div>
 
@@ -328,10 +329,10 @@
         <img src="https://vumbnail.com/594786814.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">New HR — :30</p>
+                  <div class="reel-meta">
         <span class="reel-client">15Five</span>
-        <p class="reel-detail">Brand Film</p>
+        <p class="reel-title">New HR — :30</p>
+        <span class="reel-agency">Division of Labor, Sausalito, California</span>
       </div>
     </div>
 
@@ -341,10 +342,10 @@
         <img src="https://vumbnail.com/1181827419.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="reel-meta">
-        <p class="reel-title">Omnibus — :30 Broadcast</p>
+            <div class="reel-meta">
         <span class="reel-client">Divvy</span>
-        <p class="reel-detail">National Broadcast · :30</p>
+        <p class="reel-title">Omnibus — :30 Broadcast</p>
+        <span class="reel-agency">Near Future, San Francisco, California</span>
       </div>
     </div>
 
@@ -353,10 +354,10 @@
         <img src="https://vumbnail.com/259578898.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Spring Cleaning — Car</p>
+                  <div class="reel-meta">
         <span class="reel-client">Clorox</span>
-        <p class="reel-detail">National Broadcast</p>
+        <p class="reel-title">Spring Cleaning — Car</p>
+        <span class="reel-agency">FCB West, San Francisco, California</span>
       </div>
     </div>
 
@@ -365,10 +366,10 @@
         <img src="https://vumbnail.com/108024583.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Wander Over Yonder — Series Promo</p>
+                  <div class="reel-meta">
         <span class="reel-client">Disney XD</span>
-        <p class="reel-detail">Network Promo</p>
+        <p class="reel-title">Wander Over Yonder — Series Promo</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
       </div>
     </div>
 
@@ -377,10 +378,10 @@
         <img src="https://vumbnail.com/109646043.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">9th Grade Ninja — Watch Out</p>
+                  <div class="reel-meta">
         <span class="reel-client">Disney XD</span>
-        <p class="reel-detail">Network Promo</p>
+        <p class="reel-title">9th Grade Ninja — Watch Out</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
       </div>
     </div>
 
@@ -389,10 +390,10 @@
         <img src="https://vumbnail.com/108024585.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Wander Over Yonder — :15</p>
+                  <div class="reel-meta">
         <span class="reel-client">Disney XD</span>
-        <p class="reel-detail">Network Promo</p>
+        <p class="reel-title">Wander Over Yonder — :15</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
       </div>
     </div>
 
@@ -401,10 +402,10 @@
         <img src="https://vumbnail.com/109646042.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Wander Over Yonder — Date</p>
+                  <div class="reel-meta">
         <span class="reel-client">Disney XD</span>
-        <p class="reel-detail">Network Promo</p>
+        <p class="reel-title">Wander Over Yonder — Date</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
       </div>
     </div>
 
@@ -413,10 +414,10 @@
         <img src="https://vumbnail.com/109646041.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Randy Cunningham — Halloween Promo</p>
+                  <div class="reel-meta">
         <span class="reel-client">Disney XD</span>
-        <p class="reel-detail">Network Promo</p>
+        <p class="reel-title">Randy Cunningham — Halloween Promo</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
       </div>
     </div>
 
@@ -425,10 +426,10 @@
         <img src="https://vumbnail.com/176607801.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Denny Hamlin — Never Before Seen</p>
+                  <div class="reel-meta">
         <span class="reel-client">FedEx</span>
-        <p class="reel-detail">Mini Doc · Brand Content</p>
+        <p class="reel-title">Denny Hamlin — Never Before Seen</p>
+        <span class="reel-agency">FedEx Internal, Memphis, Tennessee</span>
       </div>
     </div>
 
@@ -437,10 +438,10 @@
         <img src="https://vumbnail.com/180136940.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Museum of Flight</p>
+                  <div class="reel-meta">
         <span class="reel-client">FedEx Express</span>
-        <p class="reel-detail">Mini Doc · Brand Content</p>
+        <p class="reel-title">Museum of Flight</p>
+        <span class="reel-agency">FedEx Internal, Memphis, Tennessee</span>
       </div>
     </div>
 
@@ -449,10 +450,10 @@
         <img src="https://vumbnail.com/889138221.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Air Purifier</p>
+                  <div class="reel-meta">
         <span class="reel-client">Shark</span>
-        <p class="reel-detail">Product Spot</p>
+        <p class="reel-title">Air Purifier</p>
+        <span class="reel-agency">Ninja In-House, San Diego, California</span>
       </div>
     </div>
 
@@ -461,10 +462,10 @@
         <img src="https://vumbnail.com/787059376.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">3 Punks Ale</p>
+                  <div class="reel-meta">
         <span class="reel-client">UPS</span>
-        <p class="reel-detail">Mini Doc · Brand Content</p>
+        <p class="reel-title">3 Punks Ale</p>
+        <span class="reel-agency">UPS Internal, Atlanta, Georgia</span>
       </div>
     </div>
 
@@ -473,10 +474,10 @@
         <img src="https://vumbnail.com/901754314.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Warrior's Punch — Jefferson's Bourbon</p>
+                  <div class="reel-meta">
         <span class="reel-client">Golden State Warriors</span>
-        <p class="reel-detail">Mini Doc · Brand Content</p>
+        <p class="reel-title">Warrior's Punch — Jefferson's Bourbon</p>
+        <span class="reel-agency">Warriors Internal, San Francisco, California</span>
       </div>
     </div>
 
@@ -485,10 +486,10 @@
         <img src="https://vumbnail.com/559421154.jpg" alt="" loading="lazy" />
         <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-            <div class="reel-meta">
-        <p class="reel-title">Golden State Warriors Fan Story</p>
+                  <div class="reel-meta">
         <span class="reel-client">Golden State Warriors</span>
-        <p class="reel-detail">Mini Doc · Sports</p>
+        <p class="reel-title">Golden State Warriors Fan Story</p>
+        <span class="reel-agency">Warriors Internal, San Francisco, California</span>
       </div>
     </div>
 
