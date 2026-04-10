@@ -17,17 +17,17 @@
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); }
-  .nav-left { display: flex; align-items: center; gap: 2rem; }
+  .nav-left { display: flex; align-items: center; gap: 0; }
   .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; text-transform: uppercase; }
   .nav-logo-sub { display: none; }
   .nav-logo-main { display: none; }
-  .nav-left-links { display: flex; list-style: none; align-items: center; }
+  .nav-left-links { display: flex; list-style: none; align-items: center; gap: 0; }
   .nav-left-links > li { position: relative; display: flex; align-items: center; }
-  .nav-left-links > li > a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
+  .nav-left-links > li > a { line-height: 1; vertical-align: middle; font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1rem; display: block; }
   .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
   .nav-right { display: flex; align-items: center; gap: 0.75rem; }
   .nav-services { position: relative; display: flex; align-items: center; }
-  .nav-services-btn { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.75); background: none; border: none; cursor: pointer; padding: 0.5rem 1rem; transition: color 0.2s; font-family: 'Epilogue', sans-serif; }
+  .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1rem; transition: color 0.2s; line-height: 1; vertical-align: middle; }
   .nav-services-btn:hover { color: #ffffff; }
   .nav-dropdown { display: none; position: absolute; top: 100%; right: 0; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.08); min-width: 220px; z-index: 200; }
   .nav-services:hover .nav-dropdown { display: block; }
@@ -77,9 +77,9 @@
   .reel-embed { position: relative; padding-bottom: 56.25%; background: #0a0a0a; }
   .reel-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
   .reel-meta { padding: 1rem 0 0; }
-  .reel-client { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.35rem; }
-  .reel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--white); }
-  .reel-detail { font-size: 0.78rem; color: rgba(255,255,255,0.7); font-weight: 400; margin-top: 0.25rem; }
+  .reel-client { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); display: block; margin-bottom: 0.2rem; line-height: 1; }
+  .reel-title { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.2rem; }
+  .reel-detail { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-weight: 400; margin-top: 0.15rem; }
 
   /* CREDITS */
   .credits-section { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a; }
@@ -128,7 +128,7 @@
   <div class="nav-left">
     <a href="/" class="nav-logo">MATASSA</a>
     <ul class="nav-left-links">
-      <li><a href="/#work" class="active">The Work</a></li>
+      <li><a href="/#work" class="active">Work</a></li>
       <li>
         <div class="nav-services">
           <button class="nav-services-btn">Services ▾</button>
@@ -183,7 +183,7 @@
     <button class="tab-btn active" onclick="filterTab('all', this)">All Work</button>
     <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive</button>
     <button class="tab-btn" onclick="filterTab('cpg', this)">CPG & Food</button>
-    <button class="tab-btn" onclick="filterTab('appliances', this)">Appliances & Home</button>
+    <button class="tab-btn" onclick="filterTab('appliances', this)">Home & Lifestyle</button>
     <button class="tab-btn" onclick="filterTab('b2b', this)">B2B & Tech</button>
     <button class="tab-btn" onclick="filterTab('entertainment', this)">Entertainment</button>
     <button class="tab-btn" onclick="filterTab('minidoc', this)">Mini Doc</button>
@@ -196,9 +196,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/1163670558?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Samsara Super Bowl LX"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Samsara</span>
+            <div class="reel-meta">
         <p class="reel-title">Super Bowl LX — Jesse Love</p>
+        <span class="reel-client">Samsara</span>
         <p class="reel-detail">National Broadcast · :30</p>
       </div>
     </div>
@@ -207,9 +207,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/677256468?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="MIDEA Dishwasher"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Midea Appliances</span>
+            <div class="reel-meta">
         <p class="reel-title">Dishwasher TV Spot</p>
+        <span class="reel-client">Midea Appliances</span>
         <p class="reel-detail">National Broadcast</p>
       </div>
     </div>
@@ -218,9 +218,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/677253981?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Midea Fridge"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Midea Appliances</span>
+            <div class="reel-meta">
         <p class="reel-title">Fridge TV Spot</p>
+        <span class="reel-client">Midea Appliances</span>
         <p class="reel-detail">National Broadcast</p>
       </div>
     </div>
@@ -229,9 +229,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/677315165?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Refillable Cleaners"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Clorox</span>
+            <div class="reel-meta">
         <p class="reel-title">Reload in a Snap</p>
+        <span class="reel-client">Clorox</span>
         <p class="reel-detail">National Broadcast</p>
       </div>
     </div>
@@ -240,9 +240,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/889663633?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Home Depot Home Services"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Home Depot</span>
+            <div class="reel-meta">
         <p class="reel-title">Home Services — TV Spot</p>
+        <span class="reel-client">Home Depot</span>
         <p class="reel-detail">National Broadcast</p>
       </div>
     </div>
@@ -251,9 +251,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/769699092?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja Creami"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Ninja</span>
+            <div class="reel-meta">
         <p class="reel-title">NC300 — Meet the Creami</p>
+        <span class="reel-client">Ninja</span>
         <p class="reel-detail">Product Launch</p>
       </div>
     </div>
@@ -262,9 +262,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/1064276322?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja Luxe Cafe"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Ninja</span>
+            <div class="reel-meta">
         <p class="reel-title">Luxe Cafe — :30</p>
+        <span class="reel-client">Ninja</span>
         <p class="reel-detail">Product Launch</p>
       </div>
     </div>
@@ -273,9 +273,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/440068901?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Doritos Crash From Home"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Doritos</span>
+            <div class="reel-meta">
         <p class="reel-title">Crash From Home — Launch Film</p>
+        <span class="reel-client">Doritos</span>
         <p class="reel-detail">Long-Form · Digital</p>
       </div>
     </div>
@@ -284,9 +284,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/289191430?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ghirardelli Caramel Squares"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Ghirardelli</span>
+            <div class="reel-meta">
         <p class="reel-title">Caramel Squares — National TV</p>
+        <span class="reel-client">Ghirardelli</span>
         <p class="reel-detail">National Broadcast</p>
       </div>
     </div>
@@ -295,10 +295,22 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/594786814?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="15Five New HR"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">15Five</span>
+            <div class="reel-meta">
         <p class="reel-title">New HR — :30</p>
+        <span class="reel-client">15Five</span>
         <p class="reel-detail">Brand Film</p>
+      </div>
+    </div>
+
+    
+    <div class="reel-item" data-cat="b2b appliances">
+      <div class="reel-embed">
+        <iframe src="https://player.vimeo.com/video/1181827419?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <p class="reel-title">Omnibus — :30 Broadcast</p>
+        <span class="reel-client">Divvy</span>
+        <p class="reel-detail">National Broadcast · :30</p>
       </div>
     </div>
 
@@ -306,9 +318,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/259578898?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Spring Cleaning — Car"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Clorox</span>
+            <div class="reel-meta">
         <p class="reel-title">Spring Cleaning — Car</p>
+        <span class="reel-client">Clorox</span>
         <p class="reel-detail">National Broadcast</p>
       </div>
     </div>
@@ -317,9 +329,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/108024583?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder Promo"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Disney XD</span>
+            <div class="reel-meta">
         <p class="reel-title">Wander Over Yonder — Series Promo</p>
+        <span class="reel-client">Disney XD</span>
         <p class="reel-detail">Network Promo</p>
       </div>
     </div>
@@ -328,9 +340,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/109646043?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — 9th Grade Ninja Watch Out"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Disney XD</span>
+            <div class="reel-meta">
         <p class="reel-title">9th Grade Ninja — Watch Out</p>
+        <span class="reel-client">Disney XD</span>
         <p class="reel-detail">Network Promo</p>
       </div>
     </div>
@@ -339,9 +351,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/108024585?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder :15"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Disney XD</span>
+            <div class="reel-meta">
         <p class="reel-title">Wander Over Yonder — :15</p>
+        <span class="reel-client">Disney XD</span>
         <p class="reel-detail">Network Promo</p>
       </div>
     </div>
@@ -350,9 +362,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/109646042?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder Date"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Disney XD</span>
+            <div class="reel-meta">
         <p class="reel-title">Wander Over Yonder — Date</p>
+        <span class="reel-client">Disney XD</span>
         <p class="reel-detail">Network Promo</p>
       </div>
     </div>
@@ -361,9 +373,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/109646041?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Randy Cunningham Halloween"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Disney XD</span>
+            <div class="reel-meta">
         <p class="reel-title">Randy Cunningham — Halloween Promo</p>
+        <span class="reel-client">Disney XD</span>
         <p class="reel-detail">Network Promo</p>
       </div>
     </div>
@@ -372,9 +384,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/176607801?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="FedEx — Denny Hamlin Never Before Seen"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">FedEx</span>
+            <div class="reel-meta">
         <p class="reel-title">Denny Hamlin — Never Before Seen</p>
+        <span class="reel-client">FedEx</span>
         <p class="reel-detail">Mini Doc · Brand Content</p>
       </div>
     </div>
@@ -383,9 +395,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/180136940?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="FedEx Express — Museum of Flight"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">FedEx Express</span>
+            <div class="reel-meta">
         <p class="reel-title">Museum of Flight</p>
+        <span class="reel-client">FedEx Express</span>
         <p class="reel-detail">Mini Doc · Brand Content</p>
       </div>
     </div>
@@ -394,9 +406,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/889138221?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Shark Air Purifier"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Shark</span>
+            <div class="reel-meta">
         <p class="reel-title">Air Purifier</p>
+        <span class="reel-client">Shark</span>
         <p class="reel-detail">Product Spot</p>
       </div>
     </div>
@@ -405,9 +417,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/787059376?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="UPS — 3 Punks Ale"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">UPS</span>
+            <div class="reel-meta">
         <p class="reel-title">3 Punks Ale</p>
+        <span class="reel-client">UPS</span>
         <p class="reel-detail">Mini Doc · Brand Content</p>
       </div>
     </div>
@@ -416,9 +428,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/901754314?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Golden State Warriors — Jefferson's Bourbon"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Golden State Warriors</span>
+            <div class="reel-meta">
         <p class="reel-title">Warrior's Punch — Jefferson's Bourbon</p>
+        <span class="reel-client">Golden State Warriors</span>
         <p class="reel-detail">Mini Doc · Brand Content</p>
       </div>
     </div>
@@ -427,9 +439,9 @@
       <div class="reel-embed">
         <iframe src="https://player.vimeo.com/video/559421154?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Golden State Warriors — Fan Story"></iframe>
       </div>
-      <div class="reel-meta">
-        <span class="reel-client">Golden State Warriors</span>
+            <div class="reel-meta">
         <p class="reel-title">Golden State Warriors Fan Story</p>
+        <span class="reel-client">Golden State Warriors</span>
         <p class="reel-detail">Mini Doc · Sports</p>
       </div>
     </div>
@@ -489,14 +501,15 @@
   // All spots catalogue for featured rotation
   const ALL_SPOTS = [
     { id: '1163670558', title: 'Super Bowl LX — Jesse Love', client: 'Samsara', category: 'Automotive & Tech', desc: 'Super Bowl LX national broadcast spot. Directed with precision and editorial instinct for one of the biggest stages in advertising.', tags: ['National Broadcast', ':30', 'Super Bowl'] },
-    { id: '677256468',  title: 'Dishwasher TV Spot', client: 'Midea Appliances', category: 'Appliances & Home', desc: 'National TV spot for Midea Appliances. Clean product storytelling, tight editorial pacing.', tags: ['National Broadcast', 'Product'] },
-    { id: '677253981',  title: 'Fridge TV Spot', client: 'Midea Appliances', category: 'Appliances & Home', desc: 'National TV campaign for Midea. Lifestyle-driven product commercial built for broadcast.', tags: ['National Broadcast', 'Product'] },
-    { id: '677315165',  title: 'Reload in a Snap', client: 'Clorox', category: 'Appliances & Home', desc: 'National TV launch for Clorox Refillable Cleaners. Fast-cut, benefit-driven editorial.', tags: ['National Broadcast', ':30'] },
-    { id: '889663633',  title: 'Home Services TV Spot', client: 'Home Depot', category: 'Appliances & Home', desc: 'National broadcast spot for Home Depot Home Services. Warm, relatable, and on-brand.', tags: ['National Broadcast'] },
-    { id: '769699092',  title: 'NC300 — Meet the Creami', client: 'Ninja', category: 'Appliances & Home', desc: 'Product launch film for the Ninja Creami. Energetic, consumer-focused editorial.', tags: ['Product Launch'] },
-    { id: '1064276322', title: 'Luxe Cafe — :30', client: 'Ninja', category: 'Appliances & Home', desc: 'Premium product launch spot for the Ninja Luxe Cafe. Cinematic treatment for a consumer appliance.', tags: ['Product Launch', ':30'] },
+    { id: '677256468',  title: 'Dishwasher TV Spot', client: 'Midea Appliances', category: 'Home & Lifestyle', desc: 'National TV spot for Midea Appliances. Clean product storytelling, tight editorial pacing.', tags: ['National Broadcast', 'Product'] },
+    { id: '677253981',  title: 'Fridge TV Spot', client: 'Midea Appliances', category: 'Home & Lifestyle', desc: 'National TV campaign for Midea. Lifestyle-driven product commercial built for broadcast.', tags: ['National Broadcast', 'Product'] },
+    { id: '677315165',  title: 'Reload in a Snap', client: 'Clorox', category: 'Home & Lifestyle', desc: 'National TV launch for Clorox Refillable Cleaners. Fast-cut, benefit-driven editorial.', tags: ['National Broadcast', ':30'] },
+    { id: '889663633',  title: 'Home Services TV Spot', client: 'Home Depot', category: 'Home & Lifestyle', desc: 'National broadcast spot for Home Depot Home Services. Warm, relatable, and on-brand.', tags: ['National Broadcast'] },
+    { id: '769699092',  title: 'NC300 — Meet the Creami', client: 'Ninja', category: 'Home & Lifestyle', desc: 'Product launch film for the Ninja Creami. Energetic, consumer-focused editorial.', tags: ['Product Launch'] },
+    { id: '1064276322', title: 'Luxe Cafe — :30', client: 'Ninja', category: 'Home & Lifestyle', desc: 'Premium product launch spot for the Ninja Luxe Cafe. Cinematic treatment for a consumer appliance.', tags: ['Product Launch', ':30'] },
     { id: '440068901',  title: 'Crash From Home', client: 'Doritos', category: 'Food & Beverage', desc: 'Long-form launch film for Doritos. Comedy-driven brand content built for digital and social.', tags: ['Long-Form', 'Digital'] },
     { id: '289191430',  title: 'Caramel Squares — National TV', client: 'Ghirardelli', category: 'Food & Beverage', desc: 'National TV campaign for Ghirardelli Caramel Squares. Indulgent, cinematic food storytelling.', tags: ['National Broadcast'] },
+        { id: '1181827419', title: 'Omnibus — :30', client: 'Divvy', category: 'B2B & Tech', desc: 'National broadcast spot for Divvy. Sharp, benefit-led commercial storytelling built for TV.', tags: ['National Broadcast', ':30', 'B2B'] },
     { id: '594786814',  title: 'New HR — :30', client: '15Five', category: 'B2B & Tech', desc: 'Brand film for 15Five. Clear, smart B2B storytelling that connects product to human outcome.', tags: ['Brand Film', ':30'] },
     { id: '559421154',  title: 'Golden State Warriors Fan Story', client: 'Golden State Warriors', category: 'Mini Doc · Sports', desc: 'The return. After a year without live basketball, Warriors fans came back to Chase Center — and this film captured what that moment meant. Real people, real emotion, cinematic craft.', tags: ['Mini Doc', 'Sports', 'Brand Content'] },
   ];
