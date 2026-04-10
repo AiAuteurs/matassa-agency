@@ -98,7 +98,8 @@
   .spot-placeholder-box span { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
   .spot-meta { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
   .spot-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 0.3rem 0.7rem; border: 1px solid rgba(255,255,255,0.35); }
-  .spot-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.6rem; line-height: 1; }
+  .spot-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.4rem; line-height: 1; }
+  .spot-agency { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; color: var(--sage); display: block; margin-bottom: 0.6rem; }
   .spot-desc { font-size: 0.85rem; color: var(--white); line-height: 1.75; font-weight: 300; }
 
   /* FESTIVALS */
@@ -157,7 +158,7 @@
       <li class="nav-work">
         <button class="nav-services-btn">Work ▾</button>
         <div class="nav-dropdown" style="left:0; right:auto;">
-          <a href="/#work">Watch the Reel</a>
+          <a href="index.html" onclick="sessionStorage.setItem('openReel','1')">Watch the Reel</a>
           <a href="creative.html">Creative Video Editing</a>
           <a href="ai.html">Cinematic A.I. Work</a>
           <a href="premade.html">Premade Spots for Sale</a>
@@ -248,6 +249,7 @@
       </div>
       <div class="spot-meta"><span class="spot-tag">A.I. Commercial</span><span class="spot-tag">Agency</span><span class="spot-tag">2025</span></div>
       <h3 class="spot-title">PRICELINE — "CAROUSEL DREAMS"</h3>
+      <span class="spot-agency">Mirimar, Los Angeles, California</span>
       <p class="spot-desc">A.I.-driven national spot created in collaboration with Mirimar, a top Los Angeles ad agency, for their client Priceline. Every element — visuals, motion titles, sound design — built using Runway, Veo 3, and Freepik Extend. Directed with the same editorial instinct as any broadcast production. This is what Cinematic A.I. looks like when craft leads the process.</p>
     </div>
 
@@ -258,6 +260,7 @@
       </div>
       <div class="spot-meta"><span class="spot-tag">:15</span><span class="spot-tag">Lifestyle & Sport</span><span class="spot-tag">2026</span></div>
       <h3 class="spot-title" onclick="openVideo('1181431670')">BURTON SNOWBOARDS</h3>
+      <span class="spot-agency">Matassa — Spec</span>
       <p class="spot-desc" onclick="openVideo('1181431670')">Unofficial spec spot. Cinematic A.I. filmmaking built on instinct, rhythm, and 30 years of commercial craft.</p>
     </div>
 
@@ -267,6 +270,7 @@
       </div>
       <div class="spot-meta"><span class="spot-tag">A.I. Spec Spot</span><span class="spot-tag">Beam Coffee</span><span class="spot-tag">2026</span></div>
       <h3 class="spot-title">THANK GOD YOU'RE UP</h3>
+      <span class="spot-agency">Matassa — Spec / Beam Coffee</span>
       <p class="spot-desc">A surreal comedy spot for Beam Coffee. The world collapses into apocalyptic chaos — one man stays calm with his morning cup.</p>
     </div>
 
@@ -277,6 +281,7 @@
       </div>
       <div class="spot-meta"><span class="spot-tag">:15</span><span class="spot-tag">Food & Beverage</span><span class="spot-tag">Premade Ad</span></div>
       <h3 class="spot-title" onclick="openVideo('1181123452')">PANCAKES & MAPLE SYRUP</h3>
+      <span class="spot-agency">Matassa Original</span>
       <p class="spot-desc" onclick="openVideo('1181123452')">A brandable :15 A.I. spot for food and family brands. Customizable with your logo and script.</p>
     </div>
 
@@ -287,6 +292,7 @@
       </div>
       <div class="spot-meta"><span class="spot-tag">A.I. Film</span><span class="spot-tag">2026</span></div>
       <h3 class="spot-title" onclick="openVideo('1089344542')">IDIOM</h3>
+      <span class="spot-agency">Matassa Original</span>
       <p class="spot-desc" onclick="openVideo('1089344542')">An A.I. film by Matassa. Language, image, and instinct — pushed to the edge of meaning.</p>
     </div>
 
