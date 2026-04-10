@@ -73,8 +73,8 @@
   .work-card:hover { background: #0f0f0f; }
   .work-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: rgba(255,255,255,0.05); line-height: 1; margin-bottom: 1.5rem; }
   .work-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 1rem; line-height: 1; }
-  .work-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
-  .work-card-cta { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 2px; display: inline-block; transition: color 0.2s, border-color 0.2s; }
+  .work-card-desc { font-size: 0.85rem; color: var(--white); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+  .work-card-cta { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 2px; display: inline-block; transition: color 0.2s, border-color 0.2s; }
   .work-card:hover .work-card-cta { color: var(--white); border-color: var(--white); }
 
   /* BOOK */
@@ -109,7 +109,7 @@
   .funnel-card-c.active .funnel-check { background: #D4A87A; border-color: #D4A87A; }
   .funnel-letter { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; line-height: 1; margin-bottom: 1.5rem; transition: color 0.25s; }
   .funnel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem; letter-spacing: 0.03em; color: var(--white); margin-bottom: 0.75rem; line-height: 1.1; }
-  .funnel-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; }
+  .funnel-desc { font-size: 0.85rem; color: var(--white); line-height: 1.8; font-weight: 300; }
   .funnel-click-hint { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 1.5rem; display: block; transition: color 0.2s; }
   .funnel-card:hover .funnel-click-hint { color: rgba(255,255,255,0.5); }
   .funnel-check { position: absolute; top: 1.5rem; right: 1.5rem; width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); transition: all 0.25s; display: flex; align-items: center; justify-content: center; }
@@ -119,11 +119,11 @@
   .funnel-form.visible { display: block; }
   .funnel-form-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
   .funnel-form-left h3 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--white); line-height: 1; margin-bottom: 1.2rem; }
-  .funnel-form-left p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.85; font-weight: 300; }
+  .funnel-form-left p { font-size: 0.88rem; color: var(--white); line-height: 1.85; font-weight: 300; }
   .contact-detail { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
   .contact-detail-item { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
   .contact-detail-label { font-size: 0.55rem; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
-  .contact-detail-value { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 300; }
+  .contact-detail-value { font-size: 0.85rem; color: var(--white); font-weight: 300; }
 
   /* FIELDS */
   .field { margin-bottom: 1rem; }
@@ -256,10 +256,10 @@
         <span style="display:block; font-size:0.58rem; letter-spacing:0.42em; text-transform:uppercase; color:#8BAF8E; margin-bottom:1.5rem;">Got 15 Minutes?</span>
         <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4vw,3.8rem); color:#ffffff; line-height:0.95; margin-bottom:1.5rem;">BOOK A CREATIVE HUDDLE.</h2>
         <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:rgba(255,255,255,0.65); max-width:420px; margin-bottom:2rem;">No pitch. No pressure. Tell me what you're working on — I respond to every inquiry personally.</p>
-        <div style="font-size:0.7rem; letter-spacing:0.18em; color:rgba(255,255,255,0.4); line-height:2.2; text-transform:uppercase;">
+        <div style="font-size:0.7rem; letter-spacing:0.18em; color:rgba(255,255,255,0.9); line-height:2.2; text-transform:uppercase;">
           <div>15 minutes · Video or phone</div>
           <div>US &amp; Asia time zones covered</div>
-          <div>In LA · April 30 — September</div>
+          
         </div>
       </div>
       <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" style="display:inline-block; margin-top:2.5rem; font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#8BAF8E; padding:1.1rem 2.5rem; text-decoration:none; align-self:flex-start;">Book a Creative Huddle →</a>
@@ -269,7 +269,7 @@
         <span style="display:block; font-size:0.58rem; letter-spacing:0.42em; text-transform:uppercase; color:#7EB8D4; margin-bottom:1.5rem;">Ready to Go?</span>
         <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4vw,3.8rem); color:#ffffff; line-height:0.95; margin-bottom:1.5rem;">START YOUR PROJECT.</h2>
         <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:rgba(255,255,255,0.65); max-width:420px; margin-bottom:2rem;">Tell us as much or as little as you want. Hang tight — we respond quickly. No commitment — just a conversation.</p>
-        <div style="font-size:0.7rem; letter-spacing:0.18em; color:rgba(255,255,255,0.4); line-height:2.2; text-transform:uppercase;">
+        <div style="font-size:0.7rem; letter-spacing:0.18em; color:rgba(255,255,255,0.9); line-height:2.2; text-transform:uppercase;">
           <div>Text for faster: 415.205.0868</div>
           <div>A yes, a counter, or a better question</div>
           <div>No pressure. Ever.</div>
@@ -322,7 +322,7 @@
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
           <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">In LA</span><span class="contact-detail-value">April 30 — September 2026</span></div>
+          
         </div>
       </div>
       <div>
@@ -341,7 +341,7 @@
         <div class="field"><label>Your Budget</label><input type="text" id="a-budget" placeholder="What do you want to invest?" /></div>
         <div class="field"><label>Your Deadline</label><input type="text" id="a-deadline" placeholder="When do you need it?" /></div>
         <div class="field"><label>Your Script or Brief</label><textarea id="a-concept" placeholder="Paste your script or describe the spot — tone, feel, mandatory messaging, brand guidelines."></textarea></div>
-        <button class="submit-btn" onclick="handleFunnelSubmit('a')">Send Your Script →</button>
+        <button class="submit-btn" onclick="handleFunnelSubmit('a')">START →</button>
       </div>
     </div>
   </div>
@@ -355,7 +355,7 @@
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
           <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">In LA</span><span class="contact-detail-value">April 30 — September 2026</span></div>
+          
         </div>
       </div>
       <div>
@@ -370,7 +370,7 @@
         <div class="field"><label>Your Budget</label><input type="text" id="b-budget" placeholder="What do you want to invest?" /></div>
         <div class="field"><label>Your Deadline</label><input type="text" id="b-deadline" placeholder="When do you need it?" /></div>
         <div class="field"><label>Tell Us About Your Brand & Audience</label><textarea id="b-concept" placeholder="Who are you, who's your audience, what do you want people to feel? Any reference spots or brands you admire?"></textarea></div>
-        <button class="submit-btn" onclick="handleFunnelSubmit('b')">Start the Conversation →</button>
+        <button class="submit-btn" onclick="handleFunnelSubmit('b')">START →</button>
       </div>
     </div>
   </div>
@@ -384,7 +384,7 @@
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
           <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">In LA</span><span class="contact-detail-value">April 30 — September 2026</span></div>
+          
         </div>
       </div>
       <div>
@@ -401,7 +401,7 @@
           <select id="c-volume"><option value="">Select volume</option><option>1-2 spots per month</option><option>3-5 spots per month</option><option>6+ spots per month</option><option>Campaign-based, varies</option></select>
         </div>
         <div class="field"><label>Tell Us About Your Needs</label><textarea id="c-concept" placeholder="Tell us about your team, your workflow, what you're looking for, and when you need to start."></textarea></div>
-        <button class="submit-btn" onclick="handleFunnelSubmit('c')">Let's Talk →</button>
+        <button class="submit-btn" onclick="handleFunnelSubmit('c')">START →</button>
       </div>
     </div>
   </div>
