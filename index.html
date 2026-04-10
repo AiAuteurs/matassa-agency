@@ -41,19 +41,19 @@
 
 
   /* HERO */
-  .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; overflow: hidden; }
+  .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 4rem; overflow: hidden; }
   .hero-video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
   .hero-video iframe { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; pointer-events: none; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.75) 75%, rgba(0,0,0,0.97) 100%); z-index: 1; }
   .hero-content { position: relative; z-index: 2; max-width: 860px; }
   .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 1.2rem; animation: fadeUp 0.8s ease both; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 8rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
-  .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.88); max-width: 600px; line-height: 1.8; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
-  .hero-actions { display: flex; align-items: center; gap: 1rem; animation: fadeUp 0.8s 0.3s ease both; flex-wrap: wrap; }
-  .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.2rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
-  .btn-primary:hover { background: var(--light-grey); }
-  .btn-reel { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); text-decoration: none; border: 2px solid var(--sage); padding: 1rem 2.2rem; transition: all 0.2s; display: inline-block; background: rgba(139,175,142,0.1); cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 500; }
-  .btn-reel:hover { background: var(--sage); color: var(--black); border-color: var(--sage); }
+  .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.88); max-width: 600px; line-height: 1.8; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 0; }
+  .hero-actions { display: flex; align-items: stretch; gap: 0; animation: fadeUp 0.8s 0.3s ease both; position: absolute; bottom: 4rem; right: 3rem; z-index: 2; }
+  .btn-primary { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.3rem 2.8rem; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; }
+  .btn-primary:hover { background: #e8e8e8; }
+  .btn-reel { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); text-decoration: none; border: 2px solid var(--sage); border-left: none; padding: 1.3rem 2.8rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(139,175,142,0.15); cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 700; }
+  .btn-reel:hover { background: var(--sage); color: var(--black); }
   .unmute-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(8px); transition: border-color 0.2s; }
   .unmute-btn:hover { border-color: rgba(255,255,255,0.5); }
 
@@ -245,7 +245,7 @@
     <p class="hero-tagline">Super Bowl spots. National TV campaigns. Tech films. Sizzle reels. Built alongside Jeff Goodby, Michael Bay, and Dennis Virkler. That experience doesn't come from a tutorial — it comes from decades in the room. Now it's running A.I. The difference shows in every frame.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start Your Project</a>
-      <button onclick="openReel()" class="btn-reel">▶ &nbsp;Watch the Reel</button>
+      <button onclick="openReel()" class="btn-reel">▶&nbsp; Watch the Reel</button>
     </div>
   </div>
 </section>
@@ -327,9 +327,9 @@
         <p>Send us your script, brand assets, and deadline. First cut lands 48 hours after brief approval.</p>
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
-          
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">michael@matassa.com</span></div>
         </div>
+        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
       <div>
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
@@ -360,9 +360,9 @@
         <p>Tell us your brand, your audience, what you want people to feel. We develop the concept and produce the spot. Concepting quoted separately before anything begins.</p>
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
-          
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">michael@matassa.com</span></div>
         </div>
+        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
       <div>
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
@@ -389,9 +389,9 @@
         <p>Michael embeds with your team as a senior creative editor and cinematic A.I. storyteller. Monthly retainer or project basis. LA and Bangkok time zones. No downtime.</p>
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">hello [at] matassa.com</span></div>
-          
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">michael@matassa.com</span></div>
         </div>
+        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
       <div>
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
