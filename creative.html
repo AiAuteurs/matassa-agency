@@ -99,11 +99,16 @@
   /* CREDITS */
   .credits-section { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a; }
   .credits-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); margin-bottom: 2rem; }
-  .credits-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 0; border: 1px solid rgba(255,255,255,0.07); margin-top: 3rem; }
-  .credits-grid div { padding: 1.5rem 1.2rem; border-right: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .credits-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 0; border: 1px solid rgba(255,255,255,0.07); margin-top: 2rem; }
+  .credits-grid div { padding: 2rem 1.8rem; border-right: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
   .credits-grid div:nth-child(6n) { border-right: none; }
-  .credits-grid div p { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--white); }
-  .credits-grid div span { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; margin-top: 0.3rem; font-family: 'Epilogue', sans-serif; font-weight: 300; }
+  .credits-grid div p { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.5rem; }
+  .credits-grid div span { display: block; font-size: 0.7rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; line-height: 1.6; font-family: 'Epilogue', sans-serif; font-weight: 300; }
+  .people-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; border: 1px solid rgba(255,255,255,0.07); margin-top: 2rem; margin-bottom: 5rem; }
+  .people-grid div { padding: 2.2rem 2rem; border-right: 1px solid rgba(255,255,255,0.07); }
+  .people-grid div:last-child { border-right: none; }
+  .people-grid div p { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.6rem; }
+  .people-grid div span { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; line-height: 1.7; font-family: 'Epilogue', sans-serif; font-weight: 300; }
 
   /* CTA */
   .cta-section { padding: 7rem 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
@@ -502,13 +507,12 @@
 
   <!-- PEOPLE -->
   <span class="credits-label">Select People We Have Cut For</span>
-  <div class="credits-grid" style="margin-bottom: 5rem;">
-    <div><p>Jeff Goodby</p><span>Chief Creative Officer · Goodby Silverstein & Partners, San Francisco, California</span></div>
-    <div><p>Michael Bay</p><span>Director · "Transformers" · Los Angeles, California</span></div>
-    <div><p>Dennis Virkler</p><span>Editor · Hunt for Red October · Los Angeles, California</span></div>
-    <div><p>Larry Bridges</p><span>Founder & Editor · Red Car · Hollywood, Los Angeles, California</span></div>
-    <div><p>Rob Watzke</p><span>Actor · Editor · Director · Los Angeles, California</span></div>
-    <div><p>And Many More</p></div>
+  <div class="people-grid">
+    <div><p>Jeff Goodby</p><span>Chief Creative Officer<br>Goodby Silverstein & Partners<br>San Francisco, California</span></div>
+    <div><p>Michael Bay</p><span>Director<br>"Transformers"<br>Los Angeles, California</span></div>
+    <div><p>Dennis Virkler</p><span>Editor<br>Hunt for Red October<br>Los Angeles, California</span></div>
+    <div><p>Larry Bridges</p><span>Founder & Editor<br>Red Car<br>Hollywood, Los Angeles, California</span></div>
+    <div><p>Rob Watzke</p><span>Actor · Editor · Director<br>Los Angeles, California</span></div>
   </div>
 
   <!-- BRANDS & AGENCIES -->
