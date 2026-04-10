@@ -24,9 +24,10 @@
     background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: blur(12px);
   }
-    .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.6rem; letter-spacing: -0.01em; color: #ffffff; text-decoration: none; display: flex; flex-direction: column; line-height: 1; align-items: center; text-transform: uppercase; }
-    .nav-logo-main { color: #ffffff; }
-    .nav-logo-sub { display: none; }
+      .nav-logo { text-decoration: none; display: flex; align-items: center; }
+      .nav-logo-main { display: none; }
+      .nav-logo-sub { display: none; }
+  .nav-logo-img { height: 36px; width: auto; display: block; }
   .nav-right { display: flex; align-items: center; gap: 2rem; }
   .nav-links { display: flex; list-style: none; align-items: center; }
   .nav-links > li { position: relative; display: flex; align-items: center; }
@@ -208,7 +209,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><span class="nav-logo-main">MATASSA</span><span class="nav-logo-sub">Traditional Craft. Cinematic A.I.</span></a>
+  <a href="/" class="nav-logo"><img src="Matassa World Logo.png" alt="MATASSA" class="nav-logo-img"></a>
   <div class="nav-right">
     <ul class="nav-links">
       <li>
