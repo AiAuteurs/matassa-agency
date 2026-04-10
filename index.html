@@ -189,8 +189,21 @@
 
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .hero { padding: 0 1.5rem 4rem; }
+    .nav-left { gap: 1rem; }
+    .nav-left-links li:last-child { display: none; } /* hide About on mobile */
+    .nav-right { display: none; } /* hide CTA pills on mobile */
+    .nav-dropdown { min-width: 180px; }
+
+    .hero { padding: 0 1.5rem 3rem; }
+    .hero h1 { font-size: clamp(2.8rem, 14vw, 5rem); margin-bottom: 1rem; }
+    .hero-tagline { font-size: 0.92rem; line-height: 1.75; max-width: 100%;
+      /* truncate the long copy on mobile */
+      display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1.5rem; }
+    .hero-actions { flex-direction: column; gap: 0.75rem; }
+    .hero-actions .btn-primary, .hero-actions .btn-reel { width: 100%; justify-content: center; border-left: 2px solid var(--sage) !important; font-size: 0.82rem; padding: 1.1rem 1.5rem; }
+
+    .unmute-btn { bottom: 1rem; right: 1rem; font-size: 0.65rem; padding: 0.4rem 0.75rem; }
+
     .work-section, .book-section, .funnel-section { padding: 4rem 1.5rem; }
     .work-grid, .funnel-cards { grid-template-columns: 1fr; }
     .book-grid, .funnel-form-inner { grid-template-columns: 1fr; gap: 3rem; }
