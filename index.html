@@ -197,17 +197,19 @@
     .nav-dropdown { min-width: 200px; }
 
     .hero { padding: 0 1.5rem 3rem; }
+    .hero-video iframe { width: 100vw; height: 56.25vw; min-width: 100vw; min-height: 56.25vw; }
     .hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .hero h1 { font-size: clamp(2.8rem, 14vw, 5rem); margin-bottom: 1rem; }
     .hero-tagline { font-size: 0.92rem; line-height: 1.75; max-width: 100%; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1.5rem; }
     .hero-actions { flex-direction: column; gap: 0.75rem; }
     .hero-actions .btn-primary, .hero-actions .btn-reel { width: 100%; justify-content: center; border-left: 2px solid var(--sage) !important; font-size: 0.82rem; padding: 1.1rem 1.5rem; }
 
-    .unmute-btn { bottom: auto; top: 1rem; right: 1rem; font-size: 0.65rem; padding: 0.4rem 0.75rem; }
+    .unmute-btn { position: fixed; top: 0.85rem; right: 1rem; bottom: auto; font-size: 0.65rem; padding: 0.35rem 0.7rem; z-index: 101; }
 
     .work-section, .book-section, .funnel-section { padding: 4rem 1.5rem; }
     .work-grid, .funnel-cards { grid-template-columns: 1fr; }
     .book-grid, .funnel-form-inner { grid-template-columns: 1fr; gap: 3rem; }
+    div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
   }
 </style>
