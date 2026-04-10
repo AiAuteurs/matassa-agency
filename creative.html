@@ -74,8 +74,20 @@
   .reel-item { display: none; }
   .reel-item.visible { display: block; animation: fadeIn 0.3s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  .reel-embed { position: relative; padding-bottom: 56.25%; background: #0a0a0a; }
-  .reel-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .reel-thumb { position: relative; padding-bottom: 56.25%; background: #0a0a0a; overflow: hidden; cursor: pointer; }
+  .reel-thumb img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.3s; }
+  .reel-thumb:hover img { transform: scale(1.04); opacity: 0.75; }
+  .reel-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .reel-play-btn { width: 56px; height: 56px; border-radius: 50%; background: rgba(8,8,8,0.7); border: 2px solid rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center; transition: all 0.2s; backdrop-filter: blur(4px); }
+  .reel-thumb:hover .reel-play-btn { background: rgba(8,8,8,0.9); border-color: #ffffff; transform: scale(1.1); }
+  /* VIDEO MODAL */
+  .video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.94); z-index: 1000; align-items: center; justify-content: center; }
+  .video-modal.open { display: flex; }
+  .video-modal-inner { position: relative; width: 90vw; max-width: 1100px; }
+  .video-modal-embed { position: relative; padding-bottom: 56.25%; }
+  .video-modal-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .video-modal-close { position: absolute; top: -2.5rem; right: 0; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.8rem; cursor: pointer; line-height: 1; transition: color 0.2s; }
+  .video-modal-close:hover { color: #ffffff; }
   .reel-meta { padding: 1rem 0 0; }
   .reel-client { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); display: block; margin-bottom: 0.2rem; line-height: 1; }
   .reel-title { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.2rem; }
@@ -194,8 +206,9 @@
   <div class="reel-grid">
 
     <div class="reel-item" data-cat="automotive b2b sports">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/1163670558?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Samsara Super Bowl LX"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('1163670558')">
+        <img src="https://vumbnail.com/1163670558.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Super Bowl LX — Jesse Love</p>
@@ -205,8 +218,9 @@
     </div>
 
     <div class="reel-item" data-cat="appliances">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/677256468?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="MIDEA Dishwasher"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('677256468')">
+        <img src="https://vumbnail.com/677256468.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Dishwasher TV Spot</p>
@@ -216,8 +230,9 @@
     </div>
 
     <div class="reel-item" data-cat="appliances">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/677253981?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Midea Fridge"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('677253981')">
+        <img src="https://vumbnail.com/677253981.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Fridge TV Spot</p>
@@ -227,8 +242,9 @@
     </div>
 
     <div class="reel-item" data-cat="appliances cpg">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/677315165?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Refillable Cleaners"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('677315165')">
+        <img src="https://vumbnail.com/677315165.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Reload in a Snap</p>
@@ -238,8 +254,9 @@
     </div>
 
     <div class="reel-item" data-cat="appliances">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/889663633?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Home Depot Home Services"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('889663633')">
+        <img src="https://vumbnail.com/889663633.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Home Services — TV Spot</p>
@@ -249,8 +266,9 @@
     </div>
 
     <div class="reel-item" data-cat="appliances">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/769699092?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja Creami"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('769699092')">
+        <img src="https://vumbnail.com/769699092.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">NC300 — Meet the Creami</p>
@@ -260,8 +278,9 @@
     </div>
 
     <div class="reel-item" data-cat="appliances">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/1064276322?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ninja Luxe Cafe"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('1064276322')">
+        <img src="https://vumbnail.com/1064276322.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Luxe Cafe — :30</p>
@@ -271,8 +290,9 @@
     </div>
 
     <div class="reel-item" data-cat="cpg food">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/440068901?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Doritos Crash From Home"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('440068901')">
+        <img src="https://vumbnail.com/440068901.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Crash From Home — Launch Film</p>
@@ -282,8 +302,9 @@
     </div>
 
     <div class="reel-item" data-cat="cpg food">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/289191430?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ghirardelli Caramel Squares"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('289191430')">
+        <img src="https://vumbnail.com/289191430.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Caramel Squares — National TV</p>
@@ -293,8 +314,9 @@
     </div>
 
     <div class="reel-item" data-cat="b2b">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/594786814?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="15Five New HR"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('594786814')">
+        <img src="https://vumbnail.com/594786814.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">New HR — :30</p>
@@ -305,8 +327,9 @@
 
     
     <div class="reel-item" data-cat="b2b appliances">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/1181827419?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('1181827419')">
+        <img src="https://vumbnail.com/1181827419.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="reel-meta">
         <p class="reel-title">Omnibus — :30 Broadcast</p>
@@ -316,8 +339,9 @@
     </div>
 
     <div class="reel-item" data-cat="cpg appliances">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/259578898?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Clorox Spring Cleaning — Car"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('259578898')">
+        <img src="https://vumbnail.com/259578898.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Spring Cleaning — Car</p>
@@ -327,8 +351,9 @@
     </div>
 
     <div class="reel-item" data-cat="promos">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/108024583?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder Promo"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('108024583')">
+        <img src="https://vumbnail.com/108024583.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Wander Over Yonder — Series Promo</p>
@@ -338,8 +363,9 @@
     </div>
 
     <div class="reel-item" data-cat="promos">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/109646043?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — 9th Grade Ninja Watch Out"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('109646043')">
+        <img src="https://vumbnail.com/109646043.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">9th Grade Ninja — Watch Out</p>
@@ -349,8 +375,9 @@
     </div>
 
     <div class="reel-item" data-cat="promos">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/108024585?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder :15"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('108024585')">
+        <img src="https://vumbnail.com/108024585.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Wander Over Yonder — :15</p>
@@ -360,8 +387,9 @@
     </div>
 
     <div class="reel-item" data-cat="promos">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/109646042?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Wander Over Yonder Date"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('109646042')">
+        <img src="https://vumbnail.com/109646042.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Wander Over Yonder — Date</p>
@@ -371,8 +399,9 @@
     </div>
 
     <div class="reel-item" data-cat="promos">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/109646041?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Disney XD — Randy Cunningham Halloween"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('109646041')">
+        <img src="https://vumbnail.com/109646041.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Randy Cunningham — Halloween Promo</p>
@@ -382,8 +411,9 @@
     </div>
 
     <div class="reel-item" data-cat="minidoc automotive b2b">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/176607801?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="FedEx — Denny Hamlin Never Before Seen"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('176607801')">
+        <img src="https://vumbnail.com/176607801.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Denny Hamlin — Never Before Seen</p>
@@ -393,8 +423,9 @@
     </div>
 
     <div class="reel-item" data-cat="minidoc b2b">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/180136940?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="FedEx Express — Museum of Flight"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('180136940')">
+        <img src="https://vumbnail.com/180136940.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Museum of Flight</p>
@@ -404,8 +435,9 @@
     </div>
 
     <div class="reel-item" data-cat="appliances medical">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/889138221?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Shark Air Purifier"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('889138221')">
+        <img src="https://vumbnail.com/889138221.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Air Purifier</p>
@@ -415,8 +447,9 @@
     </div>
 
     <div class="reel-item" data-cat="minidoc cpg">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/787059376?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="UPS — 3 Punks Ale"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('787059376')">
+        <img src="https://vumbnail.com/787059376.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">3 Punks Ale</p>
@@ -426,8 +459,9 @@
     </div>
 
     <div class="reel-item" data-cat="minidoc sports cpg">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/901754314?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Golden State Warriors — Jefferson's Bourbon"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('901754314')">
+        <img src="https://vumbnail.com/901754314.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Warrior's Punch — Jefferson's Bourbon</p>
@@ -437,8 +471,9 @@
     </div>
 
     <div class="reel-item" data-cat="minidoc sports">
-      <div class="reel-embed">
-        <iframe src="https://player.vimeo.com/video/559421154?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Golden State Warriors — Fan Story"></iframe>
+      <div class="reel-thumb" onclick="openReelVideo('559421154')">
+        <img src="https://vumbnail.com/559421154.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
             <div class="reel-meta">
         <p class="reel-title">Golden State Warriors Fan Story</p>
@@ -556,10 +591,35 @@
     });
   }
 
+
+  function openReelVideo(id) {
+    document.getElementById('reelModalIframe').src = `https://player.vimeo.com/video/${id}?autoplay=1&badge=0&player_id=0&app_id=58479`;
+    document.getElementById('reelModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeReelVideo(e) {
+    if (e && e.target !== document.getElementById('reelModal') && !e.target.classList.contains('video-modal-close')) return;
+    document.getElementById('reelModalIframe').src = '';
+    document.getElementById('reelModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReelVideo({target: document.getElementById('reelModal')}); });
+
   // Init
   renderFeatured(currentFeaturedIndex);
   filterTab('all', document.querySelector('.tab-btn'));
 </script>
+
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="reelModal" onclick="closeReelVideo(event)">
+  <div class="video-modal-inner">
+    <button class="video-modal-close" onclick="closeReelVideo()">&times;</button>
+    <div class="video-modal-embed">
+      <iframe id="reelModalIframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
