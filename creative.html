@@ -622,14 +622,22 @@
     document.getElementById('reelModalIframe').src = `https://player.vimeo.com/video/${id}?autoplay=1&badge=0&player_id=0&app_id=58479`;
     document.getElementById('reelModal').classList.add('open');
     document.body.style.overflow = 'hidden';
+    history.pushState(null, '', `#${id}`);
   }
   function closeReelVideo(e) {
     if (e && e.target !== document.getElementById('reelModal') && !e.target.classList.contains('video-modal-close')) return;
     document.getElementById('reelModalIframe').src = '';
     document.getElementById('reelModal').classList.remove('open');
     document.body.style.overflow = '';
+    history.pushState(null, '', window.location.pathname);
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReelVideo({target: document.getElementById('reelModal')}); });
+
+  // Auto-open if URL has a video hash
+  if (window.location.hash) {
+    const id = window.location.hash.replace('#', '');
+    if (id.match(/^\d+$/)) openReelVideo(id);
+  }
 
   // Init
   renderFeatured(currentFeaturedIndex);
