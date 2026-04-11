@@ -66,10 +66,10 @@
 
   /* TABS */
   .tabs-section { padding: 4rem 3rem 2rem; }
-  .tabs-bar { display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 3rem; flex-wrap: wrap; }
-  .tab-btn { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); background: none; border: none; border-bottom: 2px solid transparent; padding: 0.8rem 1.4rem; cursor: pointer; transition: all 0.2s; margin-bottom: -1px; white-space: nowrap; }
-  .tab-btn:hover { color: var(--white); }
-  .tab-btn.active { color: var(--white); border-bottom-color: var(--sage); }
+  .tabs-bar { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 2rem; }
+  .tabs-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.4); white-space: nowrap; }
+  .tabs-select { font-family: 'Epilogue', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); background: #111; border: 1.5px solid rgba(255,255,255,0.2); padding: 0.75rem 3rem 0.75rem 1.2rem; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; transition: border-color 0.2s; min-width: 220px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%238BAF8E'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
+  .tabs-select:hover, .tabs-select:focus { border-color: var(--sage); }
 
   /* REEL GRID */
   .reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
@@ -193,10 +193,7 @@
     <span class="featured-kicker">Featured This Week</span>
     <span class="featured-week-label">Rotates every Monday</span>
   </div>
-  <div class="featured-embed-full">
-    <iframe id="featuredIframe" src="" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title=""></iframe>
-  </div>
-  <div class="featured-meta" style="padding: 2rem 3rem 0;">
+  <div class="featured-meta" style="padding: 0 3rem 2rem;">
     <div class="featured-info">
       <span class="featured-category" id="featuredCategory"></span>
       <h2 class="featured-title" id="featuredTitle"></h2>
@@ -206,20 +203,26 @@
       <button class="featured-shuffle" onclick="shuffleFeatured()">↺ &nbsp;Show Another Spot</button>
     </div>
   </div>
+  <div class="featured-embed-full">
+    <iframe id="featuredIframe" src="" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title=""></iframe>
+  </div>
 </section>
 
 <!-- TABBED GRID -->
 <section class="tabs-section">
   <div class="tabs-bar">
-    <button class="tab-btn active" onclick="filterTab('all', this)">All Work</button>
-    <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive</button>
-    <button class="tab-btn" onclick="filterTab('b2b', this)">B2B & Tech</button>
-    <button class="tab-btn" onclick="filterTab('cpg', this)">CPG & Food</button>
-    <button class="tab-btn" onclick="filterTab('appliances', this)">Home & Lifestyle</button>
-    <button class="tab-btn" onclick="filterTab('medical', this)">Medical & Pharma</button>
-    <button class="tab-btn" onclick="filterTab('minidoc', this)">Mini Doc</button>
-    <button class="tab-btn" onclick="filterTab('promos', this)">Promos & Trailers</button>
-    <button class="tab-btn" onclick="filterTab('sports', this)">Sports</button>
+    <span class="tabs-label">Filter by</span>
+    <select class="tabs-select" onchange="filterTab(this.value, this)">
+      <option value="all">All Work</option>
+      <option value="automotive">Automotive</option>
+      <option value="b2b">B2B & Tech</option>
+      <option value="cpg">CPG & Food</option>
+      <option value="appliances">Home & Lifestyle</option>
+      <option value="medical">Medical & Pharma</option>
+      <option value="minidoc">Mini Doc</option>
+      <option value="promos">Promos & Trailers</option>
+      <option value="sports">Sports</option>
+    </select>
   </div>
 
   <div class="reel-grid">
@@ -604,16 +607,10 @@
   }
 
   // Tab filter
-  function filterTab(cat, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+  function filterTab(cat, el) {
     document.querySelectorAll('.reel-item').forEach(item => {
       const cats = (item.dataset.cat || '').split(' ');
-      if (cat === 'all' || cats.includes(cat)) {
-        item.classList.add('visible');
-      } else {
-        item.classList.remove('visible');
-      }
+      item.classList.toggle('visible', cat === 'all' || cats.includes(cat));
     });
   }
 
@@ -671,7 +668,7 @@
 
   // Init
   renderFeatured(currentFeaturedIndex);
-  filterTab('all', document.querySelector('.tab-btn'));
+  filterTab('all', null);
 </script>
 
 
