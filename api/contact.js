@@ -4,8 +4,8 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
   const data = req.body;
-  const replyTo = data['a-email'] || data['b-email'] || data['c-email'] || '';
-  const name    = data['a-name']  || data['b-name']  || data['c-name']  || 'Someone';
+  const replyTo = data['a-email'] || data['b-email'] || data['c-email'] || data['email'] || '';
+  const name    = data['a-name']  || data['b-name']  || data['c-name']  || data['name'] || 'Someone';
   const type    = data.inquiryType || 'New Inquiry';
 
   const rows = Object.entries(data)
