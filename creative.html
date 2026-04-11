@@ -618,11 +618,40 @@
   }
 
 
+  // Slug → Vimeo ID map
+  const SPOT_SLUGS = {
+    'samsara-super-bowl': '1163670558',
+    'midea-dishwasher': '677256468',
+    'midea-fridge': '677253981',
+    'clorox-reload': '677315165',
+    'home-depot': '889663633',
+    'ninja-creami': '769699092',
+    'ninja-luxe-cafe': '1064276322',
+    'doritos-crash': '440068901',
+    'ghirardelli-caramel': '289191430',
+    'fifteenfive': '594786814',
+    'divvy': '1181827419',
+    'clorox-spring': '259578898',
+    'disney-wander-series': '108024583',
+    'disney-ninja-watch': '109646043',
+    'disney-wander-15': '108024585',
+    'disney-wander-date': '109646042',
+    'disney-randy-halloween': '109646041',
+    'fedex-hamlin': '176607801',
+    'fedex-museum': '180136940',
+    'shark-air': '889138221',
+    'ups-punks-ale': '787059376',
+    'warriors-bourbon': '901754314',
+    'warriors-fan-story': '559421154',
+  };
+  const ID_TO_SLUG = Object.fromEntries(Object.entries(SPOT_SLUGS).map(([k,v]) => [v,k]));
+
   function openReelVideo(id) {
     document.getElementById('reelModalIframe').src = `https://player.vimeo.com/video/${id}?autoplay=1&badge=0&player_id=0&app_id=58479`;
     document.getElementById('reelModal').classList.add('open');
     document.body.style.overflow = 'hidden';
-    history.pushState(null, '', `#${id}`);
+    const slug = ID_TO_SLUG[id] || id;
+    history.pushState(null, '', `#${slug}`);
   }
   function closeReelVideo(e) {
     if (e && e.target !== document.getElementById('reelModal') && !e.target.classList.contains('video-modal-close')) return;
@@ -633,10 +662,11 @@
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReelVideo({target: document.getElementById('reelModal')}); });
 
-  // Auto-open if URL has a video hash
+  // Auto-open if URL has a named hash
   if (window.location.hash) {
-    const id = window.location.hash.replace('#', '');
-    if (id.match(/^\d+$/)) openReelVideo(id);
+    const hash = window.location.hash.replace('#', '');
+    const id = SPOT_SLUGS[hash] || (hash.match(/^\d+$/) ? hash : null);
+    if (id) openReelVideo(id);
   }
 
   // Init
