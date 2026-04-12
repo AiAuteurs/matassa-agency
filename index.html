@@ -76,15 +76,18 @@
   .section-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 3rem; }
 
   /* WORK */
-  .work-section { padding: 7rem 3rem; background: var(--black); }
+  .work-section { padding: 6rem 3rem; background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); }
   .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
-  .work-card { background: var(--black); padding: 3.5rem 2.5rem; text-decoration: none; display: block; transition: background 0.3s; }
-  .work-card:hover { background: #0f0f0f; }
-  .work-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: rgba(255,255,255,0.05); line-height: 1; margin-bottom: 1.5rem; }
+  .work-card { background: var(--black); padding: 3.5rem 2.5rem; text-decoration: none; display: block; transition: all 0.3s; border-top: 3px solid transparent; }
+  .work-card:hover { background: #0d0d0d; border-top-color: var(--sage); }
+  .work-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(255,255,255,0.08); line-height: 1; margin-bottom: 1.5rem; transition: color 0.3s; }
+  .work-card:hover .work-card-num { color: rgba(139,175,142,0.15); }
   .work-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 1rem; line-height: 1; }
-  .work-card-desc { font-size: 0.85rem; color: var(--white); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
-  .work-card-cta { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); border-bottom: 2px solid rgba(255,255,255,0.5); padding-bottom: 2px; display: inline-block; transition: color 0.2s, border-color 0.2s; }
-  .work-card:hover .work-card-cta { color: var(--white); border-color: var(--white); }
+  .work-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+  .work-card-cta { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: inline-block; transition: color 0.2s; }
+  .work-card-cta-bracket { color: rgba(255,255,255,0.15); font-weight: 300; font-size: 1.1em; transition: color 0.2s; }
+  .work-card:hover .work-card-cta { color: var(--sage); }
+  .work-card:hover .work-card-cta-bracket { color: rgba(139,175,142,0.4); }
 
   /* BOOK */
   .book-section { background: #050505; padding: 4rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); }
@@ -101,7 +104,7 @@
   .funnel-intro { margin-bottom: 4rem; }
   .funnel-intro h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--white); margin-bottom: 0.75rem; margin-top: 1rem; }
   .funnel-intro p { font-size: 0.92rem; color: rgba(255,255,255,0.72); font-weight: 300; max-width: 500px; line-height: 1.7; }
-  .funnel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
+  .funnel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
   .funnel-card { background: #0f0f0f; padding: 3rem 2.5rem; cursor: pointer; transition: all 0.25s; border: 2px solid rgba(255,255,255,0.1); position: relative; }
   .funnel-card:hover { border-color: rgba(255,255,255,0.4); background: #141414; transform: translateY(-3px); }
   .funnel-card-a { border-top: 4px solid #8BAF8E; }
@@ -119,8 +122,10 @@
   .funnel-letter { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; line-height: 1; margin-bottom: 1.5rem; transition: color 0.25s; }
   .funnel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem; letter-spacing: 0.03em; color: var(--white); margin-bottom: 0.75rem; line-height: 1.1; }
   .funnel-desc { font-size: 0.85rem; color: var(--white); line-height: 1.8; font-weight: 300; }
-  .funnel-click-hint { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 1.5rem; display: block; transition: color 0.2s; }
-  .funnel-card:hover .funnel-click-hint { color: rgba(255,255,255,0.9); }
+  .funnel-click-hint { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 1.8rem; display: block; transition: color 0.2s; }
+  .funnel-card:hover .funnel-click-hint { color: rgba(255,255,255,0.85); }
+  .funnel-click-hint-bracket { color: rgba(255,255,255,0.15); font-weight: 300; font-size: 1.1em; }
+  .funnel-card:hover .funnel-click-hint-bracket { color: rgba(255,255,255,0.35); }
   .funnel-check { position: absolute; top: 1.5rem; right: 1.5rem; width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); transition: all 0.25s; display: flex; align-items: center; justify-content: center; }
   .funnel-check::after { content: ''; width: 6px; height: 6px; background: var(--black); border-radius: 50%; opacity: 0; transition: opacity 0.2s; }
   .funnel-card.active .funnel-check::after { opacity: 1; }
@@ -373,6 +378,8 @@
   <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3.2rem); color:#ffffff; line-height:1.05; letter-spacing:0.02em;">Ready to make something<br><span style="color:#8BAF8E;">unmistakably yours?</span></div>
   <a href="#contact" style="font-size:0.78rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1.1rem 2.8rem; text-decoration:none; border-radius:999px; white-space:nowrap; transition:background 0.2s;">Start Your Project →</a>
 </section>
+
+<section style="background:#050505; padding:6rem 3rem; border-top:1px solid rgba(255,255,255,0.06);" id="book">
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,0.06);">
     <div style="background:#080808; padding:4rem; display:flex; flex-direction:column; justify-content:space-between;">
       <div>
@@ -382,7 +389,6 @@
         <div style="font-size:0.7rem; letter-spacing:0.18em; color:rgba(255,255,255,0.9); line-height:2.2; text-transform:uppercase;">
           <div>15 minutes · Video or phone</div>
           <div>US &amp; Asia time zones covered</div>
-          
         </div>
       </div>
       <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" style="display:inline-block; margin-top:2.5rem; font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#8BAF8E; padding:1.1rem 2.5rem; text-decoration:none; align-self:flex-start; border-radius:999px;">Book a Creative Huddle →</a>
@@ -394,7 +400,7 @@
         <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:rgba(255,255,255,0.65); max-width:420px; margin-bottom:2rem;">Tell us what you're working on. We respond quickly, personally, and without pressure. Fill out the brief below or text us directly.</p>
         <div style="font-size:0.78rem; font-weight:500; letter-spacing:0.12em; color:rgba(255,255,255,0.8); line-height:2.4; text-transform:uppercase;">
           <div>Text us: 415.205.0868</div>
-          <div>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad7d3d9d2dbdfd6fad7dbcedbc9c9db94d9d5d7">[email&#160;protected]</a></div>
+          <div>Email: michael@matassa.com</div>
         </div>
       </div>
       <a href="#contact" style="display:inline-block; margin-top:2.5rem; font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1.1rem 2.5rem; text-decoration:none; align-self:flex-start; border-radius:999px;">Start Your Project →</a>
@@ -402,8 +408,7 @@
   </div>
 </section>
 
-
-<section style="background:#050505; padding:6rem 3rem; border-top:1px solid rgba(255,255,255,0.06);" id="book">
+<!-- FUNNEL -->
 <section class="funnel-section" id="contact">
   <div class="funnel-intro">
     <span class="section-label">Start Your Project</span>
@@ -417,21 +422,21 @@
       <div class="funnel-letter">A</div>
       <h3 class="funnel-title">I have a script. I need cinematic A.I. production.</h3>
       <p class="funnel-desc">You bring the concept. We bring it to life. Fast.</p>
-      <span class="funnel-click-hint">Click to select →</span>
+      <span class="funnel-click-hint"><span class="funnel-click-hint-bracket">[</span> Select this path <span class="funnel-click-hint-bracket">]</span></span>
     </div>
     <div class="funnel-card funnel-card-b" onclick="selectFunnel('b')">
       <div class="funnel-check"></div>
       <div class="funnel-letter">B</div>
       <h3 class="funnel-title">I need concepts and cinematic A.I. production.</h3>
       <p class="funnel-desc">From idea to finished spot. We handle everything.</p>
-      <span class="funnel-click-hint">Click to select →</span>
+      <span class="funnel-click-hint"><span class="funnel-click-hint-bracket">[</span> Select this path <span class="funnel-click-hint-bracket">]</span></span>
     </div>
     <div class="funnel-card funnel-card-c" onclick="selectFunnel('c')">
       <div class="funnel-check"></div>
       <div class="funnel-letter">C</div>
       <h3 class="funnel-title">I need a senior creative editor and cinematic A.I. storyteller on contract.</h3>
       <p class="funnel-desc">Remote or on-site embedded. Experienced. Available now.</p>
-      <span class="funnel-click-hint">Click to select →</span>
+      <span class="funnel-click-hint"><span class="funnel-click-hint-bracket">[</span> Select this path <span class="funnel-click-hint-bracket">]</span></span>
     </div>
   </div>
 
@@ -552,19 +557,19 @@
       <div class="work-card-num">01</div>
       <h3 class="work-card-title">CREATIVE VIDEO EDITING</h3>
       <p class="work-card-desc">36 years of high-craft creative editorial for the world's most demanding agencies and brands. Broadcast spots, brand films, sizzle reels.</p>
-      <span class="work-card-cta">View Editing Credits →</span>
+      <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> View Editing Credits <span class="work-card-cta-bracket">]</span></span>
     </a>
     <a href="ai.html" class="work-card">
       <div class="work-card-num">02</div>
       <h3 class="work-card-title">CINEMATIC A.I. STORYTELLING</h3>
       <p class="work-card-desc">Generative A.I. production built on traditional instincts. First cut in 48 hours after brief approval. Your concept or ours.</p>
-      <span class="work-card-cta">View A.I. Work →</span>
+      <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> View A.I. Work <span class="work-card-cta-bracket">]</span></span>
     </a>
     <a href="premade.html" class="work-card">
       <div class="work-card-num">03</div>
       <h3 class="work-card-title">PREMADE ADS</h3>
       <p class="work-card-desc">Brandable AI spot templates ready to make yours. Drop in your logo, customize the script, launch in days. From $2,500.</p>
-      <span class="work-card-cta">Browse Templates →</span>
+      <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> Browse Templates <span class="work-card-cta-bracket">]</span></span>
     </a>
   </div>
 </section>
@@ -684,10 +689,12 @@
     var iframe = document.querySelector('.hero-video iframe');
     var label = document.getElementById('muteLabel');
     isMuted = !isMuted;
-    if (isMuted) {
-      iframe.src = 'https://player.vimeo.com/video/1181092697?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0&muted=1';
-    } else {
+    iframe.contentWindow.postMessage(JSON.stringify({ method: isMuted ? 'setMuted' : 'setMuted', value: isMuted }), '*');
+    iframe.contentWindow.postMessage(JSON.stringify({ method: 'setVolume', value: isMuted ? 0 : 1 }), '*');
+    if (!isMuted) {
       iframe.src = 'https://player.vimeo.com/video/1181092697?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&controls=0&title=0&byline=0&portrait=0&muted=0';
+    } else {
+      iframe.src = 'https://player.vimeo.com/video/1181092697?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0&muted=1';
     }
     label.textContent = isMuted ? 'Unmute' : 'Mute';
   }
