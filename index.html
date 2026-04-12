@@ -724,26 +724,45 @@
 
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const HOME_SLUGS = {
+    '1163670558': 'samsara',
+    '440068901': 'doritos',
+    '1064276322': 'ninja'
+  };
+  const HOME_IDS = Object.fromEntries(Object.entries(HOME_SLUGS).map(([k,v]) => [v,k]));
+
   function openModalVideo(id) {
     document.getElementById('reelFrame').src = 'https://player.vimeo.com/video/' + id + '?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479';
     document.getElementById('reelModal').classList.add('open');
     document.body.style.overflow = 'hidden';
+    history.pushState(null, '', '#' + (HOME_SLUGS[id] || id));
   }
   function openReel() {
     document.getElementById('reelFrame').src = 'https://player.vimeo.com/video/1166393031?badge=0&autopause=0&autoplay=1&loop=1&player_id=0&app_id=58479';
     document.getElementById('reelModal').classList.add('open');
     document.body.style.overflow = 'hidden';
+    history.pushState(null, '', '#reel');
   }
   function closeReel() {
     document.getElementById('reelFrame').src = '';
     document.getElementById('reelModal').classList.remove('open');
     document.body.style.overflow = '';
+    history.pushState(null, '', window.location.pathname);
   }
   document.getElementById('reelModal').addEventListener('click', function(e) {
     if (e.target === this) closeReel();
   });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') { closeReel(); }
+  });
+  // Auto-open from shareable URL hash
+  document.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'reel') { openReel(); }
+    else if (hash) {
+      const id = HOME_IDS[hash] || (hash.match(/^\d+$/) ? hash : null);
+      if (id) openModalVideo(id);
+    }
   });
   // Auto-open reel if arriving from another page via "Watch the Reel" nav link
   if (sessionStorage.getItem('openReel')) {
