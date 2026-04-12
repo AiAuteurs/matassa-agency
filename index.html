@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; --sage: #8BAF8E; }
+  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; --sage: #8BAF8E; --ice: #8BAF8E; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
 
@@ -51,11 +51,13 @@
   .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 1.2rem; animation: fadeUp 0.8s ease both; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 8rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
   .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.88); max-width: 780px; line-height: 1.9; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
-  .hero-actions { display: flex; align-items: stretch; gap: 0; animation: fadeUp 0.8s 0.3s ease both; }
-  .btn-primary { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.3rem 2.8rem; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; }
+  .hero-actions { display: flex; align-items: center; gap: 0; animation: fadeUp 0.8s 0.3s ease both; }
+  .btn-primary { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.8rem; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; white-space: nowrap; border-radius: 999px; }
   .btn-primary:hover { background: #e8e8e8; }
-  .btn-reel { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); text-decoration: none; border: 2px solid var(--sage); border-left: none; padding: 1.3rem 2.8rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(139,175,142,0.15); cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 700; }
-  .btn-reel:hover { background: var(--sage); color: var(--black); }
+  .btn-reel { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); text-decoration: none; border: none; padding: 1.1rem 0; background: transparent; cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 700; display: inline-flex; align-items: center; gap: 0; margin-left: auto; white-space: nowrap; transition: color 0.2s; }
+  .btn-reel:hover { color: #ffffff; }
+  .btn-reel-bracket { color: rgba(139,175,142,0.4); font-weight: 300; font-size: 1.2em; transition: color 0.2s; }
+  .btn-reel:hover .btn-reel-bracket { color: rgba(255,255,255,0.3); }
   .unmute-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(8px); transition: border-color 0.2s; }
   .unmute-btn:hover { border-color: rgba(255,255,255,0.5); }
 
@@ -102,10 +104,10 @@
   .funnel-card-a:hover, .funnel-card-a.active { border-color: #8BAF8E; background: rgba(139,175,142,0.08); transform: translateY(-3px); }
   .funnel-card-a .funnel-letter { color: rgba(139,175,142,0.9); }
   .funnel-card-a.active .funnel-check { background: #8BAF8E; border-color: #8BAF8E; }
-  .funnel-card-b { border-top: 4px solid #7EB8D4; }
-  .funnel-card-b:hover, .funnel-card-b.active { border-color: #7EB8D4; background: rgba(126,184,212,0.08); transform: translateY(-3px); }
-  .funnel-card-b .funnel-letter { color: rgba(126,184,212,0.9); }
-  .funnel-card-b.active .funnel-check { background: #7EB8D4; border-color: #7EB8D4; }
+  .funnel-card-b { border-top: 4px solid #8BAF8E; }
+  .funnel-card-b:hover, .funnel-card-b.active { border-color: #8BAF8E; background: rgba(139,175,142,0.08); transform: translateY(-3px); }
+  .funnel-card-b .funnel-letter { color: rgba(139,175,142,0.9); }
+  .funnel-card-b.active .funnel-check { background: #8BAF8E; border-color: #8BAF8E; }
   .funnel-card-c { border-top: 4px solid #D4A87A; }
   .funnel-card-c:hover, .funnel-card-c.active { border-color: #D4A87A; background: rgba(212,168,122,0.08); transform: translateY(-3px); }
   .funnel-card-c .funnel-letter { color: rgba(212,168,122,0.9); }
@@ -136,12 +138,12 @@
   .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.18); }
   .field select option { background: #111; }
   .field textarea { resize: vertical; min-height: 130px; }
-  .submit-btn { width: 100%; background: var(--white); color: var(--black); font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; padding: 1.1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; }
+  .submit-btn { width: 100%; background: var(--white); color: var(--black); font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; padding: 1.1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; border-radius: 999px; }
   .submit-btn:hover { background: var(--light-grey); }
 
   /* FOOTER */
   footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-  .footer-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.05em; color: var(--sage); }
+  .footer-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.05em; color: #ffffff; }
   .footer-center { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.6); text-transform: uppercase; text-align: center; }
   .footer-right { font-size: 0.72rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.65); text-transform: uppercase; }
   .footer-right a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
@@ -182,7 +184,7 @@
   .modal-close:hover { color: var(--white); }
   .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.5rem; }
   .modal-sub { font-size: 0.88rem; color: rgba(255,255,255,0.75); margin-bottom: 2rem; line-height: 1.6; font-weight: 300; }
-  .modal-btn { width: 100%; background: var(--white); color: var(--black); font-family: 'Epilogue', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; padding: 1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 1rem; }
+  .modal-btn { width: 100%; background: var(--white); color: var(--black); font-family: 'Epilogue', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; padding: 1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 1rem; border-radius: 999px; }
   .modal-btn:hover { background: var(--light-grey); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -202,7 +204,7 @@
     .hero h1 { font-size: clamp(2.8rem, 14vw, 5rem); margin-bottom: 1rem; }
     .hero-tagline { font-size: 0.92rem; line-height: 1.75; max-width: 100%; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1.5rem; }
     .hero-actions { flex-direction: column; gap: 0.75rem; }
-    .hero-actions .btn-primary, .hero-actions .btn-reel { width: 100%; justify-content: center; border-left: 2px solid var(--sage) !important; font-size: 0.82rem; padding: 1.1rem 1.5rem; }
+    .hero-actions .btn-primary, .hero-actions .btn-reel { width: 100%; justify-content: center; font-size: 0.82rem; padding: 1.1rem 1.5rem; }
 
     .unmute-btn { position: fixed; top: 0.85rem; right: 1rem; bottom: auto; font-size: 0.65rem; padding: 0.35rem 0.7rem; z-index: 101; }
 
@@ -269,11 +271,11 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Los Angeles · Bangkok · Any Time Zone</p>
-    <h1><span style="color:#ffffff; font-size:0.55em; letter-spacing:0.05em; font-family:'Bebas Neue',sans-serif;">A.I. VIDEO DONE RIGHT.</span><br><span style="color:#8BAF8E; font-family:'Outfit',sans-serif; font-weight:800; letter-spacing:-0.01em;">MATASSA.</span></h1>
+    <h1><span style="color:#8BAF8E; font-size:0.55em; letter-spacing:0.05em; font-family:'Bebas Neue',sans-serif;">A.I. VIDEO DONE RIGHT.</span><br><span style="color:#ffffff; font-family:'Outfit',sans-serif; font-weight:800; letter-spacing:-0.01em;">MATASSA.</span></h1>
     <p class="hero-tagline">We are Matassa. For over 20 years, we've crafted stories through the cut — Super Bowl spots, national campaigns, brand films, mini-docs, sizzles, case studies… and whatever comes next. We started in the cutting rooms of Hollywood. Today, we work at the intersection of traditional filmmaking and Cinematic A.I. Because the tools evolve. But taste, timing, and storytelling — that's the craft. We partner with brands who care about how their work feels, not just how it functions. Whether it's a monthly retainer, a contract, or a single project, we show up ready to elevate the idea and make it unmistakably yours. Matassa. Where craft meets what's next.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start Your Project</a>
-      <button onclick="openReel()" class="btn-reel">▶&nbsp; Watch the Reel</button>
+      <button onclick="openReel()" class="btn-reel"><span class="btn-reel-bracket">[</span>&nbsp;&nbsp;▶&nbsp; Watch the Reel&nbsp;&nbsp;<span class="btn-reel-bracket">]</span></button>
     </div>
   </div>
 </section>
@@ -296,19 +298,19 @@
           
         </div>
       </div>
-      <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" style="display:inline-block; margin-top:2.5rem; font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#8BAF8E; padding:1.1rem 2.5rem; text-decoration:none; align-self:flex-start;">Book a Creative Huddle →</a>
+      <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" style="display:inline-block; margin-top:2.5rem; font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#8BAF8E; padding:1.1rem 2.5rem; text-decoration:none; align-self:flex-start; border-radius:999px;">Book a Creative Huddle →</a>
     </div>
     <div style="background:#080808; padding:4rem; display:flex; flex-direction:column; justify-content:space-between;">
       <div>
-        <span style="display:block; font-size:0.75rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:#7EB8D4; margin-bottom:1.5rem;">Ready to Go?</span>
+        <span style="display:block; font-size:0.75rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:#8BAF8E; margin-bottom:1.5rem;">Ready to Go?</span>
         <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4vw,3.8rem); color:#ffffff; line-height:0.95; margin-bottom:1.5rem;">START YOUR PROJECT.</h2>
         <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:rgba(255,255,255,0.65); max-width:420px; margin-bottom:2rem;">Tell us what you're working on. We respond quickly, personally, and without pressure. Fill out the brief below or text us directly.</p>
         <div style="font-size:0.78rem; font-weight:500; letter-spacing:0.12em; color:rgba(255,255,255,0.8); line-height:2.4; text-transform:uppercase;">
           <div>Text us: 415.205.0868</div>
-          <div>Email: michael@matassa.com</div>
+          <div>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad7d3d9d2dbdfd6fad7dbcedbc9c9db94d9d5d7">[email&#160;protected]</a></div>
         </div>
       </div>
-      <a href="#contact" style="display:inline-block; margin-top:2.5rem; font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1.1rem 2.5rem; text-decoration:none; align-self:flex-start;">Start Your Project →</a>
+      <a href="#contact" style="display:inline-block; margin-top:2.5rem; font-size:0.78rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1.1rem 2.5rem; text-decoration:none; align-self:flex-start; border-radius:999px;">Start Your Project →</a>
     </div>
   </div>
 </section>
@@ -354,7 +356,7 @@
         <p>Send us your script, brand assets, and deadline. First cut lands 48 hours after brief approval.</p>
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">michael@matassa.com</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f29f9b919a93979eb29f938693818193dc919d9f">[email&#160;protected]</a></span></div>
         </div>
         <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
@@ -387,7 +389,7 @@
         <p>Tell us your brand, your audience, what you want people to feel. We develop the concept and produce the spot. Concepting quoted separately before anything begins.</p>
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">michael@matassa.com</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dab7b3b9b2bbbfb69ab7bbaebba9a9bbf4b9b5b7">[email&#160;protected]</a></span></div>
         </div>
         <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
@@ -416,7 +418,7 @@
         <p>Michael embeds with your team as a senior creative editor and cinematic A.I. storyteller. Monthly retainer or project basis. LA and Bangkok time zones. No downtime.</p>
         <div class="contact-detail">
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
-          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">michael@matassa.com</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc1c5cfc4cdc9c0ecc1cdd8cddfdfcd82cfc3c1">[email&#160;protected]</a></span></div>
         </div>
         <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
@@ -488,8 +490,12 @@
       <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,5.5vw,5rem); line-height:0.95; color:#ffffff; margin-bottom:2rem;">THE EXPERIENCE YOU CAN'T FAKE.</h2>
       <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:2rem;">
         <div style="margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,0.05);">
-          <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.4rem;">Worked Alongside</div>
-          <div style="font-size:0.88rem; color:rgba(255,255,255,0.75); font-weight:300;">Jeff Goodby · Michael Bay · Dennis Virkler</div>
+          <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.8rem;">Worked Alongside</div>
+          <div style="display:flex; flex-direction:column; gap:0.55rem;">
+            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Jeff Goodby</span><span style="display:block; font-size:0.72rem; color:rgba(255,255,255,0.45); font-weight:300; letter-spacing:0.04em;">Founder, Goodby Silverstein &amp; Partners</span></div>
+            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Michael Bay</span><span style="display:block; font-size:0.72rem; color:rgba(255,255,255,0.45); font-weight:300; letter-spacing:0.04em;">Director Extraordinaire</span></div>
+            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Dennis Virkler</span><span style="display:block; font-size:0.72rem; color:rgba(255,255,255,0.45); font-weight:300; letter-spacing:0.04em;">Editor — The Hunt for Red October</span></div>
+          </div>
         </div>
         <div style="margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,0.05);">
           <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.4rem;">Work Includes</div>
@@ -510,7 +516,7 @@
       <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:1.4rem;">Michael Matassa has been in the edit suite on national TV spots, Super Bowl campaigns, tech mini-docs, sizzle reels, case studies — everything under the video sun. That breadth doesn't come from a course or a tutorial. It comes from working alongside some of the sharpest creative minds in the business. Jeff Goodby. Michael Bay. Dennis Virkler. Hundreds of briefs, deadlines, and client conversations that taught him what great work actually requires.</p>
       <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:1.4rem;">Now that experience is running A.I. — and the difference is immediate. Not just in the quality of the frames, but in how the work gets made. Reliable. Communicative. On deadline. On budget. Responsive to notes without losing the creative thread.</p>
       <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:2rem;">Flashy A.I. work is everywhere. Work made by someone who understands your brand, your deadline, and what the finished spot actually needs to do — that's rare. <strong style="color:#ffffff; font-weight:500;">Don't trust your brand to just anyone with a great demo reel. Trust it with someone who has spent a career earning one.</strong></p>
-      <a href="#contact" style="font-size:0.72rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1rem 2.2rem; text-decoration:none; display:inline-block; transition:background 0.2s;">Start Your Project →</a>
+      <a href="#contact" style="font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1rem 2.2rem; text-decoration:none; display:inline-block; transition:background 0.2s; border-radius:999px;">Start Your Project →</a>
     </div>
   </div>
 </section>
@@ -558,7 +564,7 @@
 
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function openReel() {
     document.getElementById('reelFrame').src = 'https://player.vimeo.com/video/1166393031?badge=0&autopause=0&autoplay=1&loop=1&player_id=0&app_id=58479';
     document.getElementById('reelModal').classList.add('open');
@@ -612,16 +618,4 @@
     var btn = document.querySelector('#form-' + type + ' .submit-btn');
     var name = data[type+'-name'], email = data[type+'-email'], concept = data[type+'-concept'];
     if (!email) { alert('Just your email so we can get back to you.'); return; }
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    try {
-      var res = await fetch('/api/contact', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) { btn.textContent = "Hang tight — we respond quickly. For faster, text 415.205.0868"; btn.style.background = '#1a1a1a'; btn.style.color = '#fff'; }
-      else { throw new Error(); }
-    } catch(e) { btn.textContent = 'Try Again'; btn.disabled = false; alert('Something went wrong. Text us at 415.205.0868'); }
-  }
-</script>
-</body>
-</html>
+    btn.textContent = 'Se
