@@ -701,12 +701,12 @@
     if (e.target === this) closeReel();
   });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeReel(); closeModal(); }
+    if (e.key === 'Escape') { closeReel(); }
   });
   // Auto-open reel if arriving from another page via "Watch the Reel" nav link
   if (sessionStorage.getItem('openReel')) {
     sessionStorage.removeItem('openReel');
-    window.addEventListener('load', () => openReel());
+    openReel();
   }
 
   var isMuted = true;
