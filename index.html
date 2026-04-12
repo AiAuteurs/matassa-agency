@@ -76,15 +76,19 @@
   .section-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 3rem; }
 
   /* WORK */
-  .work-section { padding: 6rem 3rem; background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); }
+  .work-section { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); }
   .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
-  .work-card { background: var(--black); padding: 3.5rem 2.5rem; text-decoration: none; display: block; transition: all 0.3s; border-top: 3px solid transparent; }
-  .work-card:hover { background: #0d0d0d; border-top-color: var(--sage); }
-  .work-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(255,255,255,0.08); line-height: 1; margin-bottom: 1.5rem; transition: color 0.3s; }
-  .work-card:hover .work-card-num { color: rgba(139,175,142,0.15); }
-  .work-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 1rem; line-height: 1; }
-  .work-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
-  .work-card-cta { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: inline-block; transition: color 0.2s; }
+  .work-card { background: var(--black); text-decoration: none; display: block; transition: all 0.3s; }
+  .work-card:hover { background: #0d0d0d; }
+  .work-card-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+  .work-card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.3s; }
+  .work-card:hover .work-card-thumb img { transform: scale(1.04); opacity: 0.7; }
+  .work-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.05) 60%); }
+  .work-card-num { position: absolute; top: 1rem; left: 1.2rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.7); z-index: 2; }
+  .work-card-body { padding: 1.8rem 2rem 2.2rem; }
+  .work-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.6rem; line-height: 1; display: block; }
+  .work-card-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.75; font-weight: 300; margin-bottom: 1.2rem; }
+  .work-card-cta { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: inline-block; transition: color 0.2s; }
   .work-card-cta-bracket { color: rgba(255,255,255,0.15); font-weight: 300; font-size: 1.1em; transition: color 0.2s; }
   .work-card:hover .work-card-cta { color: var(--sage); }
   .work-card:hover .work-card-cta-bracket { color: rgba(139,175,142,0.4); }
@@ -551,26 +555,47 @@
 
 <!-- WORK -->
 <section class="work-section" id="work">
-  <span class="section-label">Work</span>
   <div class="work-grid">
+
     <a href="creative.html" class="work-card">
-      <div class="work-card-num">01</div>
-      <h3 class="work-card-title">CREATIVE VIDEO EDITING</h3>
-      <p class="work-card-desc">36 years of high-craft creative editorial for the world's most demanding agencies and brands. Broadcast spots, brand films, sizzle reels.</p>
-      <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> View Editing Credits <span class="work-card-cta-bracket">]</span></span>
+      <div class="work-card-thumb">
+        <img src="https://vumbnail.com/1163670558.jpg" alt="Creative Video Editing" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <span class="work-card-num">01</span>
+      </div>
+      <div class="work-card-body">
+        <h3 class="work-card-title">CREATIVE VIDEO EDITING</h3>
+        <p class="work-card-desc">36 years of high-craft editorial. Super Bowl spots, national TV, brand films, sizzle reels.</p>
+        <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> View Portfolio <span class="work-card-cta-bracket">]</span></span>
+      </div>
     </a>
+
     <a href="ai.html" class="work-card">
-      <div class="work-card-num">02</div>
-      <h3 class="work-card-title">CINEMATIC A.I. STORYTELLING</h3>
-      <p class="work-card-desc">Generative A.I. production built on traditional instincts. First cut in 48 hours after brief approval. Your concept or ours.</p>
-      <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> View A.I. Work <span class="work-card-cta-bracket">]</span></span>
+      <div class="work-card-thumb">
+        <img src="https://vumbnail.com/1181092697.jpg" alt="Cinematic A.I. Storytelling" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <span class="work-card-num">02</span>
+      </div>
+      <div class="work-card-body">
+        <h3 class="work-card-title">CINEMATIC A.I. STORYTELLING</h3>
+        <p class="work-card-desc">Generative A.I. built on traditional instincts. First cut in 48 hours after brief approval.</p>
+        <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> View A.I. Work <span class="work-card-cta-bracket">]</span></span>
+      </div>
     </a>
+
     <a href="premade.html" class="work-card">
-      <div class="work-card-num">03</div>
-      <h3 class="work-card-title">PREMADE ADS</h3>
-      <p class="work-card-desc">Brandable AI spot templates ready to make yours. Drop in your logo, customize the script, launch in days. From $2,500.</p>
-      <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> Browse Templates <span class="work-card-cta-bracket">]</span></span>
+      <div class="work-card-thumb">
+        <img src="https://vumbnail.com/677256468.jpg" alt="Premade Ads" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <span class="work-card-num">03</span>
+      </div>
+      <div class="work-card-body">
+        <h3 class="work-card-title">PREMADE ADS</h3>
+        <p class="work-card-desc">Brandable A.I. spot templates ready to launch. Drop in your logo, customize, go live in days.</p>
+        <span class="work-card-cta"><span class="work-card-cta-bracket">[</span> Browse Templates <span class="work-card-cta-bracket">]</span></span>
+      </div>
     </a>
+
   </div>
 </section>
 
