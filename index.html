@@ -46,17 +46,21 @@
   .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; overflow: hidden; }
   .hero-video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
   .hero-video iframe { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; pointer-events: none; }
+  .video-watch-btn { position: absolute; top: 25%; left: 58%; transform: translate(-50%, -50%); z-index: 2; background: none; border: none; cursor: pointer; font-family: 'Epilogue', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 0; transition: color 0.25s; white-space: nowrap; padding: 1rem 2rem; }
+  .video-watch-btn:hover { color: #ffffff; }
+  .video-watch-bracket { color: rgba(139,175,142,0.5); font-weight: 300; font-size: 1.4em; line-height: 1; transition: color 0.25s; }
+  .video-watch-btn:hover .video-watch-bracket { color: rgba(139,175,142,0.9); }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.75) 75%, rgba(0,0,0,0.97) 100%); z-index: 1; }
   .hero-content { position: relative; z-index: 2; max-width: 860px; }
   .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 1.2rem; animation: fadeUp 0.8s ease both; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 8rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
   .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.88); max-width: 780px; line-height: 1.9; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
-  .hero-actions { display: flex; align-items: center; gap: 0; animation: fadeUp 0.8s 0.3s ease both; }
+  .hero-actions { display: flex; align-items: flex-start; gap: 0; animation: fadeUp 0.8s 0.3s ease both; }
   .btn-primary { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.8rem; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; white-space: nowrap; border-radius: 999px; }
   .btn-primary:hover { background: #e8e8e8; }
-  .btn-reel { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); text-decoration: none; border: none; padding: 1.1rem 0; background: transparent; cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 700; display: inline-flex; align-items: center; gap: 0; margin-left: auto; white-space: nowrap; transition: color 0.2s; }
+  .btn-reel { font-size: 1.1rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); text-decoration: none; border: none; padding: 0.85rem 0; background: transparent; cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 700; display: inline-flex; align-items: center; gap: 0; margin-left: auto; white-space: nowrap; transition: color 0.2s; }
   .btn-reel:hover { color: #ffffff; }
-  .btn-reel-bracket { color: rgba(139,175,142,0.4); font-weight: 300; font-size: 1.2em; transition: color 0.2s; }
+  .btn-reel-bracket { color: rgba(139,175,142,0.4); font-weight: 300; font-size: 1.3em; transition: color 0.2s; line-height: 1; }
   .btn-reel:hover .btn-reel-bracket { color: rgba(255,255,255,0.3); }
   .unmute-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(8px); transition: border-color 0.2s; }
   .unmute-btn:hover { border-color: rgba(255,255,255,0.5); }
@@ -267,6 +271,9 @@
 <section class="hero">
   <div class="hero-video">
     <iframe src="https://player.vimeo.com/video/1181092697?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Matassa Hero"></iframe>
+    <button class="video-watch-btn" onclick="openReel()">
+      <span class="video-watch-bracket">[</span>&nbsp;&nbsp;▶&nbsp; Watch the Reel&nbsp;&nbsp;<span class="video-watch-bracket">]</span>
+    </button>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -275,7 +282,6 @@
     <p class="hero-tagline">We are Matassa. For over 20 years, we've crafted stories through the cut — Super Bowl spots, national campaigns, brand films, mini-docs, sizzles, case studies… and whatever comes next. We started in the cutting rooms of Hollywood. Today, we work at the intersection of traditional filmmaking and Cinematic A.I. Because the tools evolve. But taste, timing, and storytelling — that's the craft. We partner with brands who care about how their work feels, not just how it functions. Whether it's a monthly retainer, a contract, or a single project, we show up ready to elevate the idea and make it unmistakably yours. Matassa. Where craft meets what's next.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start Your Project</a>
-      <button onclick="openReel()" class="btn-reel"><span class="btn-reel-bracket">[</span>&nbsp;&nbsp;▶&nbsp; Watch the Reel&nbsp;&nbsp;<span class="btn-reel-bracket">]</span></button>
     </div>
   </div>
 </section>
