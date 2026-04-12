@@ -91,7 +91,7 @@
   .spots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
   .spot-item { display: none; cursor: pointer; }
   .spot-item.visible { display: block; animation: fadeIn 0.3s ease; }
-  .spot-item.no-click { cursor: default; }
+  .spot-item.no-click { cursor: default; pointer-events: none; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   .spot-thumb { position: relative; padding-top: 56.25%; background: #111; overflow: hidden; margin-bottom: 1.5rem; }
   .spot-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.3s ease; }
@@ -255,7 +255,7 @@
 
   <div class="spots-grid">
 
-    <div class="spot-item" data-cat="spec realestate">
+    <div class="spot-item" data-cat="spec realestate" onclick="window.location.href='/rootdown'">
       <div class="spot-thumb" onclick="window.location.href='rootdown'">
         <img class="spot-poster" src="https://vumbnail.com/1181979022.jpg" data-videoid="1181979022" alt="RootDown Homes" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
@@ -266,7 +266,7 @@
       <p class="spot-desc">Not product-forward. Not salesy. Just the feeling of what life looks like when you're finally home. Every frame — visuals, motion, sound design — built with Generative A.I. and directed with the same editorial instinct as any broadcast production.</p>
     </div>
 
-    <div class="spot-item" data-cat="spec agency">
+    <div class="spot-item" data-cat="spec agency" onclick="window.location.href='/priceline'">
       <div class="spot-thumb" onclick="window.location.href='priceline'">
         <img class="spot-poster" src="https://vumbnail.com/1181819783.jpg" data-videoid="1181819783" alt="Priceline Carousel Dreams" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
@@ -277,7 +277,7 @@
       <p class="spot-desc">A.I.-driven national spot created in collaboration with Mirimar, a top Los Angeles ad agency, for their client Priceline. Every element — visuals, motion titles, sound design — built using Runway, Veo 3, and Freepik Extend. Directed with the same editorial instinct as any broadcast production. This is what Cinematic A.I. looks like when craft leads the process.</p>
     </div>
 
-    <div class="spot-item" data-cat="spec lifestyle">
+    <div class="spot-item" data-cat="spec lifestyle" onclick="window.location.href='/burton'">
       <div class="spot-thumb" onclick="window.location.href='burton'">
         <img class="spot-poster" src="https://vumbnail.com/1181431670.jpg" data-videoid="1181431670" alt="Burton Snowboards" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
@@ -288,7 +288,7 @@
       <p class="spot-desc" onclick="window.location.href='burton'">Unofficial spec spot. Cinematic A.I. filmmaking built on instinct, rhythm, and 30 years of commercial craft.</p>
     </div>
 
-    <div class="spot-item" data-cat="spec lifestyle food">
+    <div class="spot-item" data-cat="spec lifestyle food" onclick="window.location.href='/beam'">
       <div class="spot-thumb" onclick="window.location.href='beam'">
         <img class="spot-poster" src="https://vumbnail.com/1142973453.jpg" data-videoid="1142973453" alt="Thank God Youre Up" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
@@ -299,7 +299,7 @@
       <p class="spot-desc">A surreal comedy spot for Beam Coffee. The world collapses into apocalyptic chaos — one man stays calm with his morning cup.</p>
     </div>
 
-    <div class="spot-item" data-cat="spec food">
+    <div class="spot-item" data-cat="spec food" onclick="window.location.href='/pancakes'">
       <div class="spot-thumb" onclick="window.location.href='pancakes'">
         <img class="spot-poster" src="https://vumbnail.com/1181123452.jpg" data-videoid="1181123452" alt="Pancakes & Maple Syrup" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
@@ -310,7 +310,7 @@
       <p class="spot-desc" onclick="window.location.href='pancakes'">A brandable :15 A.I. spot for food and family brands. Customizable with your logo and script.</p>
     </div>
 
-    <div class="spot-item" data-cat="film">
+    <div class="spot-item" data-cat="film" onclick="window.location.href='/idiom'">
       <div class="spot-thumb" onclick="window.location.href='idiom'">
         <img class="spot-poster" src="https://vumbnail.com/1089344542.jpg" data-videoid="1089344542" alt="IDIOM" />
         <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
@@ -422,7 +422,9 @@
 
   function openFeaturedVideo() {
     const s = AI_SPOTS[currentIndex];
-    openVideo(s.id);
+    const slugMap = { '1181979022': 'rootdown', '1142973453': 'beam', '1181123452': 'pancakes', '1181431670': 'burton', '1089344542': 'idiom', '1181819783': 'priceline' };
+    const slug = slugMap[s.id];
+    if (slug) window.location.href = '/' + slug;
   }
 
   function shuffleFeatured() {
