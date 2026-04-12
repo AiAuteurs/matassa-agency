@@ -744,5 +744,30 @@
     ids[type].forEach(id => { var el = document.getElementById(id); if(el) data[id] = el.value.trim(); });
     var btn = document.querySelector('#form-' + type + ' .submit-btn');
     var name = data[type+'-name'], email = data[type+'-email'], concept = data[type+'-concept'];
-    if (!email) { alert('Just your email so we can get back to you.'); return; }
-    btn.textContent = 'Se
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        btn.textContent = 'Sent! We\'ll be in touch shortly.';
+      } else {
+        btn.textContent = 'Error sending. Please try again.';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'Network error. Please try again.';
+      btn.disabled = false;
+    }
+  }
+
+  function closeModal() {
+    document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+  }
+
+</script>
+</body>
+</html>
