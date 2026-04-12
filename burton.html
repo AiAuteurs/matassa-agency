@@ -26,7 +26,7 @@
     .title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1; color: var(--white); }
     .agency { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.5rem; display: block; }
     .desc { margin-top: 1.2rem; font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.8; max-width: 560px; }
-    .cta { display: inline-block; margin-top: 2.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.5rem; text-decoration: none; transition: background 0.2s; white-space: nowrap; align-self: flex-end; }
+    .cta { display: inline-block; margin-top: 2.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.5rem; text-decoration: none; transition: background 0.2s; white-space: nowrap; align-self: flex-end; border-radius: 999px; }
     .cta:hover { background: #e8e8e8; }
     .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 4rem 0 2rem; }
     .footer-note { font-size: 0.72rem; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase; }
@@ -35,7 +35,10 @@
 </head>
 <body>
   <div class="wrap">
-    <a href="/" class="wordmark">Matassa</a>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4rem;">
+      <a href="/" style="font-family:'Epilogue',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.05em;text-transform:uppercase;color:#ffffff;text-decoration:none;">MATASSA</a>
+      <a href="javascript:history.length>1?history.back():window.location='/'" style="font-family:'Epilogue',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);padding:0.5rem 1.2rem;border-radius:999px;transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.55)';this.style.borderColor='rgba(255,255,255,0.2)'">← Close</a>
+    </div>
     <div class="video-wrap">
       <iframe src="https://player.vimeo.com/video/1181431670?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
