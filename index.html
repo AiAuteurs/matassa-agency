@@ -43,7 +43,7 @@
 
 
   /* HERO */
-  .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; overflow: hidden; }
+  .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0 3rem 5rem; overflow: hidden; }
   .hero-video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
   .hero-video iframe { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; pointer-events: none; }
   .video-watch-btn { position: absolute; top: 25%; left: 58%; transform: translate(-50%, -50%); z-index: 2; background: none; border: none; cursor: pointer; font-family: 'Epilogue', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #8BAF8E; display: flex; align-items: center; gap: 0; transition: color 0.25s; white-space: nowrap; padding: 1rem 2rem; text-shadow: 0 1px 8px rgba(0,0,0,0.8); }
@@ -51,12 +51,12 @@
   .video-watch-bracket { color: rgba(139,175,142,0.5); font-weight: 300; font-size: 1.4em; line-height: 1; transition: color 0.25s; }
   .video-watch-btn:hover .video-watch-bracket { color: rgba(255,255,255,0.4); }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.75) 75%, rgba(0,0,0,0.97) 100%); z-index: 1; }
-  .hero-content { position: relative; z-index: 2; max-width: 860px; }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; text-align: center; }
   .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 1.2rem; animation: fadeUp 0.8s ease both; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 8rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
   .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.88); max-width: 780px; line-height: 1.9; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
-  .hero-actions { display: flex; align-items: center; gap: 0; animation: fadeUp 0.8s 0.3s ease both; }
-  .btn-primary { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.8rem; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; white-space: nowrap; border-radius: 999px; margin-left: auto; }
+  .hero-actions { display: flex; align-items: center; justify-content: center; gap: 3rem; animation: fadeUp 0.8s 0.3s ease both; }
+  .btn-primary { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.8rem; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; white-space: nowrap; border-radius: 999px; }
   .btn-primary:hover { background: #e8e8e8; }
   .btn-reel { font-size: 1.1rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); text-decoration: none; border: none; padding: 1.1rem 0; background: transparent; cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 700; display: inline-flex; align-items: center; gap: 0; white-space: nowrap; transition: color 0.2s; }
   .btn-reel:hover { color: #ffffff; }
