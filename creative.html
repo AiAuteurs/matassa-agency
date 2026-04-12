@@ -211,8 +211,10 @@
 
 <!-- TABBED GRID -->
 <section class="tabs-section">
-  <div class="tabs-bar">
-    <button class="tab-btn active" onclick="filterTab('all', this)">All Spots</button>
+  <div style="border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 0;">
+    <button class="tab-btn active" onclick="filterTab('all', this)" style="padding-bottom: 1.2rem; margin-bottom: -1px;">All Spots</button>
+  </div>
+  <div class="tabs-bar" style="margin-top: 1.2rem;">
     <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive</button>
     <button class="tab-btn" onclick="filterTab('b2b', this)">B2B &amp; Tech</button>
     <button class="tab-btn" onclick="filterTab('cpg', this)">CPG &amp; Food</button>
@@ -668,7 +670,7 @@
 
   // Init — All Spots active, everything visible
   renderFeatured(currentFeaturedIndex);
-  filterTab('all', document.querySelector('.tab-btn'));
+  filterTab('all', document.querySelector('[onclick*="\'all\'"]'));
 </script>
 
 
