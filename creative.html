@@ -212,6 +212,7 @@
 <!-- TABBED GRID -->
 <section class="tabs-section">
   <div class="tabs-bar">
+    <button class="tab-btn active" onclick="filterTab('all', this)">All Spots</button>
     <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive</button>
     <button class="tab-btn" onclick="filterTab('b2b', this)">B2B &amp; Tech</button>
     <button class="tab-btn" onclick="filterTab('cpg', this)">CPG &amp; Food</button>
@@ -603,20 +604,14 @@
     renderFeatured(currentFeaturedIndex);
   }
 
-  // Tab filter — click active tab again to deselect (show all)
+  // Tab filter — All Spots resets to full grid
   function filterTab(cat, el) {
-    const isActive = el.classList.contains('active');
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    if (isActive) {
-      // Deselect → show all
-      document.querySelectorAll('.reel-item').forEach(item => item.classList.add('visible'));
-    } else {
-      el.classList.add('active');
-      document.querySelectorAll('.reel-item').forEach(item => {
-        const cats = (item.dataset.cat || '').split(' ');
-        item.classList.toggle('visible', cats.includes(cat));
-      });
-    }
+    el.classList.add('active');
+    document.querySelectorAll('.reel-item').forEach(item => {
+      const cats = (item.dataset.cat || '').split(' ');
+      item.classList.toggle('visible', cat === 'all' || cats.includes(cat));
+    });
   }
 
 
@@ -671,9 +666,9 @@
     if (id) openReelVideo(id);
   }
 
-  // Init — show all, no tab selected
+  // Init — All Spots active, everything visible
   renderFeatured(currentFeaturedIndex);
-  document.querySelectorAll('.reel-item').forEach(item => item.classList.add('visible'));
+  filterTab('all', document.querySelector('.tab-btn'));
 </script>
 
 
