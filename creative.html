@@ -67,10 +67,10 @@
 
   /* TABS */
   .tabs-section { padding: 4rem 3rem 2rem; }
-  .tabs-bar { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 2rem; }
-  .tabs-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.4); white-space: nowrap; }
-  .tabs-select { font-family: 'Epilogue', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); background: #111; border: 1.5px solid rgba(255,255,255,0.2); padding: 0.75rem 3rem 0.75rem 1.2rem; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; transition: border-color 0.2s; min-width: 220px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%238BAF8E'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
-  .tabs-select:hover, .tabs-select:focus { border-color: var(--sage); }
+  .tabs-bar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0; }
+  .tab-btn { font-family: 'Epilogue', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.65); background: none; border: none; border-bottom: 1.5px solid transparent; padding: 0 2rem 1.2rem 0; margin-bottom: -1px; cursor: pointer; transition: color 0.22s, border-color 0.22s; white-space: nowrap; line-height: 1; }
+  .tab-btn:hover { color: rgba(255,255,255,0.7); }
+  .tab-btn.active { color: var(--sage); border-bottom-color: var(--sage); }
 
   /* REEL GRID */
   .reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
@@ -212,18 +212,14 @@
 <!-- TABBED GRID -->
 <section class="tabs-section">
   <div class="tabs-bar">
-    <span class="tabs-label">Filter by</span>
-    <select class="tabs-select" onchange="filterTab(this.value, this)">
-      <option value="all">All Work</option>
-      <option value="automotive">Automotive</option>
-      <option value="b2b">B2B & Tech</option>
-      <option value="cpg">CPG & Food</option>
-      <option value="appliances">Home & Lifestyle</option>
-      <option value="medical">Medical & Pharma</option>
-      <option value="minidoc">Mini Doc</option>
-      <option value="promos">Promos & Trailers</option>
-      <option value="sports">Sports</option>
-    </select>
+    <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive</button>
+    <button class="tab-btn" onclick="filterTab('b2b', this)">B2B &amp; Tech</button>
+    <button class="tab-btn" onclick="filterTab('cpg', this)">CPG &amp; Food</button>
+    <button class="tab-btn" onclick="filterTab('appliances', this)">Home &amp; Lifestyle</button>
+    <button class="tab-btn" onclick="filterTab('medical', this)">Medical &amp; Pharma</button>
+    <button class="tab-btn" onclick="filterTab('minidoc', this)">Mini Doc</button>
+    <button class="tab-btn" onclick="filterTab('promos', this)">Promos &amp; Trailers</button>
+    <button class="tab-btn" onclick="filterTab('sports', this)">Sports</button>
   </div>
 
   <div class="reel-grid">
@@ -607,12 +603,20 @@
     renderFeatured(currentFeaturedIndex);
   }
 
-  // Tab filter
+  // Tab filter — click active tab again to deselect (show all)
   function filterTab(cat, el) {
-    document.querySelectorAll('.reel-item').forEach(item => {
-      const cats = (item.dataset.cat || '').split(' ');
-      item.classList.toggle('visible', cat === 'all' || cats.includes(cat));
-    });
+    const isActive = el.classList.contains('active');
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    if (isActive) {
+      // Deselect → show all
+      document.querySelectorAll('.reel-item').forEach(item => item.classList.add('visible'));
+    } else {
+      el.classList.add('active');
+      document.querySelectorAll('.reel-item').forEach(item => {
+        const cats = (item.dataset.cat || '').split(' ');
+        item.classList.toggle('visible', cats.includes(cat));
+      });
+    }
   }
 
 
@@ -667,9 +671,9 @@
     if (id) openReelVideo(id);
   }
 
-  // Init
+  // Init — show all, no tab selected
   renderFeatured(currentFeaturedIndex);
-  filterTab('all', null);
+  document.querySelectorAll('.reel-item').forEach(item => item.classList.add('visible'));
 </script>
 
 
