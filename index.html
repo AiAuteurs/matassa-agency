@@ -213,8 +213,8 @@
     .nav-right { display: none; }
     .nav-dropdown { min-width: 200px; }
 
-    .hero { padding: 0 1.5rem 3rem; }
-    .hero-video iframe { width: 100vw; height: 56.25vw; min-width: 100vw; min-height: 56.25vw; }
+    .hero { height: 85vh; min-height: 520px; padding: 0 1.5rem 2.5rem; justify-content: flex-end; }
+    .hero-video iframe { width: 177.78vh; height: 100%; min-width: 100%; min-height: 100%; }
     .hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .hero h1 { font-size: clamp(2.8rem, 14vw, 5rem); margin-bottom: 1rem; }
     .hero-tagline { font-size: 0.92rem; line-height: 1.75; max-width: 100%; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1.5rem; }
@@ -223,11 +223,18 @@
 
     .unmute-btn { position: fixed; top: 0.85rem; right: 1rem; bottom: auto; font-size: 0.65rem; padding: 0.35rem 0.7rem; z-index: 101; }
 
+    /* Stats — 3 across, no dividers */
+    .stats-flex { gap: 0 !important; justify-content: space-around !important; flex-wrap: nowrap !important; padding: 2rem 0.5rem !important; }
+    .stats-flex .stat-num { font-size: 2.8rem !important; }
+    .stats-divider { display: none !important; }
+
     .work-section, .book-section, .funnel-section { padding: 4rem 1.5rem; }
     .work-grid, .funnel-cards { grid-template-columns: 1fr; }
     .book-grid, .funnel-form-inner { grid-template-columns: 1fr; gap: 3rem; }
     div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+
+    .reel-modal-inner { width: 100vw; }
   }
 </style>
   <meta property="og:title" content="MATASSA — Traditional Craft. Cinematic A.I." />
@@ -391,19 +398,19 @@
 
 <!-- STATS -->
 <section style="background:#080808; padding:3.5rem 3rem; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
-  <div style="display:flex; align-items:center; justify-content:center; gap:5rem; flex-wrap:wrap;">
+  <div class="stats-flex" style="display:flex; align-items:center; justify-content:center; gap:5rem; flex-wrap:wrap;">
     <div style="text-align:center;">
-      <div style="font-family:'Bebas Neue',sans-serif; font-size:5rem; color:#ffffff; line-height:1; letter-spacing:-0.01em;">36</div>
+      <div class="stat-num" style="font-family:'Bebas Neue',sans-serif; font-size:5rem; color:#ffffff; line-height:1; letter-spacing:-0.01em;">36</div>
       <span style="font-size:0.65rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:#8BAF8E; display:block; margin-top:0.5rem;">Years of Craft</span>
     </div>
-    <div style="width:1px; height:64px; background:rgba(255,255,255,0.08);"></div>
+    <div class="stats-divider" style="width:1px; height:64px; background:rgba(255,255,255,0.08);"></div>
     <div style="text-align:center;">
-      <div style="font-family:'Bebas Neue',sans-serif; font-size:5rem; color:#ffffff; line-height:1; letter-spacing:-0.01em;">3</div>
+      <div class="stat-num" style="font-family:'Bebas Neue',sans-serif; font-size:5rem; color:#ffffff; line-height:1; letter-spacing:-0.01em;">3</div>
       <span style="font-size:0.65rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:#8BAF8E; display:block; margin-top:0.5rem;">Super Bowl Spots</span>
     </div>
-    <div style="width:1px; height:64px; background:rgba(255,255,255,0.08);"></div>
+    <div class="stats-divider" style="width:1px; height:64px; background:rgba(255,255,255,0.08);"></div>
     <div style="text-align:center;">
-      <div style="font-family:'Bebas Neue',sans-serif; font-size:5rem; color:#ffffff; line-height:1; letter-spacing:-0.01em;">ZERO</div>
+      <div class="stat-num" style="font-family:'Bebas Neue',sans-serif; font-size:5rem; color:#ffffff; line-height:1; letter-spacing:-0.01em;">ZERO</div>
       <span style="font-size:0.65rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:#8BAF8E; display:block; margin-top:0.5rem;">Shortcuts. Ever.</span>
     </div>
   </div>
@@ -577,6 +584,7 @@
     <div class="reel-embed">
       <iframe id="reelFrame" src="" frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
         title="MATASSA | 2026">
       </iframe>
     </div>
@@ -697,13 +705,36 @@
   };
   const HOME_IDS = Object.fromEntries(Object.entries(HOME_SLUGS).map(([k,v]) => [v,k]));
 
+  // Vimeo Player API for hero background video control
+  const heroIframe = document.querySelector('.hero-video iframe');
+  let heroPlayer = null;
+  if (window.Vimeo) {
+    heroPlayer = new Vimeo.Player(heroIframe);
+  } else {
+    const script = document.createElement('script');
+    script.src = 'https://player.vimeo.com/api/player.js';
+    script.onload = () => { heroPlayer = new Vimeo.Player(heroIframe); };
+    document.head.appendChild(script);
+  }
+
+  function stopAllVideos() {
+    // Pause hero background video
+    if (heroPlayer) heroPlayer.pause().catch(() => {});
+  }
+  function resumeHero() {
+    // Resume hero background video
+    if (heroPlayer) heroPlayer.play().catch(() => {});
+  }
+
   function openModalVideo(id) {
+    stopAllVideos();
     document.getElementById('reelFrame').src = 'https://player.vimeo.com/video/' + id + '?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479';
     document.getElementById('reelModal').classList.add('open');
     document.body.style.overflow = 'hidden';
     history.pushState(null, '', '#' + (HOME_SLUGS[id] || id));
   }
   function openReel() {
+    stopAllVideos();
     document.getElementById('reelFrame').src = 'https://player.vimeo.com/video/1166393031?badge=0&autopause=0&autoplay=1&loop=1&player_id=0&app_id=58479';
     document.getElementById('reelModal').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -713,6 +744,7 @@
     document.getElementById('reelFrame').src = '';
     document.getElementById('reelModal').classList.remove('open');
     document.body.style.overflow = '';
+    resumeHero();
     history.pushState(null, '', window.location.pathname);
   }
   document.getElementById('reelModal').addEventListener('click', function(e) {
