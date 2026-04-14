@@ -314,7 +314,7 @@
     <div class="logo-track">
       <span class="logo-item"><img src="/logo-mirimar.png" alt="Mirimar"></span>
       <span class="logo-item"><img src="/logo-fcb.png" alt="FCB"></span>
-      <span class="logo-item"><img src="/logo-vml.png" alt="VML"></span>
+      <span class="logo-item"><img src="/logos/logo-vml-new.png" alt="VML"></span>
       <span class="logo-item"><img src="/logos/logo-gsp.png" alt="GS&amp;P"></span>
       <span class="logo-item"><img src="/logos/logo-bbdo.png" alt="BBDO"></span>
       <span class="logo-item"><img src="/logos/logo-akqa.png" alt="AKQA"></span>
@@ -332,7 +332,7 @@
       <!-- duplicate for seamless loop -->
       <span class="logo-item"><img src="/logo-mirimar.png" alt="Mirimar"></span>
       <span class="logo-item"><img src="/logo-fcb.png" alt="FCB"></span>
-      <span class="logo-item"><img src="/logo-vml.png" alt="VML"></span>
+      <span class="logo-item"><img src="/logos/logo-vml-new.png" alt="VML"></span>
       <span class="logo-item"><img src="/logos/logo-gsp.png" alt="GS&amp;P"></span>
       <span class="logo-item"><img src="/logos/logo-bbdo.png" alt="BBDO"></span>
       <span class="logo-item"><img src="/logos/logo-akqa.png" alt="AKQA"></span>
@@ -705,25 +705,28 @@
   };
   const HOME_IDS = Object.fromEntries(Object.entries(HOME_SLUGS).map(([k,v]) => [v,k]));
 
-  // Vimeo Player API for hero background video control
-  const heroIframe = document.querySelector('.hero-video iframe');
+  // Vimeo Player API — pause hero when modal opens, resume on close
   let heroPlayer = null;
-  if (window.Vimeo) {
-    heroPlayer = new Vimeo.Player(heroIframe);
-  } else {
-    const script = document.createElement('script');
-    script.src = 'https://player.vimeo.com/api/player.js';
-    script.onload = () => { heroPlayer = new Vimeo.Player(heroIframe); };
-    document.head.appendChild(script);
-  }
+  try {
+    const heroIframe = document.querySelector('.hero-video iframe');
+    const initHeroPlayer = () => {
+      try { heroPlayer = new Vimeo.Player(heroIframe); } catch(e) {}
+    };
+    if (window.Vimeo) {
+      initHeroPlayer();
+    } else {
+      const s = document.createElement('script');
+      s.src = 'https://player.vimeo.com/api/player.js';
+      s.onload = initHeroPlayer;
+      document.head.appendChild(s);
+    }
+  } catch(e) {}
 
   function stopAllVideos() {
-    // Pause hero background video
-    if (heroPlayer) heroPlayer.pause().catch(() => {});
+    try { if (heroPlayer) heroPlayer.pause().catch(() => {}); } catch(e) {}
   }
   function resumeHero() {
-    // Resume hero background video
-    if (heroPlayer) heroPlayer.play().catch(() => {});
+    try { if (heroPlayer) heroPlayer.play().catch(() => {}); } catch(e) {}
   }
 
   function openModalVideo(id) {
