@@ -24,16 +24,16 @@
   .nav-logo-main { display: none; }
   .nav-left-links { display: flex; list-style: none; align-items: center; gap: 0; }
   .nav-left-links > li { position: relative; display: flex; align-items: center; }
-  .nav-left-links > li > a { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1.2rem; display: flex; align-items: center; line-height: 1; }
+  .nav-left-links > li > a { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,1); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1.2rem; display: flex; align-items: center; line-height: 1; }
   .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
   .nav-right { display: flex; align-items: center; gap: 0.75rem; }
   .nav-dropdown-wrap { position: relative; display: flex; align-items: center; }
   .nav-dropdown-wrap:hover .nav-dropdown { display: block; }
-  .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
+  .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,1); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
   .nav-services-btn::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.7; margin-top: 1px; }
   .nav-services-btn:hover { color: #ffffff; }
   .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #111; border: 1px solid rgba(255,255,255,0.1); min-width: 240px; z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
-  .nav-dropdown a { display: block; padding: 0.9rem 1.4rem; font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.15s; }
+  .nav-dropdown a { display: block; padding: 0.9rem 1.4rem; font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color:#ffffff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.15s; }
   .nav-dropdown a:last-child { border-bottom: none; }
   .nav-dropdown a:hover { color: #ffffff; background: rgba(255,255,255,0.04); padding-left: 1.8rem; }
   .nav-cta { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff; background: transparent; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.8); border-radius: 999px; }
@@ -54,7 +54,7 @@
   .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; text-align: center; }
   .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 1.2rem; animation: fadeUp 0.8s ease both; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 8rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
-  .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.88); max-width: 780px; line-height: 1.9; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
+  .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color:#ffffff; max-width: 780px; line-height: 1.9; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
   .hero-actions { display: flex; align-items: center; justify-content: center; gap: 3rem; animation: fadeUp 0.8s 0.3s ease both; }
   .btn-primary { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.8rem; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; white-space: nowrap; border-radius: 999px; }
   .btn-primary:hover { background: #e8e8e8; }
@@ -63,7 +63,7 @@
   .btn-reel-bracket { color: rgba(139,175,142,0.4); font-weight: 300; font-size: 1.3em; line-height: 1; transition: color 0.2s; }
   .btn-reel:hover .btn-reel-bracket { color: rgba(255,255,255,0.3); }
   .unmute-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: rgba(8,8,8,0.85); border: 1px solid rgba(255,255,255,0.15); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(8px); transition: border-color 0.2s; }
-  .unmute-btn:hover { border-color: rgba(255,255,255,0.5); }
+  .unmute-btn:hover { border-color:#ffffff; }
 
   /* TICKER */
   .ticker-bar { background: #0a0a0a; padding: 1rem 0; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
@@ -84,11 +84,11 @@
   .work-card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.3s; }
   .work-card:hover .work-card-thumb img { transform: scale(1.04); opacity: 0.7; }
   .work-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.05) 60%); }
-  .work-card-num { position: absolute; top: 1rem; left: 1.2rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.7); z-index: 2; }
+  .work-card-num { position: absolute; top: 1rem; left: 1.2rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em; color:#ffffff; z-index: 2; }
   .work-card-body { padding: 1.8rem 2rem 2.2rem; }
   .work-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.6rem; line-height: 1; display: block; }
-  .work-card-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.75; font-weight: 300; margin-bottom: 1.2rem; }
-  .work-card-cta { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: inline-block; transition: color 0.2s; }
+  .work-card-desc { font-size: 0.82rem; color:#ffffff; line-height: 1.75; font-weight: 300; margin-bottom: 1.2rem; }
+  .work-card-cta { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color:#ffffff; display: inline-block; transition: color 0.2s; }
   .work-card-cta-bracket { color: rgba(255,255,255,0.15); font-weight: 300; font-size: 1.1em; transition: color 0.2s; }
   .work-card:hover .work-card-cta { color: var(--sage); }
   .work-card:hover .work-card-cta-bracket { color: rgba(139,175,142,0.4); }
@@ -97,8 +97,8 @@
   .book-section { background: #050505; padding: 4rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); }
   .book-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 7rem; align-items: start; }
   .book-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 0.95; color: var(--white); margin-bottom: 1.5rem; }
-  .book-left p { font-size: 0.92rem; line-height: 1.85; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 2rem; }
-  .book-detail { display: flex; align-items: center; gap: 1rem; font-size: 0.82rem; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .book-left p { font-size: 0.92rem; line-height: 1.85; font-weight: 300; color:#ffffff; margin-bottom: 2rem; }
+  .book-detail { display: flex; align-items: center; gap: 1rem; font-size: 0.82rem; color:#ffffff; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
   .book-detail::before { content: ''; width: 20px; height: 1px; background: rgba(255,255,255,0.45); flex-shrink: 0; }
   .calendly-wrap { background: #0f0f0f; border: 1px solid rgba(255,255,255,0.07); overflow: hidden; }
   .calendly-inline-widget { width: 100%; min-height: 650px; }
@@ -107,7 +107,7 @@
   .funnel-section { background: #080808; padding: 4rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); }
   .funnel-intro { margin-bottom: 4rem; }
   .funnel-intro h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--white); margin-bottom: 0.75rem; margin-top: 1rem; }
-  .funnel-intro p { font-size: 0.92rem; color: rgba(255,255,255,0.72); font-weight: 300; max-width: 500px; line-height: 1.7; }
+  .funnel-intro p { font-size: 0.92rem; color:#ffffff; font-weight: 300; max-width: 500px; line-height: 1.7; }
   .funnel-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
   .funnel-card { background: #0f0f0f; padding: 3rem 2.5rem; cursor: pointer; transition: all 0.25s; border: 2px solid rgba(255,255,255,0.1); position: relative; }
   .funnel-card:hover { border-color: rgba(255,255,255,0.4); background: #141414; transform: translateY(-3px); }
@@ -126,7 +126,7 @@
   .funnel-letter { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; line-height: 1; margin-bottom: 1.5rem; transition: color 0.25s; }
   .funnel-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem; letter-spacing: 0.03em; color: var(--white); margin-bottom: 0.75rem; line-height: 1.1; }
   .funnel-desc { font-size: 0.85rem; color: var(--white); line-height: 1.8; font-weight: 300; }
-  .funnel-click-hint { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 1.8rem; display: block; transition: color 0.2s; }
+  .funnel-click-hint { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color:#ffffff; margin-top: 1.8rem; display: block; transition: color 0.2s; }
   .funnel-card:hover .funnel-click-hint { color: rgba(255,255,255,0.85); }
   .funnel-click-hint-bracket { color: rgba(255,255,255,0.15); font-weight: 300; font-size: 1.1em; }
   .funnel-card:hover .funnel-click-hint-bracket { color: rgba(255,255,255,0.35); }
@@ -140,12 +140,12 @@
   .funnel-form-left p { font-size: 0.88rem; color: var(--white); line-height: 1.85; font-weight: 300; }
   .contact-detail { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
   .contact-detail-item { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-  .contact-detail-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+  .contact-detail-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color:#ffffff; }
   .contact-detail-value { font-size: 0.85rem; color: var(--white); font-weight: 300; }
 
   /* FIELDS */
   .field { margin-bottom: 1rem; }
-  .field label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 0.45rem; }
+  .field label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color:#ffffff; margin-bottom: 0.45rem; }
   .field input, .field textarea, .field select { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--white); font-family: 'Epilogue', sans-serif; font-size: 0.9rem; font-weight: 300; padding: 0.85rem 1rem; outline: none; transition: border-color 0.2s; border-radius: 0; -webkit-appearance: none; }
   .field input:focus, .field textarea:focus, .field select:focus { border-color: rgba(255,255,255,0.25); }
   .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.18); }
@@ -157,11 +157,11 @@
   /* FOOTER */
   footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.05em; color: #ffffff; }
-  .footer-center { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.6); text-transform: uppercase; text-align: center; }
-  .footer-right { font-size: 0.72rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.65); text-transform: uppercase; }
+  .footer-center { font-size: 0.72rem; letter-spacing: 0.15em; color:#ffffff; text-transform: uppercase; text-align: center; }
+  .footer-right { font-size: 0.72rem; letter-spacing: 0.12em; color:#ffffff; text-transform: uppercase; }
   a.__cf_email__ { color: inherit; text-decoration: none; }
   .contact-detail-value a { color: var(--white); text-decoration: none; }
-  .footer-right a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+  .footer-right a { color:#ffffff; text-decoration: none; transition: color 0.2s; }
   .footer-right a:hover { color: rgba(255,255,255,0.95); }
 
   /* REEL MODAL */
@@ -177,7 +177,7 @@
   }
   .reel-modal-close {
     position: absolute; top: -3rem; right: 0;
-    background: none; border: none; color: rgba(255,255,255,0.6);
+    background: none; border: none; color:#ffffff;
     font-family: 'Epilogue', sans-serif;
     font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
     cursor: pointer; transition: color 0.2s;
@@ -198,7 +198,7 @@
   .modal-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 1.5rem; cursor: pointer; transition: color 0.2s; }
   .modal-close:hover { color: var(--white); }
   .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.5rem; }
-  .modal-sub { font-size: 0.88rem; color: rgba(255,255,255,0.75); margin-bottom: 2rem; line-height: 1.6; font-weight: 300; }
+  .modal-sub { font-size: 0.88rem; color:#ffffff; margin-bottom: 2rem; line-height: 1.6; font-weight: 300; }
   .modal-btn { width: 100%; background: var(--white); color: var(--black); font-family: 'Epilogue', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; padding: 1rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 1rem; border-radius: 999px; }
   .modal-btn:hover { background: var(--light-grey); }
 
@@ -294,7 +294,7 @@
   <div class="hero-content">
     <p class="hero-eyebrow">Los Angeles · Bangkok · Any Time Zone</p>
     <h1><span style="color:#ffffff; font-size:0.55em; letter-spacing:0.05em; font-family:'Bebas Neue',sans-serif;">A.I. Done Right.</span><br><span style="color:#8BAF8E; font-family:'Outfit',sans-serif; font-weight:800; letter-spacing:-0.01em;">MATASSA.</span></h1>
-    <p style="font-family:'Epilogue',sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:2.5rem;">Traditional Craft. &nbsp;Cinematic A.I.</p>
+    <p style="font-family:'Epilogue',sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:#ffffff; margin-bottom:2.5rem;">Traditional Craft. &nbsp;Cinematic A.I.</p>
     <div class="hero-actions">
       <button onclick="openReel()" class="btn-reel"><span class="btn-reel-bracket">[</span>&nbsp;&nbsp;▶&nbsp; Watch the Reel&nbsp;&nbsp;<span class="btn-reel-bracket">]</span></button>
       <a href="#contact" class="btn-primary">Start Your Project</a>
@@ -309,7 +309,7 @@
 
 <!-- LOGO TICKER -->
 <div style="background:#080808; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:2rem 0; overflow:hidden;">
-  <p style="font-size:0.58rem; font-weight:600; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.22); text-align:center; margin-bottom:1.8rem;">20+ Years of Creative Editorial For</p>
+  <p style="font-size:0.58rem; font-weight:600; letter-spacing:0.35em; text-transform:uppercase; color:#ffffff; text-align:center; margin-bottom:1.8rem;">20+ Years of Creative Editorial For</p>
   <div style="display:flex; overflow:hidden; -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent); mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);">
     <div class="logo-track">
       <span class="logo-item"><img src="/logo-mirimar.png" alt="Mirimar"></span>
@@ -369,7 +369,7 @@
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,0.8);display:flex;align-items:center;justify-content:center;pointer-events:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
       <div style="position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.4rem;pointer-events:none;">
         <span style="display:block;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.06em;color:#fff;">Samsara</span>
-        <span style="font-size:0.68rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em;">Super Bowl LX — Jesse Love</span>
+        <span style="font-size:0.68rem;color:#ffffff;letter-spacing:0.06em;">Super Bowl LX — Jesse Love</span>
       </div>
     </div>
 
@@ -379,7 +379,7 @@
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,0.8);display:flex;align-items:center;justify-content:center;pointer-events:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
       <div style="position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.4rem;pointer-events:none;">
         <span style="display:block;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.06em;color:#fff;">RootDown Homes</span>
-        <span style="font-size:0.68rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em;">Keep It Real — Cinematic A.I.</span>
+        <span style="font-size:0.68rem;color:#ffffff;letter-spacing:0.06em;">Keep It Real — Cinematic A.I.</span>
       </div>
     </div>
 
@@ -389,7 +389,7 @@
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,0.8);display:flex;align-items:center;justify-content:center;pointer-events:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
       <div style="position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.4rem;pointer-events:none;">
         <span style="display:block;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.06em;color:#fff;">Doritos</span>
-        <span style="font-size:0.68rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em;">Crash From Home — Goodby Silverstein</span>
+        <span style="font-size:0.68rem;color:#ffffff;letter-spacing:0.06em;">Crash From Home — Goodby Silverstein</span>
       </div>
     </div>
 
@@ -428,7 +428,7 @@
       <div>
         <span style="display:block; font-size:0.75rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:#8BAF8E; margin-bottom:1.5rem;">Got 15 Minutes?</span>
         <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4vw,3.8rem); color:#ffffff; line-height:0.95; margin-bottom:1.5rem;">BOOK A CREATIVE HUDDLE.</h2>
-        <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:rgba(255,255,255,0.65); max-width:420px; margin-bottom:2rem;">No pitch. No pressure. Tell me what you're working on — I respond to every inquiry personally.</p>
+        <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:#ffffff; max-width:420px; margin-bottom:2rem;">No pitch. No pressure. Tell me what you're working on — I respond to every inquiry personally.</p>
         <div style="font-size:0.7rem; letter-spacing:0.18em; color:rgba(255,255,255,0.9); line-height:2.2; text-transform:uppercase;">
           <div>15 minutes · Video or phone</div>
           <div>US &amp; Asia time zones covered</div>
@@ -440,8 +440,8 @@
       <div>
         <span style="display:block; font-size:0.75rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:#8BAF8E; margin-bottom:1.5rem;">Ready to Go?</span>
         <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4vw,3.8rem); color:#ffffff; line-height:0.95; margin-bottom:1.5rem;">START YOUR PROJECT.</h2>
-        <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:rgba(255,255,255,0.65); max-width:420px; margin-bottom:2rem;">Tell us what you're working on. We respond quickly, personally, and without pressure. Fill out the brief below or text us directly.</p>
-        <div style="font-size:0.78rem; font-weight:500; letter-spacing:0.12em; color:rgba(255,255,255,0.8); line-height:2.4; text-transform:uppercase;">
+        <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:#ffffff; max-width:420px; margin-bottom:2rem;">Tell us what you're working on. We respond quickly, personally, and without pressure. Fill out the brief below or text us directly.</p>
+        <div style="font-size:0.78rem; font-weight:500; letter-spacing:0.12em; color:#ffffff; line-height:2.4; text-transform:uppercase;">
           <div>Text us: 415.205.0868</div>
           <div>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0e63676d666f6b624e636f7a6f7d7d6f206d6163">[email&#160;protected]</a></div>
         </div>
@@ -493,7 +493,7 @@
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
           <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f29f9b919a93979eb29f938693818193dc919d9f">[email&#160;protected]</a></span></div>
         </div>
-        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
+        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:#ffffff; line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
       <div>
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
@@ -526,7 +526,7 @@
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
           <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dab7b3b9b2bbbfb69ab7bbaebba9a9bbf4b9b5b7">[email&#160;protected]</a></span></div>
         </div>
-        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
+        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:#ffffff; line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
       <div>
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
@@ -555,7 +555,7 @@
           <div class="contact-detail-item"><span class="contact-detail-label">Text</span><span class="contact-detail-value">415.205.0868</span></div>
           <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc1c5cfc4cdc9c0ecc1cdd8cddfdfcd82cfc3c1">[email&#160;protected]</a></span></div>
         </div>
-        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.4); line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
+        <p style="margin-top:2rem; font-size:0.78rem; font-weight:300; color:#ffffff; line-height:1.7; border-left:2px solid var(--sage); padding-left:1rem;">Traditional Craft. Cinematic A.I.<br>Los Angeles · Bangkok · Any Time Zone</p>
       </div>
       <div>
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
@@ -650,18 +650,18 @@
         <div style="margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,0.05);">
           <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.8rem;">Worked Alongside</div>
           <div style="display:flex; flex-direction:column; gap:0.55rem;">
-            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Jeff Goodby</span><span style="display:block; font-size:0.72rem; color:rgba(255,255,255,0.45); font-weight:300; letter-spacing:0.04em;">Founder, Goodby Silverstein &amp; Partners</span></div>
-            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Michael Bay</span><span style="display:block; font-size:0.72rem; color:rgba(255,255,255,0.45); font-weight:300; letter-spacing:0.04em;">Director Extraordinaire</span></div>
-            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Dennis Virkler</span><span style="display:block; font-size:0.72rem; color:rgba(255,255,255,0.45); font-weight:300; letter-spacing:0.04em;">Editor — The Hunt for Red October</span></div>
+            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Jeff Goodby</span><span style="display:block; font-size:0.72rem; color:#ffffff; font-weight:300; letter-spacing:0.04em;">Founder, Goodby Silverstein &amp; Partners</span></div>
+            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Michael Bay</span><span style="display:block; font-size:0.72rem; color:#ffffff; font-weight:300; letter-spacing:0.04em;">Director Extraordinaire</span></div>
+            <div><span style="font-size:0.88rem; color:#ffffff; font-weight:500;">Dennis Virkler</span><span style="display:block; font-size:0.72rem; color:#ffffff; font-weight:300; letter-spacing:0.04em;">Editor — The Hunt for Red October</span></div>
           </div>
         </div>
         <div style="margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,0.05);">
           <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.4rem;">Work Includes</div>
-          <div style="font-size:0.88rem; color:rgba(255,255,255,0.75); font-weight:300;">Super Bowl Spots · National TV · Tech Films · Sizzle Reels · Case Studies · Brand Films</div>
+          <div style="font-size:0.88rem; color:#ffffff; font-weight:300;">Super Bowl Spots · National TV · Tech Films · Sizzle Reels · Case Studies · Brand Films</div>
         </div>
         <div style="margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,0.05);">
           <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.4rem;">A.I. Film Recognition</div>
-          <div style="font-size:0.88rem; color:rgba(255,255,255,0.75); font-weight:300;">Cannes 2026 · Bali International Film Festival</div>
+          <div style="font-size:0.88rem; color:#ffffff; font-weight:300;">Cannes 2026 · Bali International Film Festival</div>
         </div>
         <div>
           <div style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:#8BAF8E; margin-bottom:0.8rem;">A.I. Creative Partner</div>
@@ -676,10 +676,10 @@
       </div>
     </div>
     <div>
-      <p style="font-size:1.1rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.85); margin-bottom:1.5rem;"><strong style="color:#ffffff; font-weight:500;">There is no shortcut to this.</strong></p>
-      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:1.4rem;">Michael Matassa has been in the edit suite on national TV spots, Super Bowl campaigns, tech mini-docs, sizzle reels, case studies — everything under the video sun. That breadth doesn't come from a course or a tutorial. It comes from working alongside some of the sharpest creative minds in the business. Jeff Goodby. Michael Bay. Dennis Virkler. Hundreds of briefs, deadlines, and client conversations that taught him what great work actually requires.</p>
-      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:1.4rem;">Now that experience is running A.I. — and the difference is immediate. Not just in the quality of the frames, but in how the work gets made. Reliable. Communicative. On deadline. On budget. Responsive to notes without losing the creative thread.</p>
-      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:rgba(255,255,255,0.7); margin-bottom:2rem;">Flashy A.I. work is everywhere. <strong style="color:#ffffff; font-weight:500;">Trust it with someone who has spent their career making reputable, high-end work for top brands.</strong></p>
+      <p style="font-size:1.1rem; line-height:1.9; font-weight:300; color:#ffffff; margin-bottom:1.5rem;"><strong style="color:#ffffff; font-weight:500;">There is no shortcut to this.</strong></p>
+      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:#ffffff; margin-bottom:1.4rem;">Michael Matassa has been in the edit suite on national TV spots, Super Bowl campaigns, tech mini-docs, sizzle reels, case studies — everything under the video sun. That breadth doesn't come from a course or a tutorial. It comes from working alongside some of the sharpest creative minds in the business. Jeff Goodby. Michael Bay. Dennis Virkler. Hundreds of briefs, deadlines, and client conversations that taught him what great work actually requires.</p>
+      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:#ffffff; margin-bottom:1.4rem;">Now that experience is running A.I. — and the difference is immediate. Not just in the quality of the frames, but in how the work gets made. Reliable. Communicative. On deadline. On budget. Responsive to notes without losing the creative thread.</p>
+      <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:#ffffff; margin-bottom:2rem;">Flashy A.I. work is everywhere. <strong style="color:#ffffff; font-weight:500;">Trust it with someone who has spent their career making reputable, high-end work for top brands.</strong></p>
       <a href="#contact" style="font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1rem 2.2rem; text-decoration:none; display:inline-block; transition:background 0.2s; border-radius:999px;">Start Your Project →</a>
     </div>
   </div>
