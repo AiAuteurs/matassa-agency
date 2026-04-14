@@ -706,39 +706,16 @@
   };
   const HOME_IDS = Object.fromEntries(Object.entries(HOME_SLUGS).map(([k,v]) => [v,k]));
 
-  // Vimeo Player API — pause hero when modal opens, resume on close
-  let heroPlayer = null;
-  try {
-    const heroIframe = document.querySelector('.hero-video iframe');
-    const initHeroPlayer = () => {
-      try { heroPlayer = new Vimeo.Player(heroIframe); } catch(e) {}
-    };
-    if (window.Vimeo) {
-      initHeroPlayer();
-    } else {
-      const s = document.createElement('script');
-      s.src = 'https://player.vimeo.com/api/player.js';
-      s.onload = initHeroPlayer;
-      document.head.appendChild(s);
-    }
-  } catch(e) {}
-
-  function stopAllVideos() {
-    try { if (heroPlayer) heroPlayer.pause().catch(() => {}); } catch(e) {}
-  }
-  function resumeHero() {
-    try { if (heroPlayer) heroPlayer.play().catch(() => {}); } catch(e) {}
-  }
-
   function openModalVideo(id) {
-    stopAllVideos();
+    // Stop any playing modal video by resetting src first
+    document.getElementById('reelFrame').src = '';
     document.getElementById('reelFrame').src = 'https://player.vimeo.com/video/' + id + '?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479';
     document.getElementById('reelModal').classList.add('open');
     document.body.style.overflow = 'hidden';
     history.pushState(null, '', '#' + (HOME_SLUGS[id] || id));
   }
   function openReel() {
-    stopAllVideos();
+    document.getElementById('reelFrame').src = '';
     document.getElementById('reelFrame').src = 'https://player.vimeo.com/video/1166393031?badge=0&autopause=0&autoplay=1&loop=1&player_id=0&app_id=58479';
     document.getElementById('reelModal').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -748,7 +725,6 @@
     document.getElementById('reelFrame').src = '';
     document.getElementById('reelModal').classList.remove('open');
     document.body.style.overflow = '';
-    resumeHero();
     history.pushState(null, '', window.location.pathname);
   }
   document.getElementById('reelModal').addEventListener('click', function(e) {
