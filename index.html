@@ -300,6 +300,59 @@
   <span id="muteLabel">Unmute</span>
 </button>
 
+<!-- LOGO TICKER -->
+<div style="background:#080808; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:2rem 0; overflow:hidden;">
+  <p style="font-size:0.58rem; font-weight:600; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.22); text-align:center; margin-bottom:1.8rem;">20+ Years of Creative Editorial For</p>
+  <div style="display:flex; overflow:hidden; -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent); mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);">
+    <div class="logo-track">
+      <span class="logo-item"><img src="https://logo.clearbit.com/disney.com" alt="Disney"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/uber.com" alt="Uber"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/samsara.com" alt="Samsara"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/google.com" alt="Google"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/workday.com" alt="Workday"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/sharkninja.com" alt="SharkNinja"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/servicenow.com" alt="ServiceNow"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/clorox.com" alt="Clorox"></span>
+      <span class="logo-item"><img src="/logo-mirimar.png" alt="Mirimar"></span>
+      <span class="logo-item"><img src="/logo-fcb.png" alt="FCB"></span>
+      <span class="logo-item"><img src="/logo-vml.png" alt="VML"></span>
+      <span class="logo-item logo-text">GS&amp;P</span>
+      <span class="logo-item logo-text">BBDO</span>
+      <span class="logo-item logo-text">AKQA</span>
+      <span class="logo-item logo-text">R/GA</span>
+      <!-- duplicate for seamless loop -->
+      <span class="logo-item"><img src="https://logo.clearbit.com/disney.com" alt="Disney"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/uber.com" alt="Uber"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/samsara.com" alt="Samsara"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/google.com" alt="Google"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/workday.com" alt="Workday"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/sharkninja.com" alt="SharkNinja"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/servicenow.com" alt="ServiceNow"></span>
+      <span class="logo-item"><img src="https://logo.clearbit.com/clorox.com" alt="Clorox"></span>
+      <span class="logo-item"><img src="/logo-mirimar.png" alt="Mirimar"></span>
+      <span class="logo-item"><img src="/logo-fcb.png" alt="FCB"></span>
+      <span class="logo-item"><img src="/logo-vml.png" alt="VML"></span>
+      <span class="logo-item logo-text">GS&amp;P</span>
+      <span class="logo-item logo-text">BBDO</span>
+      <span class="logo-item logo-text">AKQA</span>
+      <span class="logo-item logo-text">R/GA</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .logo-track { display:flex; align-items:center; gap:4rem; animation:logoScroll 45s linear infinite; width:max-content; padding:0 2rem; }
+  .logo-item { display:inline-flex; align-items:center; flex-shrink:0; }
+  .logo-item img { height:24px; width:auto; max-width:120px; filter:brightness(0) invert(1); opacity:0.45; object-fit:contain; display:block; }
+  .logo-text { font-family:'Epilogue',sans-serif; font-size:0.82rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.35); white-space:nowrap; }
+  @keyframes logoScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  .logo-track:hover { animation-play-state:paused; }
+</style>
+
 <!-- WORK THUMBNAILS -->
 <section style="background:#080808; border-top:1px solid rgba(255,255,255,0.06);">
   <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.05);">
