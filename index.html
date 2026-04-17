@@ -41,6 +41,30 @@
   .nav-start { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #080808; background: #ffffff; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border-radius: 999px; border: 1px solid #ffffff; }
   .nav-start:hover { background: rgba(255,255,255,0.88); }
 
+  /* CONTACT NAV DROPDOWN */
+  .nav-contact-wrap { position: relative; display: flex; align-items: center; }
+  .nav-contact-wrap:hover .nav-contact-dropdown,
+  .nav-contact-wrap.open .nav-contact-dropdown { display: block; }
+  .nav-contact-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,1); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
+  .nav-contact-btn::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.7; margin-top: 1px; }
+  .nav-contact-btn:hover { color: #ffffff; }
+  .nav-contact-dropdown { display: none; position: absolute; top: 100%; right: 0; background: #111; border: 1px solid rgba(255,255,255,0.1); min-width: 280px; z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
+  .nav-contact-item { display: flex; flex-direction: column; padding: 0.9rem 1.4rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .nav-contact-item:last-child { border-bottom: none; }
+  .nav-contact-label { font-family: 'Epilogue', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.25rem; }
+  .nav-contact-value { font-family: 'Epilogue', sans-serif; font-size: 0.82rem; font-weight: 400; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; transition: color 0.15s; }
+  .nav-contact-value:hover { color: #8BAF8E; }
+  .nav-contact-form { padding: 1rem 1.4rem 1.2rem; border-top: 1px solid rgba(255,255,255,0.05); }
+  .nav-contact-form-label { font-family: 'Epilogue', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.6rem; display: block; }
+  .nav-contact-input { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #ffffff; font-family: 'Epilogue', sans-serif; font-size: 0.82rem; font-weight: 300; padding: 0.55rem 0.75rem; outline: none; transition: border-color 0.2s; border-radius: 0; margin-bottom: 0.5rem; }
+  .nav-contact-input:focus { border-color: rgba(255,255,255,0.3); }
+  .nav-contact-input::placeholder { color: rgba(255,255,255,0.2); }
+  .nav-contact-textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #ffffff; font-family: 'Epilogue', sans-serif; font-size: 0.82rem; font-weight: 300; padding: 0.55rem 0.75rem; outline: none; transition: border-color 0.2s; border-radius: 0; margin-bottom: 0.5rem; resize: none; min-height: 70px; }
+  .nav-contact-textarea:focus { border-color: rgba(255,255,255,0.3); }
+  .nav-contact-textarea::placeholder { color: rgba(255,255,255,0.2); }
+  .nav-contact-send { width: 100%; background: #8BAF8E; color: #080808; font-family: 'Epilogue', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.65rem; border: none; cursor: pointer; transition: background 0.2s; border-radius: 999px; margin-top: 0.2rem; }
+  .nav-contact-send:hover { background: #9dc0a0; }
+
 
   /* HERO */
   .hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0 3rem 5rem; overflow: hidden; }
@@ -280,6 +304,26 @@
     </ul>
   </div>
   <div class="nav-right">
+    <div class="nav-contact-wrap">
+      <button class="nav-contact-btn">Contact</button>
+      <div class="nav-contact-dropdown">
+        <div class="nav-contact-item">
+          <span class="nav-contact-label">Email</span>
+          <a href="mailto:michael@matassa.com" class="nav-contact-value">michael@matassa.com</a>
+        </div>
+        <div class="nav-contact-item">
+          <span class="nav-contact-label">Phone / Text</span>
+          <a href="tel:4152050868" class="nav-contact-value">415.205.0868</a>
+        </div>
+        <div class="nav-contact-form">
+          <span class="nav-contact-form-label">Send a Message</span>
+          <input type="text" class="nav-contact-input" id="nav-contact-name" placeholder="Your name">
+          <input type="email" class="nav-contact-input" id="nav-contact-email" placeholder="Your email">
+          <textarea class="nav-contact-textarea" id="nav-contact-msg" placeholder="What are you working on?"></textarea>
+          <button class="nav-contact-send" id="nav-contact-send-btn" onclick="sendNavContact()">Send Message</button>
+        </div>
+      </div>
+    </div>
     <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
     <a href="/#contact" class="nav-start">Start a Project</a>
   </div>
@@ -308,82 +352,92 @@
 </button>
 
 <!-- LOGO TICKER -->
-<div style="background:#080808; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:2rem 0; overflow:hidden;">
-  <p style="font-family:'Epilogue',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:#ffffff; text-align:center; margin-bottom:1.8rem;">20+ Years of Creative Editorial For</p>
-  <div style="display:flex; overflow:hidden; -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent); mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);">
-    <div class="logo-track">
-      <span class="logo-text">McDonald's</span>
-      <span class="logo-text">Google</span>
-      <span class="logo-text">Disney</span>
-      <span class="logo-text">NVIDIA</span>
-      <span class="logo-text">Samsara</span>
-      <span class="logo-text">Clorox</span>
-      <span class="logo-text">Levi's</span>
-      <span class="logo-text">Yahoo</span>
-      <span class="logo-text">SharkNinja</span>
-      <span class="logo-text">Workday</span>
-      <span class="logo-text">Doritos</span>
-      <span class="logo-text">Budweiser</span>
-      <span class="logo-text">Nickelodeon</span>
-      <span class="logo-text">Burton</span>
-      <span class="logo-text">Pottery Barn</span>
-      <span class="logo-text">Golden State Warriors</span>
-      <span class="logo-text">BBDO</span>
-      <span class="logo-text">AKQA</span>
-      <span class="logo-text">GS&P</span>
-      <span class="logo-text">Omnicom</span>
-      <span class="logo-text">FCB</span>
-      <span class="logo-text">VML</span>
-      <span class="logo-text">BSSP</span>
-      <span class="logo-text">Mirimar</span>
-      <span class="logo-text">ResMed</span>
-      <span class="logo-text">R/GA</span>
-      <span class="logo-text">ByteDance</span>
-      <span class="logo-text">Alibaba</span>
-      <span class="logo-text">Runway</span>
-      <span class="logo-text">Uber</span>
-      <!-- duplicate -->
-      <span class="logo-text">McDonald's</span>
-      <span class="logo-text">Google</span>
-      <span class="logo-text">Disney</span>
-      <span class="logo-text">NVIDIA</span>
-      <span class="logo-text">Samsara</span>
-      <span class="logo-text">Clorox</span>
-      <span class="logo-text">Levi's</span>
-      <span class="logo-text">Yahoo</span>
-      <span class="logo-text">SharkNinja</span>
-      <span class="logo-text">Workday</span>
-      <span class="logo-text">Doritos</span>
-      <span class="logo-text">Budweiser</span>
-      <span class="logo-text">Nickelodeon</span>
-      <span class="logo-text">Burton</span>
-      <span class="logo-text">Pottery Barn</span>
-      <span class="logo-text">Golden State Warriors</span>
-      <span class="logo-text">BBDO</span>
-      <span class="logo-text">AKQA</span>
-      <span class="logo-text">GS&P</span>
-      <span class="logo-text">Omnicom</span>
-      <span class="logo-text">FCB</span>
-      <span class="logo-text">VML</span>
-      <span class="logo-text">BSSP</span>
-      <span class="logo-text">Mirimar</span>
-      <span class="logo-text">ResMed</span>
-      <span class="logo-text">R/GA</span>
-      <span class="logo-text">ByteDance</span>
-      <span class="logo-text">Alibaba</span>
-      <span class="logo-text">Runway</span>
-      <span class="logo-text">Uber</span>
+<style>
+  .ticker-section { background: #080808; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0; overflow: hidden; }
+  .ticker-eyebrow { font-family: 'Epilogue', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-align: center; padding: 1.8rem 0 1.4rem; }
+  .ticker-outer { overflow: hidden; position: relative; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%); }
+  .ticker-inner { display: flex; width: max-content; will-change: transform; }
+  .ticker-row { display: flex; align-items: center; gap: 0; flex-shrink: 0; animation: tickerScroll 55s linear infinite; }
+  .ticker-row:hover { animation-play-state: paused; }
+  @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+  .ticker-item { display: inline-flex; align-items: center; padding: 1rem 2.5rem; white-space: nowrap; }
+  .ticker-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.75); white-space: nowrap; transition: color 0.2s; }
+  .ticker-item:hover .ticker-name { color: #ffffff; }
+  .ticker-sep { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+</style>
+<div class="ticker-section">
+  <p class="ticker-eyebrow">36 Years of Creative Editorial For</p>
+  <div class="ticker-outer">
+    <div class="ticker-inner">
+      <!-- Set A -->
+      <div class="ticker-row" aria-hidden="false">
+        <div class="ticker-item"><span class="ticker-name">McDonald's</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Google</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Disney</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">NVIDIA</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Samsara</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Clorox</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Levi's</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Yahoo</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">SharkNinja</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Workday</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Doritos</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Budweiser</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Nickelodeon</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Burton</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Pottery Barn</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Golden State Warriors</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">BBDO</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">AKQA</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">GS&amp;P</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Omnicom</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">FCB</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">VML</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">BSSP</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Mirimar</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">ResMed</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">R/GA</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">ByteDance</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Alibaba</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Runway</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Uber</span></div><div class="ticker-sep"></div>
+      </div>
+      <!-- Set B (duplicate for seamless loop) -->
+      <div class="ticker-row" aria-hidden="true">
+        <div class="ticker-item"><span class="ticker-name">McDonald's</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Google</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Disney</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">NVIDIA</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Samsara</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Clorox</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Levi's</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Yahoo</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">SharkNinja</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Workday</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Doritos</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Budweiser</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Nickelodeon</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Burton</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Pottery Barn</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Golden State Warriors</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">BBDO</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">AKQA</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">GS&amp;P</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Omnicom</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">FCB</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">VML</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">BSSP</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Mirimar</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">ResMed</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">R/GA</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">ByteDance</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Alibaba</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Runway</span></div><div class="ticker-sep"></div>
+        <div class="ticker-item"><span class="ticker-name">Uber</span></div><div class="ticker-sep"></div>
+      </div>
     </div>
   </div>
 </div>
-
-<style>
-  .logo-track { display:flex; align-items:center; gap:3.5rem; animation:logoScroll 60s linear infinite; width:max-content; padding:0 3rem; }
-  .logo-item { display:inline-flex; align-items:center; flex-shrink:0; }
-  .logo-text { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.12em; color:#ffffff; white-space:nowrap; }
-  @keyframes logoScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-  .logo-track:hover { animation-play-state:paused; }
-</style>
 
 <!-- WORK THUMBNAILS -->
 <section style="background:#080808; border-top:1px solid rgba(255,255,255,0.06);">
@@ -652,7 +706,7 @@
 
     <a href="premade.html" class="work-card">
       <div class="work-card-thumb">
-        <img src="https://vumbnail.com/677256468.jpg" alt="Premade Ads" loading="lazy">
+        <img src="/Water_Plants_Thumb.png" alt="Premade Ads" loading="lazy">
         <div class="work-card-overlay"></div>
         <span class="work-card-num">03</span>
       </div>
@@ -796,6 +850,47 @@
     var form = document.getElementById('form-' + opt);
     form.classList.add('visible');
     setTimeout(() => form.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+
+  // Keep contact dropdown open while interacting with the form
+  (function() {
+    var wrap = document.querySelector('.nav-contact-wrap');
+    if (!wrap) return;
+    var dropdown = wrap.querySelector('.nav-contact-dropdown');
+    wrap.addEventListener('focusin', function() { wrap.classList.add('open'); });
+    wrap.addEventListener('focusout', function(e) {
+      setTimeout(function() { if (!wrap.contains(document.activeElement)) wrap.classList.remove('open'); }, 150);
+    });
+  })();
+
+  async function sendNavContact() {
+    var name = document.getElementById('nav-contact-name').value.trim();
+    var email = document.getElementById('nav-contact-email').value.trim();
+    var msg = document.getElementById('nav-contact-msg').value.trim();
+    var btn = document.getElementById('nav-contact-send-btn');
+    if (!name || !email || !msg) { btn.textContent = 'Please fill all fields'; setTimeout(() => btn.textContent = 'Send Message', 2000); return; }
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ inquiryType: 'Nav Quick Contact', 'nav-name': name, 'nav-email': email, 'nav-message': msg })
+      });
+      if (res.ok) {
+        btn.textContent = 'Sent! ✓';
+        document.getElementById('nav-contact-name').value = '';
+        document.getElementById('nav-contact-email').value = '';
+        document.getElementById('nav-contact-msg').value = '';
+        setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 3000);
+      } else {
+        btn.textContent = 'Error — try again';
+        btn.disabled = false;
+      }
+    } catch(e) {
+      btn.textContent = 'Error — try again';
+      btn.disabled = false;
+    }
   }
 
   async function handleFunnelSubmit(type) {
