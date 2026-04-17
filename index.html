@@ -27,6 +27,7 @@
   .nav-left-links > li > a { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,1); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1.2rem; display: flex; align-items: center; line-height: 1; }
   .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
   .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+  .nav-right-btns { display: flex; align-items: center; gap: 0.75rem; }
   .nav-dropdown-wrap { position: relative; display: flex; align-items: center; }
   .nav-dropdown-wrap:hover .nav-dropdown { display: block; }
   .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,1); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
@@ -235,6 +236,10 @@
     .nav-services-btn { font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.5rem 0.7rem; }
     .nav-left-links li:last-child { display: none; }
     .nav-right { display: none; }
+    .nav-contact-wrap { display: flex; }
+    .nav-contact-btn { font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.5rem 0.7rem; }
+    .nav-contact-dropdown { right: 0; min-width: 260px; max-width: 90vw; }
+    .nav-cta, .nav-start { display: none; }
     .nav-dropdown { min-width: 200px; }
 
     .hero { height: 85vh; min-height: 520px; padding: 0 1.5rem 2.5rem; justify-content: flex-end; }
@@ -245,7 +250,7 @@
     .hero-actions { flex-direction: column; gap: 0.75rem; }
     .hero-actions .btn-primary, .hero-actions .btn-reel { width: 100%; justify-content: center; font-size: 0.82rem; padding: 1.1rem 1.5rem; }
 
-    .unmute-btn { position: fixed; top: 0.85rem; right: 1rem; bottom: auto; font-size: 0.65rem; padding: 0.35rem 0.7rem; z-index: 101; }
+    .unmute-btn { position: fixed; bottom: 1.5rem; right: 1rem; top: auto; font-size: 0.65rem; padding: 0.35rem 0.7rem; z-index: 101; }
 
     /* Stats — 3 across, no dividers */
     .stats-flex { gap: 0 !important; justify-content: space-around !important; flex-wrap: nowrap !important; padding: 2rem 0.5rem !important; }
@@ -303,9 +308,9 @@
       <li><a href="about.html">About</a></li>
     </ul>
   </div>
-  <div class="nav-right">
+  <div style="display:flex; align-items:center; gap:0.75rem;">
     <div class="nav-contact-wrap">
-      <button class="nav-contact-btn">Contact</button>
+      <button class="nav-contact-btn" onclick="toggleNavContact(this)">Contact</button>
       <div class="nav-contact-dropdown">
         <div class="nav-contact-item">
           <span class="nav-contact-label">Email</span>
@@ -324,8 +329,10 @@
         </div>
       </div>
     </div>
+  <div class="nav-right">
     <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
     <a href="/#contact" class="nav-start">Start a Project</a>
+  </div>
   </div>
 </nav>
 
@@ -851,6 +858,17 @@
     form.classList.add('visible');
     setTimeout(() => form.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
   }
+
+  // Contact dropdown — hover on desktop, tap-toggle on mobile
+  function toggleNavContact(btn) {
+    var wrap = btn.closest('.nav-contact-wrap');
+    wrap.classList.toggle('open');
+  }
+  // Close contact dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    var wrap = document.querySelector('.nav-contact-wrap');
+    if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+  });
 
   // Keep contact dropdown open while interacting with the form
   (function() {
