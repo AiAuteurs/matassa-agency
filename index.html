@@ -77,10 +77,10 @@
   .video-watch-btn:hover .video-watch-bracket { color: rgba(255,255,255,0.4); }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.75) 75%, rgba(0,0,0,0.97) 100%); z-index: 1; }
   .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; text-align: center; }
-  .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 1.2rem; animation: fadeUp 0.8s ease both; }
+  .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 3.5rem; animation: fadeUp 0.8s ease both; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 8rem); line-height: 0.92; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.1s ease both; }
   .hero-tagline { font-size: clamp(0.88rem, 1.4vw, 1.05rem); font-weight: 300; color:#ffffff; max-width: 780px; line-height: 1.9; animation: fadeUp 0.8s 0.2s ease both; margin-bottom: 2.5rem; }
-  .hero-actions { display: flex; align-items: center; justify-content: center; gap: 3rem; animation: fadeUp 0.8s 0.3s ease both; }
+  .hero-actions { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; animation: fadeUp 0.8s 0.3s ease both; }
   .btn-primary { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.8rem; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; white-space: nowrap; border-radius: 999px; }
   .btn-primary:hover { background: #e8e8e8; }
   .btn-reel { font-size: 1.1rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); text-decoration: none; border: none; padding: 1.1rem 0; background: transparent; cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 700; display: inline-flex; align-items: center; gap: 0; white-space: nowrap; transition: color 0.2s; }
@@ -343,9 +343,8 @@
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Los Angeles · Bangkok · Any Time Zone</p>
-    <h1><span style="color:#ffffff; font-size:0.55em; letter-spacing:0.05em; font-family:'Bebas Neue',sans-serif;">A.I. Done Right.</span><br><span style="color:#8BAF8E; font-family:'Outfit',sans-serif; font-weight:800; letter-spacing:-0.01em;">MATASSA.</span></h1>
-    <p style="font-family:'Epilogue',sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:#ffffff; margin-bottom:2.5rem;">Traditional Craft. &nbsp;Cinematic A.I.</p>
+    <p class="hero-eyebrow">USA · Thailand · Global · Any Time Zone</p>
+    <h1><span style="color:#ffffff; font-size:0.55em; letter-spacing:0.05em; font-family:'Bebas Neue',sans-serif;">Traditional Video Editing Craft <span style="color:rgba(255,255,255,0.4);">×</span> <span style="color:#8BAF8E;">Cinematic A.I. Storytelling</span></span><br><span style="color:#8BAF8E; font-family:'Outfit',sans-serif; font-weight:800; letter-spacing:-0.01em;">MATASSA.</span></h1>
     <div class="hero-actions">
       <button onclick="openReel()" class="btn-reel"><span class="btn-reel-bracket">[</span>&nbsp;&nbsp;▶&nbsp; Watch the Reel&nbsp;&nbsp;<span class="btn-reel-bracket">]</span></button>
       <a href="#contact" class="btn-primary">Start Your Project</a>
