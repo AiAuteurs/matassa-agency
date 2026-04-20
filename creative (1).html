@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+    <div class="reel-item" data-cat="appliances brandfilm">
+      <div class="reel-thumb" onclick="openReelVideo('240249655')">
+        <img src="https://vumbnail.com/240249655.jpg" alt="Levis Circles Campaign BTS" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Levi's</span>
+        <p class="reel-title">Behind the Scenes — Circles Campaign</p>
+        <span class="reel-agency">FCB West, San Francisco, CA</span>
+      </div>
+    </div>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Video Editing — Matassa</title>
+<meta name="description" content="36 years of high-craft creative editorial. Super Bowl spots, national TV, brand films, sizzle reels.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Outfit:wght@800&family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; --sage: #8BAF8E; --ice: #7EB8D4; --amber: #D4A87A; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); }
+  .nav-left { display: flex; align-items: center; gap: 3rem; }
+  .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; text-transform: uppercase; flex-shrink: 0; }
+  .nav-logo-sub { display: none; }
+  .nav-logo-main { display: none; }
+  .nav-left-links { display: flex; list-style: none; align-items: center; gap: 0; }
+  .nav-left-links > li { position: relative; display: flex; align-items: center; }
+  .nav-left-links > li > a { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1.2rem; display: flex; align-items: center; line-height: 1; }
+  .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
+  .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+  .nav-dropdown-wrap { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-wrap:hover .nav-dropdown { display: block; }
+  .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
+  .nav-services-btn::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.7; margin-top: 1px; }
+  .nav-services-btn:hover { color: #ffffff; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #111; border: 1px solid rgba(255,255,255,0.1); min-width: 240px; z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
+  .nav-dropdown a { display: block; padding: 0.9rem 1.4rem; font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.15s; }
+  .nav-dropdown a:last-child { border-bottom: none; }
+  .nav-dropdown a:hover { color: #ffffff; background: rgba(255,255,255,0.04); padding-left: 1.8rem; }
+  .nav-cta { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff; background: transparent; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.8); border-radius: 999px; }
+  .nav-cta:hover { border-color: #ffffff; }
+  .nav-start { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #080808; background: #ffffff; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border-radius: 999px; border: 1px solid #ffffff; }
+  .nav-start:hover { background: rgba(255,255,255,0.88); }
+
+
+  /* PAGE HERO */
+  .page-hero { padding: 9rem 3rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .hero-kicker { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 9vw, 8rem); line-height: 0.9; color: var(--white); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero-sub { font-size: 1rem; font-weight: 300; color: var(--white); line-height: 1.8; max-width: 560px; }
+
+  /* FEATURED SPOT */
+  .featured-section { padding: 0 0 4rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .featured-header { padding: 3rem 3rem 2rem; display: flex; align-items: baseline; gap: 2rem; }
+  .featured-kicker { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.04em; text-transform: uppercase; color: var(--sage); display: block; }
+  .featured-week-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+  .featured-embed-full { position: relative; padding-bottom: 56.25%; background: #0a0a0a; width: 100%; }
+  .featured-embed-full iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .featured-meta { padding: 2rem 3rem 0; }
+  .featured-info { }
+  .featured-category { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.5rem; }
+  .featured-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); color: var(--white); line-height: 1; margin-bottom: 0.5rem; }
+  .featured-client { font-size: 0.88rem; color: rgba(255,255,255,0.72); font-weight: 400; margin-bottom: 1.2rem; letter-spacing: 0.06em; }
+  .featured-desc { font-size: 0.95rem; font-weight: 300; color: var(--white); line-height: 1.8; margin-bottom: 1.5rem; }
+  .featured-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.35); padding: 0.3rem 0.8rem; display: inline-block; margin-right: 0.4rem; margin-bottom: 0.4rem; }
+  .featured-shuffle { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #080808; background: var(--sage); border: none; padding: 0.9rem 2rem; cursor: pointer; transition: all 0.2s; margin-top: 1.5rem; display: inline-block; }
+  .featured-shuffle:hover { background: #7aa07d; }
+
+  /* TABS */
+  .tabs-section { padding: 4rem 3rem 2rem; }
+  .tabs-bar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0; }
+  .tab-btn { font-family: 'Epilogue', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.65); background: none; border: none; border-bottom: 1.5px solid transparent; padding: 0 2rem 1.2rem 0; margin-bottom: -1px; cursor: pointer; transition: color 0.22s, border-color 0.22s; white-space: nowrap; line-height: 1; }
+  .tab-btn:hover { color: rgba(255,255,255,0.7); }
+  .tab-btn.active { color: var(--sage); border-bottom-color: var(--sage); }
+
+  /* REEL GRID */
+  .reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .reel-item { display: none; }
+  .reel-item.visible { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .reel-thumb { position: relative; padding-bottom: 56.25%; background: #0a0a0a; overflow: hidden; cursor: pointer; }
+  .reel-thumb img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.3s; }
+  .reel-thumb:hover img { transform: scale(1.04); opacity: 0.75; }
+  .reel-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .reel-play-btn { width: 56px; height: 56px; border-radius: 50%; background: rgba(8,8,8,0.7); border: 2px solid rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center; transition: all 0.2s; backdrop-filter: blur(4px); }
+  .reel-thumb:hover .reel-play-btn { background: rgba(8,8,8,0.9); border-color: #ffffff; transform: scale(1.1); }
+  /* VIDEO MODAL */
+  .video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.94); z-index: 1000; align-items: center; justify-content: center; }
+  .video-modal.open { display: flex; }
+  .video-modal-inner { position: relative; width: 90vw; max-width: 1100px; }
+  .video-modal-embed { position: relative; padding-bottom: 56.25%; }
+  .video-modal-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .video-modal-close { position: absolute; top: -2.5rem; right: 0; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.8rem; cursor: pointer; line-height: 1; transition: color 0.2s; }
+  .video-modal-close:hover { color: #ffffff; }
+  .reel-meta { padding: 1rem 0 0; }
+  .reel-client { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); display: block; margin-bottom: 0.25rem; line-height: 1; }
+  .reel-title { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.75); display: block; margin-bottom: 0.2rem; letter-spacing: 0.02em; }
+  .reel-agency { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; color: var(--sage); display: block; margin-top: 0.15rem; }
+  .reel-detail { display: none; }
+
+  /* CREDITS */
+  .credits-section { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a; }
+  .credits-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); margin-bottom: 2rem; }
+  .credits-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 0; border: 1px solid rgba(255,255,255,0.07); margin-top: 2rem; }
+  .credits-grid div { padding: 2rem 1.8rem; border-right: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .credits-grid div:nth-child(6n) { border-right: none; }
+  .credits-grid div p { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.5rem; }
+  .credits-grid div span { display: block; font-size: 0.7rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; line-height: 1.6; font-family: 'Epilogue', sans-serif; font-weight: 300; }
+  .people-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; border: 1px solid rgba(255,255,255,0.07); margin-top: 2rem; margin-bottom: 5rem; }
+  .people-grid div { padding: 2.2rem 2rem; border-right: 1px solid rgba(255,255,255,0.07); }
+  .people-grid div:last-child { border-right: none; }
+  .people-grid div p { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.6rem; }
+  .people-grid div span { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; line-height: 1.7; font-family: 'Epilogue', sans-serif; font-weight: 300; }
+
+  /* CTA */
+  .cta-section { padding: 7rem 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 1rem; }
+  .cta-section p { font-size: 0.9rem; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.5rem; text-decoration: none; display: inline-block; margin: 0 0.5rem; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--light-grey); }
+  .btn-secondary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); background: transparent; padding: 1rem 2.5rem; text-decoration: none; display: inline-block; border: 1.5px solid rgba(255,255,255,0.6); margin: 0 0.5rem; transition: all 0.2s; }
+  .btn-secondary:hover { border-color: var(--white); }
+
+  /* FOOTER */
+  footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--sage); text-decoration: none; text-transform: uppercase; }
+  .footer-center { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.65); text-transform: uppercase; text-align: center; }
+  .footer-right { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
+  .footer-right a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-right a:hover { color: rgba(255,255,255,0.7); }
+
+  @media (max-width: 900px) {
+    .featured-embed-full { padding-bottom: 56.25%; }
+    .featured-meta { padding: 1.5rem 1.5rem 0; }
+    .reel-grid { grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-hero { padding: 7rem 1.5rem 3rem; }
+    .featured-section, .tabs-section, .credits-section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .reel-grid { grid-template-columns: 1fr; }
+    .credits-grid { grid-template-columns: repeat(3,1fr); }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="/" class="nav-logo">MATASSA</a>
+    <ul class="nav-left-links">
+      <li >
+        <div class="nav-dropdown-wrap">
+          <button class="nav-services-btn">Work</button>
+          <div class="nav-dropdown">
+            <a href="index.html" onclick="sessionStorage.setItem('openReel','1')">Watch the Reel</a>
+            <a href="creative.html">Creative Video Editing</a>
+            <a href="ai.html">Cinematic A.I. Work</a>
+            <a href="premade.html">Premade Spots for Sale</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-services-btn">Services</button>
+          <div class="nav-dropdown">
+            <a href="creative.html">Creative Video Editing</a>
+            <a href="ai.html">Cinematic A.I. Storytelling</a>
+            <a href="premade.html">Premade Ads</a>
+            <a href="remaster.html">Restore Old Video</a>
+            <a href="#contact">Web Design &amp; Development</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-services-btn">Our Brands</button>
+          <div class="nav-dropdown">
+            <a href="https://www.jobsuncle.ai" target="_blank">JobsUncle.ai — AI Job Search</a>
+            <a href="https://www.casadimatassa.com" target="_blank">Casa di Matassa — Travel</a>
+            <a href="https://www.rubberneck.ai" target="_blank">Rubberneck.ai — AI News</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
+    <a href="/#contact" class="nav-start">Start a Project</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <span class="hero-kicker">Creative Video Editing</span>
+  <h1 class="hero-title">36 Years.<br>No Shortcuts.</h1>
+  <p class="hero-sub">Super Bowl spots. National TV campaigns. Brand films. Sizzle reels. Case Studies and Beyond. Some built alongside creative greats like Jeff Goodby, Director Michael Bay, and Hunt for Red October editor, Dennis Virkler. That experience doesn't come from a tutorial — it comes from decades in the room. Now it's running A.I. The difference shows in every frame.</p>
+</div>
+
+<!-- FEATURED SPOT -->
+<section class="featured-section">
+  <div class="featured-header">
+    <span class="featured-kicker">Featured This Week</span>
+    <span class="featured-week-label">Rotates every Monday</span>
+  </div>
+  <div class="featured-meta" style="padding: 0 3rem 2rem;">
+    <div class="featured-info">
+      <span class="featured-category" id="featuredCategory"></span>
+      <h2 class="featured-title" id="featuredTitle"></h2>
+      <p class="featured-client" id="featuredClient"></p>
+      <p class="featured-desc" id="featuredDesc"></p>
+      <div id="featuredTags"></div>
+      <button class="featured-shuffle" onclick="shuffleFeatured()">↺ &nbsp;Show Another Spot</button>
+    </div>
+  </div>
+  <div class="featured-embed-full">
+    <iframe id="featuredIframe" src="" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title=""></iframe>
+  </div>
+</section>
+
+<!-- TABBED GRID -->
+<section class="tabs-section">
+  <div style="border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 0;">
+    <button class="tab-btn active" onclick="filterTab('all', this)" style="padding-bottom: 1.2rem; margin-bottom: -1px;">All Spots</button>
+  </div>
+  <div class="tabs-bar" style="margin-top: 1.2rem;">
+    <button class="tab-btn" onclick="filterTab('automotive', this)">Automotive</button>
+    <button class="tab-btn" onclick="filterTab('b2b', this)">B2B &amp; Tech</button>
+    <button class="tab-btn" onclick="filterTab('brandfilm', this)">Brand Films</button>
+    <button class="tab-btn" onclick="filterTab('cpg', this)">CPG &amp; Food</button>
+    <button class="tab-btn" onclick="filterTab('customersuccess', this)">Customer Success</button>
+    <button class="tab-btn" onclick="filterTab('appliances', this)">Home &amp; Lifestyle</button>
+    <button class="tab-btn" onclick="filterTab('medical', this)">Medical &amp; Pharma</button>
+    <button class="tab-btn" onclick="filterTab('minidoc', this)">Mini Doc</button>
+    <button class="tab-btn" onclick="filterTab('promos', this)">Promos &amp; Trailers</button>
+    <button class="tab-btn" onclick="filterTab('psa', this)">PSA</button>
+    <button class="tab-btn" onclick="filterTab('social', this)">Social First</button>
+    <button class="tab-btn" onclick="filterTab('sports', this)">Sports</button>
+  </div>
+
+  <div class="reel-grid"><div class="reel-item" data-cat="b2b">
+      <div class="reel-thumb" onclick="openReelVideo('594786814')">
+        <img src="https://vumbnail.com/594786814.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">15Five</span>
+        <p class="reel-title">New HR — :30</p>
+        <span class="reel-agency">Division of Labor, Sausalito, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="psa">
+      <div class="reel-thumb" onclick="openReelVideo('731000851')">
+        <img src="https://vumbnail.com/731000851.jpg" alt="Bissell Foundation Dear Humans" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Bissell Foundation</span>
+        <p class="reel-title">Dear Humans</p>
+        <span class="reel-agency"></span>
+      </div>
+    </div><div class="reel-item" data-cat="appliances cpg">
+      <div class="reel-thumb" onclick="openReelVideo('677315165')">
+        <img src="https://vumbnail.com/677315165.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Clorox</span>
+        <p class="reel-title">Reload in a Snap</p>
+        <span class="reel-agency">FCB West, San Francisco, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="cpg appliances">
+      <div class="reel-thumb" onclick="openReelVideo('259578898')">
+        <img src="https://vumbnail.com/259578898.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Clorox</span>
+        <p class="reel-title">Spring Cleaning — Car</p>
+        <span class="reel-agency">FCB West, San Francisco, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="promos">
+      <div class="reel-thumb" onclick="openReelVideo('109646043')">
+        <img src="https://vumbnail.com/109646043.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">9th Grade Ninja — Watch Out</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="promos">
+      <div class="reel-thumb" onclick="openReelVideo('109646041')">
+        <img src="https://vumbnail.com/109646041.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">Randy Cunningham — Halloween Promo</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="promos">
+      <div class="reel-thumb" onclick="openReelVideo('108024585')">
+        <img src="https://vumbnail.com/108024585.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">Wander Over Yonder — :15</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="promos">
+      <div class="reel-thumb" onclick="openReelVideo('109646042')">
+        <img src="https://vumbnail.com/109646042.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">Wander Over Yonder — Date</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="promos">
+      <div class="reel-thumb" onclick="openReelVideo('108024583')">
+        <img src="https://vumbnail.com/108024583.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Disney XD</span>
+        <p class="reel-title">Wander Over Yonder — Series Promo</p>
+        <span class="reel-agency">Disney Creative Services, Burbank, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="b2b appliances">
+      <div class="reel-thumb" onclick="openReelVideo('1181827419')">
+        <img src="https://vumbnail.com/1181827419.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+            <div class="reel-meta">
+        <span class="reel-client">Divvy</span>
+        <p class="reel-title">Omnibus — :30 Broadcast</p>
+        <span class="reel-agency">Near Future, San Francisco, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="cpg food">
+      <div class="reel-thumb" onclick="openReelVideo('440068901')">
+        <img src="https://vumbnail.com/440068901.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Doritos</span>
+        <p class="reel-title">Crash From Home — Launch Film</p>
+        <span class="reel-agency">Goodby Silverstein, San Francisco, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="minidoc automotive b2b">
+      <div class="reel-thumb" onclick="openReelVideo('176607801')">
+        <img src="https://vumbnail.com/176607801.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">FedEx</span>
+        <p class="reel-title">Denny Hamlin — Never Before Seen</p>
+        <span class="reel-agency">FedEx Internal, Memphis, Tennessee</span>
+      </div>
+    </div><div class="reel-item" data-cat="minidoc b2b">
+      <div class="reel-thumb" onclick="openReelVideo('180136940')">
+        <img src="https://vumbnail.com/180136940.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">FedEx Express</span>
+        <p class="reel-title">Museum of Flight</p>
+        <span class="reel-agency">FedEx Internal, Memphis, Tennessee</span>
+      </div>
+    </div><div class="reel-item" data-cat="cpg food">
+      <div class="reel-thumb" onclick="openReelVideo('938278786')">
+        <img src="https://vumbnail.com/938278786.jpg" alt="Free Spirits Ready to Drink Margaritas" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Free Spirits</span>
+        <p class="reel-title">Ready to Drink Margaritas</p>
+        <span class="reel-agency"></span>
+      </div>
+    </div><div class="reel-item" data-cat="cpg food">
+      <div class="reel-thumb" onclick="openReelVideo('289191430')">
+        <img src="https://vumbnail.com/289191430.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Ghirardelli</span>
+        <p class="reel-title">Caramel Squares — National TV</p>
+        <span class="reel-agency">FCB West, San Francisco, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="minidoc sports customersuccess">
+      <div class="reel-thumb" onclick="openReelVideo('559421154')">
+        <img src="https://vumbnail.com/559421154.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Golden State Warriors</span>
+        <p class="reel-title">Golden State Warriors Fan Story</p>
+        <span class="reel-agency">Warriors Internal, San Francisco, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="minidoc sports cpg">
+      <div class="reel-thumb" onclick="openReelVideo('901754314')">
+        <img src="https://vumbnail.com/901754314.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Golden State Warriors</span>
+        <p class="reel-title">Warrior's Punch — Jefferson's Bourbon</p>
+        <span class="reel-agency">Warriors Internal, San Francisco, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="cpg brandfilm">
+      <div class="reel-thumb" onclick="openReelVideo('383624392')">
+        <img src="https://vumbnail.com/383624392.jpg" alt="Seedling by Grove Masterbrand Video" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Grove Collaborative</span>
+        <p class="reel-title">Seedling — Masterbrand Film</p>
+        <span class="reel-agency">Grove Internal Creative, San Francisco, CA</span>
+      </div>
+    </div><div class="reel-item" data-cat="appliances">
+      <div class="reel-thumb" onclick="openReelVideo('889663633')">
+        <img src="https://vumbnail.com/889663633.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Home Depot</span>
+        <p class="reel-title">Home Services — TV Spot</p>
+        <span class="reel-agency">Trade School, Atlanta, Georgia</span>
+      </div>
+    </div><div class="reel-item" data-cat="appliances">
+      <div class="reel-thumb" onclick="openReelVideo('677256468')">
+        <img src="https://vumbnail.com/677256468.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Midea Appliances</span>
+        <p class="reel-title">Dishwasher TV Spot</p>
+        <span class="reel-agency">Trade School, Atlanta, Georgia</span>
+      </div>
+    </div><div class="reel-item" data-cat="appliances">
+      <div class="reel-thumb" onclick="openReelVideo('677253981')">
+        <img src="https://vumbnail.com/677253981.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Midea Appliances</span>
+        <p class="reel-title">Fridge TV Spot</p>
+        <span class="reel-agency">Trade School, Atlanta, Georgia</span>
+      </div>
+    </div><div class="reel-item" data-cat="appliances">
+      <div class="reel-thumb" onclick="openReelVideo('1064276322')">
+        <img src="https://vumbnail.com/1064276322.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Ninja</span>
+        <p class="reel-title">Luxe Cafe — :30</p>
+        <span class="reel-agency">Ninja In-House, San Diego, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="appliances">
+      <div class="reel-thumb" onclick="openReelVideo('769699092')">
+        <img src="https://vumbnail.com/769699092.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Ninja</span>
+        <p class="reel-title">NC300 — Meet the Creami</p>
+        <span class="reel-agency">Ninja In-House, San Diego, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="minidoc customersuccess">
+      <div class="reel-thumb" onclick="openReelVideo('126650081')">
+        <img src="https://vumbnail.com/126650081.jpg" alt="Salesforce Aesynt and Apptus" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Salesforce</span>
+        <p class="reel-title">Aesynt &amp; Apptus Customer Video</p>
+        <span class="reel-agency">Heist Productions, Oakland, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="minidoc customersuccess">
+      <div class="reel-thumb" onclick="openReelVideo('247849790')">
+        <img src="https://vumbnail.com/247849790.jpg" alt="Salesforce Ignite and Caesars" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Salesforce</span>
+        <p class="reel-title">Ignite &amp; Caesars</p>
+        <span class="reel-agency">Heist Productions, Oakland, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="minidoc customersuccess">
+      <div class="reel-thumb" onclick="openReelVideo('152235693')">
+        <img src="https://vumbnail.com/152235693.jpg" alt="Unilever Succeeds with Salesforce and Microsoft" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Salesforce</span>
+        <p class="reel-title">Unilever Succeeds with Salesforce &amp; Microsoft</p>
+        <span class="reel-agency">Heist Productions, Oakland, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="automotive b2b sports">
+      <div class="reel-thumb" onclick="openReelVideo('1163670558')">
+        <img src="https://vumbnail.com/1163670558.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Samsara</span>
+        <p class="reel-title">Super Bowl LX — Jesse Love</p>
+        <span class="reel-agency">MADE Studios, Oakland, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="appliances medical">
+      <div class="reel-thumb" onclick="openReelVideo('889138221')">
+        <img src="https://vumbnail.com/889138221.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">Shark</span>
+        <p class="reel-title">Air Purifier</p>
+        <span class="reel-agency">Ninja In-House, San Diego, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="appliances cpg">
+      <div class="reel-thumb" onclick="openReelVideo('566692516')">
+        <img src="https://vumbnail.com/566692516.jpg" alt="Shark Ninja Avoid The Dog" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">SharkNinja</span>
+        <p class="reel-title">Avoid The Dog — :30 TV Spot</p>
+        <span class="reel-agency">Ninja In-House, San Diego, California</span>
+      </div>
+    </div><div class="reel-item" data-cat="social">
+      <div class="reel-thumb" onclick="openReelVideo('822123667')">
+        <img src="https://vumbnail.com/822123667.jpg" alt="Tempo UGC Social" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Tempo</span>
+        <p class="reel-title">UGC Montage — 9:16</p>
+        <span class="reel-agency">Tempo Internal Creative Agency, San Francisco, CA</span>
+      </div>
+    </div><div class="reel-item" data-cat="minidoc cpg">
+      <div class="reel-thumb" onclick="openReelVideo('787059376')">
+        <img src="https://vumbnail.com/787059376.jpg" alt="" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+                  <div class="reel-meta">
+        <span class="reel-client">UPS</span>
+        <p class="reel-title">3 Punks Ale</p>
+        <span class="reel-agency">UPS Internal, Atlanta, Georgia</span>
+      </div>
+    </div><div class="reel-item" data-cat="b2b psa">
+      <div class="reel-thumb" onclick="openReelVideo('436956331')">
+        <img src="https://vumbnail.com/436956331.jpg" alt="Xfinity Education Covid19 TV Commercial" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Xfinity</span>
+        <p class="reel-title">Education — Covid19 TV Commercial</p>
+        <span class="reel-agency"></span>
+      </div>
+    </div><div class="reel-item" data-cat="b2b social">
+      <div class="reel-thumb" onclick="openReelVideo('291730745')">
+        <img src="https://vumbnail.com/291730745.jpg" alt="Yahoo Mail Storage Spot" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Yahoo</span>
+        <p class="reel-title">Mail Storage Spot</p>
+        <span class="reel-agency">Yahoo Internal Creative, Silicon Valley, CA</span>
+      </div>
+    </div><div class="reel-item" data-cat="b2b social">
+      <div class="reel-thumb" onclick="openReelVideo('468610559')">
+        <img src="https://vumbnail.com/468610559.jpg" alt="Yahoo Mobile DONUT :15" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Yahoo</span>
+        <p class="reel-title">Mobile "Donut" — :15</p>
+        <span class="reel-agency">Yahoo Internal Creative, Silicon Valley, CA</span>
+      </div>
+    </div><div class="reel-item" data-cat="b2b social">
+      <div class="reel-thumb" onclick="openReelVideo('468610466')">
+        <img src="https://vumbnail.com/468610466.jpg" alt="Yahoo Mobile PUP :15" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">Yahoo</span>
+        <p class="reel-title">Mobile "PUP" — :15</p>
+        <span class="reel-agency">Yahoo Internal Creative, Silicon Valley, CA</span>
+      </div>
+    </div>
+  
+  
+  </div>
+</section>
+
+<!-- CREDITS -->
+<section class="credits-section">
+
+  <!-- PEOPLE -->
+  <span class="credits-label">Select People We Have Cut For</span>
+  <div class="people-grid">
+    <div><p>Jeff Goodby</p><span>Chief Creative Officer<br>Goodby Silverstein & Partners<br>San Francisco, California</span></div>
+    <div><p>Michael Bay</p><span>Director<br>"Transformers"<br>Los Angeles, California</span></div>
+    <div><p>Dennis Virkler</p><span>Editor<br>Hunt for Red October<br>Los Angeles, California</span></div>
+    <div><p>Larry Bridges</p><span>Founder & Editor<br>Red Car<br>Hollywood, Los Angeles, California</span></div>
+    <div><p>Rob Watzke</p><span>Actor · Editor · Director<br>Los Angeles, California</span></div>
+  </div>
+
+  <!-- BRANDS & AGENCIES -->
+  <span class="credits-label">Selected Editing Credits</span>
+  <div class="credits-grid">
+    <div><p>Goodby Silverstein</p></div>
+    <div><p>BBDO</p></div>
+    <div><p>AKQA</p></div>
+    <div><p>R/GA</p></div>
+    <div><p>NVIDIA</p></div>
+    <div><p>Google</p></div>
+    <div><p>McDonald's</p></div>
+    <div><p>Doritos</p></div>
+    <div><p>Disney</p></div>
+    <div><p>Budweiser</p></div>
+    <div><p>Nickelodeon</p></div>
+    <div><p>Clorox</p></div>
+    <div><p>ServiceNow</p></div>
+    <div><p>Workday</p></div>
+    <div><p>Shark Ninja</p></div>
+    <div><p>Samsara</p></div>
+    <div><p>Red Car Hollywood</p></div>
+    <div><p>And Many More</p></div>
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Let's Make Something Great.</h2>
+  <p>30+ years of craft. Ready to work for your brand.</p>
+  <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="btn-primary">Book a Creative Huddle →</a>
+  <a href="/#contact" class="btn-secondary">Start Your Project</a>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo">MATASSA</a>
+  <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok · Any Time Zone</span>
+  <span class="footer-right">
+    <a href="https://www.rubberneck.ai/terms.html">Terms</a> &nbsp;·&nbsp;
+    <a href="https://www.rubberneck.ai/privacy.html">Privacy</a>
+  </span>
+</footer>
+
+<script>
+  // All spots catalogue for featured rotation
+  const ALL_SPOTS = [
+    { id: '1163670558', title: 'Super Bowl LX — Jesse Love', client: 'Samsara', category: 'Automotive & Tech', desc: 'Super Bowl LX national broadcast spot. Directed with precision and editorial instinct for one of the biggest stages in advertising.', tags: ['National Broadcast', ':30', 'Super Bowl'] },
+    { id: '677256468',  title: 'Dishwasher TV Spot', client: 'Midea Appliances', category: 'Home & Lifestyle', desc: 'National TV spot for Midea Appliances. Clean product storytelling, tight editorial pacing.', tags: ['National Broadcast', 'Product'] },
+    { id: '677253981',  title: 'Fridge TV Spot', client: 'Midea Appliances', category: 'Home & Lifestyle', desc: 'National TV campaign for Midea. Lifestyle-driven product commercial built for broadcast.', tags: ['National Broadcast', 'Product'] },
+    { id: '677315165',  title: 'Reload in a Snap', client: 'Clorox', category: 'Home & Lifestyle', desc: 'National TV launch for Clorox Refillable Cleaners. Fast-cut, benefit-driven editorial.', tags: ['National Broadcast', ':30'] },
+    { id: '889663633',  title: 'Home Services TV Spot', client: 'Home Depot', category: 'Home & Lifestyle', desc: 'National broadcast spot for Home Depot Home Services. Warm, relatable, and on-brand.', tags: ['National Broadcast'] },
+    { id: '769699092',  title: 'NC300 — Meet the Creami', client: 'Ninja', category: 'Home & Lifestyle', desc: 'Product launch film for the Ninja Creami. Energetic, consumer-focused editorial.', tags: ['Product Launch'] },
+    { id: '1064276322', title: 'Luxe Cafe — :30', client: 'Ninja', category: 'Home & Lifestyle', desc: 'Premium product launch spot for the Ninja Luxe Cafe. Cinematic treatment for a consumer appliance.', tags: ['Product Launch', ':30'] },
+    { id: '440068901',  title: 'Crash From Home', client: 'Doritos', category: 'Food & Beverage', desc: 'Long-form launch film for Doritos. Comedy-driven brand content built for digital and social.', tags: ['Long-Form', 'Digital'] },
+    { id: '289191430',  title: 'Caramel Squares — National TV', client: 'Ghirardelli', category: 'Food & Beverage', desc: 'National TV campaign for Ghirardelli Caramel Squares. Indulgent, cinematic food storytelling.', tags: ['National Broadcast'] },
+        { id: '1181827419', title: 'Omnibus — :30', client: 'Divvy', category: 'B2B & Tech', desc: 'National broadcast spot for Divvy. Sharp, benefit-led commercial storytelling built for TV.', tags: ['National Broadcast', ':30', 'B2B'] },
+    { id: '594786814',  title: 'New HR — :30', client: '15Five', category: 'B2B & Tech', desc: 'Brand film for 15Five. Clear, smart B2B storytelling that connects product to human outcome.', tags: ['Brand Film', ':30'] },
+    { id: '559421154',  title: 'Golden State Warriors Fan Story', client: 'Golden State Warriors', category: 'Mini Doc · Sports', desc: 'The return. After a year without live basketball, Warriors fans came back to Chase Center — and this film captured what that moment meant. Real people, real emotion, cinematic craft.', tags: ['Mini Doc', 'Sports', 'Brand Content'] },
+  ];
+
+  // Weekly rotation — uses ISO week number as seed so it changes every Monday
+  function getWeekNumber() {
+    const d = new Date();
+    d.setHours(0,0,0,0);
+    d.setDate(d.getDate() + 4 - (d.getDay()||7));
+    const yearStart = new Date(d.getFullYear(),0,1);
+    return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
+  }
+
+  let currentFeaturedIndex = 0; // Samsara Super Bowl — featured this week
+
+  function renderFeatured(index) {
+    const spot = ALL_SPOTS[index];
+    document.getElementById('featuredIframe').src = `https://player.vimeo.com/video/${spot.id}?badge=0&autopause=0&player_id=0&app_id=58479`;
+    document.getElementById('featuredIframe').title = spot.title;
+    document.getElementById('featuredCategory').textContent = spot.category;
+    document.getElementById('featuredTitle').textContent = spot.title;
+    document.getElementById('featuredClient').textContent = spot.client;
+    document.getElementById('featuredDesc').textContent = spot.desc;
+    document.getElementById('featuredTags').innerHTML = spot.tags.map(t => `<span class="featured-tag">${t}</span>`).join('');
+  }
+
+  function shuffleFeatured() {
+    currentFeaturedIndex = (currentFeaturedIndex + 1) % ALL_SPOTS.length;
+    renderFeatured(currentFeaturedIndex);
+  }
+
+  // Tab filter — All Spots resets to full grid
+  function filterTab(cat, el) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.reel-item').forEach(item => {
+      const cats = (item.dataset.cat || '').split(' ');
+      item.classList.toggle('visible', cat === 'all' || cats.includes(cat));
+    });
+  }
+
+
+  // Slug → Vimeo ID map
+  const SPOT_SLUGS = {
+    'samsara-super-bowl': '1163670558',
+    'midea-dishwasher': '677256468',
+    'midea-fridge': '677253981',
+    'clorox-reload': '677315165',
+    'home-depot': '889663633',
+    'ninja-creami': '769699092',
+    'ninja-luxe-cafe': '1064276322',
+    'doritos-crash': '440068901',
+    'ghirardelli-caramel': '289191430',
+    'fifteenfive': '594786814',
+    'divvy': '1181827419',
+    'clorox-spring': '259578898',
+    'disney-wander-series': '108024583',
+    'disney-ninja-watch': '109646043',
+    'disney-wander-15': '108024585',
+    'disney-wander-date': '109646042',
+    'disney-randy-halloween': '109646041',
+    'fedex-hamlin': '176607801',
+    'fedex-museum': '180136940',
+    'shark-air': '889138221',
+    'ups-punks-ale': '787059376',
+    'warriors-bourbon': '901754314',
+    'warriors-fan-story': '559421154',
+  };
+  const ID_TO_SLUG = Object.fromEntries(Object.entries(SPOT_SLUGS).map(([k,v]) => [v,k]));
+
+  function openReelVideo(id) {
+    document.getElementById('reelModalIframe').src = `https://player.vimeo.com/video/${id}?autoplay=1&badge=0&player_id=0&app_id=58479`;
+    document.getElementById('reelModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const slug = ID_TO_SLUG[id] || id;
+    history.pushState(null, '', `#${slug}`);
+  }
+  function closeReelVideo(e) {
+    if (e && e.target !== document.getElementById('reelModal') && !e.target.classList.contains('video-modal-close')) return;
+    document.getElementById('reelModalIframe').src = '';
+    document.getElementById('reelModal').classList.remove('open');
+    document.body.style.overflow = '';
+    history.pushState(null, '', window.location.pathname);
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReelVideo({target: document.getElementById('reelModal')}); });
+
+  // Auto-open if URL has a named hash — wait for DOM
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.hash) {
+      const hash = window.location.hash.replace('#', '');
+      const id = SPOT_SLUGS[hash] || (hash.match(/^\d+$/) ? hash : null);
+      if (id) openReelVideo(id);
+    }
+  });
+
+  // Init — All Spots active, everything visible
+  renderFeatured(currentFeaturedIndex);
+  filterTab('all', document.querySelector('[onclick*="\'all\'"]'));
+</script>
+
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="reelModal" onclick="closeReelVideo(event)">
+  <div class="video-modal-inner">
+    <button class="video-modal-close" onclick="closeReelVideo()">&times;</button>
+    <div class="video-modal-embed">
+      <iframe id="reelModalIframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
