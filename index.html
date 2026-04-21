@@ -238,6 +238,7 @@
     .nav-services-btn { font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.5rem 0.7rem; }
     .nav-left-links li:last-child { display: none; }
     .nav-right { display: none; }
+    .nav-right-wrap { gap: 0; }
     .nav-contact-wrap { display: flex; }
     .nav-contact-btn { font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.5rem 0.7rem; }
     .nav-contact-dropdown { right: 0; min-width: 260px; max-width: 90vw; }
@@ -265,6 +266,10 @@
     .book-grid, .funnel-form-inner { grid-template-columns: 1fr; gap: 3rem; }
     div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
     #cta-contact-name, #cta-contact-email, #cta-contact-msg, #cta-contact-send-btn { width: 100% !important; }
+    #about { padding: 2.5rem 1.5rem !important; }
+    #about h2 { font-size: 2rem !important; margin-bottom: 1rem !important; }
+    #about > div { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    #about .about-right { display: none; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
 
     .reel-modal-inner { width: 100vw; }
@@ -323,7 +328,7 @@
       </li>
     </ul>
   </div>
-  <div style="display:flex; align-items:center; gap:0.75rem;">
+  <div class="nav-right-wrap" style="display:flex; align-items:center; gap:0.75rem;">
     <div class="nav-contact-wrap">
       <button class="nav-contact-btn" onclick="toggleNavContact(this)">Contact</button>
       <div class="nav-contact-dropdown">
@@ -616,7 +621,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="about-right">
       <p style="font-size:1.1rem; line-height:1.9; font-weight:300; color:#ffffff; margin-bottom:1.5rem;"><strong style="color:#ffffff; font-weight:500;">There is no shortcut to this.</strong></p>
       <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:#ffffff; margin-bottom:1.4rem;">Michael Matassa has been in the edit suite on national TV spots, Super Bowl campaigns, brand films, tech mini-docs, sizzle reels, trailers, promos, EPK, music videos, case studies, award shows, events — everything under the video sun. That breadth doesn't come from a course or a tutorial. It comes from working alongside some of the sharpest creative minds in the business. Jeff Goodby. Michael Bay. Dennis Virkler. Hundreds of briefs, deadlines, and client conversations that taught him what great work actually requires.</p>
       <p style="font-size:0.95rem; line-height:1.9; font-weight:300; color:#ffffff; margin-bottom:1.4rem;">Now that experience is running A.I. — and the difference is immediate. Not just in the quality of the frames, but in how the work gets made. Reliable. Communicative. On deadline. On budget. Responsive to notes without losing the creative thread.</p>
