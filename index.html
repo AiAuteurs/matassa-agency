@@ -264,6 +264,7 @@
     .work-grid, .funnel-cards { grid-template-columns: 1fr; }
     .book-grid, .funnel-form-inner { grid-template-columns: 1fr; gap: 3rem; }
     div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    #cta-contact-name, #cta-contact-email, #cta-contact-msg, #cta-contact-send-btn { width: 100% !important; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
 
     .reel-modal-inner { width: 100vw; }
@@ -766,6 +767,36 @@
     }
   }
 
+  async function sendCtaContact() {
+    var name = document.getElementById('cta-contact-name').value.trim();
+    var email = document.getElementById('cta-contact-email').value.trim();
+    var msg = document.getElementById('cta-contact-msg').value.trim();
+    var btn = document.getElementById('cta-contact-send-btn');
+    if (!name || !email || !msg) { btn.textContent = 'Please fill all fields'; setTimeout(() => btn.textContent = 'Send Message', 2000); return; }
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ inquiryType: 'CTA Quick Contact', name: name, email: email, message: msg })
+      });
+      if (res.ok) {
+        btn.textContent = 'Sent! ✓';
+        document.getElementById('cta-contact-name').value = '';
+        document.getElementById('cta-contact-email').value = '';
+        document.getElementById('cta-contact-msg').value = '';
+        setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 3000);
+      } else {
+        btn.textContent = 'Error — try again';
+        btn.disabled = false;
+      }
+    } catch(e) {
+      btn.textContent = 'Error — try again';
+      btn.disabled = false;
+    }
+  }
+
   async function handleFunnelSubmit(type) {
     var ids = {
       a: ['a-name','a-brand','a-email','a-phone','a-length','a-format','a-budget','a-deadline','a-concept'],
@@ -799,10 +830,25 @@
 </script>
 </body>
 </html>
-<!-- CTA STRIP -->
-<section style="background:#080808; padding:4.5rem 3rem; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:2rem;">
-  <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3.2rem); color:#ffffff; line-height:1.05; letter-spacing:0.02em;">Ready to make something<br><span style="color:#8BAF8E;">unmistakably yours?</span></div>
-  <a href="#contact" style="font-size:0.78rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#080808; background:#ffffff; padding:1.1rem 2.8rem; text-decoration:none; border-radius:999px; white-space:nowrap; transition:background 0.2s;">Start Your Project →</a>
+<!-- CTA CONTACT -->
+<section style="background:#080808; padding:5rem 3rem; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; max-width:1200px;">
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,4.5vw,4rem); color:#ffffff; line-height:0.95; letter-spacing:0.02em; margin-bottom:1.2rem;">Ready to make something<br><span style="color:#8BAF8E;">unmistakably yours?</span></div>
+      <p style="font-size:0.88rem; font-weight:300; color:rgba(255,255,255,0.65); line-height:1.8; max-width:400px;">Tell us what you're working on. We respond quickly, personally, and without pressure.</p>
+      <div style="margin-top:2rem; font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); line-height:2.4;">
+        <div>Text: <a href="tel:4152050868" style="color:rgba(255,255,255,0.4); text-decoration:none;">415.205.0868</a></div>
+        <div>Email: michael&#64;matassa&#46;com</div>
+      </div>
+    </div>
+    <div>
+      <span style="font-family:'Epilogue',sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:0.8rem; display:block;">Send a Message</span>
+      <input type="text" id="cta-contact-name" placeholder="Your name" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#ffffff; font-family:'Epilogue',sans-serif; font-size:0.82rem; font-weight:300; padding:0.7rem 0.9rem; outline:none; border-radius:0; margin-bottom:0.6rem; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(255,255,255,0.3)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'" />
+      <input type="email" id="cta-contact-email" placeholder="Your email" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#ffffff; font-family:'Epilogue',sans-serif; font-size:0.82rem; font-weight:300; padding:0.7rem 0.9rem; outline:none; border-radius:0; margin-bottom:0.6rem; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(255,255,255,0.3)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'" />
+      <textarea id="cta-contact-msg" placeholder="What are you working on?" rows="4" style="width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); color:#ffffff; font-family:'Epilogue',sans-serif; font-size:0.82rem; font-weight:300; padding:0.7rem 0.9rem; outline:none; border-radius:0; margin-bottom:0.6rem; box-sizing:border-box; resize:none;" onfocus="this.style.borderColor='rgba(255,255,255,0.3)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
+      <button id="cta-contact-send-btn" onclick="sendCtaContact()" style="width:100%; background:#8BAF8E; color:#080808; font-family:'Epilogue',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:0.85rem; border:none; cursor:pointer; border-radius:999px; transition:background 0.2s;">Send Message</button>
+    </div>
+  </div>
 </section>
 
 <section style="background:#050505; padding:6rem 3rem; border-top:1px solid rgba(255,255,255,0.06);" id="book">
