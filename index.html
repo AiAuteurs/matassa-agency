@@ -779,7 +779,7 @@
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ inquiryType: 'CTA Quick Contact', name: name, email: email, message: msg })
+        body: JSON.stringify({ inquiryType: 'Nav Quick Contact', name: name, email: email, message: msg })
       });
       if (res.ok) {
         btn.textContent = 'Sent! ✓';
