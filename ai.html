@@ -11,588 +11,588 @@
 <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Outfit:wght@800&family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; --sage: #8BAF8E; --ice: #7EB8D4; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ :root { --black: #080808; --white: #ffffff; --light-grey: #cccccc; --sage: #8BAF8E; --ice: #7EB8D4; }
+ html { scroll-behavior: smooth; }
+ body { font-family: 'Epilogue', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
 
-  /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); }
-  .nav-left { display: flex; align-items: center; gap: 3rem; }
-  .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; text-transform: uppercase; flex-shrink: 0; }
-  .nav-logo-sub { display: none; }
-  .nav-logo-main { display: none; }
-  .nav-left-links { display: flex; list-style: none; align-items: center; gap: 0; }
-  .nav-left-links > li { position: relative; display: flex; align-items: center; }
-  .nav-left-links > li > a { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1.2rem; display: flex; align-items: center; line-height: 1; }
-  .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
-  .nav-right { display: flex; align-items: center; gap: 0.75rem; }
-  .nav-dropdown-wrap { position: relative; display: flex; align-items: center; }
-  .nav-dropdown-wrap:hover .nav-dropdown { display: block; }
-  .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
-  .nav-services-btn::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.7; margin-top: 1px; }
-  .nav-services-btn:hover { color: #ffffff; }
-  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #111; border: 1px solid rgba(255,255,255,0.1); min-width: 240px; z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
-  .nav-dropdown a { display: block; padding: 0.9rem 1.4rem; font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.15s; }
-  .nav-dropdown a:last-child { border-bottom: none; }
-  .nav-dropdown a:hover { color: #ffffff; background: rgba(255,255,255,0.04); padding-left: 1.8rem; }
-  .nav-cta { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff; background: transparent; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.8); border-radius: 999px; }
-  .nav-cta:hover { border-color: #ffffff; }
-  .nav-start { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #080808; background: #ffffff; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border-radius: 999px; border: 1px solid #ffffff; }
-  .nav-start:hover { background: rgba(255,255,255,0.88); }
+ /* NAV */
+ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; background: rgba(8,8,8,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(12px); }
+ .nav-left { display: flex; align-items: center; gap: 3rem; }
+ .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; text-transform: uppercase; flex-shrink: 0; }
+ .nav-logo-sub { display: none; }
+ .nav-logo-main { display: none; }
+ .nav-left-links { display: flex; list-style: none; align-items: center; gap: 0; }
+ .nav-left-links > li { position: relative; display: flex; align-items: center; }
+ .nav-left-links > li > a { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s; padding: 0.5rem 1.2rem; display: flex; align-items: center; line-height: 1; }
+ .nav-left-links > li > a:hover, .nav-left-links > li > a.active { color: #ffffff; }
+ .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+ .nav-dropdown-wrap { position: relative; display: flex; align-items: center; }
+ .nav-dropdown-wrap:hover .nav-dropdown { display: block; }
+ .nav-services-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.82); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
+ .nav-services-btn::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.7; margin-top: 1px; }
+ .nav-services-btn:hover { color: #ffffff; }
+ .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #111; border: 1px solid rgba(255,255,255,0.1); min-width: 240px; z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
+ .nav-dropdown a { display: block; padding: 0.9rem 1.4rem; font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.15s; }
+ .nav-dropdown a:last-child { border-bottom: none; }
+ .nav-dropdown a:hover { color: #ffffff; background: rgba(255,255,255,0.04); padding-left: 1.8rem; }
+ .nav-cta { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff; background: transparent; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.8); border-radius: 999px; }
+ .nav-cta:hover { border-color: #ffffff; }
+ .nav-start { font-family: 'Epilogue', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #080808; background: #ffffff; padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.2s; border-radius: 999px; border: 1px solid #ffffff; }
+ .nav-start:hover { background: rgba(255,255,255,0.88); }
 
 
-  /* PAGE HERO */
-  .page-header { padding: 9rem 3rem 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
-  .section-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; }
-  .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.92; color: var(--white); }
-  .page-header-right p { font-size: 0.95rem; line-height: 1.85; font-weight: 300; color: var(--white); margin-bottom: 1.5rem; }
-  .stat-row { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.9rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
-  .stat-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
-  .stat-value { font-size: 0.85rem; color: var(--white); font-weight: 300; }
+ /* PAGE HERO */
+ .page-header { padding: 9rem 3rem 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
+ .section-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; }
+ .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.92; color: var(--white); }
+ .page-header-right p { font-size: 0.95rem; line-height: 1.85; font-weight: 300; color: var(--white); margin-bottom: 1.5rem; }
+ .stat-row { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.9rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
+ .stat-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+ .stat-value { font-size: 0.85rem; color: var(--white); font-weight: 300; }
 
-  /* PARTNERS */
-  .partners-bar { padding: 2.5rem 3rem; background: #0a0a0a; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .partners-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.2rem; display: block; }
-  .partners-grid { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; }
-  .partner-logo { height: 28px; width: auto; object-fit: contain; opacity: 0.8; transition: opacity 0.2s; }
-  .partner-logo:hover { opacity: 1; }
-  .partner-logo-invert { height: 28px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.2s; }
-  .partner-logo-invert:hover { opacity: 1; }
+ /* PARTNERS */
+ .partners-bar { padding: 2.5rem 3rem; background: #0a0a0a; border-bottom: 1px solid rgba(255,255,255,0.06); }
+ .partners-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.2rem; display: block; }
+ .partners-grid { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; }
+ .partner-logo { height: 28px; width: auto; object-fit: contain; opacity: 0.8; transition: opacity 0.2s; }
+ .partner-logo:hover { opacity: 1; }
+ .partner-logo-invert { height: 28px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.2s; }
+ .partner-logo-invert:hover { opacity: 1; }
 
-  /* FEATURED */
-  .featured-section { padding: 0 0 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .featured-header { padding: 3rem 3rem 2rem; display: flex; align-items: baseline; gap: 2rem; }
-  .featured-kicker { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.04em; color: var(--sage); }
-  .featured-week-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
-  .featured-embed-full { position: relative; padding-bottom: 56.25%; background: #0a0a0a; cursor: pointer; overflow: hidden; }
-  .featured-embed-full img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.3s; }
-  .featured-embed-full:hover img { transform: scale(1.03); opacity: 0.75; }
-  .featured-play-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
-  .featured-play-circle { width: 72px; height: 72px; border-radius: 50%; background: rgba(8,8,8,0.7); border: 2px solid rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center; transition: all 0.2s; backdrop-filter: blur(4px); }
-  .featured-embed-full:hover .featured-play-circle { background: rgba(8,8,8,0.9); border-color: #ffffff; transform: scale(1.1); }
-  .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding: 2.5rem 3rem 0; }
-  .featured-category { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.5rem; }
-  .featured-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); color: var(--white); line-height: 1; margin-bottom: 0.5rem; }
-  .featured-client { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 1.2rem; letter-spacing: 0.06em; }
-  .featured-desc { font-size: 0.95rem; font-weight: 300; color: var(--white); line-height: 1.8; margin-bottom: 1.5rem; }
-  .featured-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.35); padding: 0.3rem 0.7rem; display: inline-block; margin-right: 0.4rem; margin-bottom: 0.4rem; }
-  .featured-shuffle { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); background: none; border: 2px solid rgba(139,175,142,0.8); padding: 0.7rem 1.2rem; cursor: pointer; transition: all 0.2s; margin-top: 1.2rem; display: inline-block; }
-  .featured-shuffle:hover { border-color: var(--sage); background: rgba(139,175,142,0.08); }
+ /* FEATURED */
+ .featured-section { padding: 0 0 5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+ .featured-header { padding: 3rem 3rem 2rem; display: flex; align-items: baseline; gap: 2rem; }
+ .featured-kicker { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.04em; color: var(--sage); }
+ .featured-week-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+ .featured-embed-full { position: relative; padding-bottom: 56.25%; background: #0a0a0a; cursor: pointer; overflow: hidden; }
+ .featured-embed-full img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.3s; }
+ .featured-embed-full:hover img { transform: scale(1.03); opacity: 0.75; }
+ .featured-play-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
+ .featured-play-circle { width: 72px; height: 72px; border-radius: 50%; background: rgba(8,8,8,0.7); border: 2px solid rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center; transition: all 0.2s; backdrop-filter: blur(4px); }
+ .featured-embed-full:hover .featured-play-circle { background: rgba(8,8,8,0.9); border-color: #ffffff; transform: scale(1.1); }
+ .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding: 2.5rem 3rem 0; }
+ .featured-category { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.5rem; }
+ .featured-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); color: var(--white); line-height: 1; margin-bottom: 0.5rem; }
+ .featured-client { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 1.2rem; letter-spacing: 0.06em; }
+ .featured-desc { font-size: 0.95rem; font-weight: 300; color: var(--white); line-height: 1.8; margin-bottom: 1.5rem; }
+ .featured-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.35); padding: 0.3rem 0.7rem; display: inline-block; margin-right: 0.4rem; margin-bottom: 0.4rem; }
+ .featured-shuffle { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); background: none; border: 2px solid rgba(139,175,142,0.8); padding: 0.7rem 1.2rem; cursor: pointer; transition: all 0.2s; margin-top: 1.2rem; display: inline-block; }
+ .featured-shuffle:hover { border-color: var(--sage); background: rgba(139,175,142,0.08); }
 
-  /* TABS */
-  .tabs-section { padding: 4rem 3rem 2rem; }
-  .tabs-bar { display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 3rem; flex-wrap: wrap; }
-  .tab-btn { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); background: none; border: none; border-bottom: 2px solid transparent; padding: 0.8rem 1.4rem; cursor: pointer; transition: all 0.2s; margin-bottom: -1px; white-space: nowrap; }
-  .tab-btn:hover { color: var(--white); }
-  .tab-btn.active { color: var(--white); border-bottom-color: var(--sage); }
+ /* TABS */
+ .tabs-section { padding: 4rem 3rem 2rem; }
+ .tabs-bar { display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 3rem; flex-wrap: wrap; }
+ .tab-btn { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); background: none; border: none; border-bottom: 2px solid transparent; padding: 0.8rem 1.4rem; cursor: pointer; transition: all 0.2s; margin-bottom: -1px; white-space: nowrap; }
+ .tab-btn:hover { color: var(--white); }
+ .tab-btn.active { color: var(--white); border-bottom-color: var(--sage); }
 
-  /* SPOTS GRID */
-  .spots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
-  .spot-item { display: none; cursor: pointer; }
-  .spot-item.visible { display: block; animation: fadeIn 0.3s ease; }
-  .spot-item.no-click { cursor: default; pointer-events: none; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  .spot-thumb { position: relative; padding-top: 56.25%; background: #111; overflow: hidden; margin-bottom: 1.5rem; }
-  .spot-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.3s ease; }
-  .spot-item:hover .spot-poster { transform: scale(1.03); opacity: 0.8; }
-  .spot-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
-  .spot-play-btn { width: 68px; height: 68px; border-radius: 50%; background: rgba(8,8,8,0.7); border: 2px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-  .spot-item:hover .spot-play-btn { background: rgba(255,255,255,0.15); border-color: var(--white); transform: scale(1.08); }
-  .spot-placeholder-box { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.06); }
-  .spot-placeholder-box span { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
-  .spot-meta { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
-  .spot-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 0.3rem 0.7rem; border: 1px solid rgba(255,255,255,0.35); }
-  .spot-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.4rem; line-height: 1; }
-  .spot-agency { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; color: var(--sage); display: block; margin-bottom: 0.6rem; }
-  .spot-desc { font-size: 0.85rem; color: var(--white); line-height: 1.75; font-weight: 300; }
+ /* SPOTS GRID */
+ .spots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+ .spot-item { display: none; cursor: pointer; }
+ .spot-item.visible { display: block; animation: fadeIn 0.3s ease; }
+ .spot-item.no-click { cursor: default; pointer-events: none; }
+ @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+ .spot-thumb { position: relative; padding-top: 56.25%; background: #111; overflow: hidden; margin-bottom: 1.5rem; }
+ .spot-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.3s ease; }
+ .spot-item:hover .spot-poster { transform: scale(1.03); opacity: 0.8; }
+ .spot-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
+ .spot-play-btn { width: 68px; height: 68px; border-radius: 50%; background: rgba(8,8,8,0.7); border: 2px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+ .spot-item:hover .spot-play-btn { background: rgba(255,255,255,0.15); border-color: var(--white); transform: scale(1.08); }
+ .spot-placeholder-box { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.06); }
+ .spot-placeholder-box span { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+ .spot-meta { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
+ .spot-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 0.3rem 0.7rem; border: 1px solid rgba(255,255,255,0.35); }
+ .spot-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.4rem; line-height: 1; }
+ .spot-agency { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; color: var(--sage); display: block; margin-bottom: 0.6rem; }
+ .spot-desc { font-size: 0.85rem; color: var(--white); line-height: 1.75; font-weight: 300; }
 
-  /* FESTIVALS */
-  .festivals-section { padding: 6rem 3rem; background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); }
-  .festivals-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 3rem; }
-  .festivals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
-  .festival-item { background: #0a0a0a; padding: 3rem 2.5rem; }
-  .festival-star { font-size: 1.5rem; color: var(--sage); display: block; margin-bottom: 1rem; }
-  .festival-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.5rem; line-height: 1; }
-  .festival-detail { font-size: 0.8rem; font-weight: 300; color: var(--white); line-height: 1.6; }
-  .festival-year { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); display: block; margin-top: 0.8rem; }
+ /* FESTIVALS */
+ .festivals-section { padding: 6rem 3rem; background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.06); }
+ .festivals-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 3rem; }
+ .festivals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+ .festival-item { background: #0a0a0a; padding: 3rem 2.5rem; }
+ .festival-star { font-size: 1.5rem; color: var(--sage); display: block; margin-bottom: 1rem; }
+ .festival-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.5rem; line-height: 1; }
+ .festival-detail { font-size: 0.8rem; font-weight: 300; color: var(--white); line-height: 1.6; }
+ .festival-year { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); display: block; margin-top: 0.8rem; }
 
-  /* VIDEO MODAL */
-  .video-modal { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; backdrop-filter: blur(8px); }
-  .video-modal.open { display: flex; }
-  .video-modal-inner { position: relative; width: 90vw; max-width: 1100px; }
-  .video-modal-close { position: absolute; top: -3rem; right: 0; background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Epilogue', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; transition: color 0.2s; display: flex; align-items: center; gap: 0.5rem; }
-  .video-modal-close:hover { color: var(--white); }
-  .video-embed { position: relative; padding-bottom: 56.25%; background: #000; }
-  .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+ /* VIDEO MODAL */
+ .video-modal { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+ .video-modal.open { display: flex; }
+ .video-modal-inner { position: relative; width: 90vw; max-width: 1100px; }
+ .video-modal-close { position: absolute; top: -3rem; right: 0; background: none; border: none; color: rgba(255,255,255,0.6); font-family: 'Epilogue', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; transition: color 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+ .video-modal-close:hover { color: var(--white); }
+ .video-embed { position: relative; padding-bottom: 56.25%; background: #000; }
+ .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-  /* CTA */
-  .cta-section { padding: 7rem 3rem; background: #050505; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
-  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 1rem; }
-  .cta-section p { font-size: 0.9rem; color: var(--white); font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7; max-width: 480px; margin-left: auto; margin-right: auto; }
-  .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.5rem; text-decoration: none; transition: background 0.2s; display: inline-block; margin: 0 0.5rem; }
-  .btn-primary:hover { background: var(--light-grey); }
-  .btn-secondary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); background: transparent; padding: 1rem 2.5rem; text-decoration: none; display: inline-block; border: 1.5px solid rgba(255,255,255,0.65); margin: 0 0.5rem; transition: all 0.2s; }
-  .btn-secondary:hover { border-color: var(--white); }
+ /* CTA */
+ .cta-section { padding: 7rem 3rem; background: #050505; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
+ .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 1rem; }
+ .cta-section p { font-size: 0.9rem; color: var(--white); font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7; max-width: 480px; margin-left: auto; margin-right: auto; }
+ .btn-primary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1rem 2.5rem; text-decoration: none; transition: background 0.2s; display: inline-block; margin: 0 0.5rem; }
+ .btn-primary:hover { background: var(--light-grey); }
+ .btn-secondary { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); background: transparent; padding: 1rem 2.5rem; text-decoration: none; display: inline-block; border: 1.5px solid rgba(255,255,255,0.65); margin: 0 0.5rem; transition: all 0.2s; }
+ .btn-secondary:hover { border-color: var(--white); }
 
-  /* FOOTER */
-  footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--sage); text-decoration: none; text-transform: uppercase; }
-  .footer-center { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.65); text-transform: uppercase; text-align: center; }
-  .footer-right { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
-  .footer-right a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
-  .footer-right a:hover { color: rgba(255,255,255,0.7); }
+ /* FOOTER */
+ footer { background: #030303; padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+ .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--sage); text-decoration: none; text-transform: uppercase; }
+ .footer-center { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.65); text-transform: uppercase; text-align: center; }
+ .footer-right { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
+ .footer-right a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+ .footer-right a:hover { color: rgba(255,255,255,0.7); }
 
-  @media (max-width: 900px) { .featured-grid { grid-template-columns: 1fr; } .festivals-grid { grid-template-columns: 1fr; } }
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
-    .page-header { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2rem; }
-    .featured-section, .tabs-section, .festivals-section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .spots-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .partners-bar { padding: 2rem 1.5rem; }
-    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-  }
+ @media (max-width: 900px) { .featured-grid { grid-template-columns: 1fr; } .festivals-grid { grid-template-columns: 1fr; } }
+ @media (max-width: 768px) {
+ nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+ .page-header { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2rem; }
+ .featured-section, .tabs-section, .festivals-section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+ .spots-grid { grid-template-columns: 1fr; gap: 3rem; }
+ .partners-bar { padding: 2rem 1.5rem; }
+ footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+ }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-left">
-    <a href="/" class="nav-logo">MATASSA</a>
-    <ul class="nav-left-links">
-      <li >
-        <div class="nav-dropdown-wrap">
-          <button class="nav-services-btn">Work</button>
-          <div class="nav-dropdown">
-            <a href="index.html" onclick="sessionStorage.setItem('openReel','1')">Watch the Reel</a>
-            <a href="creative.html">Creative Video Editing</a>
-            <a href="ai.html">Cinematic A.I. Work</a>
-            <a href="premade.html">Premade Spots for Sale</a>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="nav-dropdown-wrap">
-          <button class="nav-services-btn">Services</button>
-          <div class="nav-dropdown">
-            <a href="creative.html">Creative Video Editing</a>
-            <a href="ai.html">Cinematic A.I. Storytelling</a>
-            <a href="premade.html">Premade Ads</a>
-            <a href="remaster.html">Restore Old Video</a>
-            <a href="#contact">Web Design &amp; Development</a>
-          </div>
-        </div>
-      </li>
-      <li><a href="about.html">About</a></li>
-      <li>
-        <div class="nav-dropdown-wrap">
-          <button class="nav-services-btn">Our Brands</button>
-          <div class="nav-dropdown">
-            <a href="https://www.jobsuncle.ai" target="_blank">JobsUncle.ai — Resumes Tailored to Job Description</a>
-            <a href="https://www.casadimatassa.com" target="_blank">Casa di Matassa — Film Location &amp; Accommodations, Atlanta, GA</a>
-            <a href="https://www.rubberneck.ai" target="_blank">Rubberneck.ai</a>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="nav-right">
-    <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
-    <a href="/#contact" class="nav-start">Start a Project</a>
-  </div>
+ <div class="nav-left">
+ <a href="/" class="nav-logo">MATASSA</a>
+ <ul class="nav-left-links">
+ <li >
+ <div class="nav-dropdown-wrap">
+ <button class="nav-services-btn">Work</button>
+ <div class="nav-dropdown">
+ <a href="index.html" onclick="sessionStorage.setItem('openReel','1')">Watch the Reel</a>
+ <a href="creative.html">Creative Video Editing</a>
+ <a href="ai.html">Cinematic A.I. Work</a>
+ <a href="premade.html">Premade Spots for Sale</a>
+ </div>
+ </div>
+ </li>
+ <li>
+ <div class="nav-dropdown-wrap">
+ <button class="nav-services-btn">Services</button>
+ <div class="nav-dropdown">
+ <a href="creative.html">Creative Video Editing</a>
+ <a href="ai.html">Cinematic A.I. Storytelling</a>
+ <a href="premade.html">Premade Ads</a>
+ <a href="remaster.html">Restore Old Video</a>
+ <a href="#contact">Web Design &amp; Development</a>
+ </div>
+ </div>
+ </li>
+ <li><a href="about.html">About</a></li>
+ <li>
+ <div class="nav-dropdown-wrap">
+ <button class="nav-services-btn">Our Brands</button>
+ <div class="nav-dropdown">
+ <a href="https://www.jobsuncle.ai" target="_blank">JobsUncle.ai — Resumes Tailored to Job Description</a>
+ <a href="https://www.casadimatassa.com" target="_blank">Casa di Matassa — Film Location &amp; Accommodations, Atlanta, GA</a>
+ <a href="https://www.rubberneck.ai" target="_blank">Rubberneck.ai</a>
+ </div>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="nav-right">
+ <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
+ <a href="/#contact" class="nav-start">Start a Project</a>
+ </div>
 </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
-  <div>
-    <span class="section-label">Cinematic A.I. Storytelling</span>
-    <h1>A.I. MADE BY SOMEONE WHO KNOWS COMMERCIALS.</h1>
-  </div>
-  <div class="page-header-right">
-    <p>36 years of professional film craft behind every frame. Not a startup. Not a prompt engineer. A world-class creative editor and cinematic A.I. storyteller who delivers on deadline, responds to notes, and makes the work look like something.</p>
-    <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:var(--white); margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,0.06);">First cut in 48 hours after brief approval. Every format you need — broadcast, social, all aspect ratios. You brief it, we build it, you own it.</p>
-  </div>
+ <div>
+ <span class="section-label">Cinematic A.I. Storytelling</span>
+ <h1>A.I. MADE BY SOMEONE WHO KNOWS COMMERCIALS.</h1>
+ </div>
+ <div class="page-header-right">
+ <p>36 years of professional film craft behind every frame. Not a startup. Not a prompt engineer. A world-class creative editor and cinematic A.I. storyteller who delivers on deadline, responds to notes, and makes the work look like something.</p>
+ <p style="font-size:0.92rem; line-height:1.85; font-weight:300; color:var(--white); margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,0.06);">First cut in 48 hours after brief approval. Every format you need — broadcast, social, all aspect ratios. You brief it, we build it, you own it.</p>
+ </div>
 </div>
 
 <!-- PARTNERS -->
 <div class="partners-bar">
-  <span class="partners-label">A.I. Creative Partner</span>
-  <div class="partners-grid">
-    <img src="/logos/logo-bytedance-color.png" alt="ByteDance" class="partner-logo">
-    <img src="/logos/logo-alibaba-color.png" alt="Alibaba WAN" class="partner-logo">
-    <img src="/logos/logo-runway-color.png" alt="Runway" class="partner-logo-invert">
-    <img src="/logos/logo-freepik-color.png" alt="Freepik" class="partner-logo">
-    <img src="/logos/logo-minimax-color.png" alt="Minimax" class="partner-logo-invert">
-  </div>
+ <span class="partners-label">A.I. Creative Partner</span>
+ <div class="partners-grid">
+ <img src="/logos/logo-bytedance-color.png" alt="ByteDance" class="partner-logo">
+ <img src="/logos/logo-alibaba-color.png" alt="Alibaba WAN" class="partner-logo">
+ <img src="/logos/logo-runway-color.png" alt="Runway" class="partner-logo-invert">
+ <img src="/logos/logo-freepik-color.png" alt="Freepik" class="partner-logo">
+ <span style="font-family:'Epilogue',sans-serif; font-weight:700; font-size:1rem; letter-spacing:0.05em; color:rgba(255,255,255,0.7); text-transform:uppercase;">MiniMax</span>
+ </div>
 </div>
 
 <!-- FEATURED -->
 <section class="featured-section">
-  <div class="featured-header">
-    <span class="featured-kicker">Featured This Week</span>
-    <span class="featured-week-label">Rotates every Monday</span>
-  </div>
-  <div class="featured-embed-full" id="featuredThumb" onclick="openFeaturedVideo()">
-    <img id="featuredPoster" src="" alt="" />
-    <div class="featured-play-btn">
-      <div class="featured-play-circle">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-    </div>
-  </div>
-  <div class="featured-grid">
-    <div>
-      <span class="featured-category" id="featuredCategory"></span>
-      <h2 class="featured-title" id="featuredTitle"></h2>
-      <p class="featured-client" id="featuredClient"></p>
-      <p class="featured-desc" id="featuredDesc"></p>
-      <div id="featuredTags"></div>
-    </div>
-    <div style="display:flex;align-items:flex-end;justify-content:flex-end;">
-      <button class="featured-shuffle" onclick="shuffleFeatured()">↺ &nbsp;Show Another</button>
-    </div>
-  </div>
+ <div class="featured-header">
+ <span class="featured-kicker">Featured This Week</span>
+ <span class="featured-week-label">Rotates every Monday</span>
+ </div>
+ <div class="featured-embed-full" id="featuredThumb" onclick="openFeaturedVideo()">
+ <img id="featuredPoster" src="" alt="" />
+ <div class="featured-play-btn">
+ <div class="featured-play-circle">
+ <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+ </div>
+ </div>
+ </div>
+ <div class="featured-grid">
+ <div>
+ <span class="featured-category" id="featuredCategory"></span>
+ <h2 class="featured-title" id="featuredTitle"></h2>
+ <p class="featured-client" id="featuredClient"></p>
+ <p class="featured-desc" id="featuredDesc"></p>
+ <div id="featuredTags"></div>
+ </div>
+ <div style="display:flex;align-items:flex-end;justify-content:flex-end;">
+ <button class="featured-shuffle" onclick="shuffleFeatured()">↺ &nbsp;Show Another</button>
+ </div>
+ </div>
 </section>
 
 <!-- TABBED SPOTS -->
 <section class="tabs-section">
-  <div class="tabs-bar">
-    <button class="tab-btn active" onclick="filterTab('all', this)">All Work</button>
-    <button class="tab-btn" onclick="filterTab('fastfood', this)">Fast Food</button>
-    <button class="tab-btn" onclick="filterTab('fashion', this)">Fashion</button>
-    <button class="tab-btn" onclick="filterTab('food', this)">Food & Beverage</button>
-    <button class="tab-btn" onclick="filterTab('lifestyle', this)">Lifestyle & Sport</button>
-    <button class="tab-btn" onclick="filterTab('musicvideo', this)">Music Video</button>
-    <button class="tab-btn" onclick="filterTab('realestate', this)">Real Estate</button>
-    <button class="tab-btn" onclick="filterTab('travel', this)">Travel</button>
-    <button class="tab-btn" onclick="filterTab('film', this)">A.I. Film</button>
-  </div>
+ <div class="tabs-bar">
+ <button class="tab-btn active" onclick="filterTab('all', this)">All Work</button>
+ <button class="tab-btn" onclick="filterTab('fastfood', this)">Fast Food</button>
+ <button class="tab-btn" onclick="filterTab('fashion', this)">Fashion</button>
+ <button class="tab-btn" onclick="filterTab('food', this)">Food & Beverage</button>
+ <button class="tab-btn" onclick="filterTab('lifestyle', this)">Lifestyle & Sport</button>
+ <button class="tab-btn" onclick="filterTab('musicvideo', this)">Music Video</button>
+ <button class="tab-btn" onclick="filterTab('realestate', this)">Real Estate</button>
+ <button class="tab-btn" onclick="filterTab('travel', this)">Travel</button>
+ <button class="tab-btn" onclick="filterTab('film', this)">A.I. Film</button>
+ </div>
 
-  <div class="spots-grid">
+ <div class="spots-grid">
 
-    <div class="spot-item" data-cat="realestate" onclick="window.location.href='/rootdown'">
-      <div class="spot-thumb" onclick="window.location.href='rootdown'">
-        <img class="spot-poster" src="https://vumbnail.com/1181979022.jpg" data-videoid="1181979022" alt="RootDown Homes" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Spec Spot</span><span class="spot-tag">Real Estate</span><span class="spot-tag">2025</span></div>
-      <h3 class="spot-title">ROOTDOWN HOMES — "KEEP IT REAL"</h3>
-      <span class="spot-agency">Matassa — Spec</span>
-      <p class="spot-desc">Life doesn't happen in houses. It happens in the moments — the morning light, the late dinner, the front door you've walked through a thousand times. Home isn't a place you find. It's a feeling you recognize. Our spot for RootDown Homes communicates that visually and cinematically. Welcome to life. Welcome home.</p>
-    </div>
+ <div class="spot-item" data-cat="realestate" onclick="window.location.href='/rootdown'">
+ <div class="spot-thumb" onclick="window.location.href='rootdown'">
+ <img class="spot-poster" src="https://vumbnail.com/1181979022.jpg" data-videoid="1181979022" alt="RootDown Homes" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">Real Estate</span><span class="spot-tag">2025</span></div>
+ <h3 class="spot-title">ROOTDOWN HOMES — "KEEP IT REAL"</h3>
+ <span class="spot-agency">Matassa — Spec</span>
+ <p class="spot-desc">Life doesn't happen in houses. It happens in the moments — the morning light, the late dinner, the front door you've walked through a thousand times. Home isn't a place you find. It's a feeling you recognize. Our spot for RootDown Homes communicates that visually and cinematically. Welcome to life. Welcome home.</p>
+ </div>
 
-    <div class="spot-item" data-cat="travel" onclick="window.location.href='/priceline'">
-      <div class="spot-thumb" onclick="window.location.href='priceline'">
-        <img class="spot-poster" src="https://vumbnail.com/1181819783.jpg" data-videoid="1181819783" alt="Priceline Carousel Dreams" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Commercial</span><span class="spot-tag">Agency</span><span class="spot-tag">2025</span></div>
-      <h3 class="spot-title">PRICELINE — "CAROUSEL DREAMS"</h3>
-      <span class="spot-agency">Mirimar, Los Angeles, California</span>
-      <p class="spot-desc">A.I.-driven national spot created in collaboration with Mirimar, a top Los Angeles ad agency, for their client Priceline. Every element — visuals, motion titles, sound design — built using Runway, Veo 3, and Freepik Extend. Directed with the same editorial instinct as any broadcast production. This is what Cinematic A.I. looks like when craft leads the process.</p>
-    </div>
+ <div class="spot-item" data-cat="travel" onclick="window.location.href='/priceline'">
+ <div class="spot-thumb" onclick="window.location.href='priceline'">
+ <img class="spot-poster" src="https://vumbnail.com/1181819783.jpg" data-videoid="1181819783" alt="Priceline Carousel Dreams" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">A.I. Commercial</span><span class="spot-tag">Agency</span><span class="spot-tag">2025</span></div>
+ <h3 class="spot-title">PRICELINE — "CAROUSEL DREAMS"</h3>
+ <span class="spot-agency">Mirimar, Los Angeles, California</span>
+ <p class="spot-desc">A.I.-driven national spot created in collaboration with Mirimar, a top Los Angeles ad agency, for their client Priceline. Every element — visuals, motion titles, sound design — built using Runway, Veo 3, and Freepik Extend. Directed with the same editorial instinct as any broadcast production. This is what Cinematic A.I. looks like when craft leads the process.</p>
+ </div>
 
-    <div class="spot-item" data-cat="lifestyle fashion" onclick="window.location.href='/burton'">
-      <div class="spot-thumb" onclick="window.location.href='burton'">
-        <img class="spot-poster" src="https://vumbnail.com/1181431670.jpg" data-videoid="1181431670" alt="Burton Snowboards" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">:15</span><span class="spot-tag">Lifestyle & Sport</span><span class="spot-tag">2026</span></div>
-      <h3 class="spot-title" onclick="window.location.href='burton'">BURTON SNOWBOARDS</h3>
-      <span class="spot-agency">Matassa — Spec</span>
-      <p class="spot-desc" onclick="window.location.href='burton'">Unofficial spec spot. Cinematic A.I. filmmaking built on instinct, rhythm, and 30 years of commercial craft.</p>
-    </div>
+ <div class="spot-item" data-cat="lifestyle fashion" onclick="window.location.href='/burton'">
+ <div class="spot-thumb" onclick="window.location.href='burton'">
+ <img class="spot-poster" src="https://vumbnail.com/1181431670.jpg" data-videoid="1181431670" alt="Burton Snowboards" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">:15</span><span class="spot-tag">Lifestyle & Sport</span><span class="spot-tag">2026</span></div>
+ <h3 class="spot-title" onclick="window.location.href='burton'">BURTON SNOWBOARDS</h3>
+ <span class="spot-agency">Matassa — Spec</span>
+ <p class="spot-desc" onclick="window.location.href='burton'">Unofficial spec spot. Cinematic A.I. filmmaking built on instinct, rhythm, and 30 years of commercial craft.</p>
+ </div>
 
-    <div class="spot-item" data-cat="food" onclick="window.location.href='/beam'">
-      <div class="spot-thumb" onclick="window.location.href='/beam'">
-        <img class="spot-poster" src="https://vumbnail.com/1159071587.jpg" data-videoid="1159071587" alt="Thank God Youre Up" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Spec Spot</span><span class="spot-tag">Beam Coffee</span><span class="spot-tag">2026</span></div>
-      <h3 class="spot-title">THANK GOD YOU'RE UP</h3>
-      <span class="spot-agency">Matassa — Spec / Beam Coffee</span>
-      <p class="spot-desc">A surreal comedy spot for Beam Coffee. The world collapses into apocalyptic chaos — one man stays calm with his morning cup.</p>
-    </div>
+ <div class="spot-item" data-cat="food" onclick="window.location.href='/beam'">
+ <div class="spot-thumb" onclick="window.location.href='/beam'">
+ <img class="spot-poster" src="https://vumbnail.com/1159071587.jpg" data-videoid="1159071587" alt="Thank God Youre Up" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">Beam Coffee</span><span class="spot-tag">2026</span></div>
+ <h3 class="spot-title">THANK GOD YOU'RE UP</h3>
+ <span class="spot-agency">Matassa — Spec / Beam Coffee</span>
+ <p class="spot-desc">A surreal comedy spot for Beam Coffee. The world collapses into apocalyptic chaos — one man stays calm with his morning cup.</p>
+ </div>
 
-    <div class="spot-item" data-cat="food" onclick="window.location.href='/pancakes'">
-      <div class="spot-thumb" onclick="window.location.href='pancakes'">
-        <img class="spot-poster" src="https://vumbnail.com/1181123452.jpg" data-videoid="1181123452" alt="Pancakes & Maple Syrup" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">:15</span><span class="spot-tag">Food & Beverage</span><span class="spot-tag">Premade Ad</span></div>
-      <h3 class="spot-title" onclick="window.location.href='pancakes'">PANCAKES & MAPLE SYRUP</h3>
-      <span class="spot-agency">Matassa Original</span>
-      <p class="spot-desc" onclick="window.location.href='pancakes'">A brandable :15 A.I. spot for food and family brands. Customizable with your logo and script.</p>
-    </div>
+ <div class="spot-item" data-cat="food" onclick="window.location.href='/pancakes'">
+ <div class="spot-thumb" onclick="window.location.href='pancakes'">
+ <img class="spot-poster" src="https://vumbnail.com/1181123452.jpg" data-videoid="1181123452" alt="Pancakes & Maple Syrup" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">:15</span><span class="spot-tag">Food & Beverage</span><span class="spot-tag">Premade Ad</span></div>
+ <h3 class="spot-title" onclick="window.location.href='pancakes'">PANCAKES & MAPLE SYRUP</h3>
+ <span class="spot-agency">Matassa Original</span>
+ <p class="spot-desc" onclick="window.location.href='pancakes'">A brandable :15 A.I. spot for food and family brands. Customizable with your logo and script.</p>
+ </div>
 
-    <div class="spot-item" data-cat="film" onclick="window.location.href='/idiom'">
-      <div class="spot-thumb" onclick="window.location.href='idiom'">
-        <img class="spot-poster" src="https://vumbnail.com/1089344542.jpg" data-videoid="1089344542" alt="IDIOM" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Film</span><span class="spot-tag">2026</span></div>
-      <h3 class="spot-title" onclick="window.location.href='idiom'">IDIOM</h3>
-      <span class="spot-agency">Matassa Original</span>
-      <p class="spot-desc" onclick="window.location.href='idiom'">An A.I. film by Matassa. Language, image, and instinct — pushed to the edge of meaning.</p>
-    </div>
+ <div class="spot-item" data-cat="film" onclick="window.location.href='/idiom'">
+ <div class="spot-thumb" onclick="window.location.href='idiom'">
+ <img class="spot-poster" src="https://vumbnail.com/1089344542.jpg" data-videoid="1089344542" alt="IDIOM" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">A.I. Film</span><span class="spot-tag">2026</span></div>
+ <h3 class="spot-title" onclick="window.location.href='idiom'">IDIOM</h3>
+ <span class="spot-agency">Matassa Original</span>
+ <p class="spot-desc" onclick="window.location.href='idiom'">An A.I. film by Matassa. Language, image, and instinct — pushed to the edge of meaning.</p>
+ </div>
 
-    <div class="spot-item" data-cat="film" onclick="window.location.href='/lotus'">
-      <div class="spot-thumb" onclick="window.location.href='/lotus'">
-        <img class="spot-poster" src="https://vumbnail.com/1099667191.jpg" data-videoid="1099667191" alt="The Lotus Protocol" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Film</span><span class="spot-tag">Festival</span><span class="spot-tag">2025</span></div>
-      <h3 class="spot-title">THE LOTUS PROTOCOL</h3>
-      <span class="spot-agency">Alibaba Cloud WAN — Eye for Thailand Competition</span>
-      <p class="spot-desc">A Cinematic A.I. film made with Alibaba Cloud WAN for the Eye for Thailand international competition. Every frame directed with the same instinct and craft as any broadcast production.</p>
-    </div>
+ <div class="spot-item" data-cat="film" onclick="window.location.href='/lotus'">
+ <div class="spot-thumb" onclick="window.location.href='/lotus'">
+ <img class="spot-poster" src="https://vumbnail.com/1099667191.jpg" data-videoid="1099667191" alt="The Lotus Protocol" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">A.I. Film</span><span class="spot-tag">Festival</span><span class="spot-tag">2025</span></div>
+ <h3 class="spot-title">THE LOTUS PROTOCOL</h3>
+ <span class="spot-agency">Alibaba Cloud WAN — Eye for Thailand Competition</span>
+ <p class="spot-desc">A Cinematic A.I. film made with Alibaba Cloud WAN for the Eye for Thailand international competition. Every frame directed with the same instinct and craft as any broadcast production.</p>
+ </div>
 
-    <div class="spot-item" data-cat="food fastfood" onclick="window.location.href='/supersubs'">
-      <div class="spot-thumb" onclick="window.location.href='/supersubs'">
-        <img class="spot-poster" src="https://vumbnail.com/1131551404.jpg" data-videoid="1131551404" alt="SuperSubs" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Spec Spot</span><span class="spot-tag">Food & Beverage</span><span class="spot-tag">2025</span></div>
-      <h3 class="spot-title">SUPERSUBS</h3>
-      <span class="spot-agency">Matassa — Spec</span>
-      <p class="spot-desc">A.I. generated spec TV spot. Cinematic storytelling built on editorial instinct — from concept to final frame using Generative A.I.</p>
-    </div>
+ <div class="spot-item" data-cat="food fastfood" onclick="window.location.href='/supersubs'">
+ <div class="spot-thumb" onclick="window.location.href='/supersubs'">
+ <img class="spot-poster" src="https://vumbnail.com/1131551404.jpg" data-videoid="1131551404" alt="SuperSubs" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">Food & Beverage</span><span class="spot-tag">2025</span></div>
+ <h3 class="spot-title">SUPERSUBS</h3>
+ <span class="spot-agency">Matassa — Spec</span>
+ <p class="spot-desc">A.I. generated spec TV spot. Cinematic storytelling built on editorial instinct — from concept to final frame using Generative A.I.</p>
+ </div>
 
-    <div class="spot-item" data-cat="musicvideo" onclick="window.location.href='/daftpunk'">
-      <div class="spot-thumb" onclick="window.location.href='/daftpunk'">
-        <img class="spot-poster" src="https://vumbnail.com/1041240775.jpg" data-videoid="1041240775" alt="Daft Punk Technologic" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Music Video</span><span class="spot-tag">Spec</span><span class="spot-tag">2024</span></div>
-      <h3 class="spot-title">DAFT PUNK — "TECHNOLOGIC"</h3>
-      <span class="spot-agency">Matassa — Spec</span>
-      <p class="spot-desc">A.I. generated music video for Daft Punk's "Technologic." Frame-by-frame visual storytelling built with Generative A.I. — directed with the same editorial instinct as any broadcast production.</p>
-    </div>
+ <div class="spot-item" data-cat="musicvideo" onclick="window.location.href='/daftpunk'">
+ <div class="spot-thumb" onclick="window.location.href='/daftpunk'">
+ <img class="spot-poster" src="https://vumbnail.com/1041240775.jpg" data-videoid="1041240775" alt="Daft Punk Technologic" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">A.I. Music Video</span><span class="spot-tag">2024</span></div>
+ <h3 class="spot-title">DAFT PUNK — "TECHNOLOGIC"</h3>
+ <span class="spot-agency">Matassa — Spec</span>
+ <p class="spot-desc">A.I. generated music video for Daft Punk's "Technologic." Frame-by-frame visual storytelling built with Generative A.I. — directed with the same editorial instinct as any broadcast production.</p>
+ </div>
 
-    <div class="spot-item" data-cat="fastfood" onclick="window.location.href='/cheeburgers'">
-      <div class="spot-thumb" onclick="window.location.href='/cheeburgers'">
-        <img class="spot-poster" src="https://vumbnail.com/1165997808.jpg" data-videoid="1165997808" alt="CheeBurgers" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Spec Spot</span><span class="spot-tag">Fast Food</span><span class="spot-tag">2025</span></div>
-      <h3 class="spot-title">CHEEBURGERS</h3>
-      <span class="spot-agency">Matassa — Spec</span>
-      <p class="spot-desc">A.I. generated spec spot for a fast food brand. Cinematic food storytelling built frame by frame with Generative A.I. and directed with broadcast-level craft.</p>
-    </div>
+ <div class="spot-item" data-cat="fastfood" onclick="window.location.href='/cheeburgers'">
+ <div class="spot-thumb" onclick="window.location.href='/cheeburgers'">
+ <img class="spot-poster" src="https://vumbnail.com/1165997808.jpg" data-videoid="1165997808" alt="CheeBurgers" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">Fast Food</span><span class="spot-tag">2025</span></div>
+ <h3 class="spot-title">CHEEBURGERS</h3>
+ <span class="spot-agency">Matassa — Spec</span>
+ <p class="spot-desc">A.I. generated spec spot for a fast food brand. Cinematic food storytelling built frame by frame with Generative A.I. and directed with broadcast-level craft.</p>
+ </div>
 
-        <div class="spot-item" data-cat="fashion" onclick="window.location.href='/versace'">
-      <div class="spot-thumb" onclick="window.location.href='/versace'">
-        <img class="spot-poster" src="https://vumbnail.com/1007164367.jpg" data-videoid="1007164367" alt="Versace Glasses" />
-        <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="spot-meta"><span class="spot-tag">A.I. Spec Spot</span><span class="spot-tag">Fashion</span><span class="spot-tag">2024</span></div>
-      <h3 class="spot-title">VERSACE</h3>
-      <span class="spot-agency">Matassa — Spec</span>
-      <p class="spot-desc">Spec spot for Versace eyewear. Cinematic A.I. filmmaking built on instinct, rhythm, and 36 years of commercial craft.</p>
-    </div>
+ <div class="spot-item" data-cat="fashion" onclick="window.location.href='/versace'">
+ <div class="spot-thumb" onclick="window.location.href='/versace'">
+ <img class="spot-poster" src="https://vumbnail.com/1007164367.jpg" data-videoid="1007164367" alt="Versace Glasses" />
+ <div class="spot-play"><div class="spot-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+ </div>
+ <div class="spot-meta"><span class="spot-tag">Fashion</span><span class="spot-tag">2024</span></div>
+ <h3 class="spot-title">VERSACE</h3>
+ <span class="spot-agency">Matassa — Spec</span>
+ <p class="spot-desc">Spec spot for Versace eyewear. Cinematic A.I. filmmaking built on instinct, rhythm, and 36 years of commercial craft.</p>
+ </div>
 
-    <div class="spot-item no-click" data-cat="all film food lifestyle fastfood fashion musicvideo realestate travel">
-      <div class="spot-thumb"><div class="spot-placeholder-box"><span>In Production</span></div></div>
-      <div class="spot-meta"><span class="spot-tag">Coming Soon</span></div>
-      <h3 class="spot-title">NEXT SPOT</h3>
-      <p class="spot-desc">More A.I. work dropping soon.</p>
-    </div>
+ <div class="spot-item no-click" data-cat="all film food lifestyle fastfood fashion musicvideo realestate travel">
+ <div class="spot-thumb"><div class="spot-placeholder-box"><span>In Production</span></div></div>
+ <div class="spot-meta"><span class="spot-tag">Coming Soon</span></div>
+ <h3 class="spot-title">NEXT SPOT</h3>
+ <p class="spot-desc">More A.I. work dropping soon.</p>
+ </div>
 
 </div>
 </section>
 
 <!-- FILM FESTIVALS -->
 <section class="festivals-section">
-  <span class="festivals-kicker">Film Festivals & Recognition</span>
-  <div class="festivals-grid">
-    <div class="festival-item">
-      <span class="festival-star">★</span>
-      <p class="festival-name">Cannes Short Film Festival</p>
-      <p class="festival-detail">Selected for screening at one of the world's most prestigious film festivals. A.I. cinema recognized alongside the best short-form work in the world.</p>
-      <p class="festival-detail" style="margin-top:0.6rem; font-style:italic; color:rgba(255,255,255,0.55);">— <em>Thank God You're Up</em></p>
-      <span class="festival-year">2026</span>
-    </div>
-    <div class="festival-item">
-      <span class="festival-star">★</span>
-      <p class="festival-name">Bali International Film Festival</p>
-      <p class="festival-detail">Official selection at the Bali International Film Festival. Cinematic A.I. storytelling on the international stage.</p>
-      <p class="festival-detail" style="margin-top:0.6rem; font-style:italic; color:rgba(255,255,255,0.55);">— <em>Thank God You're Up</em></p>
-      <span class="festival-year">2026</span>
-    </div>
-    <div class="festival-item">
-      <span class="festival-star">★</span>
-      <p class="festival-name">Alibaba Thailand Film Festival</p>
-      <p class="festival-detail">Finalist. Competing against the best A.I. filmmakers in Southeast Asia in partnership with Alibaba Cloud.</p>
-      <span class="festival-year">2025 · Finalist</span>
-    </div>
-    <div class="festival-item">
-      <span class="festival-star">★</span>
-      <p class="festival-name">Eye for Thailand — Alibaba Cloud WAN</p>
-      <p class="festival-detail">Selected for the Eye for Thailand international A.I. film competition powered by Alibaba Cloud WAN. <em>The Lotus Protocol</em> — cinematic A.I. storytelling competing on the world stage.</p>
-      <span class="festival-year">2025 · Official Selection</span>
-    </div>
-    <div class="festival-item">
-      <span class="festival-star">★</span>
-      <p class="festival-name">Runway Gen:48</p>
-      <p class="festival-detail">Finalist in Runway's Gen:48 challenge — 48 hours to produce a complete A.I. film from scratch.</p>
-      <span class="festival-year">2023 · Finalist</span>
-      <div style="position:relative; padding-bottom:56.25%; margin-top:1.5rem; background:#000;">
-        <iframe src="https://www.youtube.com/embed/dhPubHyLc1w?si=Re_bDR22UBJIYphb" title="Runway Gen:48 Entry" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-      </div>
-    </div>
-  </div>
+ <span class="festivals-kicker">Film Festivals & Recognition</span>
+ <div class="festivals-grid">
+ <div class="festival-item">
+ <span class="festival-star">★</span>
+ <p class="festival-name">Cannes Short Film Festival</p>
+ <p class="festival-detail">Selected for screening at one of the world's most prestigious film festivals. A.I. cinema recognized alongside the best short-form work in the world.</p>
+ <p class="festival-detail" style="margin-top:0.6rem; font-style:italic; color:rgba(255,255,255,0.55);">— <em>Thank God You're Up</em></p>
+ <span class="festival-year">2026</span>
+ </div>
+ <div class="festival-item">
+ <span class="festival-star">★</span>
+ <p class="festival-name">Bali International Film Festival</p>
+ <p class="festival-detail">Official selection at the Bali International Film Festival. Cinematic A.I. storytelling on the international stage.</p>
+ <p class="festival-detail" style="margin-top:0.6rem; font-style:italic; color:rgba(255,255,255,0.55);">— <em>Thank God You're Up</em></p>
+ <span class="festival-year">2026</span>
+ </div>
+ <div class="festival-item">
+ <span class="festival-star">★</span>
+ <p class="festival-name">Alibaba Thailand Film Festival</p>
+ <p class="festival-detail">Finalist. Competing against the best A.I. filmmakers in Southeast Asia in partnership with Alibaba Cloud.</p>
+ <span class="festival-year">2025 · Finalist</span>
+ </div>
+ <div class="festival-item">
+ <span class="festival-star">★</span>
+ <p class="festival-name">Eye for Thailand — Alibaba Cloud WAN</p>
+ <p class="festival-detail">Selected for the Eye for Thailand international A.I. film competition powered by Alibaba Cloud WAN. <em>The Lotus Protocol</em> — cinematic A.I. storytelling competing on the world stage.</p>
+ <span class="festival-year">2025 · Official Selection</span>
+ </div>
+ <div class="festival-item">
+ <span class="festival-star">★</span>
+ <p class="festival-name">Runway Gen:48</p>
+ <p class="festival-detail">Finalist in Runway's Gen:48 challenge — 48 hours to produce a complete A.I. film from scratch.</p>
+ <span class="festival-year">2023 · Finalist</span>
+ <div style="position:relative; padding-bottom:56.25%; margin-top:1.5rem; background:#000;">
+ <iframe src="https://www.youtube.com/embed/dhPubHyLc1w?si=Re_bDR22UBJIYphb" title="Runway Gen:48 Entry" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2>READY TO MAKE YOURS?</h2>
-  <p>First cut 48 hours after approved brief. Your concept or ours. Deadlines kept. Notes answered. Work delivered.</p>
-  <a href="/#contact" class="btn-primary">Start Your Project →</a>
-  <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="btn-secondary">Book a Creative Huddle</a>
+ <h2>READY TO MAKE YOURS?</h2>
+ <p>First cut 48 hours after approved brief. Your concept or ours. Deadlines kept. Notes answered. Work delivered.</p>
+ <a href="/#contact" class="btn-primary">Start Your Project →</a>
+ <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="btn-secondary">Book a Creative Huddle</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <a href="/" class="footer-logo">MATASSA</a>
-  <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok · Any Time Zone</span>
-  <span class="footer-right">
-    <a href="https://www.rubberneck.ai/terms.html">Terms</a> &nbsp;·&nbsp;
-    <a href="https://www.rubberneck.ai/privacy.html">Privacy</a>
-  </span>
+ <a href="/" class="footer-logo">MATASSA</a>
+ <span class="footer-center">A Goggles Paesano Inc. Company &nbsp;·&nbsp; Los Angeles · Bangkok · Any Time Zone</span>
+ <span class="footer-right">
+ <a href="https://www.rubberneck.ai/terms.html">Terms</a> &nbsp;·&nbsp;
+ <a href="https://www.rubberneck.ai/privacy.html">Privacy</a>
+ </span>
 </footer>
 
 <!-- VIDEO MODAL -->
 <div class="video-modal" id="videoModal">
-  <div class="video-modal-inner">
-    <button class="video-modal-close" onclick="closeVideo()">✕ &nbsp;Close</button>
-    <div class="video-embed">
-      <iframe id="modalIframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
+ <div class="video-modal-inner">
+ <button class="video-modal-close" onclick="closeVideo()">✕ &nbsp;Close</button>
+ <div class="video-embed">
+ <iframe id="modalIframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+ </div>
+ </div>
 </div>
 
 <script>
-  const AI_SPOTS = [
-    { id: '1181979022', title: 'RootDown Homes — "Keep It Real"', client: 'Spec · Real Estate', category: 'Real Estate · Lifestyle', desc: 'Not product-forward. Not salesy. Just the feeling of what life looks like when you\'re finally home. Built entirely with Generative A.I. — directed with the same editorial instinct as any broadcast production.', tags: ['A.I. Spec', 'Real Estate', '2025'] },
-    { id: '1159071587', title: "Thank God You're Up", client: 'Beam Coffee · Spec Spot', category: 'Spec · Comedy', desc: 'A surreal comedy spot for Beam Coffee. The world collapses into apocalyptic chaos — one man stays calm with his morning cup.', tags: ['A.I. Spec Spot', '2026'] },
-    { id: '1181123452', title: 'Pancakes & Maple Syrup', client: 'Premade Ad', category: 'Food & Beverage', desc: 'A brandable :15 A.I. spot for food and family brands. Customizable with your logo and script.', tags: [':15', 'Food & Beverage'] },
-    { id: '1181431670', title: 'Burton Snowboards', client: 'Spec Spot', category: 'Lifestyle & Sport', desc: 'Unofficial spec spot. Cinematic A.I. filmmaking built on instinct and 30 years of commercial craft.', tags: [':15', 'Lifestyle'] },
-    { id: '1089344542', title: 'IDIOM', client: 'A.I. Film', category: 'A.I. Film', desc: 'An A.I. film by Matassa. Language, image, and instinct — pushed to the edge of meaning.', tags: ['A.I. Film', '2026'] },
-  ];
+ const AI_SPOTS = [
+ { id: '1181979022', title: 'RootDown Homes — "Keep It Real"', client: 'Spec · Real Estate', category: 'Real Estate · Lifestyle', desc: 'Not product-forward. Not salesy. Just the feeling of what life looks like when you\'re finally home. Built entirely with Generative A.I. — directed with the same editorial instinct as any broadcast production.', tags: ['A.I. Spec', 'Real Estate', '2025'] },
+ { id: '1159071587', title: "Thank God You're Up", client: 'Beam Coffee · Spec Spot', category: 'Spec · Comedy', desc: 'A surreal comedy spot for Beam Coffee. The world collapses into apocalyptic chaos — one man stays calm with his morning cup.', tags: ['A.I. Spec Spot', '2026'] },
+ { id: '1181123452', title: 'Pancakes & Maple Syrup', client: 'Premade Ad', category: 'Food & Beverage', desc: 'A brandable :15 A.I. spot for food and family brands. Customizable with your logo and script.', tags: [':15', 'Food & Beverage'] },
+ { id: '1181431670', title: 'Burton Snowboards', client: 'Spec Spot', category: 'Lifestyle & Sport', desc: 'Unofficial spec spot. Cinematic A.I. filmmaking built on instinct and 30 years of commercial craft.', tags: [':15', 'Lifestyle'] },
+ { id: '1089344542', title: 'IDIOM', client: 'A.I. Film', category: 'A.I. Film', desc: 'An A.I. film by Matassa. Language, image, and instinct — pushed to the edge of meaning.', tags: ['A.I. Film', '2026'] },
+ ];
 
-  function getWeekNumber() {
-    const d = new Date(); d.setHours(0,0,0,0);
-    d.setDate(d.getDate() + 4 - (d.getDay()||7));
-    const yearStart = new Date(d.getFullYear(),0,1);
-    return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
-  }
+ function getWeekNumber() {
+ const d = new Date(); d.setHours(0,0,0,0);
+ d.setDate(d.getDate() + 4 - (d.getDay()||7));
+ const yearStart = new Date(d.getFullYear(),0,1);
+ return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
+ }
 
-  let currentIndex = 0; // RootDown Homes featured now
+ let currentIndex = 0; // RootDown Homes featured now
 
-  function renderFeatured(i) {
-    const s = AI_SPOTS[i];
-    document.getElementById('featuredPoster').src = `https://vumbnail.com/${s.id}.jpg`;
-    loadVimeoThumb(s.id, document.getElementById('featuredPoster'));
-    document.getElementById('featuredPoster').alt = s.title;
-    document.getElementById('featuredCategory').textContent = s.category;
-    document.getElementById('featuredTitle').textContent = s.title;
-    document.getElementById('featuredClient').textContent = s.client;
-    document.getElementById('featuredDesc').textContent = s.desc;
-    document.getElementById('featuredTags').innerHTML = s.tags.map(t => `<span class="featured-tag">${t}</span>`).join('');
-  }
+ function renderFeatured(i) {
+ const s = AI_SPOTS[i];
+ document.getElementById('featuredPoster').src = `https://vumbnail.com/${s.id}.jpg`;
+ loadVimeoThumb(s.id, document.getElementById('featuredPoster'));
+ document.getElementById('featuredPoster').alt = s.title;
+ document.getElementById('featuredCategory').textContent = s.category;
+ document.getElementById('featuredTitle').textContent = s.title;
+ document.getElementById('featuredClient').textContent = s.client;
+ document.getElementById('featuredDesc').textContent = s.desc;
+ document.getElementById('featuredTags').innerHTML = s.tags.map(t => `<span class="featured-tag">${t}</span>`).join('');
+ }
 
-  function openFeaturedVideo() {
-    const s = AI_SPOTS[currentIndex];
-    const slugMap = { '1181979022': 'rootdown', '1181123452': 'pancakes', '1181431670': 'burton', '1089344542': 'idiom', '1181819783': 'priceline' };
-    const slug = slugMap[s.id];
-    if (slug) window.location.href = '/' + slug;
-  }
+ function openFeaturedVideo() {
+ const s = AI_SPOTS[currentIndex];
+ const slugMap = { '1181979022': 'rootdown', '1181123452': 'pancakes', '1181431670': 'burton', '1089344542': 'idiom', '1181819783': 'priceline' };
+ const slug = slugMap[s.id];
+ if (slug) window.location.href = '/' + slug;
+ }
 
-  function shuffleFeatured() {
-    currentIndex = (currentIndex + 1) % AI_SPOTS.length;
-  
-  // Fetch correct Vimeo thumbnails via oEmbed
-  async function loadVimeoThumb(videoId, imgEl) {
-    try {
-      const r = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1280`);
-      const d = await r.json();
-      if (d.thumbnail_url) imgEl.src = d.thumbnail_url.replace(/_\d+x\d+/, '_1280x720');
-    } catch(e) {}
-  }
-  document.querySelectorAll('.spot-poster[data-videoid]').forEach(img => {
-    loadVimeoThumb(img.dataset.videoid, img);
-  });
+ function shuffleFeatured() {
+ currentIndex = (currentIndex + 1) % AI_SPOTS.length;
+ 
+ // Fetch correct Vimeo thumbnails via oEmbed
+ async function loadVimeoThumb(videoId, imgEl) {
+ try {
+ const r = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1280`);
+ const d = await r.json();
+ if (d.thumbnail_url) imgEl.src = d.thumbnail_url.replace(/_\d+x\d+/, '_1280x720');
+ } catch(e) {}
+ }
+ document.querySelectorAll('.spot-poster[data-videoid]').forEach(img => {
+ loadVimeoThumb(img.dataset.videoid, img);
+ });
 
-  renderFeatured(currentIndex);
-  }
+ renderFeatured(currentIndex);
+ }
 
-  function filterTab(cat, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.spot-item').forEach(item => {
-      const cats = (item.dataset.cat || '').split(' ');
-      if (cat === 'all' || cats.includes(cat)) item.classList.add('visible');
-      else item.classList.remove('visible');
-    });
-  }
+ function filterTab(cat, btn) {
+ document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+ btn.classList.add('active');
+ document.querySelectorAll('.spot-item').forEach(item => {
+ const cats = (item.dataset.cat || '').split(' ');
+ if (cat === 'all' || cats.includes(cat)) item.classList.add('visible');
+ else item.classList.remove('visible');
+ });
+ }
 
-  const AI_SLUGS = {
-    '1181979022': 'rootdown',
-    '1181123452': 'pancakes',
-    '1181431670': 'burton',
-    '1089344542': 'idiom',
-    '1181819783': 'priceline'
-  };
-  const AI_IDS = Object.fromEntries(Object.entries(AI_SLUGS).map(([k,v]) => [v,k]));
+ const AI_SLUGS = {
+ '1181979022': 'rootdown',
+ '1181123452': 'pancakes',
+ '1181431670': 'burton',
+ '1089344542': 'idiom',
+ '1181819783': 'priceline'
+ };
+ const AI_IDS = Object.fromEntries(Object.entries(AI_SLUGS).map(([k,v]) => [v,k]));
 
-  function openVideo(id) {
-    document.getElementById('modalIframe').src = `https://player.vimeo.com/video/${id}?autoplay=1&badge=0&player_id=0&app_id=58479`;
-    document.getElementById('videoModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    history.pushState(null, '', '#' + (AI_SLUGS[id] || id));
-  }
+ function openVideo(id) {
+ document.getElementById('modalIframe').src = `https://player.vimeo.com/video/${id}?autoplay=1&badge=0&player_id=0&app_id=58479`;
+ document.getElementById('videoModal').classList.add('open');
+ document.body.style.overflow = 'hidden';
+ history.pushState(null, '', '#' + (AI_SLUGS[id] || id));
+ }
 
-  function closeVideo() {
-    document.getElementById('modalIframe').src = '';
-    document.getElementById('videoModal').classList.remove('open');
-    document.body.style.overflow = '';
-    history.pushState(null, '', window.location.pathname);
-  }
+ function closeVideo() {
+ document.getElementById('modalIframe').src = '';
+ document.getElementById('videoModal').classList.remove('open');
+ document.body.style.overflow = '';
+ history.pushState(null, '', window.location.pathname);
+ }
 
-  document.getElementById('videoModal').addEventListener('click', function(e) { if (e.target === this) closeVideo(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
+ document.getElementById('videoModal').addEventListener('click', function(e) { if (e.target === this) closeVideo(); });
+ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
 
-  // Auto-open from shareable URL hash
-  document.addEventListener('DOMContentLoaded', function() {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      const id = AI_IDS[hash] || (hash.match(/^\d+$/) ? hash : null);
-      if (id) openVideo(id);
-    }
-  });
+ // Auto-open from shareable URL hash
+ document.addEventListener('DOMContentLoaded', function() {
+ const hash = window.location.hash.replace('#', '');
+ if (hash) {
+ const id = AI_IDS[hash] || (hash.match(/^\d+$/) ? hash : null);
+ if (id) openVideo(id);
+ }
+ });
 
-  // Add click to spot items
-  document.querySelectorAll('.spot-item:not(.no-click)').forEach(item => {
-    item.addEventListener('click', function() {
-      const iframe = this.querySelector('h3, p');
-    });
-  });
+ // Add click to spot items
+ document.querySelectorAll('.spot-item:not(.no-click)').forEach(item => {
+ item.addEventListener('click', function() {
+ const iframe = this.querySelector('h3, p');
+ });
+ });
 
 
-  // Fetch correct Vimeo thumbnails via oEmbed
-  async function loadVimeoThumb(videoId, imgEl) {
-    try {
-      const r = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1280`);
-      const d = await r.json();
-      if (d.thumbnail_url) imgEl.src = d.thumbnail_url.replace(/_\d+x\d+/, '_1280x720');
-    } catch(e) {}
-  }
-  document.querySelectorAll('.spot-poster[data-videoid]').forEach(img => {
-    loadVimeoThumb(img.dataset.videoid, img);
-  });
+ // Fetch correct Vimeo thumbnails via oEmbed
+ async function loadVimeoThumb(videoId, imgEl) {
+ try {
+ const r = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1280`);
+ const d = await r.json();
+ if (d.thumbnail_url) imgEl.src = d.thumbnail_url.replace(/_\d+x\d+/, '_1280x720');
+ } catch(e) {}
+ }
+ document.querySelectorAll('.spot-poster[data-videoid]').forEach(img => {
+ loadVimeoThumb(img.dataset.videoid, img);
+ });
 
-  renderFeatured(currentIndex);
-  filterTab('all', document.querySelector('.tab-btn'));
+ renderFeatured(currentIndex);
+ filterTab('all', document.querySelector('.tab-btn'));
 </script>
 </body>
 </html>
