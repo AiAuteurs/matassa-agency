@@ -18,11 +18,12 @@
     .wrap { max-width: 1100px; margin: 0 auto; padding: 5vw 3rem 6rem; }
     .video-wrap { position: relative; padding-bottom: 56.25%; background: #000; width: 100%; }
     .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-    .meta { margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; flex-wrap: wrap; }
-    .kicker { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 0.6rem; }
-    .title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1; color: var(--white); }
-    .agency { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.5rem; display: block; }
-    .desc { margin-top: 1.2rem; font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.8; max-width: 560px; }
+    .spot-meta { display: flex; gap: 0.6rem; margin-top: 2.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .spot-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); padding: 0.3rem 0.7rem; border: 1px solid rgba(255,255,255,0.35); }
+    .title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1; color: var(--white); margin-bottom: 0.5rem; }
+    .agency { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; color: var(--sage); display: block; margin-bottom: 1rem; }
+    .desc { font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.8; max-width: 680px; }
+    .meta { margin-top: 0; display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; flex-wrap: wrap; }
     .cta { display: inline-block; margin-top: 2.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 1.1rem 2.5rem; text-decoration: none; transition: background 0.2s; white-space: nowrap; align-self: flex-end; border-radius: 999px; }
     .cta:hover { background: #e8e8e8; }
     .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 4rem 0 2rem; }
@@ -43,9 +44,9 @@
       <iframe src="https://player.vimeo.com/video/1007164367?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
     <div class="meta">
-      <div class="meta-left">
-        <span class="kicker">A.I. Spec · Fashion · 2024</span>
-        <h1 class="title">Versace<br>Spec Spot</h1>
+      <div>
+        <div class="spot-meta"><span class="spot-tag">A.I. Spec Spot</span><span class="spot-tag">Fashion</span><span class="spot-tag">2024</span></div>
+        <h1 class="title">Versace</h1>
         <span class="agency">Matassa — Spec</span>
         <p class="desc">Spec spot for Versace eyewear. Cinematic A.I. filmmaking built on instinct, rhythm, and 36 years of commercial craft. Every frame directed with the same editorial precision as any luxury fashion campaign.</p>
       </div>
