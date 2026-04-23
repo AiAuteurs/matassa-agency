@@ -203,7 +203,7 @@
 <section class="featured-section">
   <div class="featured-header">
     <span class="featured-kicker">Featured This Week</span>
-    <span class="featured-week-label">Grid shuffles daily</span>
+    <span class="featured-week-label">Rotates every Monday</span>
   </div>
   <div class="featured-meta" style="padding: 0 3rem 2rem;">
     <div class="featured-info">
@@ -675,6 +675,18 @@
         <span class="reel-agency">Yahoo Internal Creative, Silicon Valley, CA</span>
       </div>
     </div>
+
+    <div class="reel-item" data-cat="cpg food">
+      <div class="reel-thumb" onclick="openReelVideo('177961822')">
+        <img src="https://vumbnail.com/177961822.jpg" alt="McDonald's Gilroy Garlic Fries" loading="lazy" />
+        <div class="reel-play"><div class="reel-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <span class="reel-client">McDonald's</span>
+        <p class="reel-title">Gilroy Garlic Fries</p>
+        <span class="reel-agency">H&L Advertising, Oakland, California</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -777,34 +789,7 @@
     renderFeatured(currentFeaturedIndex);
   }
 
-  // ── Daily shuffle ─────────────────────────────────────────────────
-  // Seeded RNG (mulberry32) — same sequence for every visitor on the same day
-  function mulberry32(seed) {
-    return function() {
-      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
-      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
-      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-      return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    };
-  }
-
-  function getDaySeed() {
-    const d = new Date();
-    return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-  }
-
-  function shuffleGrid() {
-    const grid = document.querySelector('.reel-grid');
-    const items = Array.from(grid.querySelectorAll('.reel-item'));
-    const rand = mulberry32(getDaySeed());
-    for (let i = items.length - 1; i > 0; i--) {
-      const j = Math.floor(rand() * (i + 1));
-      [items[i], items[j]] = [items[j], items[i]];
-    }
-    items.forEach(item => grid.appendChild(item));
-  }
-
-  // Tab filter — All Spots resets to full shuffled grid
+  // Tab filter — All Spots resets to full grid
   function filterTab(cat, el) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     el.classList.add('active');
@@ -854,6 +839,7 @@
     'yahoo-mail-storage': '291730745',
     'yahoo-mobile-donut': '468610559',
     'yahoo-mobile-pup': '468610466',
+    'mcdonalds-gilroy-garlic-fries': '177961822',
   };
   const ID_TO_SLUG = Object.fromEntries(Object.entries(SPOT_SLUGS).map(([k,v]) => [v,k]));
 
@@ -882,8 +868,7 @@
     }
   });
 
-  // Init — shuffle grid (daily seed), then show all spots
-  shuffleGrid();
+  // Init — All Spots active, everything visible
   renderFeatured(currentFeaturedIndex);
   filterTab('all', document.querySelector('[onclick*="\'all\'"]'));
 </script>
