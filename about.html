@@ -329,13 +329,15 @@
   <div class="nav-left">
     <a href="/" class="nav-logo">MATASSA</a>
     <ul class="nav-left-links">
-      <li >
-        <div class="nav-dropdown-wrap"><button class="nav-services-btn">Work</button>
-        <div class="nav-dropdown" style="left:0; right:auto;">
-          <a href="index.html" onclick="sessionStorage.setItem('openReel','1')">Watch the Reel</a>
-          <a href="creative.html">Creative Video Editing</a>
-          <a href="ai.html">Cinematic A.I. Work</a>
-          <a href="premade.html">Premade Spots for Sale</a>
+      <li>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-services-btn">Work</button>
+          <div class="nav-dropdown">
+            <a href="/">Watch the Reel</a>
+            <a href="creative.html">Creative Video Editing</a>
+            <a href="ai.html">Cinematic A.I. Work</a>
+            <a href="premade.html">Premade Spots for Sale</a>
+          </div>
         </div>
       </li>
       <li>
@@ -346,16 +348,26 @@
             <a href="ai.html">Cinematic A.I. Storytelling</a>
             <a href="premade.html">Premade Ads</a>
             <a href="remaster.html">Restore Old Video</a>
+            <a href="/#contact">Web Design &amp; Development</a>
           </div>
         </div>
       </li>
       <li><a href="about.html" class="active">About</a></li>
+      <li>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-services-btn">Our Brands</button>
+          <div class="nav-dropdown">
+            <a href="https://www.jobsuncle.ai" target="_blank">JobsUncle.ai — Resumes Tailored to Job Description</a>
+            <a href="https://www.casadimatassa.com" target="_blank">Casa di Matassa — Film Location &amp; Accommodations, Atlanta, GA</a>
+            <a href="https://www.rubberneck.ai" target="_blank">Rubberneck.ai</a>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
-  <div class="nav-right">
-    </div>
-        <div class="nav-contact-wrap">
-      <button class="nav-contact-btn" onclick="toggleNavContact(this)">Contact ▾</button>
+  <div class="nav-right-wrap" style="display:flex; align-items:center; gap:0.75rem;">
+    <div class="nav-contact-wrap">
+      <button class="nav-contact-btn" onclick="toggleNavContact(this)">Contact</button>
       <div class="nav-contact-dropdown">
         <div class="nav-contact-item">
           <span class="nav-contact-label">Email</span>
@@ -374,8 +386,10 @@
         </div>
       </div>
     </div>
-    <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
-    <a href="/#contact" class="nav-start">Start a Project</a>
+    <div class="nav-right">
+      <a href="https://calendly.com/matassaagency/creativehuddle" target="_blank" class="nav-cta">Book a Call</a>
+      <a href="/#contact" class="nav-start">Start a Project</a>
+    </div>
   </div>
 </nav>
 
@@ -537,29 +551,6 @@
         document.getElementById('nav-contact-msg').value = '';
         setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 3000);
       } else { btn.textContent = 'Error — try again'; btn.disabled = false; }
-    } catch(e) { btn.textContent = 'Error — try again'; btn.disabled = false; }
-  }
-</script>
-<script>
-  function toggleNavContact(btn) {
-    var wrap = btn.closest('.nav-contact-wrap');
-    wrap.classList.toggle('open');
-  }
-  document.addEventListener('click', function(e) {
-    var wrap = document.querySelector('.nav-contact-wrap');
-    if (wrap && wrap.classList.contains('open') && !wrap.contains(e.target)) wrap.classList.remove('open');
-  });
-  async function sendNavContact() {
-    var name = document.getElementById('nav-contact-name').value.trim();
-    var email = document.getElementById('nav-contact-email').value.trim();
-    var msg = document.getElementById('nav-contact-msg').value.trim();
-    var btn = document.getElementById('nav-contact-send-btn');
-    if (!name || !email || !msg) { btn.textContent = 'Please fill all fields'; setTimeout(() => btn.textContent = 'Send Message', 2000); return; }
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    try {
-      const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ inquiryType: 'Nav Quick Contact', name, email, message: msg }) });
-      if (res.ok) { btn.textContent = 'Sent! ✓'; document.getElementById('nav-contact-name').value = ''; document.getElementById('nav-contact-email').value = ''; document.getElementById('nav-contact-msg').value = ''; setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; }, 3000); }
-      else { btn.textContent = 'Error — try again'; btn.disabled = false; }
     } catch(e) { btn.textContent = 'Error — try again'; btn.disabled = false; }
   }
 </script>
