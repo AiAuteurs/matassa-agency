@@ -44,7 +44,6 @@
 
   /* CONTACT NAV DROPDOWN */
   .nav-contact-wrap { position: relative; display: flex; align-items: center; }
-  .nav-contact-wrap:hover .nav-contact-dropdown,
   .nav-contact-wrap.open .nav-contact-dropdown { display: block; }
   .nav-contact-btn { font-family: 'Epilogue', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,1); background: none; border: none; cursor: pointer; padding: 0.5rem 1.2rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; line-height: 1; }
   .nav-contact-btn::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; opacity: 0.7; margin-top: 1px; }
@@ -726,22 +725,13 @@
     var wrap = btn.closest('.nav-contact-wrap');
     wrap.classList.toggle('open');
   }
-  // Close contact dropdown when clicking outside
+  // Close contact dropdown only when clicking outside — never while typing
   document.addEventListener('click', function(e) {
     var wrap = document.querySelector('.nav-contact-wrap');
-    if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+    if (wrap && wrap.classList.contains('open') && !wrap.contains(e.target)) {
+      wrap.classList.remove('open');
+    }
   });
-
-  // Keep contact dropdown open while interacting with the form
-  (function() {
-    var wrap = document.querySelector('.nav-contact-wrap');
-    if (!wrap) return;
-    var dropdown = wrap.querySelector('.nav-contact-dropdown');
-    wrap.addEventListener('focusin', function() { wrap.classList.add('open'); });
-    wrap.addEventListener('focusout', function(e) {
-      setTimeout(function() { if (!wrap.contains(document.activeElement)) wrap.classList.remove('open'); }, 150);
-    });
-  })();
 
   async function sendNavContact() {
     var name = document.getElementById('nav-contact-name').value.trim();

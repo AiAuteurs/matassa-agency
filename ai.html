@@ -246,6 +246,7 @@
  <h2 class="featured-title" id="featuredTitle"></h2>
  <p class="featured-client" id="featuredClient"></p>
  <p class="featured-desc" id="featuredDesc"></p>
+ <p id="featuredNote" style="margin-top:0.8rem;font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.05em;line-height:1.6;display:none;"></p>
  <div id="featuredTags"></div>
  </div>
  <div style="display:flex;align-items:flex-end;justify-content:flex-end;">
@@ -472,7 +473,7 @@
 
 <script>
  const AI_SPOTS = [
- { id: '1181979022', title: 'RootDown Homes — "Keep It Real"', client: 'Spec · Real Estate', category: 'Real Estate · Lifestyle', desc: 'Life doesn\'t happen in houses. It happens in the moments — the morning light, the late dinner, the front door you\'ve walked through a thousand times. Home isn\'t a place you find. It\'s a feeling you recognize. Our spot for RootDown Homes communicates that visually and cinematically. Welcome to life. Welcome home.', tags: ['Real Estate', '2025'] },
+ { id: '1181979022', title: 'RootDown Homes — "Keep It Real"', client: 'Spec · Real Estate', category: 'Real Estate · Lifestyle', desc: 'Life doesn\'t happen in houses. It happens in the moments — the morning light, the late dinner, the front door you\'ve walked through a thousand times. Home isn\'t a place you find. It\'s a feeling you recognize. Our spot for RootDown Homes communicates that visually and cinematically. Welcome to life. Welcome home.', note: 'Note: Music by Beastie Boys used for demo purposes only. Licensed music will be sourced upon placement.', tags: ['Real Estate', '2025'] },
  { id: '1159071587', title: "Thank God You're Up", client: 'Beam Coffee · Spec Spot', category: 'Spec · Comedy', desc: 'A surreal comedy spot for Beam Coffee. The world collapses into apocalyptic chaos — one man stays calm with his morning cup.', tags: ['A.I. Spec Spot', '2026'] },
  { id: '1181123452', title: 'Pancakes & Maple Syrup', client: 'Premade Ad', category: 'Food & Beverage', desc: 'A brandable :15 A.I. spot for food and family brands. Customizable with your logo and script.', tags: [':15', 'Food & Beverage'] },
  { id: '1181431670', title: 'Burton Snowboards', client: 'Spec Spot', category: 'Lifestyle & Sport', desc: 'Unofficial spec spot. Cinematic A.I. filmmaking built on instinct and 30 years of commercial craft.', tags: [':15', 'Lifestyle'] },
@@ -497,6 +498,9 @@
  document.getElementById('featuredTitle').textContent = s.title;
  document.getElementById('featuredClient').textContent = s.client;
  document.getElementById('featuredDesc').textContent = s.desc;
+ const noteEl = document.getElementById('featuredNote');
+ if (s.note) { noteEl.textContent = s.note; noteEl.style.display = 'block'; }
+ else { noteEl.textContent = ''; noteEl.style.display = 'none'; }
  document.getElementById('featuredTags').innerHTML = s.tags.map(t => `<span class="featured-tag">${t}</span>`).join('');
  }
 
