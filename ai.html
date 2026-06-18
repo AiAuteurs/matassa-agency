@@ -268,7 +268,7 @@
 <section class="featured-section">
  <div class="featured-header">
  <span class="featured-kicker">Featured This Week</span>
- <span class="featured-week-label">Rotates every Monday</span>
+ <span class="featured-week-label">Changes every day</span>
  </div>
  <div class="featured-embed-full" id="featuredThumb" onclick="openFeaturedVideo()">
  <img id="featuredPoster" src="" alt="" />
@@ -466,6 +466,13 @@
  <span class="festivals-kicker">Film Festivals & Recognition</span>
  <div class="festivals-grid">
  <div class="festival-item">
+ <span class="festival-star">🥈</span>
+ <p class="festival-name">A.I. on the Lot — OpenArt.ai</p>
+ <p class="festival-detail">2nd Place in the prestigious Los Angeles A.I. on the Lot competition hosted by OpenArt.ai. Theme: Open / Close — judged against A.I. filmmakers from around the world.</p>
+ <p class="festival-detail" style="margin-top:0.6rem; font-style:italic; color:rgba(255,255,255,0.55);">— <em>7-Eleven "The Coolest Place on Earth"</em></p>
+ <span class="festival-year">2026 · 2nd Place</span>
+ </div>
+ <div class="festival-item">
  <span class="festival-star">★</span>
  <p class="festival-name">Cannes Short Film Festival</p>
  <p class="festival-detail">Selected for screening at one of the world's most prestigious film festivals. A.I. cinema recognized alongside the best short-form work in the world.</p>
@@ -533,21 +540,26 @@
 
 <script>
  const AI_SPOTS = [
+ { id: '1196513164', title: '7-Eleven — "The Coolest Place on Earth"', client: 'Goggles Paesano Inc. — Spec', category: 'Food & Beverage', desc: 'Three years living in Bangkok revealed a loophole only street dogs figured out. Dogs aren\'t allowed inside 7-Eleven — so they lie across the automatic door sensor. Half outside, technically breaking no rules. Half inside, catching every blast of cold air. He\'s not just cool. He\'s legally cool. Built with Seedance 2.0, ElevenLabs voiceover, and A.I. motion graphics.', tags: ['Food & Beverage', '🥈 OpenArt GenBattle 2026', '2026'] },
  { id: '1181979022', title: 'RootDown Homes — "Keep It Real"', client: 'Spec · Real Estate', category: 'Real Estate · Lifestyle', desc: 'Life doesn\'t happen in houses. It happens in the moments — the morning light, the late dinner, the front door you\'ve walked through a thousand times. Home isn\'t a place you find. It\'s a feeling you recognize. Our spot for RootDown Homes communicates that visually and cinematically. Welcome to life. Welcome home.', note: 'Note: Music by Beastie Boys used for demo purposes only. Licensed music will be sourced upon placement.', tags: ['Real Estate', '2025'] },
  { id: '1159071587', title: "Thank God You're Up", client: 'Beam Coffee · Spec Spot', category: 'Spec · Comedy', desc: 'A surreal comedy spot for Beam Coffee. The world collapses into apocalyptic chaos — one man stays calm with his morning cup.', tags: ['A.I. Spec Spot', '2026'] },
  { id: '1181123452', title: 'Pancakes & Maple Syrup', client: 'Premade Ad', category: 'Food & Beverage', desc: 'A brandable :15 A.I. spot for food and family brands. Customizable with your logo and script.', tags: [':15', 'Food & Beverage'] },
  { id: '1181431670', title: 'Burton Snowboards', client: 'Spec Spot', category: 'Lifestyle & Sport', desc: 'Unofficial spec spot. Cinematic A.I. filmmaking built on instinct and 30 years of commercial craft.', tags: [':15', 'Lifestyle'] },
  { id: '1089344542', title: 'IDIOM', client: 'A.I. Film', category: 'A.I. Film', desc: 'An A.I. film by Matassa. Language, image, and instinct — pushed to the edge of meaning.', tags: ['A.I. Film', '2026'] },
+ { id: '1181819783', title: 'Priceline — "Carousel Dreams"', client: 'Mirimar, Los Angeles', category: 'Travel · A.I. Commercial', desc: 'A.I.-driven national spot created in collaboration with Mirimar, a top Los Angeles ad agency, for their client Priceline. Every element — visuals, motion titles, sound design — built using Runway, Veo 3, and Freepik Extend.', tags: ['Travel', 'Agency', '2025'] },
  ];
 
- function getWeekNumber() {
- const d = new Date(); d.setHours(0,0,0,0);
- d.setDate(d.getDate() + 4 - (d.getDay()||7));
- const yearStart = new Date(d.getFullYear(),0,1);
- return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
- }
+ // Rotate by day of week — changes every day automatically
+ let currentIndex = new Date().getDay() % AI_SPOTS.length;
 
- let currentIndex = 0; // RootDown Homes featured now
+ // Fetch correct Vimeo thumbnails via oEmbed
+ async function loadVimeoThumb(videoId, imgEl) {
+ try {
+ const r = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1280`);
+ const d = await r.json();
+ if (d.thumbnail_url) imgEl.src = d.thumbnail_url.replace(/_\d+x\d+/, '_1280x720');
+ } catch(e) {}
+ }
 
  function renderFeatured(i) {
  const s = AI_SPOTS[i];
@@ -564,32 +576,20 @@
  document.getElementById('featuredTags').innerHTML = s.tags.map(t => `<span class="featured-tag">${t}</span>`).join('');
  }
 
+ function openYouTube(videoId) {
+ window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
+ }
 
-    function openYouTube(videoId) {
-      window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
-    }
  function openFeaturedVideo() {
  const s = AI_SPOTS[currentIndex];
- const slugMap = { '1181979022': 'rootdown', '1181123452': 'pancakes', '1181431670': 'burton', '1089344542': 'idiom', '1181819783': 'priceline' };
+ const slugMap = { '1196513164': '7-eleven', '1181979022': 'rootdown', '1181123452': 'pancakes', '1181431670': 'burton', '1089344542': 'idiom', '1181819783': 'priceline' };
  const slug = slugMap[s.id];
  if (slug) window.location.href = '/' + slug;
+ else openVideo(s.id);
  }
 
  function shuffleFeatured() {
  currentIndex = (currentIndex + 1) % AI_SPOTS.length;
- 
- // Fetch correct Vimeo thumbnails via oEmbed
- async function loadVimeoThumb(videoId, imgEl) {
- try {
- const r = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1280`);
- const d = await r.json();
- if (d.thumbnail_url) imgEl.src = d.thumbnail_url.replace(/_\d+x\d+/, '_1280x720');
- } catch(e) {}
- }
- document.querySelectorAll('.spot-poster[data-videoid]').forEach(img => {
- loadVimeoThumb(img.dataset.videoid, img);
- });
-
  renderFeatured(currentIndex);
  }
 
